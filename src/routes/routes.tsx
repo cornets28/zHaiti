@@ -3,7 +3,7 @@ import type { ComponentType } from 'react';
 import { Route, Routes, Navigate } from 'react-router-dom';
 import type { LazyExoticComponent } from 'react';
 
-// import Navbar from "../components/Layout/Navbar/Navbar";
+import Navbar from "../components/Layout/Navbar/Navbar";
 import SignIn from "../views/signIn/page/SignIn";
 
 type RoutesTypes = {
@@ -16,7 +16,7 @@ type RoutesTypes = {
 
 export const renderRoutes = (routes: RoutesTypes = []): JSX.Element => (
     <Suspense fallback={<SignIn />}>
-        {/* <Navbar /> */}
+        <Navbar />
         <div className='container'>
             <Routes>
                 {routes.map((route, i) => {
@@ -42,15 +42,33 @@ const routes: RoutesTypes = [
     },
     {
         exact: true,
-        label: 'FAST LEARNING',
+        label: 'Kiyès Nou Ye',
         path: '/',
         component: lazy(() => import('../views/home/page/Home')),
     },
     {
         exact: true,
-        label: 'PROGRAMS',
-        path: '/programs',
+        label: 'Atik',
+        path: '/atik',
         component: lazy(() => import('../views/articles/page/Articles')),
+    },
+    {
+        exact: true,
+        label: 'Sa k ap pase',
+        path: '/nouvèl',
+        component: lazy(() => import('../views/articles/page/Articles')),
+    },
+    {
+        exact: true,
+        label: 'Kontakte Nou',
+        path: '/kontak',
+        component: lazy(() => import('../views/contact/page/Contact')),
+    },
+    {
+        exact: true,
+        label: 'Chanèl',
+        path: '/chanèl',
+        component: lazy(() => import('../views/channels/page/Channels'))
     },
    
     {
