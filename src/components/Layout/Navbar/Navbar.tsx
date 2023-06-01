@@ -95,7 +95,7 @@ const Navbar: FC = (props: Props) => {
           </Box>
         </Toolbar>
       </AppBar>
-      <Box component="nav" sx={{background: 'red'}}>
+      <Box component="nav">
         <Drawer
           container={container}
           variant="temporary"

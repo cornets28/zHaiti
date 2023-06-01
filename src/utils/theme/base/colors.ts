@@ -21,7 +21,7 @@ const colors = {
   },
 
   orange: {
-    main: "#EF6507",
+    main: "#36454F",
     focus: "#e27933",
   },
 
@@ -47,7 +47,7 @@ const colors = {
   },
 
   error: {
-    main: "#ea0606",
+    main: "#EF6507",
     focus: "#c70505",
   },
 

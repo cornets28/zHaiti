@@ -20,8 +20,7 @@ const baseProperties = {
 
 const baseHeadingProperties = {
   fontFamily: baseProperties.fontFamily,
-  color: dark.main,
-  fontWeight: baseProperties.fontWeightMedium,
+  fontWeight: baseProperties.fontSizeXL,
 };
 
 const typographyStyle = {

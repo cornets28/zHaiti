@@ -66,7 +66,7 @@ export const useNavbarStyles = makeStyles(() => ({
   applyButton: {
     width: 120,
     color: `${theme.palette.grey['100']} !important`,
-    backgroundColor: `${theme.palette.secondary.main} !important`,
+    backgroundColor: `${theme.palette.error.main} !important`,
     marginLeft: '2rem !important',
     "&:active": {
       backgroundColor: `${blue.main} !important`,

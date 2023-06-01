@@ -9,8 +9,6 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-// import { Link, useLocation } from 'react-router-dom';
-// import Link from '@mui/material/Link';
 
 import { navBatItems } from '../../../../routes/navBarItems';
 import { useNavbarStyles } from '../styles/useNavbarStyles';
@@ -18,10 +16,8 @@ import { useNavbarStyles } from '../styles/useNavbarStyles';
 import {
   Link as RouterLink,
   LinkProps as RouterLinkProps,
-  Route,
-  Routes,
   MemoryRouter,
-  useLocation,
+  // useLocation,
 } from 'react-router-dom';
 import { StaticRouter } from 'react-router-dom/server';
 
@@ -39,11 +35,11 @@ function Router(props: { children?: React.ReactNode }) {
   );
 }
 
-interface ListItemLinkProps {
-  icon?: React.ReactElement;
-  primary: string | undefined
-  to: string;
-}
+// interface ListItemLinkProps {
+//   icon?: React.ReactElement;
+//   primary: string | undefined
+//   to: string;
+// }
 
 
 const Link = React.forwardRef<HTMLAnchorElement, RouterLinkProps>(function Link(
@@ -53,19 +49,19 @@ const Link = React.forwardRef<HTMLAnchorElement, RouterLinkProps>(function Link(
   return <RouterLink ref={ref} {...itemProps} role={undefined} />;
 });
 
-function ListItemLink(props: ListItemLinkProps) {
-  const { icon, primary, to } = props;
+// function ListItemLink(props: ListItemLinkProps) {
+//   const { icon, primary, to } = props;
 
-  return (
-    <li>
-      <ListItem
-        // @ts-ignore
-        button component={Link} to={to}>
-        <ListItemText primary={primary} />
-      </ListItem>
-    </li>
-  );
-}
+//   return (
+//     <li>
+//       <ListItem
+//         // @ts-ignore
+//         button component={Link} to={to}>
+//         <ListItemText primary={primary} />
+//       </ListItem>
+//     </li>
+//   );
+// }
 
 
 
@@ -74,7 +70,6 @@ const MobileDrawer: FC = (props) => {
   const { handleDrawerToggle } = props
   const navigate = useNavigate();
   const classes = useNavbarStyles()
-  const location = useLocation();
 
   const [selectedIndex, setSelectedIndex] = React.useState(1);
 
@@ -97,8 +92,6 @@ const MobileDrawer: FC = (props) => {
           <div key={index}>
             <ListItem
               disablePadding
-              // onClick={() => navigate(item.path)}
-              // className={location.pathname === item.path ? classes.selected : ''}
               {...buttonProps(index, item.path)}
             >
               <ListItemButton sx={{ textAlign: 'center' }}
