@@ -94,7 +94,7 @@ export const useNavbarStyles = makeStyles(() => ({
   applyButtonDrawer: {
     width: 200,
     color: `${theme.palette.primary.main} !important`,
-    backgroundColor: `${theme.palette.secondary.main} !important`,
+    backgroundColor: `${theme.palette.error.main} !important`,
     marginTop: '6rem !important',
     "&:active": {
       backgroundColor: `${blue.main} !important`,

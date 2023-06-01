@@ -22,18 +22,18 @@ import {
 import { StaticRouter } from 'react-router-dom/server';
 
 
-function Router(props: { children?: React.ReactNode }) {
-  const { children } = props;
-  if (typeof window === 'undefined') {
-    return <StaticRouter location="/drafts">{children}</StaticRouter>;
-  }
+// function Router(props: { children?: React.ReactNode }) {
+//   const { children } = props;
+//   if (typeof window === 'undefined') {
+//     return <StaticRouter location="/drafts">{children}</StaticRouter>;
+//   }
 
-  return (
-    <MemoryRouter initialEntries={['/drafts']} initialIndex={0}>
-      {children}
-    </MemoryRouter>
-  );
-}
+//   return (
+//     <MemoryRouter initialEntries={['/drafts']} initialIndex={0}>
+//       {children}
+//     </MemoryRouter>
+//   );
+// }
 
 // interface ListItemLinkProps {
 //   icon?: React.ReactElement;
@@ -42,12 +42,12 @@ function Router(props: { children?: React.ReactNode }) {
 // }
 
 
-const Link = React.forwardRef<HTMLAnchorElement, RouterLinkProps>(function Link(
-  itemProps,
-  ref,
-) {
-  return <RouterLink ref={ref} {...itemProps} role={undefined} />;
-});
+// const Link = React.forwardRef<HTMLAnchorElement, RouterLinkProps>(function Link(
+//   itemProps,
+//   ref,
+// ) {
+//   return <RouterLink ref={ref} {...itemProps} role={undefined} />;
+// });
 
 // function ListItemLink(props: ListItemLinkProps) {
 //   const { icon, primary, to } = props;
@@ -110,7 +110,7 @@ const MobileDrawer: FC = (props) => {
             className={classes.applyButtonDrawer}
             onClick={() => navigate('/apply')}
           >
-            Apply
+            Konekte
           </Button>
         </Box>
       </List>

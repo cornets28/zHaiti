@@ -1,10 +1,10 @@
 const colors = {
   primary: {
-    main: "#000000",
+    main: "#FFFFFF",
   },
 
   secondary: {
-    main: "#2161AA",
+    main: "#EF6507",
   },
 
   transparent: {
@@ -16,12 +16,16 @@ const colors = {
     focus: "#03a8ee",
   },
 
+  darkBleu: {
+    main: "#081329",
+  },
+
   blue: {
     main: "#3177c8",
   },
 
   orange: {
-    main: "#36454F",
+    main: "#081329",
     focus: "#e27933",
   },
 

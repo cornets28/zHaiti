@@ -20,7 +20,7 @@ interface Props {
   window?: () => Window;
 }
 const drawerWidth = 240;
-const { orange, grey } = colors;
+const { darkBleu, grey } = colors;
 
 
 const Navbar: FC = (props: Props) => {
@@ -51,7 +51,7 @@ const Navbar: FC = (props: Props) => {
           borderBottom: 1,
           borderBottomColor: grey[300],
           display: 'flex',
-          backgroundColor: orange.main,
+          backgroundColor: darkBleu.main,
         }}
       >
         <Toolbar className={classes.navbarContainer}>
@@ -62,12 +62,13 @@ const Navbar: FC = (props: Props) => {
             onClick={handleDrawerToggle}
             sx={{ mr: 2, display: { sm: 'block', md: 'none' } }}
           >
-            <MenuIcon />
+            <MenuIcon/>
           </IconButton>
           <Typography
             variant="h6"
             component="div"
             sx={{ flexGrow: 1, display: { sm: 'none', md: 'block', xs: 'none' } }}
+            color="white"
           >
             LOGO
           </Typography>
@@ -79,7 +80,7 @@ const Navbar: FC = (props: Props) => {
               indicatorColor="secondary"
               className={classes.tabsContainer}
             >
-              {navBatItems.map((item, index) => (
+              {navBatItems.map((item, index: number) => (
                 <Tab key={index} value={index} label={item.label} onClick={() => navigate(item.path)} sx={{ color: 'white' }} className={classes.tab}/>
               ))}
             </Tabs>

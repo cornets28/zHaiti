@@ -9,11 +9,12 @@ const { error } = colors;
 const { h5} = typography;
 
 const FooterBox: FC<FooterBoxType> = ({ header, children }) => (
-    <Box>
+    <Box sx={{textAlign: {xs: 'center', sm: "left"}}}>
     <Typography
       sx={{
         fontSize: h5,
         color: error.main,
+        marginTop: {xs: 3, sm: 0}
       }}
       gutterBottom
     >
