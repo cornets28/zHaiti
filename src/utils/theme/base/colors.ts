@@ -25,7 +25,7 @@ const colors = {
   },
 
   orange: {
-    main: "#081329",
+    main: "#EE6507",
     focus: "#e27933",
   },
 

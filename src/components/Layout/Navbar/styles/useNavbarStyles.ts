@@ -2,7 +2,7 @@ import { makeStyles } from "@mui/styles";
 import theme from "../../../../utils/theme";
 import colors from '../../../../utils/theme/base/colors'
 
-const { orange, warning, blue, grey } = colors;
+const { orange, warning, blue, darkBleu } = colors;
 
 export const useNavbarStyles = makeStyles(() => ({
 
@@ -17,7 +17,7 @@ export const useNavbarStyles = makeStyles(() => ({
   navbarContainer: {
     marginLeft: 70,
     marginRight: 70,
-    background: orange.main,
+    background: darkBleu.main,
     [theme.breakpoints.down(1181)]: {
       marginLeft: 0,
       marginRight: 0,
@@ -103,7 +103,7 @@ export const useNavbarStyles = makeStyles(() => ({
   },
 
   drawer: {
-    backgroundColor: orange.main,
+    backgroundColor: darkBleu.main,
     color: theme.palette.primary.main,
   },
 

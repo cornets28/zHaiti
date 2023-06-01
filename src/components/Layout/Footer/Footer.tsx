@@ -12,7 +12,7 @@ import IntagramIcon from "../../../images/instagram.png";
 import FacebookIcon from "../../../images/facebook.png";
 import WhatsAppIcon from "../../../images/whatsapp.png";
 
-const { orange } = colors;
+const { darkBleu } = colors;
 
 const Footer: FC = () => {
   return (
@@ -24,7 +24,7 @@ const Footer: FC = () => {
         position: { md: "relative", lg: "fixed" },
       }}
     >
-      <Grid container py={6} px={2} bgcolor={orange.main}>
+      <Grid container py={6} px={2} bgcolor={darkBleu.main}>
         <Grid item xs={12} sm={6} md={3} px={1}>
           <FooterBox header="Antrepriz la">
             <SimpleGrid>

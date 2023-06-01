@@ -56,7 +56,7 @@ const Navbar: FC = (props: Props) => {
       >
         <Toolbar className={classes.navbarContainer}>
           <IconButton
-            color="inherit"
+            color="primary"
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
