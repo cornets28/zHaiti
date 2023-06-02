@@ -15,7 +15,7 @@ const LinkHref: FC<LinkType> = ({ text }) => (
       fontSize={h6}
       sx={{
         "&:hover": {
-          color: skyBleu.main,
+          color: skyBleu['400'],
         },
       }}
     >

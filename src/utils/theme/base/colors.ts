@@ -12,9 +12,14 @@ const colors = {
   },
 
   skyBleu: {
-    main: "#1CA2DA",
-    focus: "#03a8ee",
+    600: "#0391F5",
+    500: "#38A8F4",
+    400: "#02C5F6",
+    300: "#55CDF7",
+    200: "#97E4F6",
+    100: "#C9EDF4",
   },
+
 
   darkBleu: {
     main: "#081329",
