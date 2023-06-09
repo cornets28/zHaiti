@@ -12,64 +12,14 @@ import Button from '@mui/material/Button';
 
 import { navBatItems } from '../../../../routes/navBarItems';
 import { useNavbarStyles } from '../styles/useNavbarStyles';
-
-// import {
-//   Link as RouterLink,
-//   LinkProps as RouterLinkProps,
-//   MemoryRouter,
-//   // useLocation,
-// } from 'react-router-dom';
-// import { StaticRouter } from 'react-router-dom/server';
-
-
-// function Router(props: { children?: React.ReactNode }) {
-//   const { children } = props;
-//   if (typeof window === 'undefined') {
-//     return <StaticRouter location="/drafts">{children}</StaticRouter>;
-//   }
-
-//   return (
-//     <MemoryRouter initialEntries={['/drafts']} initialIndex={0}>
-//       {children}
-//     </MemoryRouter>
-//   );
-// }
-
-// interface ListItemLinkProps {
-//   icon?: React.ReactElement;
-//   primary: string | undefined
-//   to: string;
-// }
-
-
-// const Link = React.forwardRef<HTMLAnchorElement, RouterLinkProps>(function Link(
-//   itemProps,
-//   ref,
-// ) {
-//   return <RouterLink ref={ref} {...itemProps} role={undefined} />;
-// });
-
-// function ListItemLink(props: ListItemLinkProps) {
-//   const { icon, primary, to } = props;
-
-//   return (
-//     <li>
-//       <ListItem
-//         // @ts-ignore
-//         button component={Link} to={to}>
-//         <ListItemText primary={primary} />
-//       </ListItem>
-//     </li>
-//   );
-// }
-
-
+import { useTranslation } from 'react-i18next';
 
 const MobileDrawer: FC = (props) => {
   // @ts-ignore
   const { handleDrawerToggle } = props
   const navigate = useNavigate();
   const classes = useNavbarStyles()
+  const { t } = useTranslation();
 
   const [selectedIndex, setSelectedIndex] = React.useState(1);
 
@@ -97,7 +47,7 @@ const MobileDrawer: FC = (props) => {
               <ListItemButton sx={{ textAlign: 'center' }}
                 className={classes.drawerButton}
               >
-                <ListItemText primary={item.label} />
+                <ListItemText primary={t(`${item.label}`)} />
               </ListItemButton>
             </ListItem>
         
@@ -110,7 +60,7 @@ const MobileDrawer: FC = (props) => {
             className={classes.applyButtonDrawer}
             onClick={() => navigate('/apply')}
           >
-            Konekte
+            {t("Konekte")}
           </Button>
         </Box>
       </List>

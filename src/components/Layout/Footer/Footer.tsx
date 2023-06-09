@@ -11,10 +11,12 @@ import TwitterIcon from "../../../images/twitter.png";
 import IntagramIcon from "../../../images/instagram.png";
 import FacebookIcon from "../../../images/facebook.png";
 import WhatsAppIcon from "../../../images/whatsapp.png";
+import { useTranslation } from 'react-i18next';
 
 const { darkBleu } = colors;
 
 const Footer: FC = () => {
+  const { t } = useTranslation();
   return (
     <Grid
       container
@@ -26,7 +28,7 @@ const Footer: FC = () => {
     >
       <Grid container py={6} px={2} bgcolor={darkBleu.main}>
         <Grid item xs={12} sm={6} md={3} px={1}>
-          <FooterBox header="Antrepriz la">
+          <FooterBox header={t("Antrepriz la")}>
             <SimpleGrid>
               <LinkHref text="Kiyès Nou Ye jrf rfn fj jd as dc dw chcd xdx xdsxaxdsDX CERF REFFER" />
             </SimpleGrid>
@@ -38,59 +40,59 @@ const Footer: FC = () => {
         </Grid>
 
         <Grid item xs={12} sm={6} md={3} px={1}>
-          <FooterBox header="Eksplore">
+          <FooterBox header={t("Eksplore")}>
             <SimpleGrid>
-              <LinkHref text="Kiyès Nou Ye" />
+              <LinkHref text={t("Kiyès Nou Ye")} />
             </SimpleGrid>
             <SimpleGrid>
-              <LinkHref text="Travay Nou" />
+              <LinkHref text={t("Travay Nou")} />
             </SimpleGrid>
             <SimpleGrid>
-              <LinkHref text="Kilti Nou" />
+              <LinkHref text={t("Kilti Nou")} />
             </SimpleGrid>
             <SimpleGrid>
-              <LinkHref text="Objektif Nou" />
+              <LinkHref text={t("Objektif Nou")} />
             </SimpleGrid>
             <SimpleGrid>
-              <LinkHref text="Kontak Nou" />
-            </SimpleGrid>
-          </FooterBox>
-        </Grid>
-        <Grid item xs={12} sm={6} md={3} px={1}>
-          <FooterBox header="Kategori">
-            <SimpleGrid>
-              <LinkHref text="Kilti" />
-            </SimpleGrid>
-            <SimpleGrid>
-              <LinkHref text="Espò" />
-            </SimpleGrid>
-            <SimpleGrid>
-              <LinkHref text="Politik" />
-            </SimpleGrid>
-            <SimpleGrid>
-              <LinkHref text="Relijyon" />
-            </SimpleGrid>
-            <SimpleGrid>
-              <LinkHref text="Espirityalite" />
-            </SimpleGrid>
-            <SimpleGrid>
-              <LinkHref text="Lasyans" />
+              <LinkHref text={t("Kontak Nou")} />
             </SimpleGrid>
           </FooterBox>
         </Grid>
         <Grid item xs={12} sm={6} md={3} px={1}>
-          <FooterBox header="Dwa Nou">
+          <FooterBox header={t("Kategori")}>
             <SimpleGrid>
-              <LinkHref text="Prensip Nou" />
+              <LinkHref text={t("Kilti")} />
             </SimpleGrid>
             <SimpleGrid>
-              <LinkHref text="Politik Prive N" />
+              <LinkHref text={t("Espò")} />
             </SimpleGrid>
             <SimpleGrid>
-              <LinkHref text="Piblik Nou Sible" />
+              <LinkHref text={t("Politik")} />
             </SimpleGrid>
             <SimpleGrid>
-              <LinkHref text="Kondisyon Ak Sèvis" />
+              <LinkHref text={t("Relijyon")} />
+            </SimpleGrid>
+            <SimpleGrid>
+              <LinkHref text={t("Espirityalite")} />
+            </SimpleGrid>
+            <SimpleGrid>
+              <LinkHref text={t("Lasyans")} />
+            </SimpleGrid>
+          </FooterBox>
+        </Grid>
+        <Grid item xs={12} sm={6} md={3} px={1}>
+          <FooterBox header={t("Dwa Nou")}>
+            <SimpleGrid>
+              <LinkHref text={t("Prensip Nou")} />
+            </SimpleGrid>
+            <SimpleGrid>
+              <LinkHref text={t("Politik Prive N")} />
+            </SimpleGrid>
+            <SimpleGrid>
+              <LinkHref text={t("Piblik Nou Sible")} />
+            </SimpleGrid>
+            <SimpleGrid>
+              <LinkHref text={t("Kondisyon Ak Sèvis" )} />
             </SimpleGrid>
           </FooterBox>
         </Grid>
