@@ -64,7 +64,8 @@ export const useNavbarStyles = makeStyles(() => ({
   },
 
   applyButton: {
-    width: 120,
+    wminWidth: 120,
+    maxWidth: 200,
     color: `${theme.palette.grey['100']} !important`,
     backgroundColor: `${theme.palette.error.main} !important`,
     marginLeft: '2rem !important',

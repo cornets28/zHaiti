@@ -11,15 +11,12 @@ import i18n from './config/i18n';
 function App() {
   return (
     <I18nextProvider i18n={i18n}>
-    <ThemeProvider theme={theme}>
-      
-    {/* <I18nextProvider i18n={i18n}> */}
-      <CssBaseline />
-      <Router>
-        {renderRoutes(routes)}
-      </Router>
-      {/* </I18nextProvider> */}
-    </ThemeProvider>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Router>
+          {renderRoutes(routes)}
+        </Router>
+      </ThemeProvider>
     </I18nextProvider>
   );
 }

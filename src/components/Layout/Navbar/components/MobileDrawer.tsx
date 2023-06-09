@@ -60,7 +60,7 @@ const MobileDrawer: FC = (props) => {
             className={classes.applyButtonDrawer}
             onClick={() => navigate('/apply')}
           >
-            Konekte
+            {t("Konekte")}
           </Button>
         </Box>
       </List>
