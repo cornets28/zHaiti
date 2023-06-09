@@ -16,6 +16,9 @@ import { useNavbarStyles } from './styles/useNavbarStyles';
 import MobileDrawer from './components/MobileDrawer';
 import colors from '../../../utils/theme/base/colors';
 
+import { useTranslation } from 'react-i18next';
+import i18n from 'i18next';
+
 interface Props {
   window?: () => Window;
 }
@@ -29,6 +32,7 @@ const Navbar: FC = (props: Props) => {
   const [value, setValue] = React.useState(0);
 
   const navigate = useNavigate();
+  const { t, i18n } = useTranslation();
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
@@ -40,6 +44,10 @@ const Navbar: FC = (props: Props) => {
 
   const container = window !== undefined ? () => window().document.body : undefined;
   const classes = useNavbarStyles()
+
+  const handleLanguageChange = (event: any) => {
+    i18n.changeLanguage(event.target.value);
+  };
 
   return (
     <>
@@ -70,8 +78,18 @@ const Navbar: FC = (props: Props) => {
             sx={{ flexGrow: 1, display: { sm: 'none', md: 'block', xs: 'none' } }}
             color="white"
           >
-            LOGO
+            {/* LOGO
+             */}
+
+          <div>
+            <select onChange={handleLanguageChange} value={i18n.language}>
+            <option value="ht">Kreyòl</option>
+              <option value="en">English</option>
+              <option value="fr">French</option>
+            </select>
+          </div>
           </Typography>
+          
           <Box sx={{ display: { sm: 'none', md: 'block', xs: 'none', flexGrow: 1 } }}>
             <Tabs
               value={value}
@@ -81,17 +99,19 @@ const Navbar: FC = (props: Props) => {
               className={classes.tabsContainer}
             >
               {navBatItems.map((item, index: number) => (
-                <Tab key={index} value={index} label={item.label} onClick={() => navigate(item.path)} sx={{ color: 'white' }} className={classes.tab}/>
+                <Tab key={index} value={index} label={t(`${item.label}`)} onClick={() => navigate(item.path)} sx={{ color: 'white' }} className={classes.tab}/>
               ))}
             </Tabs>
           </Box>
           <Box sx={{ display: { sm: 'none', md: 'block', xs: 'none' } }}>
+   
             <Button
               variant="contained"
               className={classes.applyButton}
               onClick={() => navigate('/signin')}
             >
-             Konekte
+              {t('Konekte')}
+             
             </Button>
           </Box>
         </Toolbar>
