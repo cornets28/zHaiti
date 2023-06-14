@@ -71,7 +71,9 @@ const colors = {
     800: "#343a40",
     900: "#212529",
   },
-
+  white2: {
+    main: "#FFFFFF"
+  },
   inputColors: {
     borderColor: { main: "#d2d6da", focus: "#35d1f5" },
     boxShadow: "#81e3f9",
