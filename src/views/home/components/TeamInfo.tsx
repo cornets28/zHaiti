@@ -14,7 +14,7 @@ export const TeamInfo: FC<TeamInfoType> = ({ photo, alt, fullname, role }) => {
   const { white2 } = colors;
   const { h6, h5 } = typography;
   return (
-    <Grid container item xs={12} sm={6} md={4} lg={3} padding={2} margin="auto">
+    <Grid item xs={12} sm={6} md={4} lg={3} padding={2} margin="auto">
       <Card sx={{ maxWidth: 345 }} className="user__card">
         <CardActionArea>
           <CardMedia
