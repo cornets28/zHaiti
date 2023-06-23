@@ -11,10 +11,11 @@ export const DynamicText: FC = () => {
       item
       width="100%"
       bgcolor={error.focus}
+      overflow='hidden'
       sx={{
         textAlign: "center",
         overflow: "hidden",
-        height: {xs: 450, sm: 600, md: 700}
+        height: {xs: 300, sm: 500, md: 600}
       }}
     >
       <Grid item className="wrapper">

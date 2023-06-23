@@ -15,9 +15,7 @@ import { navBatItems } from '../../../routes/navBarItems';
 import { useNavbarStyles } from './styles/useNavbarStyles';
 import MobileDrawer from './components/MobileDrawer';
 import colors from '../../../utils/theme/base/colors';
-
 import { useTranslation } from 'react-i18next';
-import i18n from 'i18next';
 
 interface Props {
   window?: () => Window;

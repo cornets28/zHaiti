@@ -9,6 +9,7 @@ const baseProperties = {
   fontWeightRegular: 400,
   fontWeightMedium: 500,
   fontWeightBold: 700,
+  fontWeightBoldLarge: 1000,
   fontSizeXXS: pxToRem(10.4),
   fontSizeXS: pxToRem(12),
   fontSizeSM: pxToRem(14),
@@ -20,7 +21,7 @@ const baseProperties = {
 
 const baseHeadingProperties = {
   fontFamily: baseProperties.fontFamily,
-  fontWeight: baseProperties.fontSizeXL,
+  fontWeight: baseProperties.fontWeightBoldLarge,
 };
 
 const typographyStyle = {
