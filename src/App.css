@@ -277,12 +277,13 @@ body {
     -webkit-border-radius: 0%;
     -moz-border-radius: 0%;
     height: 400px;
-    padding-top: 75px;
+    padding-top: 35px;
   }
 
   @media screen and (max-width: 600px) {
     .user__social {
       height: 100px;
+      padding-top: 15px;
     }
   }
 

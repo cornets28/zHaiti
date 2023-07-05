@@ -16,7 +16,7 @@ import IntagramIcon from "../../../images/instagram.png";
 import FacebookIcon from "../../../images/facebook.png";
 import WhatsAppIcon from "../../../images/whatsapp.png";
 
-export const TeamInfo: FC<TeamInfoType> = ({ photo, alt, fullname, role }) => {
+export const TeamInfo: FC<TeamInfoType> = ({ photo, alt, fullname, role, study, university }) => {
   const { white2, darkBleu } = colors;
   const { h6, h5, size } = typography;
   return (
@@ -26,11 +26,11 @@ export const TeamInfo: FC<TeamInfoType> = ({ photo, alt, fullname, role }) => {
           <CardMedia
             component="img"
             image={photo}
-            alt="team photo"
+            alt={alt}
             sx={{height: {xs: 320, sm: 240}}}
           />
           <Grid item className="user__social">
-            <Typography fontSize={h5} color={white2.main} component="div" sx={{paddingLeft: {xs: '13%'}}}>
+            <Typography fontSize={h5} color={white2.main} component="div" sx={{paddingLeft: {xs: '13%', sm: 0}}}>
               {fullname}
             </Typography>
             <Typography
@@ -38,11 +38,11 @@ export const TeamInfo: FC<TeamInfoType> = ({ photo, alt, fullname, role }) => {
               color={white2.main}
               component="p"
               textTransform="uppercase"
-              sx={{paddingLeft: {xs: '13%'}}}
+              sx={{paddingLeft: {xs: '13%', sm: 0}}}
             >
               {role}
             </Typography>
-            <Typography component="div" pt={3}  sx={{paddingLeft: {xs: '13%'},}}>
+            <Typography component="div" pt={3}  sx={{paddingLeft: {xs: '13%', sm: 0},}}>
               <img src={circlePlus} alt="Cicle Plus" width={40} height={40} />
             </Typography>
           </Grid>
@@ -81,7 +81,7 @@ export const TeamInfo: FC<TeamInfoType> = ({ photo, alt, fullname, role }) => {
 
             <Grid className="transition">
               <Typography fontSize={size.xs} >
-                Lucy Copycat <em>CEO & Founder</em>
+                {study} at<em>{university}</em>
               </Typography>
             </Grid>
           </CardContent>
