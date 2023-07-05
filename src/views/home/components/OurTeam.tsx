@@ -5,7 +5,7 @@ import Container from "@mui/material/Container";
 
 import Title from "../../../components/Title";
 import TeamInfo from "./TeamInfo";
-import Team1 from '../../../images/SamulePic.jpeg'
+import Team1 from "../../../images/SamulePic.jpeg";
 
 export const OurTeam: FC = () => {
   const { white2 } = colors;
@@ -29,13 +29,33 @@ export const OurTeam: FC = () => {
             title2="Nou An"
           />
         </Grid>
-  
+
         <Grid container mb={15}>
-          <TeamInfo photo={Team1} alt="user 1" fullname="Samuel Cornet" role="CEO & Writer" />
-          <TeamInfo photo={Team1} alt="user 1" fullname="John Done" role="Writer"/>
-          <TeamInfo photo={Team1} alt="user 1" fullname="Nick Samsom" role="Writer"/>
-          <TeamInfo photo={Team1} alt="user 1" fullname="Mills Hooks" role="Writer"/>
-          </Grid>
+          <TeamInfo
+            photo={Team1}
+            alt="user 1"
+            fullname="Samuel Cornet"
+            role="CEO & Writer"
+          />
+          <TeamInfo
+            photo={Team1}
+            alt="user 1"
+            fullname="John Done"
+            role="Writer"
+          />
+          <TeamInfo
+            photo={Team1}
+            alt="user 1"
+            fullname="Nick Samsom"
+            role="Writer"
+          />
+          <TeamInfo
+            photo={Team1}
+            alt="user 1"
+            fullname="Mills Hooks"
+            role="Writer"
+          />
+        </Grid>
       </Container>
     </Grid>
   );

@@ -9,22 +9,28 @@ import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import typography from "../../../utils/theme/base/typography";
 import circlePlus from "../../../images/circlePlus.png";
+import SocialMedia from "../../../components/Layout/Footer/components/SocialMedia";
+
+import TwitterIcon from "../../../images/twitter.png";
+import IntagramIcon from "../../../images/instagram.png";
+import FacebookIcon from "../../../images/facebook.png";
+import WhatsAppIcon from "../../../images/whatsapp.png";
 
 export const TeamInfo: FC<TeamInfoType> = ({ photo, alt, fullname, role }) => {
-  const { white2 } = colors;
-  const { h6, h5 } = typography;
+  const { white2, darkBleu } = colors;
+  const { h6, h5, size } = typography;
   return (
-    <Grid item xs={12} sm={6} md={4} lg={3} padding={2} margin="auto">
-      <Card sx={{ maxWidth: 345 }} className="user__card">
+    <Grid item xs={12} sm={6} md={4} lg={3} padding={2}>
+      <Card sx={{ maxWidth: 345, margin: 'auto' }} className="user__card">
         <CardActionArea>
           <CardMedia
             component="img"
-            height="240"
             image={photo}
-            alt="green iguana"
+            alt="team photo"
+            sx={{height: {xs: 320, sm: 240}}}
           />
           <Grid item className="user__social">
-            <Typography fontSize={h5} color={white2.main} component="div">
+            <Typography fontSize={h5} color={white2.main} component="div" sx={{paddingLeft: {xs: '13%'}}}>
               {fullname}
             </Typography>
             <Typography
@@ -32,18 +38,52 @@ export const TeamInfo: FC<TeamInfoType> = ({ photo, alt, fullname, role }) => {
               color={white2.main}
               component="p"
               textTransform="uppercase"
+              sx={{paddingLeft: {xs: '13%'}}}
             >
               {role}
             </Typography>
-            <Typography component="div" pt={3}>
+            <Typography component="div" pt={3}  sx={{paddingLeft: {xs: '13%'},}}>
               <img src={circlePlus} alt="Cicle Plus" width={40} height={40} />
             </Typography>
           </Grid>
 
-          <CardContent sx={{ height: 160 }}>
-            <span className="transition">
-              Lucy Copycat <em>CEO & Founder</em>
-            </span>
+          <CardContent sx={{ height: 160, bgcolor: darkBleu.main }}>
+            <Grid sx={{ marginTop: -2 }}>
+              <SocialMedia
+                icon={TwitterIcon}
+                alt="Twitter Icon"
+                href="#"
+                height={30}
+                width={30}
+              />
+              <SocialMedia
+                icon={IntagramIcon}
+                alt="Intagram Icon"
+                href="#"
+                height={30}
+                width={30}
+              />
+              <SocialMedia
+                icon={FacebookIcon}
+                alt="Facebook Icon"
+                href="#"
+                height={30}
+                width={30}
+              />
+              <SocialMedia
+                icon={WhatsAppIcon}
+                alt="WhatsApp Icon"
+                href="#"
+                height={30}
+                width={30}
+              />
+            </Grid>
+
+            <Grid className="transition">
+              <Typography fontSize={size.xs} >
+                Lucy Copycat <em>CEO & Founder</em>
+              </Typography>
+            </Grid>
           </CardContent>
         </CardActionArea>
       </Card>
