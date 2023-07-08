@@ -5,7 +5,7 @@ import Container from "@mui/material/Container";
 
 import Title from "../../../components/Title";
 
-export const OurGoal: FC = () => {
+const OurGoal: FC = () => {
   const { white2 } = colors;
 
   return (

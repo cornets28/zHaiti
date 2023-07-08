@@ -5,6 +5,7 @@ import HaitiBeach from "../../../images/haitibeach.jpeg";
 import DynamicText from "../components/DynamicText";
 import OurGoal from "../components/OurGoal";
 import OurTeam from "../components/OurTeam";
+import LatestArticles from "../components/LatestArticles";
 
 export const Home: FC = () => {
   const { white2 } = colors;
@@ -31,6 +32,7 @@ export const Home: FC = () => {
       </Grid>
 
       <OurTeam />
+      <LatestArticles />
     </Grid>
   );
 };
