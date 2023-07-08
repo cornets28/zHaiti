@@ -13,6 +13,8 @@ const SocialMedia: FC<SocialMediaType> = ({
   <Link href={href} target="_blank" underline="none">
     <Box
       component="img"
+      height={26}
+      width={26}
       sx={{
         height: height,
         width: width,
