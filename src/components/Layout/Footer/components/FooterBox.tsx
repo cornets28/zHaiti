@@ -5,7 +5,7 @@ import colors from "../../../../utils/theme/base/colors";
 import typography from "../../../../utils/theme/base/typography";
 import { FooterBoxType } from "../../../../types/FooterBoxType";
 
-const { error } = colors;
+const { orange } = colors;
 const { h5} = typography;
 
 const FooterBox: FC<FooterBoxType> = ({ header, children }) => (
@@ -13,7 +13,7 @@ const FooterBox: FC<FooterBoxType> = ({ header, children }) => (
     <Typography
       sx={{
         fontSize: h5,
-        color: error.main,
+        color: orange.main,
         marginTop: {xs: 3, sm: 0}
       }}
       gutterBottom

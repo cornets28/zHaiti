@@ -67,7 +67,7 @@ export const useNavbarStyles = makeStyles(() => ({
     wminWidth: 120,
     maxWidth: 200,
     color: `${theme.palette.grey['100']} !important`,
-    backgroundColor: `${theme.palette.error.main} !important`,
+    backgroundColor: `${orange.main} !important`,
     marginLeft: '2rem !important',
     "&:active": {
       backgroundColor: `${blue.main} !important`,

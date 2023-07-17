@@ -1,6 +1,7 @@
 import type { FC } from "react";
-import type { SimpleGridType } from "../types/SimpleGridType";
 import { Grid } from "@mui/material";
+import type { SimpleGridType } from "../types/SimpleGridType";
+
 
 const SimpleGrid: FC<SimpleGridType> = ({ children }) => (
   <Grid>{children}</Grid>

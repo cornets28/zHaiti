@@ -4,7 +4,7 @@ const colors = {
   },
 
   secondary: {
-    main: "#EF6507",
+    main: "#d75e3d",
   },
 
   transparent: {
@@ -30,7 +30,7 @@ const colors = {
   },
 
   orange: {
-    main: "#EE6507",
+    main: "#d75e3d",
     focus: "#e27933",
   },
 
@@ -56,7 +56,7 @@ const colors = {
   },
 
   error: {
-    main: "#EF6507",
+    main: "#d75e3d",
     focus: "#c70505",
   },
 
@@ -71,7 +71,9 @@ const colors = {
     800: "#343a40",
     900: "#212529",
   },
-
+  white2: {
+    main: "#FFFFFF"
+  },
   inputColors: {
     borderColor: { main: "#d2d6da", focus: "#35d1f5" },
     boxShadow: "#81e3f9",
