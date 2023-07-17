@@ -177,7 +177,7 @@ const LatestArticles: FC = () => {
                 <Grid display="flex">
                   <Grid display="flex">
                     <img
-                      src={article.reply === 0 ? GrayHeart : PinkHeart}
+                      src={article.like === 0 ? GrayHeart : PinkHeart}
                       alt="blanc user"
                       width={20}
                       height={20}
