@@ -6,6 +6,8 @@ import DynamicText from "../components/DynamicText";
 import OurGoal from "../components/OurGoal";
 import OurTeam from "../components/OurTeam";
 import LatestArticles from "../components/LatestArticles";
+import PeopleSaySeaction from "../components/PeopleSay";
+
 
 export const Home: FC = () => {
   const { white2 } = colors;
@@ -32,7 +34,9 @@ export const Home: FC = () => {
       </Grid>
 
       <OurTeam />
+      <PeopleSaySeaction />
       <LatestArticles />
+    
     </Grid>
   );
 };
