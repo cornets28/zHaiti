@@ -1,15 +1,15 @@
 import { makeStyles } from "@mui/styles";
-import colors from '../../../utils/theme/base/colors'
+import colors from "../../../utils/theme/base/colors";
 
 const { error } = colors;
 
-export const useCardTicketStyle = makeStyles(() => ({
+export const useArticleCardStyle = makeStyles(() => ({
     cardTicket: {
-        position: 'absolute',
+        position: "absolute",
         marginTop: -190,
         width: 130,
         borderTop: `30px solid ${error.main}`,
-        borderRight: '20px solid transparent',
+        borderRight: "20px solid transparent",
         paddingTop: -80,
     },
 }));
