@@ -5,7 +5,7 @@ import DynamicText from "../components/DynamicText";
 import OurGoal from "../components/OurGoal";
 import OurTeam from "../components/OurTeam";
 import LatestArticles from "../components/LatestArticles";
-import PeopleSaySeaction from "../components/PeopleSay";
+import PeopleSaySection from "../components/PeopleSay";
 import OurSponsors from '../components/OurSponsors';
 import HaitiImage from '../components/HaitiImage';
 
@@ -18,7 +18,7 @@ export const Home: FC = () => {
       <OurGoal />
       <HaitiImage />
       <OurTeam />
-      <PeopleSaySeaction />
+      <PeopleSaySection />
       <LatestArticles />
       <OurSponsors />
     </Grid>
