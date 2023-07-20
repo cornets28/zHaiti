@@ -19,6 +19,7 @@ import WhatsAppIcon from "../../../images/whatsapp.png";
 export const TeamInfo: FC<TeamInfoType> = ({ photo, alt, fullname, role, study, university }) => {
   const { white2, darkBleu } = colors;
   const { h6, h5, size } = typography;
+  
   return (
     <Grid item xs={12} sm={6} md={4} lg={3} padding={2}>
       <Card sx={{ maxWidth: 345, margin: 'auto' }} className="user__card">
