@@ -38,6 +38,7 @@ const ArticleCard: FC<ArticleCardType> = ({
           margin: "auto",
           boxShadow: 0,
           border: `1px solid ${grey["300"]}`,
+          cursor: 'pointer',
           "&:hover": {
             boxShadow: 10,
           },

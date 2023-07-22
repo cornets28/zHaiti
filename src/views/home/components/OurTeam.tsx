@@ -2,7 +2,6 @@ import type { FC } from "react";
 import Grid from "@mui/material/Grid";
 import colors from "../../../utils/theme/base/colors";
 import Container from "@mui/material/Container";
-
 import Title from "../../../components/Title";
 import TeamInfo from "./TeamInfo";
 import user1 from "../../../images/user1.jpeg";
@@ -112,14 +111,16 @@ export const OurTeam: FC = () => {
         <Grid container mb={15}>
           {team &&
             team.map((person, index) => (
-              <TeamInfo
-                photo={person.photo}
-                alt="user photo"
-                fullname={person.firstname + " " + person.lastname}
-                role={person.role}
-                study={person.study.field_1.major}
-                university={person.study.field_1.university}
-              />
+              <Grid item xs={12} sm={6} md={4} lg={3} padding={2} key={index}>
+                <TeamInfo
+                  photo={person.photo}
+                  alt="user photo"
+                  fullname={person.firstname + " " + person.lastname}
+                  role={person.role}
+                  study={person.study.field_1.major}
+                  university={person.study.field_1.university}
+                />
+              </Grid>
             ))}
         </Grid>
       </Container>
