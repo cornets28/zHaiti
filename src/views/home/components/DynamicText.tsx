@@ -33,7 +33,7 @@ export const DynamicText: FC = () => {
           item
           xs={12}
           className="dynamic-texts"
-          sx={{ height: 50, lineHeight: 50, overflow: "hidden", pt: 50 }}
+          sx={{ height: 50, lineHeight: 50, overflow: "hidden", pt: 50, marginX: 'auto' }}
         >
           <ul>
             <li>

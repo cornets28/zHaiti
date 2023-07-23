@@ -20,7 +20,6 @@ body {
 .wrapper .dynamic-texts {
   height: 50px;
   line-height: 50px;
-
   padding-top: 50px;
 }
 .dynamic-texts li {
@@ -236,7 +235,7 @@ body {
     border-radius: 0%;
     -webkit-border-radius: 0%;
     -moz-border-radius: 0%;
-    height: 400px; 
+    height: 400px;
   }
 }
 
