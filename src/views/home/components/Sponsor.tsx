@@ -20,7 +20,12 @@ const Sponsors: FC<SponsorType> = ({ image }) => {
         },
       }}
     >
-      <CardMedia sx={{ height: '100%', width: '100%' }} image={image} />
+      <img
+        src={image}
+        alt="Haiti Logo Flag"
+        width={'100%'} height={'100%'}
+
+      />
     </Card>
   );
 };
