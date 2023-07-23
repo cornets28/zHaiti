@@ -10,18 +10,22 @@ const temporarySponsors = [
   {
     id: "1",
     logo: DigicelLogo,
+    link: "http://google.com/"
   },
   {
     id: "2",
     logo: DigicelLogo,
+    link: "http://google.com/"
   },
   {
     id: "3",
     logo: DigicelLogo,
+    link: "http://google.com/"
   },
   {
     id: "4",
     logo: DigicelLogo,
+    link: "http://google.com/"
   },
   
 ];
@@ -54,7 +58,7 @@ const OurSponsors: FC = () => {
           {temporarySponsors &&
             temporarySponsors.map((sponsor, index) => (
               <Grid item xs={6} sm={4} md={3} padding={2} key={index}>
-                <Sponsor image={sponsor.logo} />
+                <Sponsor image={sponsor.logo} link={sponsor.link} />
               </Grid>
             ))}
         </Grid>
