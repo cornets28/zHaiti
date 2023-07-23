@@ -53,7 +53,7 @@ const OurSponsors: FC = () => {
         <Grid container mb={15}>
           {temporarySponsors &&
             temporarySponsors.map((sponsor, index) => (
-              <Grid item xs={12} sm={4} md={3} padding={2} key={index}>
+              <Grid item xs={6} sm={4} md={3} padding={2} key={index}>
                 <Sponsor image={sponsor.logo} />
               </Grid>
             ))}
