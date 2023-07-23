@@ -118,9 +118,7 @@ const LatestArticles: FC = () => {
                 sm={6}
                 md={4}
                 padding={2}
-                sx={{
-                  marginX: temporaryArticles.length % 2 === 0 ? "auto" : "",
-                }}
+                marginX="auto"
                 key={index}
               >
                 <ArticleCard
