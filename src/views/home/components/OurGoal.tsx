@@ -59,7 +59,23 @@ const OurGoal: FC = () => {
           <Grid container py={6}>
             {temporaryPublic &&
               temporaryPublic.map((pub, index) => (
-                <Category key={index} channel={pub.channel} image={pub.photo} />
+                <Grid
+                  item
+                  xs={12}
+                  sm={6}
+                  md={4}
+                  padding={2}
+                  key={index}
+                  sx={{
+                    marginX: temporaryPublic.length % 2 === 0 ? "auto" : "",
+                  }}
+                >
+                  <Category
+                    key={index}
+                    channel={pub.channel}
+                    image={pub.photo}
+                  />
+                </Grid>
               ))}
           </Grid>
         </Grid>

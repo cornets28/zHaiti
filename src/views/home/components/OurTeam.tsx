@@ -111,7 +111,16 @@ export const OurTeam: FC = () => {
         <Grid container mb={15}>
           {team &&
             team.map((person, index) => (
-              <Grid item xs={12} sm={6} md={4} lg={3} padding={2} key={index}>
+              <Grid
+                item
+                xs={12}
+                sm={6}
+                md={4}
+                lg={3}
+                padding={2}
+                sx={{ marginX: team.length % 2 !== 0 ? "auto" : "" }}
+                key={index}
+              >
                 <TeamInfo
                   photo={person.photo}
                   alt="user photo"
