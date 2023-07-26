@@ -111,11 +111,17 @@ const LatestArticles: FC = () => {
 
         <Grid container mb={15}>
           {temporaryArticles &&
-            temporaryArticles
-              .slice(0, 3)
-              .map((article, index) => (
+            temporaryArticles.slice(0, 3).map((article, index) => (
+              <Grid
+                item
+                xs={12}
+                sm={6}
+                md={4}
+                padding={2}
+                marginX="auto"
+                key={index}
+              >
                 <ArticleCard
-                  key={index}
                   title={article.title}
                   channel={article.channel}
                   writer={article.writer}
@@ -124,7 +130,8 @@ const LatestArticles: FC = () => {
                   like={article.like}
                   image={article.photo}
                 />
-              ))}
+              </Grid>
+            ))}
         </Grid>
       </Container>
     </Grid>
