@@ -7,10 +7,12 @@ import typography from "../../../utils/theme/base/typography";
 import { useCategoryStyle } from "../styles/useCategoryStyle";
 import { CategoryType } from "../../../types/CategoryType";
 import { Link } from "react-router-dom";
+import Box from "@mui/material/Box";
+import { EditSvgIdcon } from "../../../images/svg/EditSvgIcon";
 
 const Category: FC<CategoryType> = ({ channel, image }) => {
   const [show, setShow] = useState(false);
-  const { white2, grey } = colors;
+  const { white2, grey, error } = colors;
   const { h2 } = typography;
   const classes = useCategoryStyle();
 
@@ -50,6 +52,18 @@ const Category: FC<CategoryType> = ({ channel, image }) => {
             textDecoration: "none",
           }}
         >
+          <Box
+            position={"absolute"}
+            color={white2.main}
+            width={20}
+            height={20}
+            right="0"
+            mr="10px"
+            mt="5px"
+            onClick={() => alert("yesss")}
+          >
+            <EditSvgIdcon />
+          </Box>
           <Typography
             fontSize={h2}
             component="p"

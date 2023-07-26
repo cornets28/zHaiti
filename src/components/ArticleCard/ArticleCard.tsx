@@ -15,6 +15,8 @@ import PinkHeart from "../../images/pinkHeart.png";
 import OrangeInteraction from "../../images/orangeInteraction.png";
 import GrayInteraction from "../../images/grayInteraction.png";
 import { ArticleCardType } from "../../types/ArticleCardType";
+import Box from "@mui/material/Box";
+import { EditSvgIdcon } from "../../images/svg/EditSvgIcon";
 
 const ArticleCard: FC<ArticleCardType> = ({
   title,
@@ -26,7 +28,7 @@ const ArticleCard: FC<ArticleCardType> = ({
   image,
 }) => {
   const classes = useArticleCardStyle();
-  const { white2, grey } = colors;
+  const { white2, grey, error } = colors;
   const { h6, size } = typography;
 
   return (
@@ -104,11 +106,20 @@ const ArticleCard: FC<ArticleCardType> = ({
         sx={{
           alignSelf: "stretch",
           display: "flex",
-          justifyContent: "flex-end",
+          justifyContent: "space-between",
           alignItems: "flex-start",
-          p: 0,
+          py: 0,
         }}
       >
+        <Box
+          color={error.focus}
+          width={20}
+          height={20}
+          ml={1}
+          onClick={() => alert("yesss")}
+        >
+          <EditSvgIdcon />
+        </Box>
         <Button
           size="small"
           style={{
