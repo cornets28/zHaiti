@@ -3,31 +3,38 @@ import Grid from "@mui/material/Grid";
 import colors from "../../../utils/theme/base/colors";
 import Container from "@mui/material/Container";
 import Title from "../../../components/Title";
-import Sponsor from '../components/Sponsor';
-import DigicelLogo from '../../../images/digicelLogo.png'
+import Sponsor from "../components/Sponsor";
+import DigicelLogo from "../../../images/digicelLogo.png";
 
 const temporarySponsors = [
   {
     id: "1",
     logo: DigicelLogo,
+    link: "http://google.com/",
   },
   {
     id: "2",
     logo: DigicelLogo,
+    link: "http://google.com/",
   },
   {
     id: "3",
     logo: DigicelLogo,
+    link: "http://google.com/",
   },
   {
     id: "4",
     logo: DigicelLogo,
+    link: "http://google.com/",
   },
-  
+  {
+    id: "6",
+    logo: DigicelLogo,
+    link: "http://google.com/",
+  },
 ];
 
 const OurSponsors: FC = () => {
-
   const { white2 } = colors;
 
   return (
@@ -53,8 +60,18 @@ const OurSponsors: FC = () => {
         <Grid container mb={15}>
           {temporarySponsors &&
             temporarySponsors.map((sponsor, index) => (
-              <Grid item xs={6} sm={4} md={3} padding={2} key={index}>
-                <Sponsor image={sponsor.logo} />
+              <Grid
+                item
+                xs={6}
+                sm={4}
+                md={3}
+                padding={2}
+                key={index}
+                sx={{
+                  marginX: temporarySponsors.length % 2 !== 0 ? "auto" : "",
+                }}
+              >
+                <Sponsor image={sponsor.logo} link={sponsor.link} />
               </Grid>
             ))}
         </Grid>

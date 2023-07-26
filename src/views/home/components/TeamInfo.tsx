@@ -4,6 +4,7 @@ import { TeamInfoType } from "../../../types/TeamInfoType";
 import colors from "../../../utils/theme/base/colors";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
+import Box from "@mui/material/Box";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
@@ -16,6 +17,8 @@ import IntagramIcon from "../../../images/instagram.png";
 import FacebookIcon from "../../../images/facebook.png";
 import WhatsAppIcon from "../../../images/whatsapp.png";
 
+import { EditSvgIdcon } from "../../../images/svg/EditSvgIcon";
+
 export const TeamInfo: FC<TeamInfoType> = ({
   photo,
   alt,
@@ -24,18 +27,31 @@ export const TeamInfo: FC<TeamInfoType> = ({
   study,
   university,
 }) => {
-  const { white2, darkBleu } = colors;
+  const { white2, darkBleu, error } = colors;
   const { h6, h5, size } = typography;
 
   return (
     <Card sx={{ maxWidth: 345, margin: "auto" }} className="user__card">
       <CardActionArea>
+        <Box
+          position={"absolute"}
+          color={error.focus}
+          width={20}
+          height={20}
+          right="0"
+          mr="5px"
+          mt="5px"
+          onClick={() => alert("yesss")}
+        >
+          <EditSvgIdcon />
+        </Box>
         <CardMedia
           component="img"
           image={photo}
           alt={alt}
           sx={{ height: { xs: 320, sm: 240 } }}
         />
+
         <Grid item className="user__social">
           <Typography
             fontSize={h5}
@@ -64,6 +80,9 @@ export const TeamInfo: FC<TeamInfoType> = ({
         </Grid>
 
         <CardContent sx={{ height: 160, bgcolor: darkBleu.main }}>
+          <Box bgcolor={"red"} position={"absolute"} zIndex={5}>
+            <i className="fa-solid fa-pen-to-square"></i>
+          </Box>
           <Grid sx={{ marginTop: -2 }}>
             <SocialMedia
               icon={TwitterIcon}

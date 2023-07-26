@@ -19,9 +19,10 @@ export const userHaitiImageStyle = makeStyles(() => ({
     transform: 'translate(-50%, -50%)',
     textAlign: 'center',
     color: white2.main,
+    margin: 'auto'
   },
   h1Tag: {
     fontSize: '3rem',
-    marginBottom: '1rem',
+    marginBottom: '1rem',    
   }
 }));

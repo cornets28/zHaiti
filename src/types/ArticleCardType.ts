@@ -1,5 +1,4 @@
 export type ArticleCardType = {
-    key: number,
     title: string,
     body: string,
     channel: string,
