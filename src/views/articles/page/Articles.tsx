@@ -1,15 +1,16 @@
-import type { FC } from 'react';
-import Grid from '@mui/material/Grid';
-import Container from '@mui/material/Container';
+import type { FC } from "react";
+import Grid from "@mui/material/Grid";
+import colors from "../../../utils/theme/base/colors";
+import ArticlesList from "../components/ArticlesList";
 
 export const Articles: FC = () => {
-    return (
-        <Container>
-            <Grid container spacing={3}>
-                <h1>Hello from Articles</h1>
-            </Grid>
-        </Container>
-    );
+  const { white2 } = colors;
+
+  return (
+    <Grid container bgcolor={white2.main} overflow={'hidden'}>
+        <ArticlesList />
+    </Grid>
+  );
 };
 
 export default Articles;
