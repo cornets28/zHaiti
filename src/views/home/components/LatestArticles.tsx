@@ -2,9 +2,10 @@ import type { FC } from "react";
 import Grid from "@mui/material/Grid";
 import colors from "../../../utils/theme/base/colors";
 import Container from "@mui/material/Container";
-import Title from "../../../components/Title";
+import Title from "../../../components/Title/Title";
 import Cow from "../../../images/boys.webp";
 import ArticleCard from "../../../components/ArticleCard/ArticleCard";
+import { useTranslation } from 'react-i18next';
 
 const temporaryArticles = [
   {
@@ -16,7 +17,7 @@ const temporaryArticles = [
     photo: Cow,
     reply: 4,
     like: 0,
-    channel: "Politics",
+    channel: "Politik",
   },
   {
     id: 2,
@@ -27,7 +28,7 @@ const temporaryArticles = [
     photo: Cow,
     reply: 0,
     like: 19,
-    channel: "Education",
+    channel: "Edikasyon",
   },
   {
     id: 3,
@@ -38,7 +39,7 @@ const temporaryArticles = [
     photo: Cow,
     reply: 44,
     like: 23,
-    channel: "Spiritualism",
+    channel: "Relijyon",
   },
   {
     id: 4,
@@ -49,7 +50,7 @@ const temporaryArticles = [
     photo: Cow,
     reply: 0,
     like: 0,
-    channel: "Culture",
+    channel: "Kilti",
   },
   {
     id: 5,
@@ -60,7 +61,7 @@ const temporaryArticles = [
     photo: Cow,
     reply: 23,
     like: 1,
-    channel: "Education",
+    channel: "Edikasyon",
   },
   {
     id: 6,
@@ -71,7 +72,7 @@ const temporaryArticles = [
     photo: Cow,
     reply: 4,
     like: 0,
-    channel: "SPort",
+    channel: "Espò",
   },
   {
     id: 7,
@@ -82,11 +83,12 @@ const temporaryArticles = [
     photo: Cow,
     reply: 0,
     like: 0,
-    channel: "Politics",
+    channel: "Politik",
   },
 ];
 
 const LatestArticles: FC = () => {
+  const { t } = useTranslation();
   const { white2 } = colors;
 
   return (
@@ -123,7 +125,7 @@ const LatestArticles: FC = () => {
               >
                 <ArticleCard
                   title={article.title}
-                  channel={article.channel}
+                  channel={t(article.channel)}
                   writer={article.writer}
                   body={article.body}
                   reply={article.reply}

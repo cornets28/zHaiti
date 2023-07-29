@@ -1,4 +1,5 @@
 import type { FC } from "react";
+import PropTypes from "prop-types";
 import Grid from "@mui/material/Grid";
 import { TeamInfoType } from "../../../types/TeamInfoType";
 import colors from "../../../utils/theme/base/colors";
@@ -123,6 +124,15 @@ export const TeamInfo: FC<TeamInfoType> = ({
       </CardActionArea>
     </Card>
   );
+};
+
+TeamInfo.propTypes = {
+  alt: PropTypes.string.isRequired,
+  photo: PropTypes.any,
+  fullname: PropTypes.string.isRequired,
+  role: PropTypes.string.isRequired,
+  study: PropTypes.string.isRequired,
+  university: PropTypes.string.isRequired,
 };
 
 export default TeamInfo;

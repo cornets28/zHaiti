@@ -1,13 +1,14 @@
 import type { FC } from "react";
 import Grid from "@mui/material/Grid";
 import colors from "../../../utils/theme/base/colors";
-import Title from "../../../components/Title";
+import Title from "../../../components/Title/Title";
 import Cow from "../../../images/boys.webp";
 import ArticleCard from "../../../components/ArticleCard/ArticleCard";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Typography from "@mui/material/Typography";
 import typography from "../../../utils/theme/base/typography";
 import MostPopularItem from "../../../components/MostPopularItem/MostPopularItem";
+import { useTranslation } from 'react-i18next';
 
 const temporaryArticles = [
   {
@@ -20,7 +21,7 @@ const temporaryArticles = [
     reply: 4,
     like: 0,
     views: 435,
-    channel: "Politics",
+    channel: "Politik",
   },
   {
     id: 2,
@@ -32,7 +33,7 @@ const temporaryArticles = [
     reply: 0,
     like: 19,
     views: 435,
-    channel: "Education",
+    channel: "Edikasyon",
   },
   {
     id: 3,
@@ -44,7 +45,7 @@ const temporaryArticles = [
     reply: 44,
     like: 23,
     views: 435,
-    channel: "Spiritualism",
+    channel: "Relijyon",
   },
   {
     id: 4,
@@ -56,7 +57,7 @@ const temporaryArticles = [
     reply: 0,
     like: 0,
     views: 435,
-    channel: "Culture",
+    channel: "Kilti",
   },
 
   {
@@ -69,7 +70,7 @@ const temporaryArticles = [
     reply: 23,
     like: 1,
     views: 435,
-    channel: "Education",
+    channel: "Edikasyon",
   },
   {
     id: 6,
@@ -81,7 +82,7 @@ const temporaryArticles = [
     reply: 4,
     like: 0,
     views: 435,
-    channel: "SPort",
+    channel: "Espò",
   },
   {
     id: 7,
@@ -93,7 +94,7 @@ const temporaryArticles = [
     reply: 0,
     like: 0,
     views: 435,
-    channel: "Politics",
+    channel: "Politik",
   },
 
   {
@@ -106,7 +107,7 @@ const temporaryArticles = [
     reply: 0,
     like: 19,
     views: 435,
-    channel: "Education",
+    channel: "Edikasyon",
   },
   {
     id: 9,
@@ -118,7 +119,7 @@ const temporaryArticles = [
     reply: 44,
     like: 23,
     views: 435,
-    channel: "Spiritualism",
+    channel: "Relijyon",
   },
   {
     id: 20,
@@ -130,15 +131,17 @@ const temporaryArticles = [
     reply: 0,
     like: 0,
     views: 435,
-    channel: "Culture",
+    channel: "Kilti",
   },
 ];
 
 const ArticlesList: FC = () => {
+  const { t } = useTranslation();
   const { white2 } = colors;
   const isWindowSizeMin1513 = useMediaQuery<any>("(min-width:1513px)");
   const isWindowSizeMin1262 = useMediaQuery<any>("(min-width:1262px)");
   const { h6 } = typography;
+
 
   return (
     <Grid
@@ -186,7 +189,7 @@ const ArticlesList: FC = () => {
               >
                 <ArticleCard
                   title={article.title}
-                  channel={article.channel}
+                  channel={t(article.channel)}
                   writer={article.writer}
                   body={article.body}
                   reply={article.reply}
@@ -212,7 +215,7 @@ const ArticlesList: FC = () => {
             textAlign="left"
             sx={{ pt: { xs: 6, sm: 6, md: 1 } }}
           >
-            Most Popular Articles
+            {t("Atik Ki Pi Popilè Yo")} 
           </Typography>
 
           {temporaryArticles &&

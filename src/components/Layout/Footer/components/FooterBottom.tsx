@@ -3,7 +3,7 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import colors from "../../../../utils/theme/base/colors";
 import typography from "../../../../utils/theme/base/typography";
-import LinkHref from "../../../Link";
+import LinkHref from "../../../Link/Link";
 import { useTranslation } from "react-i18next";
 
 const { grey, darkBleu } = colors;

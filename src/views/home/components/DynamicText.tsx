@@ -1,8 +1,10 @@
 import type { FC } from "react";
 import Grid from "@mui/material/Grid";
 import colors from "../../../utils/theme/base/colors";
+import { useTranslation } from 'react-i18next';
 
 export const DynamicText: FC = () => {
+  const { t } = useTranslation()
   const { white2, error } = colors;
 
   return (
@@ -37,13 +39,13 @@ export const DynamicText: FC = () => {
         >
           <ul>
             <li>
-              <span>Bay Nouvel San Fos Kote</span>
+              <span>{t("Bay Nouvèl San Fòs Kote")}</span>
             </li>
             <li>
-              <span>Bay Nouvel Nan Tout Sekte</span>
+              <span>{t("Bay Nouvèl Nan Tout Sektè")}</span>
             </li>
             <li>
-              <span>Nan Bon Jan Ti Mamit</span>
+              <span>{t("Bay Nouvèl Nan Bon Jan Ti Mamit")}</span>
             </li>
           </ul>
         </Grid>

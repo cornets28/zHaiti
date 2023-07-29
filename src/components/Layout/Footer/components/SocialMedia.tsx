@@ -1,4 +1,5 @@
 import { FC } from "react";
+import PropTypes from 'prop-types';
 import Box from "@mui/material/Box";
 import Link from "@mui/material/Link";
 import { SocialMediaType } from "../../../../types/SocialMediaType";
@@ -26,5 +27,13 @@ const SocialMedia: FC<SocialMediaType> = ({
     />
   </Link>
 );
+
+SocialMedia.propTypes = {
+  icon: PropTypes.string.isRequired,
+  alt: PropTypes.string.isRequired,
+  href: PropTypes.string.isRequired,
+  height: PropTypes.number.isRequired,
+  width: PropTypes.number.isRequired,
+};
 
 export default SocialMedia;
