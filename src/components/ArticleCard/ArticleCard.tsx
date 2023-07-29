@@ -1,4 +1,5 @@
 import type { FC } from "react";
+import PropTypes from 'prop-types';
 import Grid from "@mui/material/Grid";
 import colors from "../../utils/theme/base/colors";
 import Card from "@mui/material/Card";
@@ -18,6 +19,7 @@ import { ArticleCardType } from "../../types/ArticleCardType";
 import Box from "@mui/material/Box";
 import { EditSvgIdcon } from "../../images/svg/EditSvgIcon";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTranslation } from 'react-i18next';
 
 const ArticleCard: FC<ArticleCardType> = ({
   title,
@@ -28,6 +30,7 @@ const ArticleCard: FC<ArticleCardType> = ({
   reply,
   image,
 }) => {
+  const { t } = useTranslation()
   const classes = useArticleCardStyle();
   const { white2, grey, error } = colors;
   const { h6, size } = typography;
@@ -56,7 +59,7 @@ const ArticleCard: FC<ArticleCardType> = ({
           component="div"
           sx={{ paddingLeft: { xs: "2%", sm: 0 } }}
         >
-          {channel}
+          {t(channel)}
         </Typography>
       </Grid>
 
@@ -133,11 +136,21 @@ const ArticleCard: FC<ArticleCardType> = ({
           }}
           onClick={() => alert("I was clicked!")}
         >
-          Read More
+          {t("Plis Detay")}
         </Button>
       </CardActions>
     </Card>
   );
+};
+
+ArticleCard.propTypes = {
+  title: PropTypes.string.isRequired,
+  body: PropTypes.string.isRequired,
+  channel: PropTypes.string.isRequired,
+  writer: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  like: PropTypes.number.isRequired,
+  reply: PropTypes.number.isRequired,
 };
 
 export default ArticleCard;

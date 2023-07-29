@@ -1,4 +1,5 @@
 import { useState, type FC } from "react";
+import PropTypes from 'prop-types';
 import Grid from "@mui/material/Grid";
 import colors from "../../../utils/theme/base/colors";
 import Card from "@mui/material/Card";
@@ -12,7 +13,7 @@ import { EditSvgIdcon } from "../../../images/svg/EditSvgIcon";
 
 const Category: FC<CategoryType> = ({ channel, image }) => {
   const [show, setShow] = useState(false);
-  const { white2, grey, error } = colors;
+  const { white2, grey } = colors;
   const { h2 } = typography;
   const classes = useCategoryStyle();
 
@@ -76,6 +77,11 @@ const Category: FC<CategoryType> = ({ channel, image }) => {
       )}
     </Card>
   );
+};
+
+Category.propTypes = {
+  channel: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
 };
 
 export default Category;
