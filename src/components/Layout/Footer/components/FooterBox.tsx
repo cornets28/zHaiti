@@ -1,4 +1,5 @@
 import { FC } from "react";
+import PropTypes from 'prop-types';
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import colors from "../../../../utils/theme/base/colors";
@@ -23,5 +24,10 @@ const FooterBox: FC<FooterBoxType> = ({ header, children }) => (
       {children}
   </Box>
 );
+
+FooterBox.propTypes = {
+  header: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
+};
 
 export default FooterBox;

@@ -1,8 +1,8 @@
 import type { FC } from "react";
 import Grid from "@mui/material/Grid";
 import colors from "../../../utils/theme/base/colors";
-import LinkHref from "../../Link";
-import SimpleGrid from "../../SimpleGrid";
+import LinkHref from "../../Link/Link";
+import SimpleGrid from "../../SimpleGrid/SimpleGrid";
 
 import FooterBox from "./components/FooterBox";
 import FooterBottom from "./components/FooterBottom";
