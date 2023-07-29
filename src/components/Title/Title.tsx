@@ -15,7 +15,7 @@ export const Title: FC<TitleType> = ({ title1, title2, text, color }) => {
   return (
     <Grid margin="auto">
       <Typography fontSize={h2} textTransform="uppercase" color={color}>
-        <span style={{ color: color || error.focus }}>{title1}</span> {title2}{" "}
+        <span style={{ color: color ?? error.focus }}>{title1}</span> {title2}{" "}
       </Typography>
       <Box mt={0.3}>
         <img src={TitleBottomImg} alt="titile divider" />
