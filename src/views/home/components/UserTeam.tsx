@@ -3,7 +3,7 @@ import Grid from "@mui/material/Grid";
 import colors from "../../../utils/theme/base/colors";
 import Container from "@mui/material/Container";
 
-import Title from "../../../components/Title";
+import Title from "../../../components/Title/Title";
 
 export const UserTeam: FC = () => {
   const { white2 } = colors;

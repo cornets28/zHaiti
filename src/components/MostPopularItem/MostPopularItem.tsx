@@ -1,4 +1,5 @@
 import { FC } from "react";
+import PropTypes from 'prop-types';
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import typography from "../../utils/theme/base/typography";
@@ -26,6 +27,13 @@ const MostPopularItem: FC<MostPopularItemType> = ({ image, title, views, onClick
       </Grid>
     </Grid>
   );
+};
+
+MostPopularItem.propTypes = {
+  image: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  views: PropTypes.number.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default MostPopularItem;

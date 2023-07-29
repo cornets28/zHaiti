@@ -1,14 +1,13 @@
 import { useState } from "react";
 import type { FC } from "react";
 import Grid from "@mui/material/Grid";
-import { PeopleSayType } from "../../../types/PeopleSayType";
 import colors from "../../../utils/theme/base/colors";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import typography from "../../../utils/theme/base/typography";
 import { usePeopleSayStyle } from "../styles/usePeopleSayStyle";
-import Title from "../../../components/Title";
+import Title from "../../../components/Title/Title";
 import HaitiFlagLogo from "../../../images/flagLogo.png";
 import user1 from "../../../images/user1.jpeg";
 import user2 from "../../../images/user2.avif";
@@ -116,7 +115,7 @@ const team = [
   },
 ];
 
-export const PeopleSay: FC<PeopleSayType> = () => {
+export const PeopleSay: FC = () => {
   const { white2, grey, warning } = colors;
   const { h6, h5 } = typography;
   const classes = usePeopleSayStyle();

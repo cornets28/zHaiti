@@ -58,6 +58,12 @@ const routes: RoutesTypes = [
   },
   {
     exact: true,
+    label: 'Aktyalite',
+    path: '/nouvèl',
+    component: lazy(() => import('../views/news/page/News'))
+},
+  {
+    exact: true,
     label: "Sa k ap pase",
     path: "/nouvèl",
     component: lazy(() => import("../views/articles/page/Articles")),

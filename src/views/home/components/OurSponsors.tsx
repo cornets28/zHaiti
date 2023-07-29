@@ -2,7 +2,7 @@ import type { FC } from "react";
 import Grid from "@mui/material/Grid";
 import colors from "../../../utils/theme/base/colors";
 import Container from "@mui/material/Container";
-import Title from "../../../components/Title";
+import Title from "../../../components/Title/Title";
 import Sponsor from "../components/Sponsor";
 import DigicelLogo from "../../../images/digicelLogo.png";
 

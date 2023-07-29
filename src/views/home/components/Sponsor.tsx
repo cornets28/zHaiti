@@ -1,4 +1,5 @@
 import type { FC } from "react";
+import PropTypes  from "prop-types";
 import colors from "../../../utils/theme/base/colors";
 import Card from "@mui/material/Card";
 import Box from "@mui/material/Box";
@@ -26,6 +27,11 @@ const Sponsors: FC<SponsorType> = ({ image, link }) => {
       </Card>
     </Box>
   );
+};
+
+Sponsors.propTypes = {
+  image: PropTypes.string.isRequired,
+  link: PropTypes.string.isRequired,
 };
 
 export default Sponsors;
