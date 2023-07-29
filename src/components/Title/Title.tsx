@@ -34,7 +34,7 @@ Title.propTypes = {
   title1: PropTypes.string.isRequired,
   title2: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
-  color: PropTypes.string.isRequired,
+  color: PropTypes.string,
 };
 
 export default Title;
