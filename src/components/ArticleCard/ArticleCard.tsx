@@ -1,5 +1,5 @@
 import type { FC } from "react";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import Grid from "@mui/material/Grid";
 import colors from "../../utils/theme/base/colors";
 import Card from "@mui/material/Card";
@@ -19,7 +19,9 @@ import { ArticleCardType } from "../../types/ArticleCardType";
 import Box from "@mui/material/Box";
 import { EditSvgIdcon } from "../../images/svg/EditSvgIcon";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
+import LightTooltip from '../Tooltip/Tooltip';
+
 
 const ArticleCard: FC<ArticleCardType> = ({
   title,
@@ -29,12 +31,13 @@ const ArticleCard: FC<ArticleCardType> = ({
   like,
   reply,
   image,
+  tooltipTitle
 }) => {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
   const classes = useArticleCardStyle();
   const { white2, grey, error } = colors;
   const { h6, size } = typography;
-  const isWindowSizeMin1058 = useMediaQuery<any>('(min-width:1018px)');
+  const isWindowSizeMin1058 = useMediaQuery<any>("(min-width:1018px)");
 
   return (
     <Card
@@ -99,7 +102,11 @@ const ArticleCard: FC<ArticleCardType> = ({
       </Grid>
       <CardContent>
         <Typography gutterBottom fontSize={h6} textAlign="left" component="div">
-          {title.length > 30 ? (!isWindowSizeMin1058 ? title.substring(0, 19) : title.substring(0, 30)) + "..." : title}
+          {title.length > 30
+            ? (!isWindowSizeMin1058
+                ? title.substring(0, 19)
+                : title.substring(0, 30)) + "..."
+            : title}
         </Typography>
         <Typography variant="body2" color="text.secondary" textAlign="left">
           {body.substring(0, 166)}...
@@ -116,15 +123,17 @@ const ArticleCard: FC<ArticleCardType> = ({
           py: 0,
         }}
       >
-        <Box
-          color={error.focus}
-          width={20}
-          height={20}
-          ml={1}
-          onClick={() => alert("yesss")}
-        >
-          <EditSvgIdcon />
-        </Box>
+        <LightTooltip title={t(tooltipTitle)} placement="right-end">
+          <Box
+            color={error.focus}
+            width={20}
+            height={20}
+            ml={1}
+            onClick={() => alert("yesss")}
+          >
+            <EditSvgIdcon />
+          </Box>
+        </LightTooltip>
         <Button
           size="small"
           style={{

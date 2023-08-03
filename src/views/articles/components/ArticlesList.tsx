@@ -196,6 +196,7 @@ const ArticlesList: FC = () => {
                   reply={article.reply}
                   like={article.like}
                   image={article.photo}
+                  tooltipTitle="Modifye Atik sa"
                 />
               </Grid>
             ))}

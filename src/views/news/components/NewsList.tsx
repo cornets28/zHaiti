@@ -234,6 +234,7 @@ const NewsList = () => {
                   reply={article.reply}
                   like={article.like}
                   image={article.photo}
+                  tooltipTitle="Modifye nouvèl sa"
                 />
               </Grid>
             ))}

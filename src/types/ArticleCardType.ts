@@ -6,4 +6,5 @@ export type ArticleCardType = {
     like: number,
     reply: number,
     image: string
+    tooltipTitle: string;
 }
