@@ -1,3 +1,4 @@
+import React from "react";
 import type { FC } from "react";
 import Grid from "@mui/material/Grid";
 import colors from "../../../utils/theme/base/colors";
@@ -11,6 +12,10 @@ import MostPopularItem from "../../../components/MostPopularItem/MostPopularItem
 import { useTranslation } from "react-i18next";
 import Pub from "../../../components/Pub/Pub";
 import Pagination from "../../../components/Pagination/Pagination";
+import Box from "@mui/material/Box";
+import MoreNews from "./MoreNews";
+import { bgcolor } from "@mui/system";
+
 
 const temporaryArticles = [
   {
@@ -137,12 +142,12 @@ const temporaryArticles = [
   },
 ];
 
-const ArticlesList: FC = () => {
+const NewsList = () => {
   const { t } = useTranslation();
   const { white2 } = colors;
   const isWindowSizeMin1513 = useMediaQuery<any>("(min-width:1513px)");
   const isWindowSizeMin1262 = useMediaQuery<any>("(min-width:1262px)");
-  const { h6 } = typography;
+  const { h6, h4 } = typography;
 
   return (
     <Grid
@@ -155,14 +160,6 @@ const ArticlesList: FC = () => {
       bgcolor={white2}
       textAlign="center"
     >
-      <Grid container item py={6}>
-        <Title
-          text="We create events aiming to pear to the voice for children and gather for support. Please update with our events and confirm you presence."
-          title1="Tout"
-          title2="Atik yo"
-        />
-      </Grid>
-
       <Grid
         container
         mb={15}
@@ -176,6 +173,47 @@ const ArticlesList: FC = () => {
           px: { sm: 0, md: 4, lg: 5 },
         }}
       >
+        <Grid container item xs={12} sm={12} md={12} lg={12} px={2} mb={6}>
+          <Grid item xs={12} sm={12} md={18} lg={12}>
+            <Typography
+              fontSize={h4}
+              textTransform="uppercase"
+              textAlign="center"
+              pt={4}
+              // bgcolor={"red"}
+            >
+              {new Date().toLocaleDateString("en-us", {
+                weekday: "long",
+                year: "numeric",
+                month: "short",
+                day: "numeric",
+              })}
+            </Typography>
+          </Grid>
+
+          <Grid container item xs={12} sm={12} md={12} lg={12}>
+            <Grid item xs={12} sm={12} md={6} lg={6}>
+              <Box
+                component="img"
+                height={26}
+                width={26}
+                sx={{
+                  height: { xs: "30vh", sm: "40vh", md: "45vh", lg: "55vh"},
+                  width: "100%",
+                  marginTop: 2,
+                }}
+                alt={"sasa"}
+                src={Cow}
+              />
+            </Grid>
+
+           <MoreNews>
+            dsxcds
+           </MoreNews>
+          </Grid>
+
+        </Grid>
+
         <Grid container item xs={12} sm={9} md={8} lg={9}>
           {temporaryArticles &&
             temporaryArticles.map((article, index) => (
@@ -209,7 +247,11 @@ const ArticlesList: FC = () => {
           sm={3}
           md={4}
           lg={3}
-          sx={{ px: { xs: 3, sm: 4, md: 3 } }}
+          sx={{
+            px: { xs: 3, sm: 4, md: 3 },
+            overflowY: "scroll",
+            height: "100vh",
+          }}
         >
           <Typography
             fontSize={h6}
@@ -239,4 +281,4 @@ const ArticlesList: FC = () => {
   );
 };
 
-export default ArticlesList;
+export default NewsList;

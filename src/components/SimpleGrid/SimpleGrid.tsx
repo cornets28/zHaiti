@@ -9,7 +9,7 @@ const SimpleGrid: FC<SimpleGridType> = ({ children }) => (
 );
 
 SimpleGrid.propTypes = {
-  children: PropTypes.string.isRequired
+  children: PropTypes.node.isRequired
 };
 
 export default SimpleGrid;
