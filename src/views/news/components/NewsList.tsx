@@ -279,8 +279,6 @@ const NewsList: FC = () => {
           lg={3}
           sx={{
             px: { xs: 3, sm: 4, md: 3 },
-            overflowY: "scroll",
-            height: "100vh",
           }}
         >
           <Typography
@@ -292,18 +290,29 @@ const NewsList: FC = () => {
           >
             {t("Atik Ki Pi Popilè Yo")}
           </Typography>
-
-          {temporaryArticles &&
-            temporaryArticles.map((article, index) => (
-              <MostPopularItem
-                image={article.photo}
-                title={article.title}
-                views={article.views}
-                onClick={() => alert("Coming soon")}
-                key={index}
-              />
-            ))}
-
+          <Grid
+            container
+            item
+            xs={12}
+            sm={12}
+            md={12}
+            lg={12}
+            sx={{
+              overflowY: "scroll",
+              height: "65vh",
+            }}
+          >
+            {temporaryArticles &&
+              temporaryArticles.map((article, index) => (
+                <MostPopularItem
+                  image={article.photo}
+                  title={article.title}
+                  views={article.views}
+                  onClick={() => alert("Coming soon")}
+                  key={index}
+                />
+              ))}
+          </Grid>
           <Pub />
         </Grid>
       </Grid>
