@@ -7,4 +7,5 @@ export type ArticleCardType = {
     reply: number,
     image: string
     tooltipTitle: string;
+    isNews?: boolean;
 }

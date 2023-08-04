@@ -8,8 +8,16 @@ export const useArticleCardStyle = makeStyles(() => ({
         position: "absolute",
         marginTop: -190,
         width: 130,
-        borderTop: `30px solid ${error.main}`,
         borderRight: "20px solid transparent",
         paddingTop: -80,
     },
+
+    badgeColorRed: {
+        borderTop: `30px solid ${error.focus}`,
+    },
+
+    badgeColorOrange: {
+        borderTop: `30px solid ${error.main}`,
+    }
+   
 }));

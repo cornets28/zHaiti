@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
 
-export type MoreNewsType = {
+export type MoreNewsContainerType = {
     children: NonNullable<ReactNode>;
 }

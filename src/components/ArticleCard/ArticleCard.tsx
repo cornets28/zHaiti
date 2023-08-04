@@ -20,8 +20,7 @@ import Box from "@mui/material/Box";
 import { EditSvgIdcon } from "../../images/svg/EditSvgIcon";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTranslation } from "react-i18next";
-import LightTooltip from '../Tooltip/Tooltip';
-
+import LightTooltip from "../Tooltip/Tooltip";
 
 const ArticleCard: FC<ArticleCardType> = ({
   title,
@@ -31,7 +30,8 @@ const ArticleCard: FC<ArticleCardType> = ({
   like,
   reply,
   image,
-  tooltipTitle
+  tooltipTitle,
+  isNews,
 }) => {
   const { t } = useTranslation();
   const classes = useArticleCardStyle();
@@ -47,13 +47,21 @@ const ArticleCard: FC<ArticleCardType> = ({
         boxShadow: 0,
         border: `1px solid ${grey["300"]}`,
         cursor: "pointer",
+        bgcolor: isNews ? grey["200"] : white2.main,
         "&:hover": {
           boxShadow: 10,
         },
       }}
     >
       <CardMedia sx={{ height: 190 }} image={image} title={title} />
-      <Grid className={classes.cardTicket}>
+
+      <Grid
+        // @ts-ignore
+        className={[
+          classes.cardTicket,
+          isNews ? classes.badgeColorRed : classes.badgeColorOrange,
+        ]}
+      >
         <Typography
           fontSize={h6}
           color={white2.main}
@@ -86,7 +94,6 @@ const ArticleCard: FC<ArticleCardType> = ({
               {like}
             </Typography>
           </Grid>
-          |
           <Grid display="flex" pl={1}>
             <img
               src={reply === 0 ? GrayInteraction : OrangeInteraction}
