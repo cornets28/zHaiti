@@ -1,8 +1,6 @@
-import React from "react";
 import type { FC } from "react";
 import Grid from "@mui/material/Grid";
 import colors from "../../../utils/theme/base/colors";
-import Title from "../../../components/Title/Title";
 import Cow from "../../../images/boys.webp";
 import ArticleCard from "../../../components/ArticleCard/ArticleCard";
 import useMediaQuery from "@mui/material/useMediaQuery";
@@ -13,9 +11,8 @@ import { useTranslation } from "react-i18next";
 import Pub from "../../../components/Pub/Pub";
 import Pagination from "../../../components/Pagination/Pagination";
 import Box from "@mui/material/Box";
-import MoreNews from "./MoreNews";
-import { bgcolor } from "@mui/system";
-
+import MoreNewsContainerType from "./MoreNewsContainer";
+import Image from "./Image";
 
 const temporaryArticles = [
   {
@@ -142,7 +139,31 @@ const temporaryArticles = [
   },
 ];
 
-const NewsList = () => {
+const itemData = [
+  {
+    img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
+    title: "Scroll down and write down the ones that do makes sense.",
+    author: "Daniel Booster",
+    featured: true,
+  },
+  {
+    img: "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
+    title: "Tweak them a little so they are grammatically correct.",
+    author: "Paul Looman",
+  },
+  {
+    img: "https://images.unsplash.com/photo-1522770179533-24471fcdba45",
+    title: "Research the competition and see what are they up to.",
+    author: "Nelly Clown",
+  },
+  {
+    img: "https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c",
+    title: "Research the competition and see what are they up to.",
+    author: "Frenge Ben",
+  },
+];
+
+const NewsList: FC = () => {
   const { t } = useTranslation();
   const { white2 } = colors;
   const isWindowSizeMin1513 = useMediaQuery<any>("(min-width:1513px)");
@@ -180,7 +201,6 @@ const NewsList = () => {
               textTransform="uppercase"
               textAlign="center"
               pt={4}
-              // bgcolor={"red"}
             >
               {new Date().toLocaleDateString("en-us", {
                 weekday: "long",
@@ -198,20 +218,28 @@ const NewsList = () => {
                 height={26}
                 width={26}
                 sx={{
-                  height: { xs: "30vh", sm: "40vh", md: "45vh", lg: "55vh"},
+                  height: { xs: "30vh", sm: "40vh", md: "45vh", lg: "55vh" },
                   width: "100%",
                   marginTop: 2,
                 }}
-                alt={"sasa"}
+                alt="Main picture"
                 src={Cow}
               />
             </Grid>
 
-           <MoreNews>
-            dsxcds
-           </MoreNews>
+            <MoreNewsContainerType>
+              {itemData.map((item) => (
+                <Image
+                  image={item.img}
+                  alt={item.title}
+                  key={item.img}
+                  title={item.title}
+                  author={item.author}
+                  onClick={() => alert("welllll....")}
+                />
+              ))}
+            </MoreNewsContainerType>
           </Grid>
-
         </Grid>
 
         <Grid container item xs={12} sm={9} md={8} lg={9}>
@@ -234,6 +262,8 @@ const NewsList = () => {
                   reply={article.reply}
                   like={article.like}
                   image={article.photo}
+                  tooltipTitle="Modifye nouvèl sa"
+                  isNews={true}
                 />
               </Grid>
             ))}
@@ -249,8 +279,6 @@ const NewsList = () => {
           lg={3}
           sx={{
             px: { xs: 3, sm: 4, md: 3 },
-            overflowY: "scroll",
-            height: "100vh",
           }}
         >
           <Typography
@@ -262,18 +290,29 @@ const NewsList = () => {
           >
             {t("Atik Ki Pi Popilè Yo")}
           </Typography>
-
-          {temporaryArticles &&
-            temporaryArticles.map((article, index) => (
-              <MostPopularItem
-                image={article.photo}
-                title={article.title}
-                views={article.views}
-                onClick={() => alert("Coming soon")}
-                key={index}
-              />
-            ))}
-
+          <Grid
+            container
+            item
+            xs={12}
+            sm={12}
+            md={12}
+            lg={12}
+            sx={{
+              overflowY: "scroll",
+              height: "65vh",
+            }}
+          >
+            {temporaryArticles &&
+              temporaryArticles.map((article, index) => (
+                <MostPopularItem
+                  image={article.photo}
+                  title={article.title}
+                  views={article.views}
+                  onClick={() => alert("Coming soon")}
+                  key={index}
+                />
+              ))}
+          </Grid>
           <Pub />
         </Grid>
       </Grid>
