@@ -196,6 +196,7 @@ const ArticlesList: FC = () => {
                   reply={article.reply}
                   like={article.like}
                   image={article.photo}
+                  tooltipTitle="Modifye Atik sa"
                 />
               </Grid>
             ))}
@@ -209,7 +210,9 @@ const ArticlesList: FC = () => {
           sm={3}
           md={4}
           lg={3}
-          sx={{ px: { xs: 3, sm: 4, md: 3 } }}
+          sx={{
+            px: { xs: 3, sm: 4, md: 3 },
+          }}
         >
           <Typography
             fontSize={h6}
@@ -220,18 +223,29 @@ const ArticlesList: FC = () => {
           >
             {t("Atik Ki Pi Popilè Yo")}
           </Typography>
-
-          {temporaryArticles &&
-            temporaryArticles.map((article, index) => (
-              <MostPopularItem
-                image={article.photo}
-                title={article.title}
-                views={article.views}
-                onClick={() => alert("Coming soon")}
-                key={index}
-              />
-            ))}
-
+          <Grid
+            container
+            item
+            xs={12}
+            sm={12}
+            md={12}
+            lg={12}
+            sx={{
+              overflowY: "scroll",
+              height: "65vh",
+            }}
+          >
+            {temporaryArticles &&
+              temporaryArticles.map((article, index) => (
+                <MostPopularItem
+                  image={article.photo}
+                  title={article.title}
+                  views={article.views}
+                  onClick={() => alert("Coming soon")}
+                  key={index}
+                />
+              ))}
+          </Grid>
           <Pub />
         </Grid>
       </Grid>
