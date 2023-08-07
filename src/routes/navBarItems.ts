@@ -30,12 +30,12 @@ export const navBatItems: NavItemsTypes = [
         path: '/nouvèl',
         component: lazy(() => import('../views/news/page/News'))
     },
-    {
-        exact: true,
-        label: 'Chanèl',
-        path: '/chanèl',
-        component: lazy(() => import('../views/channels/page/Channels'))
-    },
+    // {
+    //     exact: true,
+    //     label: 'Chanèl',
+    //     path: '/chanèl',
+    //     component: lazy(() => import('../views/channels/page/Channels'))
+    // },
     {
         exact: true,
         label: 'Kontakte Nou',

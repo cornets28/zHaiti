@@ -197,6 +197,7 @@ const ArticlesList: FC = () => {
                   like={article.like}
                   image={article.photo}
                   tooltipTitle="Modifye Atik sa"
+                  url={`/atik-yo/${article.id}`}
                 />
               </Grid>
             ))}

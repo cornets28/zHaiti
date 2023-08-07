@@ -6,7 +6,7 @@ import type { LazyExoticComponent } from "react";
 import Navbar from "../components/Layout/Navbar/Navbar";
 import Footer from "../components/Layout/Footer/Footer";
 import SignIn from "../views/signIn/page/SignIn";
-import { Grid } from "@mui/material";
+import Grid from "@mui/material/Grid";
 
 type RoutesTypes = {
   exact?: boolean;
@@ -58,10 +58,16 @@ const routes: RoutesTypes = [
   },
   {
     exact: true,
-    label: 'Aktyalite',
-    path: '/nouvèl',
-    component: lazy(() => import('../views/news/page/News'))
-},
+    label: "Aktyalite",
+    path: "/nouvèl",
+    component: lazy(() => import("../views/news/page/News")),
+  },
+  {
+    exact: true,
+    label: "Atik",
+    path: "/atik/1",
+    component: lazy(() => import("../views/article/page/Article")),
+  },
   {
     exact: true,
     label: "Sa k ap pase",
@@ -79,6 +85,12 @@ const routes: RoutesTypes = [
     label: "Chanèl",
     path: "/chanèl",
     component: lazy(() => import("../views/channels/page/Channels")),
+  },
+  {
+    exact: true,
+    label: "Atik",
+    path: "/Atik-yo/:id",
+    component: lazy(() => import("../views/article/page/Article")),
   },
 
   {

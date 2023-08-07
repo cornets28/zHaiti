@@ -54,10 +54,10 @@ export const useNavbarStyles = makeStyles(() => ({
 
   tab: {
     [theme.breakpoints.down(985)]: {
-      backgroundColor: `${orange.main} !important`,
+      // backgroundColor: `${orange.main} !important`,
     },
     [theme.breakpoints.down(961)]: {
-      backgroundColor: `${orange.main} !important`,
+      // backgroundColor: `${orange.main} !important`,
       fontSize: 12.5
     },
 
