@@ -8,4 +8,5 @@ export type ArticleCardType = {
     image: string
     tooltipTitle: string;
     isNews?: boolean;
+    url: string;
 }

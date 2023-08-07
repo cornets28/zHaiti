@@ -87,6 +87,20 @@ const temporaryArticles = [
   },
 ];
 
+const temporaryArticle = 
+  {
+    id: 1,
+    title: "The Buy By the Sea yes for the first time",
+    body: "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
+    writer: "Sam Puffy Bark",
+    date: "Jully 5, 2023",
+    photo: Cow,
+    reply: 4,
+    like: 0,
+    views: 435,
+    channel: "Politik",
+  };
+
 const LatestArticles: FC = () => {
   const { t } = useTranslation();
   const { white2 } = colors;
@@ -132,6 +146,7 @@ const LatestArticles: FC = () => {
                   like={article.like}
                   image={article.photo}
                   tooltipTitle="Modifye nouvèl sa"
+                  url={`/atik-yo/${article.id}`}
                 />
               </Grid>
             ))}
