@@ -171,6 +171,7 @@ const SingleArticle: FC = () => {
       lg={12}
       bgcolor={white2}
       textAlign="center"
+      key={id}
     >
       <Grid
         container
