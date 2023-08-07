@@ -21,6 +21,7 @@ import { EditSvgIdcon } from "../../images/svg/EditSvgIcon";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTranslation } from "react-i18next";
 import LightTooltip from "../Tooltip/Tooltip";
+import { Link } from "react-router-dom";
 
 const ArticleCard: FC<ArticleCardType> = ({
   title,
@@ -32,6 +33,7 @@ const ArticleCard: FC<ArticleCardType> = ({
   image,
   tooltipTitle,
   isNews,
+  url,
 }) => {
   const { t } = useTranslation();
   const classes = useArticleCardStyle();
@@ -127,7 +129,7 @@ const ArticleCard: FC<ArticleCardType> = ({
           display: "flex",
           justifyContent: "space-between",
           alignItems: "flex-start",
-          py: 0,
+          pb: 1,
         }}
       >
         <LightTooltip title={t(tooltipTitle)} placement="right-end">
@@ -141,19 +143,21 @@ const ArticleCard: FC<ArticleCardType> = ({
             <EditSvgIdcon />
           </Box>
         </LightTooltip>
-        <Button
-          size="small"
+
+        <Link
+          to={url}
           style={{
-            textTransform: "none",
+            textDecoration: "none",
             color: grey["900"],
+            textAlign: "right",
+            textTransform: "none",
             fontSize: 12,
             paddingRight: 15,
             marginBottom: 7,
           }}
-          onClick={() => alert("I was clicked!")}
         >
           {t("Plis Detay")}
-        </Button>
+        </Link>
       </CardActions>
     </Card>
   );
