@@ -1,18 +1,18 @@
-import type { FC } from "react";
+import React, { FC } from "react";
+import PropTypes from "prop-types";
 import Grid from "@mui/material/Grid";
-import colors from "../../../utils/theme/base/colors";
-import Cow from "../../../images/boys.webp";
-import ArticleCard from "../../../components/ArticleCard/ArticleCard";
+import Box from "@mui/material/Box";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Typography from "@mui/material/Typography";
+import colors from "../../../utils/theme/base/colors";
 import typography from "../../../utils/theme/base/typography";
 import MostPopularItem from "../../../components/MostPopularItem/MostPopularItem";
 import { useTranslation } from "react-i18next";
 import Pub from "../../../components/Pub/Pub";
-import Pagination from "../../../components/Pagination/Pagination";
-import Box from "@mui/material/Box";
-import MoreNewsContainerType from "./MoreNewsContainer";
-import Image from "./Image";
+import LightTooltip from "../../../components/Tooltip/Tooltip";
+import { ShareSvgIcon } from "../../../images/svg/ShareSvgIcon";
+import Cow from "../../../images/JamieFox.webp";
+import { useParams } from 'react-router-dom';
 
 const temporaryArticles = [
   {
@@ -139,36 +139,27 @@ const temporaryArticles = [
   },
 ];
 
-const itemData = [
+const temporaryArticle = 
   {
-    img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
-    title: "Scroll down and write down the ones that do makes sense.",
-    author: "Daniel Booster",
-    featured: true,
-  },
-  {
-    img: "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
-    title: "Tweak them a little so they are grammatically correct.",
-    author: "Paul Looman",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1522770179533-24471fcdba45",
-    title: "Research the competition and see what are they up to.",
-    author: "Nelly Clown",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c",
-    title: "Research the competition and see what are they up to.",
-    author: "Frenge Ben",
-  },
-];
+    id: 1,
+    title: "The Buy By the Sea yes for the first time",
+    body: "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
+    writer: "Sam Puffy Bark",
+    date: "Jully 5, 2023",
+    photo: Cow,
+    reply: 4,
+    like: 0,
+    views: 435,
+    channel: "Politik",
+  };
 
-const NewsList: FC = () => {
-  const { t } = useTranslation();
-  const { white2 } = colors;
+const SingleArticle: FC = () => {
+  const { white2, blue, grey } = colors;
   const isWindowSizeMin1513 = useMediaQuery<any>("(min-width:1513px)");
   const isWindowSizeMin1262 = useMediaQuery<any>("(min-width:1262px)");
-  const { h6, h4 } = typography;
+  const { h6, h5, h3 } = typography;
+  const { t } = useTranslation();
+  const { id } = useParams();
 
   return (
     <Grid
@@ -184,6 +175,7 @@ const NewsList: FC = () => {
       <Grid
         container
         mb={15}
+        mt={10}
         sx={{
           width: {
             sm: "100%",
@@ -194,88 +186,156 @@ const NewsList: FC = () => {
           px: { sm: 0, md: 4, lg: 5 },
         }}
       >
-        <Grid container item xs={12} sm={12} md={12} lg={12} px={2} mb={6}>
-          <Grid item xs={12} sm={12} md={18} lg={12}>
-            <Typography
-              fontSize={h4}
-              textTransform="uppercase"
-              textAlign="center"
-              pt={4}
-            >
-              {new Date().toLocaleDateString("en-us", {
-                weekday: "long",
-                year: "numeric",
-                month: "short",
-                day: "numeric",
-              })}
-            </Typography>
-          </Grid>
-
-          <Grid container item xs={12} sm={12} md={12} lg={12}>
-            <Grid item xs={12} sm={12} md={6} lg={6}>
-              <Box
-                component="img"
-                height={26}
-                width={26}
-                sx={{
-                  height: { xs: "30vh", sm: "40vh", md: "45vh", lg: "55vh" },
-                  width: "100%",
-                  marginTop: 2,
-                }}
-                alt="Main picture"
-                src={Cow}
-              />
+        <Grid container item xs={12} sm={12} md={8} lg={9}>
+          <Grid
+            sx={{
+              width: {
+                sm: "100%",
+                md: "100%",
+                lg: isWindowSizeMin1513 ? "82%" : "80%",
+              },
+              mx: { xs: 2, sm: 5, md: 5, lg: "auto" },
+            }}
+          >
+            <Grid item xs={12} sm={12} md={18} lg={12}>
+              <Typography
+                fontSize={h3}
+                textTransform="capitalize"
+                textAlign="center"
+              >
+                When activated, Tooltips display a text label identifying an
+                element, such as a description of its function.
+              </Typography>
+            </Grid>
+            <Grid item xs={12} sm={12} md={18} lg={12}>
+              <Typography
+                fontSize={h5}
+                textTransform="uppercase"
+                textAlign="right"
+                mb={-4}
+              >
+                <span style={{ color: blue.main, fontWeight: "bold" }}>
+                  {" "}
+                  |{" "}
+                </span>
+               {temporaryArticle.channel}
+              </Typography>
+            </Grid>
+            <Grid container textAlign="left">
+              <Grid item xs={2} sm={2} md={2} lg={2} pt={2.5}>
+                <LightTooltip title={t("Pataje atik sa")} placement="right-end">
+                  <Box width={25} height={1} sx={{ cursor: "pointer" }}>
+                    <ShareSvgIcon />
+                  </Box>
+                </LightTooltip>
+              </Grid>
+              <Grid item xs={10} sm={10} md={10} lg={10}>
+                <Typography
+                  fontSize={h6}
+                  textTransform="uppercase"
+                  textAlign="right"
+                  pt={4}
+                  color={grey["500"]}
+                >
+                  {new Date().toLocaleDateString("en-us", {
+                    weekday: "long",
+                    year: "numeric",
+                    month: "short",
+                    day: "numeric",
+                  })}
+                </Typography>
+              </Grid>
             </Grid>
 
-            <MoreNewsContainerType>
-              {itemData.map((item) => (
-                <Image
-                  image={item.img}
-                  alt={item.title}
-                  key={item.img}
-                  title={item.title}
-                  author={item.author}
-                  onClick={() => alert("welllll....")}
-                />
-              ))}
-            </MoreNewsContainerType>
-          </Grid>
-        </Grid>
-
-        <Grid container item xs={12} sm={9} md={8} lg={9}>
-          {temporaryArticles &&
-            temporaryArticles.map((article, index) => (
-              <Grid
-                item
-                xs={12}
-                sm={6}
-                md={isWindowSizeMin1262 ? 4 : 6}
-                padding={2}
-                marginX="auto"
-                key={index}
+            <Box
+              component="img"
+              height={26}
+              width={26}
+              sx={{
+                height: { xs: "40vh", sm: "40vh", md: "45vh", lg: "55vh" },
+                width: "100%",
+                marginTop: 2,
+              }}
+              alt="Main picture"
+              src={Cow}
+            />
+            <Grid container item xs={12} sm={12} md={12} lg={12}>
+              <Typography
+                fontSize={h6}
+                textTransform="capitalize"
+                textAlign="right"
+                // pt={4}
+                color={grey["500"]}
               >
-                <ArticleCard
-                  title={article.title}
-                  channel={t(article.channel)}
-                  writer={article.writer}
-                  body={article.body}
-                  reply={article.reply}
-                  like={article.like}
-                  image={article.photo}
-                  tooltipTitle="Modifye nouvèl sa"
-                  isNews={true}
-                  url={`/atik-yo/${article.id}`}
-                />
-              </Grid>
-            ))}
+                <span style={{ color: blue.main, fontWeight: "bold" }}>
+                  {" "}
+                  |{" "}
+                </span>
+                Oprah Winfrey is one of America's most famous TV personalities
+              </Typography>
 
-          <Pagination />
+              <Grid item xs={12} sm={20} md={12} lg={9}>
+                <Typography
+                  fontSize={h6}
+                  textTransform="capitalize"
+                  textAlign="left"
+                  pt={4}
+                >
+                  Jamie Foxx has revealed an intervention from US talk show
+                  queen Oprah Winfrey helped him get his life back on track.{" "}
+                  <br /> <br />
+                  The actor told DJ Howard Stern that Winfrey had rebuked his
+                  "gallivanting" and had told him he was "blowing it". <br />{" "}
+                  <br />
+                  Winfrey, Foxx went on, also arranged a meeting with Sidney
+                  Poitier "to make me understand the significance" of being
+                  nominated for an Academy Award. <br /> <br />
+                  The meeting took place one week before the 2005 Oscars, where
+                  Foxx won best actor for playing Ray Charles in Ray. <br />{" "}
+                  <br />
+                  Foxx, who was also nominated that year for the best supporting
+                  actor Oscar, went on to star in Quentin Tarantino's western
+                  Django Unchained. <br /> <br />
+                  "You know me, I was going hard," the 49-year-old told Stern
+                  this week during an appearance on the latter's radio show.
+                  "I'm having such a good time, and I'm not knowing I'm
+                  [expletive] up. I'm drinking, I'm doing every [expletive]
+                  thing you can possibly imagine." "That's not what you want to
+                  do," Foxx recalled Winfrey telling him in an unexpected phone
+                  call. "I want to take you somewhere." This led to a visit to
+                  Quincy Jones's house, where he was told by the legendary
+                  producer: "You're doing good, man, we just don't want you to
+                  blow it, baby."
+
+                  Winfrey, Foxx went on, also arranged a meeting with Sidney
+                  Poitier "to make me understand the significance" of being
+                  nominated for an Academy Award. <br /> <br />
+                  The meeting took place one week before the 2005 Oscars, where
+                  Foxx won best actor for playing Ray Charles in Ray. <br />{" "}
+                  <br />
+                  Foxx, who was also nominated that year for the best supporting
+                  actor Oscar, went on to star in Quentin Tarantino's western
+                  Django Unchained. <br /> <br />
+                  "You know me, I was going hard," the 49-year-old told Stern
+                  this week during an appearance on the latter's radio show.
+                  "I'm having such a good time, and I'm not knowing I'm
+                  [expletive] up. I'm drinking, I'm doing every [expletive]
+                  thing you can possibly imagine." "That's not what you want to
+                  do," Foxx recalled Winfrey telling him in an unexpected phone
+                  call. "I want to take you somewhere." This led to a visit to
+                  Quincy Jones's house, where he was told by the legendary
+                  producer: "You're doing good, man, we just don't want you to
+                  blow it, baby."
+                </Typography>
+              </Grid>
+            </Grid>
+          </Grid>
         </Grid>
 
         <Grid
           item
           xs={12}
-          sm={3}
+          sm={6}
           md={4}
           lg={3}
           sx={{
@@ -321,4 +381,6 @@ const NewsList: FC = () => {
   );
 };
 
-export default NewsList;
+SingleArticle.propTypes = {};
+
+export default SingleArticle;
