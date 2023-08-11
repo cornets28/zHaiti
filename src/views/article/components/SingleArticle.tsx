@@ -1,5 +1,4 @@
-import React, { FC } from "react";
-import PropTypes from "prop-types";
+import { FC } from "react";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import useMediaQuery from "@mui/material/useMediaQuery";
@@ -12,7 +11,11 @@ import Pub from "../../../components/Pub/Pub";
 import LightTooltip from "../../../components/Tooltip/Tooltip";
 import { ShareSvgIcon } from "../../../images/svg/ShareSvgIcon";
 import Cow from "../../../images/JamieFox.webp";
-import { useParams } from 'react-router-dom';
+import { useParams } from "react-router-dom";
+import SpanHeader from "../components/SpanHeader";
+import ArticleTitle from "../components/ArticleTitle";
+import PublishDate from "../components/PublishDate";
+import ArticleBody from "./ArticleBody";
 
 const temporaryArticles = [
   {
@@ -139,19 +142,18 @@ const temporaryArticles = [
   },
 ];
 
-const temporaryArticle = 
-  {
-    id: 1,
-    title: "The Buy By the Sea yes for the first time",
-    body: "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
-    writer: "Sam Puffy Bark",
-    date: "Jully 5, 2023",
-    photo: Cow,
-    reply: 4,
-    like: 0,
-    views: 435,
-    channel: "Politik",
-  };
+const temporaryArticle = {
+  id: 1,
+  title: "The Buy By the Sea yes for the first time",
+  body: "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
+  writer: "Sam Puffy Bark",
+  date: "Jully 5, 2023",
+  photo: Cow,
+  reply: 4,
+  like: 0,
+  views: 435,
+  channel: "Politik",
+};
 
 const SingleArticle: FC = () => {
   const { white2, blue, grey } = colors;
@@ -160,6 +162,12 @@ const SingleArticle: FC = () => {
   const { h6, h5, h3 } = typography;
   const { t } = useTranslation();
   const { id } = useParams();
+  const publishDate = new Date().toLocaleDateString("en-us", {
+    weekday: "long",
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
 
   return (
     <Grid
@@ -198,29 +206,18 @@ const SingleArticle: FC = () => {
               mx: { xs: 2, sm: 5, md: 5, lg: "auto" },
             }}
           >
+            <ArticleTitle
+              title="When activated, Tooltips display a text label identifying an
+                element, such as a description of its function."
+            />
             <Grid item xs={12} sm={12} md={18} lg={12}>
-              <Typography
-                fontSize={h3}
-                textTransform="capitalize"
-                textAlign="center"
-              >
-                When activated, Tooltips display a text label identifying an
-                element, such as a description of its function.
-              </Typography>
-            </Grid>
-            <Grid item xs={12} sm={12} md={18} lg={12}>
-              <Typography
-                fontSize={h5}
+              <SpanHeader
                 textTransform="uppercase"
-                textAlign="right"
+                fontSize={h5}
+                color={blue.main}
+                title={temporaryArticle.channel}
                 mb={-4}
-              >
-                <span style={{ color: blue.main, fontWeight: "bold" }}>
-                  {" "}
-                  |{" "}
-                </span>
-               {temporaryArticle.channel}
-              </Typography>
+              />
             </Grid>
             <Grid container textAlign="left">
               <Grid item xs={2} sm={2} md={2} lg={2} pt={2.5}>
@@ -231,20 +228,7 @@ const SingleArticle: FC = () => {
                 </LightTooltip>
               </Grid>
               <Grid item xs={10} sm={10} md={10} lg={10}>
-                <Typography
-                  fontSize={h6}
-                  textTransform="uppercase"
-                  textAlign="right"
-                  pt={4}
-                  color={grey["500"]}
-                >
-                  {new Date().toLocaleDateString("en-us", {
-                    weekday: "long",
-                    year: "numeric",
-                    month: "short",
-                    day: "numeric",
-                  })}
-                </Typography>
+                <PublishDate date={publishDate} />
               </Grid>
             </Grid>
 
@@ -260,75 +244,58 @@ const SingleArticle: FC = () => {
               alt="Main picture"
               src={Cow}
             />
+            <SpanHeader
+              textTransform="capitalize"
+              fontSize={h6}
+              color={blue.main}
+              textColor={grey["500"]}
+              title="Oprah Winfrey is one of America's most famous TV personalities"
+            />
             <Grid container item xs={12} sm={12} md={12} lg={12}>
-              <Typography
-                fontSize={h6}
-                textTransform="capitalize"
-                textAlign="right"
-                // pt={4}
-                color={grey["500"]}
-              >
-                <span style={{ color: blue.main, fontWeight: "bold" }}>
-                  {" "}
-                  |{" "}
-                </span>
-                Oprah Winfrey is one of America's most famous TV personalities
-              </Typography>
-
-              <Grid item xs={12} sm={20} md={12} lg={9}>
-                <Typography
-                  fontSize={h6}
-                  textTransform="capitalize"
-                  textAlign="left"
-                  pt={4}
-                >
-                  Jamie Foxx has revealed an intervention from US talk show
-                  queen Oprah Winfrey helped him get his life back on track.{" "}
-                  <br /> <br />
-                  The actor told DJ Howard Stern that Winfrey had rebuked his
-                  "gallivanting" and had told him he was "blowing it". <br />{" "}
-                  <br />
-                  Winfrey, Foxx went on, also arranged a meeting with Sidney
-                  Poitier "to make me understand the significance" of being
-                  nominated for an Academy Award. <br /> <br />
-                  The meeting took place one week before the 2005 Oscars, where
-                  Foxx won best actor for playing Ray Charles in Ray. <br />{" "}
-                  <br />
-                  Foxx, who was also nominated that year for the best supporting
-                  actor Oscar, went on to star in Quentin Tarantino's western
-                  Django Unchained. <br /> <br />
-                  "You know me, I was going hard," the 49-year-old told Stern
-                  this week during an appearance on the latter's radio show.
-                  "I'm having such a good time, and I'm not knowing I'm
-                  [expletive] up. I'm drinking, I'm doing every [expletive]
-                  thing you can possibly imagine." "That's not what you want to
-                  do," Foxx recalled Winfrey telling him in an unexpected phone
-                  call. "I want to take you somewhere." This led to a visit to
-                  Quincy Jones's house, where he was told by the legendary
-                  producer: "You're doing good, man, we just don't want you to
-                  blow it, baby."
-
-                  Winfrey, Foxx went on, also arranged a meeting with Sidney
-                  Poitier "to make me understand the significance" of being
-                  nominated for an Academy Award. <br /> <br />
-                  The meeting took place one week before the 2005 Oscars, where
-                  Foxx won best actor for playing Ray Charles in Ray. <br />{" "}
-                  <br />
-                  Foxx, who was also nominated that year for the best supporting
-                  actor Oscar, went on to star in Quentin Tarantino's western
-                  Django Unchained. <br /> <br />
-                  "You know me, I was going hard," the 49-year-old told Stern
-                  this week during an appearance on the latter's radio show.
-                  "I'm having such a good time, and I'm not knowing I'm
-                  [expletive] up. I'm drinking, I'm doing every [expletive]
-                  thing you can possibly imagine." "That's not what you want to
-                  do," Foxx recalled Winfrey telling him in an unexpected phone
-                  call. "I want to take you somewhere." This led to a visit to
-                  Quincy Jones's house, where he was told by the legendary
-                  producer: "You're doing good, man, we just don't want you to
-                  blow it, baby."
-                </Typography>
-              </Grid>
+              <ArticleBody>
+                Jamie Foxx has revealed an intervention from US talk show queen
+                Oprah Winfrey helped him get his life back on track. <br />{" "}
+                <br />
+                The actor told DJ Howard Stern that Winfrey had rebuked his
+                "gallivanting" and had told him he was "blowing it". <br />{" "}
+                <br />
+                Winfrey, Foxx went on, also arranged a meeting with Sidney
+                Poitier "to make me understand the significance" of being
+                nominated for an Academy Award. <br /> <br />
+                The meeting took place one week before the 2005 Oscars, where
+                Foxx won best actor for playing Ray Charles in Ray. <br />{" "}
+                <br />
+                Foxx, who was also nominated that year for the best supporting
+                actor Oscar, went on to star in Quentin Tarantino's western
+                Django Unchained. <br /> <br />
+                "You know me, I was going hard," the 49-year-old told Stern this
+                week during an appearance on the latter's radio show. "I'm
+                having such a good time, and I'm not knowing I'm [expletive] up.
+                I'm drinking, I'm doing every [expletive] thing you can possibly
+                imagine." "That's not what you want to do," Foxx recalled
+                Winfrey telling him in an unexpected phone call. "I want to take
+                you somewhere." This led to a visit to Quincy Jones's house,
+                where he was told by the legendary producer: "You're doing good,
+                man, we just don't want you to blow it, baby." Winfrey, Foxx
+                went on, also arranged a meeting with Sidney Poitier "to make me
+                understand the significance" of being nominated for an Academy
+                Award. <br /> <br />
+                The meeting took place one week before the 2005 Oscars, where
+                Foxx won best actor for playing Ray Charles in Ray. <br />{" "}
+                <br />
+                Foxx, who was also nominated that year for the best supporting
+                actor Oscar, went on to star in Quentin Tarantino's western
+                Django Unchained. <br /> <br />
+                "You know me, I was going hard," the 49-year-old told Stern this
+                week during an appearance on the latter's radio show. "I'm
+                having such a good time, and I'm not knowing I'm [expletive] up.
+                I'm drinking, I'm doing every [expletive] thing you can possibly
+                imagine." "That's not what you want to do," Foxx recalled
+                Winfrey telling him in an unexpected phone call. "I want to take
+                you somewhere." This led to a visit to Quincy Jones's house,
+                where he was told by the legendary producer: "You're doing good,
+                man, we just don't want you to blow it, baby."
+              </ArticleBody>
             </Grid>
           </Grid>
         </Grid>
@@ -381,7 +348,5 @@ const SingleArticle: FC = () => {
     </Grid>
   );
 };
-
-SingleArticle.propTypes = {};
 
 export default SingleArticle;
