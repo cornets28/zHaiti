@@ -2,7 +2,7 @@ import { FC } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import Grid from "@mui/material/Grid";
-import { CategoryLinkType } from "../../../../types/CategoryLinkType";
+import { CategoryLinkType } from "../../../../../types/CategoryLinkType";
 
 const CategoryLink: FC<CategoryLinkType> = ({ children, url }) => (
   <Grid
