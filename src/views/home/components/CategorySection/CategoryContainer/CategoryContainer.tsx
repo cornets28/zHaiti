@@ -1,8 +1,8 @@
 import { FC } from "react";
 import PropTypes from 'prop-types';
 import Card from "@mui/material/Card";
-import colors from "../../../../utils/theme/base/colors";
-import {CategoryContainerType} from '../../../../types/CategoryContainerType';
+import colors from "../../../../../utils/theme/base/colors";
+import {CategoryContainerType} from '../../../../../types/CategoryContainerType';
 
 
 const CategoryContainer: FC<CategoryContainerType> = ({ children, onMouseOver, onMouseOut }) => {
