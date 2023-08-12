@@ -1,9 +1,9 @@
 import { FC } from "react";
 import PropTypes from "prop-types";
 import Typography from "@mui/material/Typography";
-import colors from "../../../../utils/theme/base/colors";
-import typography from "../../../../utils/theme/base/typography";
-import { CategoryNameType } from "../../../../types/CategoryNameType";
+import colors from "../../../../../utils/theme/base/colors";
+import typography from "../../../../../utils/theme/base/typography";
+import { CategoryNameType } from "../../../../../types/CategoryNameType";
 
 const CategoryName: FC<CategoryNameType> = ({ category }) => {
   const { white2 } = colors;

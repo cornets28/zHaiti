@@ -1,8 +1,8 @@
 import { FC } from "react";
 import PropTypes from "prop-types";
 import Box from "@mui/material/Box";
-import colors from "../../../../utils/theme/base/colors";
-import { EditIconContainerType } from "../../../../types/EditIconContainerType";
+import colors from "../../../../../utils/theme/base/colors";
+import { EditIconContainerType } from "../../../../../types/EditIconContainerType";
 
 const EditIconContainer: FC<EditIconContainerType> = ({ children, onClick }) => {
   const { white2 } = colors;
