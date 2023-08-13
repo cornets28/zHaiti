@@ -1,8 +1,9 @@
 import type { FC } from "react";
 import Grid from "@mui/material/Grid";
-import HaitiBeach from "../../../images/haitibeach.jpeg";
-import { userHaitiImageStyle } from "../styles/userHaitiImageStyle";
+import HaitiBeach from "../../../../images/haitibeach.jpeg";
+import { userHaitiImageStyle } from "../../styles/userHaitiImageStyle";
 import { useTranslation } from "react-i18next";
+import Overlay from './OverLay/Overlay'
 
 const HaitiImage: FC = () => {
   const { t } = useTranslation();
@@ -14,14 +15,7 @@ const HaitiImage: FC = () => {
         src={HaitiBeach}
         alt="Haiti beach"
       />
-      <Grid
-        position="absolute"
-        top={0}
-        left={0}
-        width="100%"
-        height={"100%"}
-        bgcolor="rgba(0, 0, 0, 0.5)"
-      ></Grid>
+     <Overlay />
       <Grid className={classes.textOverlay}>
         <h1 className={classes.h1Tag}>{t("Yon Nasyon, Yon Peyi!")}</h1>
         <p>{t("Ayiti Toma, Peyi Twopikal, Kote Ki Plen Koze!")}</p>

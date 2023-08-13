@@ -1,12 +1,12 @@
 import type { FC } from "react";
 import Container from "@mui/material/Container";
-import Cow from "../../../images/boys.webp";
-import Category from "./Category";
-import { Grid } from "../../../components/Grid/Grid";
-import Title from "../../../components/Title/Title";
+import Cow from "../../../../images/boys.webp";
+import Category from "../CategorySection/Category";
+import { Grid } from "../../../../components/Grid/Grid";
+import Title from "../../../../components/Title/Title";
 import { useTranslation } from "react-i18next";
-import OurGoalContainer from "../components/OurGoalSection/OurGoalContainer";
-import CategoryWrapper from "../components/OurGoalSection/CategoryWrapper";
+import OurGoalContainer from "./OurGoalContainer/OurGoalContainer";
+import CategoryWrapper from "./CategoryWrapper/CategoryWrapper";
 
 const temporaryPublic = [
   {

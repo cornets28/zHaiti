@@ -1,7 +1,7 @@
 import type { FC } from "react";
 import PropTypes from "prop-types";
-import { Grid } from "../../../../components/Grid/Grid";
-import { CategoryWrapperType } from "../../../../types/CategoryWrapperType";
+import { Grid } from "../../../../../components/Grid/Grid";
+import { CategoryWrapperType } from "../../../../../types/CategoryWrapperType";
 
 export const CategoryWrapper: FC<CategoryWrapperType> = ({ children, temporaryPublic }) => {
 

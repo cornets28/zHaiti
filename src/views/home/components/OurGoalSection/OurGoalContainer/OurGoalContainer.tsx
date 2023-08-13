@@ -1,8 +1,8 @@
 import type { FC } from "react";
 import PropTypes from "prop-types";
-import { Grid } from "../../../../components/Grid/Grid";
-import { OurGoalContainerType } from "../../../../types/OurGoalContainerType";
-import colors from "../../.././../utils/theme/base/colors";
+import { Grid } from "../../../../../components/Grid/Grid";
+import { OurGoalContainerType } from "../../../../../types/OurGoalContainerType";
+import colors from "../../../../../utils/theme/base/colors";
 
 export const OurGoalContainer: FC<OurGoalContainerType> = ({ children }) => {
   const { white2 } = colors;
