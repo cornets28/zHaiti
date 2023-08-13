@@ -1,5 +1,5 @@
 import { FC } from "react";
-import Grid from "@mui/material/Grid";
+import { Grid } from "../../../components/Grid/Grid";
 import colors from "../../../utils/theme/base/colors";
 import SingleArticle from "../components/SingleArticle";
 

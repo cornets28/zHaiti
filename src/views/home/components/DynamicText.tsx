@@ -1,5 +1,5 @@
 import type { FC } from "react";
-import Grid from "@mui/material/Grid";
+import { Grid } from "../../../components/Grid/Grid";
 import TextContainer from "./DynamicTextSection/TextContainer/TextContainer";
 import ZhaitiText from "./DynamicTextSection/ZhaitiText/ZhaitiText";
 import ListItem from "./DynamicTextSection/ListItem/ListItem";
