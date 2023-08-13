@@ -1,5 +1,5 @@
 import type { FC } from "react";
-import Container from "@mui/material/Container";
+import {Container} from "../../../../components/Container/Container";
 import Title from "../../../../components/Title/Title";
 import Sponsor from "../Sponsor";
 import DigicelLogo from "../../../../images/digicelLogo.png";

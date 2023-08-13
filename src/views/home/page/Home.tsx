@@ -1,9 +1,9 @@
 import type { FC } from "react";
-import Grid from "@mui/material/Grid";
+import { Grid } from "../../../components/Grid/Grid";
 import colors from "../../../utils/theme/base/colors";
 import DynamicText from "../components/DynamicTextSection/DynamicText";
 import OurGoal from "../components/OurGoalSection/OurGoal";
-import OurTeam from "../components/OurTeam";
+import OurTeam from "../components/OurTeamSection/OurTeam";
 import LatestArticles from "../components/LatestArticlesSection/LatestArticles";
 import PeopleSaySection from "../components/PeopleSay";
 import OurSponsors from '../components/OurSponsorsSection/OurSponsors';

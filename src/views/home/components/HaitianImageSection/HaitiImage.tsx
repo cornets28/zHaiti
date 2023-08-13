@@ -1,5 +1,5 @@
 import type { FC } from "react";
-import Grid from "@mui/material/Grid";
+import { Grid } from "../../../../components/Grid/Grid";
 import HaitiBeach from "../../../../images/haitibeach.jpeg";
 import { userHaitiImageStyle } from "../../styles/userHaitiImageStyle";
 import { useTranslation } from "react-i18next";

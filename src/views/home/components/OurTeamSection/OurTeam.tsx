@@ -1,14 +1,15 @@
 import type { FC } from "react";
-import Grid from "@mui/material/Grid";
-import colors from "../../../utils/theme/base/colors";
-import Container from "@mui/material/Container";
-import Title from "../../../components/Title/Title";
-import TeamInfo from "./TeamInfo";
-import user1 from "../../../images/user1.jpeg";
-import user2 from "../../../images/user2.avif";
-import user3 from "../../../images/user3.avif";
-import user4 from "../../../images/user4.avif";
-import user5 from "../../../images/user5.avif";
+import { Container } from "../../../../components/Container/Container";
+import { Grid } from "../../../../components/Grid/Grid";
+import Title from "../../../../components/Title/Title";
+import TeamInfo from "../TeamInfo";
+import user1 from "../../../../images/user1.jpeg";
+import user2 from "../../../../images/user2.avif";
+import user3 from "../../../../images/user3.avif";
+import user4 from "../../../../images/user4.avif";
+import user5 from "../../../../images/user5.avif";
+import OurTeamContainer from "./OurTeamContainer/OurTeamContainer";
+import OurTeamWrapper from "./OurTeamWrapper/OurTeamWrapper";
 
 const team = [
   {
@@ -86,19 +87,9 @@ const team = [
 ];
 
 export const OurTeam: FC = () => {
-  const { white2 } = colors;
 
   return (
-    <Grid
-      container
-      item
-      xs={12}
-      sm={12}
-      md={12}
-      lg={12}
-      bgcolor={white2}
-      textAlign="center"
-    >
+    <OurTeamContainer>
       <Container>
         <Grid container item py={6}>
           <Title
@@ -111,16 +102,7 @@ export const OurTeam: FC = () => {
         <Grid container mb={15}>
           {team &&
             team.map((person, index) => (
-              <Grid
-                item
-                xs={12}
-                sm={6}
-                md={4}
-                lg={3}
-                padding={2}
-                sx={{ marginX: team.length % 2 !== 0 ? "auto" : "" }}
-                key={index}
-              >
+              <OurTeamWrapper key={index} team={team}>
                 <TeamInfo
                   photo={person.photo}
                   alt="user photo"
@@ -129,11 +111,11 @@ export const OurTeam: FC = () => {
                   study={person.study.field_1.major}
                   university={person.study.field_1.university}
                 />
-              </Grid>
+              </OurTeamWrapper>
             ))}
         </Grid>
       </Container>
-    </Grid>
+    </OurTeamContainer>
   );
 };
 

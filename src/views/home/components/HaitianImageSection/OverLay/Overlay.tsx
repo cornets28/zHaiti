@@ -1,6 +1,6 @@
 import { Grid } from "../../../../../components/Grid/Grid";
 
-export const Overlay = () => (
+const Overlay = () => (
   <Grid
     position="absolute"
     top={0}
