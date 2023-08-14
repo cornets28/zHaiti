@@ -1,20 +1,23 @@
 import { useState } from "react";
 import type { FC } from "react";
-import Grid from "@mui/material/Grid";
-import colors from "../../../utils/theme/base/colors";
-import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
-import Box from "@mui/material/Box";
-import typography from "../../../utils/theme/base/typography";
-import { usePeopleSayStyle } from "../styles/usePeopleSayStyle";
-import Title from "../../../components/Title/Title";
-import HaitiFlagLogo from "../../../images/flagLogo.png";
-import user1 from "../../../images/user1.jpeg";
-import user2 from "../../../images/user2.avif";
-import user3 from "../../../images/user3.avif";
-import user4 from "../../../images/user4.avif";
-import user5 from "../../../images/user5.avif";
-import Divider from "@mui/material/Divider/Divider";
+import { Grid } from "../../../../components/Grid/Grid";
+import { usePeopleSayStyle } from "../../styles/usePeopleSayStyle";
+import Title from "../../../../components/Title/Title";
+import HaitiFlagLogo from "../../../../images/flagLogo.png";
+import user1 from "../../../../images/user1.jpeg";
+import user2 from "../../../../images/user2.avif";
+import user3 from "../../../../images/user3.avif";
+import user4 from "../../../../images/user4.avif";
+import user5 from "../../../../images/user5.avif";
+import PeopleSayContainer from "./PeopleSayContainer/PeopleSayContainer";
+import Overlay from "./Overlay/Overlay";
+import PeopleSayItems from "./PeopleSayItems/PeopleSayItems";
+import PeopleSayDetails from "./PeopleSayDetails/PeopleSayDetails";
+import TeamDetailsContainer from "./TeamDetailsContainer/TeamDetailsContainer";
+import TeamDetails from "./TeamDetails/TeamDetails";
+import TeamImage from "./TeamImage/TeamImage";
+import CarouselButton from "./CarouselButton/CarouselButton";
+
 
 const team = [
   {
@@ -116,10 +119,7 @@ const team = [
 ];
 
 export const PeopleSay: FC = () => {
-  const { white2, grey, warning } = colors;
-  const { h6, h5 } = typography;
   const classes = usePeopleSayStyle();
-
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleNext = () => {
@@ -130,121 +130,41 @@ export const PeopleSay: FC = () => {
     setCurrentIndex((currentIndex - 1 + team.length) % team.length);
   };
 
-  const buttonMove = (onClick: any, marginLeft: number, icon: string) => (
-    <Button
-      onClick={onClick}
-      sx={{
-        fontSize: 30,
-        height: 30,
-        marginTop: 10,
-        marginLeft: { xs: marginLeft },
-      }}
-    >
-      <i className={icon} aria-hidden="true"></i>
-    </Button>
-  );
-
   const currentUser = team[currentIndex];
   return (
-    <Grid
-      container
-      item
-      xs={12}
-      sm={12}
-      md={12}
-      textAlign="center"
-      position="relative"
-      height={600}
-    >
+    <PeopleSayContainer>
       <img
         className={classes.backgroundImage}
         src={HaitiFlagLogo}
         alt="Haiti Logo Flag"
       />
-      <Grid
-        position="absolute"
-        top={0}
-        left={0}
-        width="100%"
-        height={"100%"}
-        bgcolor="#081329da"
-      />
+      <Overlay />
 
-      <Grid
-        className={classes.boxOverLay}
-        container
-        height="100%"
-        justifyContent="center"
-      >
+      <PeopleSayItems>
         <Grid item py={6}>
           <Title text="" title1="Sa yo" title2="souvan di" />
         </Grid>
 
         <Grid container mb={15} height={300} justifyContent="center">
           <Grid item xs={1} sm={1} md={2} lg={2} justifyContent="center">
-            {buttonMove(handlePrev, 0, "fa fa-chevron-left")}
+            <CarouselButton onClick={handlePrev} icon="fa fa-chevron-left"/>
           </Grid>
-
-          <Grid
-            item
-            xs={10}
-            sm={10}
-            md={8}
-            lg={8}
-            justifyContent="center"
-            container
-          >
-            <Box
-              component="img"
-              bgcolor={grey["300"]}
-              alignItems="center"
-              marginBottom={10}
-              sx={{
-                height: 153,
-                width: 153,
-                borderRadius: 50,
-              }}
-              src={currentUser.photo}
-              alt={currentUser.firstname}
-            />
-            <Grid
-              item
-              justifyContent="center"
-              position="absolute"
-              marginTop={22}
-              width={800}
-              sx={{ width: { xs: 300, sm: 400, md: 500, lg: 800 } }}
-            >
-              <Divider className={classes.divider} />
-              <Typography
-                fontSize={h6}
-                color={white2.main}
-                textAlign="center"
-                marginTop={2}
-                marginBottom={2}
-              >
-                {currentUser.testemonial[0]}
-              </Typography>
-
-              <Typography
-                fontSize={h5}
-                color={warning.focus}
-                textAlign="center"
-              >
-                {currentUser.firstname + " " + currentUser.lastname}
-              </Typography>
-
-              <Typography fontSize={h6} color={white2.main} textAlign="center">
-                {currentUser.role}
-              </Typography>
-            </Grid>
-          </Grid>
+          <PeopleSayDetails>
+            <TeamImage image={currentUser.photo} alt={currentUser.firstname} />
+            <TeamDetailsContainer>
+              <TeamDetails
+                testimonial={currentUser.testemonial[0]}
+                fullname={currentUser.firstname + " " + currentUser.lastname}
+                role={currentUser.role}
+              />
+            </TeamDetailsContainer>
+          </PeopleSayDetails>
           <Grid item xs={1} sm={1} md={2} lg={2}>
-            {buttonMove(handleNext, -5, "fa fa-chevron-right")}
+            <CarouselButton onClick={handleNext} icon="fa fa-chevron-right" marginLeft={-5} />
           </Grid>
         </Grid>
-      </Grid>
-    </Grid>
+      </PeopleSayItems>
+    </PeopleSayContainer>
   );
 };
 

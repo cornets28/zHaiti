@@ -1,7 +1,7 @@
 import type { FC } from "react";
-import Grid from "@mui/material/Grid";
 import PropTypes from "prop-types";
 import { TextListType } from "../../../../../types/TextListType";
+import { Grid } from "../../../../../components/Grid/Grid";
 
 export const TextList: FC<TextListType> = ({ children }) => {
   return (

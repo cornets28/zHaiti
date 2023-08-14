@@ -1,6 +1,6 @@
 import { FC } from "react";
 import PropTypes from "prop-types";
-import Box from "@mui/material/Box";
+import { Box } from "../../../../../components/Box/Box";
 import colors from "../../../../../utils/theme/base/colors";
 import { EditIconContainerType } from "../../../../../types/EditIconContainerType";
 
