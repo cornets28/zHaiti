@@ -1,7 +1,7 @@
 import { FC } from "react";
 import PropTypes from "prop-types";
-import Typography from "@mui/material/Typography";
-import Grid from "@mui/material/Grid";
+import { Typography } from "../../../components/Typography/Typography";
+import { Grid } from "../../../components/Grid/Grid";
 import { ArticleTitleType } from "../../../types/ArticleTitleType";
 import typography from "../../../utils/theme/base/typography";
 

@@ -1,6 +1,6 @@
 import { FC } from "react";
 import PropTypes from "prop-types";
-import Typography from "@mui/material/Typography";
+import { Typography } from "../../../components/Typography/Typography";
 import { SpanHeaderType } from "../../../types/SpanHeaderType";
 import { useTranslation } from "react-i18next";
 

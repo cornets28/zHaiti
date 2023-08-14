@@ -1,11 +1,12 @@
 import type { FC } from "react";
-import Grid from "@mui/material/Grid";
-import colors from "../../../utils/theme/base/colors";
 import Container from "@mui/material/Container";
-import Title from "../../../components/Title/Title";
-import Cow from "../../../images/boys.webp";
-import ArticleCard from "../../../components/ArticleCard/ArticleCard";
-import { useTranslation } from 'react-i18next';
+import Title from "../../../../components/Title/Title";
+import Cow from "../../../../images/boys.webp";
+import ArticleCard from "../../../../components/ArticleCard/ArticleCard";
+import { Grid } from "../../../../components/Grid/Grid";
+import { useTranslation } from "react-i18next";
+import LastestArticlesContainer from "./LastestArticlesContainer/LastestArticlesContainer";
+import LastestArticlesWrapper from "./LastestArticlesWrapper/LastestArticlesWrapper";
 
 const temporaryArticles = [
   {
@@ -87,35 +88,11 @@ const temporaryArticles = [
   },
 ];
 
-const temporaryArticle = 
-  {
-    id: 1,
-    title: "The Buy By the Sea yes for the first time",
-    body: "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
-    writer: "Sam Puffy Bark",
-    date: "Jully 5, 2023",
-    photo: Cow,
-    reply: 4,
-    like: 0,
-    views: 435,
-    channel: "Politik",
-  };
-
 const LatestArticles: FC = () => {
   const { t } = useTranslation();
-  const { white2 } = colors;
 
   return (
-    <Grid
-      container
-      item
-      xs={12}
-      sm={12}
-      md={12}
-      lg={12}
-      bgcolor={white2}
-      textAlign="center"
-    >
+    <LastestArticlesContainer>
       <Container>
         <Grid container item py={6}>
           <Title
@@ -126,17 +103,9 @@ const LatestArticles: FC = () => {
         </Grid>
 
         <Grid container mb={15}>
-          {temporaryArticles &&
+          {temporaryArticles.length > 0 &&
             temporaryArticles.slice(0, 3).map((article, index) => (
-              <Grid
-                item
-                xs={12}
-                sm={6}
-                md={4}
-                padding={2}
-                marginX="auto"
-                key={index}
-              >
+              <LastestArticlesWrapper key={index}>
                 <ArticleCard
                   title={article.title}
                   channel={t(article.channel)}
@@ -148,11 +117,11 @@ const LatestArticles: FC = () => {
                   tooltipTitle="Modifye nouvèl sa"
                   url={`/atik-yo/${article.id}`}
                 />
-              </Grid>
+              </LastestArticlesWrapper>
             ))}
         </Grid>
       </Container>
-    </Grid>
+    </LastestArticlesContainer>
   );
 };
 

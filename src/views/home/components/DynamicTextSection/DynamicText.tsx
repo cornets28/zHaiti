@@ -1,10 +1,10 @@
 import type { FC } from "react";
-import Grid from "@mui/material/Grid";
-import TextContainer from "./DynamicTextSection/TextContainer/TextContainer";
-import ZhaitiText from "./DynamicTextSection/ZhaitiText/ZhaitiText";
-import ListItem from "./DynamicTextSection/ListItem/ListItem";
-import ListItemContainer from "./DynamicTextSection/ListItemContainer/ListItemContainer";
-import "../styles/useDynamicTextStyle.css";
+import { Grid } from "../../../../components/Grid/Grid";
+import TextContainer from "./TextContainer/TextContainer";
+import ZhaitiText from "./ZhaitiText/ZhaitiText";
+import ListItem from "./ListItem/ListItem";
+import ListItemContainer from "./ListItemContainer/ListItemContainer";
+import "../../styles/useDynamicTextStyle.css";
 
 export const DynamicText: FC = () => {
   return (

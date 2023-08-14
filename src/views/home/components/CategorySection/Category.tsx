@@ -1,12 +1,12 @@
 import { useState, type FC } from "react";
 import PropTypes from "prop-types";
-import { CategoryType } from "../../../types/CategoryType";
-import { EditSvgIdcon } from "../../../images/svg/EditSvgIcon";
-import CategoryContainer from "./CategorySection/CategoryContainer/CategoryContainer";
-import CategoryLink from "./CategorySection/CategoryLink/CategoryLink";
-import EditIconContainer from "./CategorySection/EditIconContainer/EditIconContainer";
-import CategoryName from "./CategorySection/CategoryName/CategoryName";
-import CategoryImage from "./CategorySection/CategoryImage/CategoryImage";
+import { CategoryType } from "../../../../types/CategoryType";
+import { EditSvgIdcon } from "../../../../images/svg/EditSvgIcon";
+import CategoryContainer from "./CategoryContainer/CategoryContainer";
+import CategoryLink from "./CategoryLink/CategoryLink";
+import EditIconContainer from "./EditIconContainer/EditIconContainer";
+import CategoryName from "./CategoryName/CategoryName";
+import CategoryImage from "./CategoryImage/CategoryImage";
 
 const Category: FC<CategoryType> = ({ channel, image }) => {
   const [show, setShow] = useState(false);

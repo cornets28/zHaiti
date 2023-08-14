@@ -1,12 +1,11 @@
 import type { FC } from "react";
 import PropTypes from "prop-types";
-import Grid from "@mui/material/Grid";
 import colors from "../../../../../utils/theme/base/colors";
 import { TextContainerType } from "../../../../../types/TextContainerType";
+import { Grid } from "../../../../../components/Grid/Grid";
 
-
-export const TextContainer: FC<TextContainerType> = ({children}) => {
-  const {error } = colors;
+export const TextContainer: FC<TextContainerType> = ({ children }) => {
+  const { error } = colors;
 
   return (
     <Grid
@@ -14,11 +13,11 @@ export const TextContainer: FC<TextContainerType> = ({children}) => {
       item
       width="100%"
       bgcolor={error.focus}
-      overflow='hidden'
+      overflow="hidden"
       sx={{
         textAlign: "center",
         overflow: "hidden",
-        height: {xs: 300, sm: 500, md: 600}
+        height: { xs: 300, sm: 500, md: 600 },
       }}
     >
       {children}
@@ -28,7 +27,6 @@ export const TextContainer: FC<TextContainerType> = ({children}) => {
 
 TextContainer.propTypes = {
   children: PropTypes.node.isRequired,
-}
-
+};
 
 export default TextContainer;

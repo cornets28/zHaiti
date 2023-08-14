@@ -1,6 +1,6 @@
 import { FC } from "react";
 import PropTypes from 'prop-types';
-import Card from "@mui/material/Card";
+import { Card } from "../../../../../components/Card/Card";
 import colors from "../../../../../utils/theme/base/colors";
 import {CategoryContainerType} from '../../../../../types/CategoryContainerType';
 
