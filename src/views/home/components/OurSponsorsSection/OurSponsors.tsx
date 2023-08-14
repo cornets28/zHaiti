@@ -1,10 +1,11 @@
 import type { FC } from "react";
-import Grid from "@mui/material/Grid";
-import colors from "../../../utils/theme/base/colors";
-import Container from "@mui/material/Container";
-import Title from "../../../components/Title/Title";
-import Sponsor from "../components/Sponsor";
-import DigicelLogo from "../../../images/digicelLogo.png";
+import {Container} from "../../../../components/Container/Container";
+import Title from "../../../../components/Title/Title";
+import Sponsor from "../Sponsor";
+import DigicelLogo from "../../../../images/digicelLogo.png";
+import { Grid } from "../../../../components/Grid/Grid";
+import SponsorsContainer from "./SponsorsContainer/SponsorsContainer";
+import SponsorsWrapper from "./SponsorsWrapper/SponsorsWrapper";
 
 const temporarySponsors = [
   {
@@ -35,19 +36,9 @@ const temporarySponsors = [
 ];
 
 const OurSponsors: FC = () => {
-  const { white2 } = colors;
 
   return (
-    <Grid
-      container
-      item
-      xs={12}
-      sm={12}
-      md={12}
-      lg={12}
-      bgcolor={white2}
-      textAlign="center"
-    >
+    <SponsorsContainer>
       <Container>
         <Grid container item py={6}>
           <Title
@@ -58,25 +49,15 @@ const OurSponsors: FC = () => {
         </Grid>
 
         <Grid container mb={15}>
-          {temporarySponsors &&
+          {temporarySponsors.length > 0 &&
             temporarySponsors.map((sponsor, index) => (
-              <Grid
-                item
-                xs={6}
-                sm={4}
-                md={3}
-                padding={2}
-                key={index}
-                sx={{
-                  marginX: temporarySponsors.length % 2 !== 0 ? "auto" : "",
-                }}
-              >
+              <SponsorsWrapper temporarySponsors key={index}>
                 <Sponsor image={sponsor.logo} link={sponsor.link} />
-              </Grid>
+              </SponsorsWrapper>
             ))}
         </Grid>
       </Container>
-    </Grid>
+    </SponsorsContainer>
   );
 };
 

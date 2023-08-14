@@ -1,6 +1,6 @@
 import { FC } from "react";
 import PropTypes from "prop-types";
-import Typography from "@mui/material/Typography";
+import { Typography } from "../../../components/Typography/Typography";
 import { PublishedDateType } from "../../../types/PublishedDateType";
 import typography from "../../../utils/theme/base/typography";
 import colors from "../../../utils/theme/base/colors";

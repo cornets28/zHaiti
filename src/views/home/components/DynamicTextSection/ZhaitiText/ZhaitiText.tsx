@@ -1,5 +1,5 @@
 import type { FC } from "react";
-import Grid from "@mui/material/Grid";
+import { Grid } from "../../../../../components/Grid/Grid";
 import colors from "../../../../../utils/theme/base/colors";
 
 export const ZhaitiText: FC = () => {

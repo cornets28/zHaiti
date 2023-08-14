@@ -1,5 +1,5 @@
 import { FC } from "react";
-import Grid from "@mui/material/Grid";
+import { Grid } from "../../../components/Grid/Grid";
 import Box from "@mui/material/Box";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Typography from "@mui/material/Typography";

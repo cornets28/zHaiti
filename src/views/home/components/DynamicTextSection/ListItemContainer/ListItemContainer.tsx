@@ -1,6 +1,6 @@
 import type { FC } from "react";
 import PropTypes from "prop-types";
-import Grid from "@mui/material/Grid";
+import { Grid } from "../../../../../components/Grid/Grid";
 import { ListItemContainerType } from "../../../../../types/ListItemContainerType";
 
 export const ListItemContainer: FC<ListItemContainerType> = ({ children }) => {
