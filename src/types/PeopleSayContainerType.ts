@@ -1,6 +1,5 @@
 import { ReactNode } from "react"
 
-export type OurTeamWrapperType = {
+export type PeopleSayContainerType = {
     children: ReactNode,
-    team: any,
 }

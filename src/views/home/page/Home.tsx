@@ -5,7 +5,7 @@ import DynamicText from "../components/DynamicTextSection/DynamicText";
 import OurGoal from "../components/OurGoalSection/OurGoal";
 import OurTeam from "../components/OurTeamSection/OurTeam";
 import LatestArticles from "../components/LatestArticlesSection/LatestArticles";
-import PeopleSaySection from "../components/PeopleSay";
+import PeopleSaySection from "../components/PeopleSaySection/PeopleSay";
 import OurSponsors from '../components/OurSponsorsSection/OurSponsors';
 import HaitiImage from '../components/HaitianImageSection/HaitiImage';
 
