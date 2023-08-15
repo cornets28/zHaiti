@@ -1,9 +1,9 @@
 import { FC } from "react";
 import PropTypes from "prop-types";
-import { Typography } from "../../../components/Typography/Typography";
-import { Grid } from "../../../components/Grid/Grid";
-import { ArticleTitleType } from "../../../types/ArticleTitleType";
-import typography from "../../../utils/theme/base/typography";
+import { Typography } from "../../../../components/Typography/Typography";
+import { Grid } from "../../../../components/Grid/Grid";
+import { ArticleTitleType } from "../../../../types/ArticleTitleType";
+import typography from "../../../../utils/theme/base/typography";
 
 const ArticleTitle: FC<ArticleTitleType> = ({ title }) => {
   const { h3 } = typography;
