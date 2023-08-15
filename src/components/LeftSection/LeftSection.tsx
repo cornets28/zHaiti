@@ -1,7 +1,7 @@
 import type { FC } from "react";
 import PropTypes from "prop-types";
-import { Grid } from "../../../../components/Grid/Grid";
-import { LeftSectionType } from "../../../../types/LeftSectionType";
+import { Grid } from "../Grid/Grid";
+import { LeftSectionType } from "../../types/LeftSectionType";
 
 export const LeftSection: FC<LeftSectionType> = ({
   children,

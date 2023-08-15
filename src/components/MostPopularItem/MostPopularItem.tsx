@@ -12,13 +12,13 @@ const MostPopularItem: FC<MostPopularItemType> = ({ image, title, views, onClick
 
   return (
     <Grid container item pb={2} onClick={onClick} sx={{cursor: 'pointer'}}>
-      <Grid item xs={4} sm={10} md={4} lg={4} height={60} width={50}>
+      <Grid item xs={4} sm={12} md={4} lg={4} sx={{height: {lg: 70, md: 70, sm: 300, xs: 80}}} width={50}>
         <img src={image} alt={title} width={"100%"} height={"100%"} />
       </Grid>
       <Grid item xs={8} sm={10} md={8} lg={8} sx={{ "&:hover": {
           color: skyBleu['600']
         },}}>
-        <Typography fontSize={size.xxs} textAlign="left" px={1}>
+        <Typography sx={{fontSize: {xs: size.md, sm: size.lg, md: size.xxs } }} textAlign="left" px={1}>
           {title}
         </Typography>
         <Typography fontSize={size.xxs} textAlign="right" px={1} fontWeight='bold' color={orange.focus}>

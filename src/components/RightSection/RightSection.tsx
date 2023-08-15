@@ -1,14 +1,14 @@
 import type { FC } from "react";
 import PropTypes from "prop-types";
-import { Grid } from "../../../../components/Grid/Grid";
-import { RightSectionType } from "../../../../types/RightSectionType";
+import { Grid } from "../Grid/Grid";
+import { RightSectionType } from "../../types/RightSectionType";
 
 export const RightSection: FC<RightSectionType> = ({ children }) => {
   return (
     <Grid
       item
       xs={12}
-      sm={6}
+      sm={10}
       md={4}
       lg={3}
       sx={{
