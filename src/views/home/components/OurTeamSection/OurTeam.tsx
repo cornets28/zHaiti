@@ -2,7 +2,7 @@ import type { FC } from "react";
 import { Container } from "../../../../components/Container/Container";
 import { Grid } from "../../../../components/Grid/Grid";
 import Title from "../../../../components/Title/Title";
-import TeamInfo from "../TeamInfo";
+import TeamInfo from "../TeamInfoSection/TeamInfo";
 import user1 from "../../../../images/user1.jpeg";
 import user2 from "../../../../images/user2.avif";
 import user3 from "../../../../images/user3.avif";
