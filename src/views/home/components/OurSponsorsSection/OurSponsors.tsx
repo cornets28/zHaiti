@@ -1,7 +1,7 @@
 import type { FC } from "react";
 import {Container} from "../../../../components/Container/Container";
 import Title from "../../../../components/Title/Title";
-import Sponsor from "../Sponsor";
+import Sponsor from "./Sponsor/Sponsor";
 import DigicelLogo from "../../../../images/digicelLogo.png";
 import { Grid } from "../../../../components/Grid/Grid";
 import SponsorsContainer from "./SponsorsContainer/SponsorsContainer";
