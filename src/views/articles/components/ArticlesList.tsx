@@ -1,16 +1,20 @@
 import type { FC } from "react";
-import Grid from "@mui/material/Grid";
-import colors from "../../../utils/theme/base/colors";
 import Title from "../../../components/Title/Title";
 import Cow from "../../../images/boys.webp";
 import ArticleCard from "../../../components/ArticleCard/ArticleCard";
-import useMediaQuery from "@mui/material/useMediaQuery";
 import Typography from "@mui/material/Typography";
 import typography from "../../../utils/theme/base/typography";
 import MostPopularItem from "../../../components/MostPopularItem/MostPopularItem";
 import { useTranslation } from "react-i18next";
 import Pub from "../../../components/Pub/Pub";
 import Pagination from "../../../components/Pagination/Pagination";
+import Page from "../../../components/Page/Page";
+import { Grid } from "../../../components/Grid/Grid";
+import ArticlesWrapper from "./ArticlesWrapper/ArticlesWrapper";
+import LeftSection from "../../../components/LeftSection/LeftSection";
+import RightSection from "../../../components/RightSection/RightSection";
+import MostReadBody from "../../../components/MostReadBody/MostReadBody";
+import ArticlesContainer from "./ArticlesContainer/ArticlesContainer";
 
 const temporaryArticles = [
   {
@@ -139,22 +143,10 @@ const temporaryArticles = [
 
 const ArticlesList: FC = () => {
   const { t } = useTranslation();
-  const { white2 } = colors;
-  const isWindowSizeMin1513 = useMediaQuery<any>("(min-width:1513px)");
-  const isWindowSizeMin1262 = useMediaQuery<any>("(min-width:1262px)");
   const { h6 } = typography;
 
   return (
-    <Grid
-      container
-      item
-      xs={12}
-      sm={12}
-      md={12}
-      lg={12}
-      bgcolor={white2}
-      textAlign="center"
-    >
+    <Page>
       <Grid container item py={6}>
         <Title
           text="We create events aiming to pear to the voice for children and gather for support. Please update with our events and confirm you presence."
@@ -163,29 +155,11 @@ const ArticlesList: FC = () => {
         />
       </Grid>
 
-      <Grid
-        container
-        mb={15}
-        sx={{
-          width: {
-            sm: "100%",
-            md: "100%",
-            lg: isWindowSizeMin1513 ? "82%" : "100%",
-          },
-          mx: "auto",
-          px: { sm: 0, md: 4, lg: 5 },
-        }}
-      >
-        <Grid container item xs={12} sm={9} md={8} lg={9}>
+      <ArticlesWrapper>
+        <LeftSection>
           {temporaryArticles &&
             temporaryArticles.map((article, index) => (
-              <Grid
-                item
-                xs={12}
-                sm={6}
-                md={isWindowSizeMin1262 ? 4 : 6}
-                padding={2}
-                marginX="auto"
+              <ArticlesContainer
                 key={index}
               >
                 <ArticleCard
@@ -199,22 +173,12 @@ const ArticlesList: FC = () => {
                   tooltipTitle="Modifye Atik sa"
                   url={`/atik-yo/${article.id}`}
                 />
-              </Grid>
+              </ArticlesContainer>
             ))}
-
           <Pagination />
-        </Grid>
+        </LeftSection>
 
-        <Grid
-          item
-          xs={12}
-          sm={3}
-          md={4}
-          lg={3}
-          sx={{
-            px: { xs: 3, sm: 4, md: 3 },
-          }}
-        >
+        <RightSection>
           <Typography
             fontSize={h6}
             textTransform="uppercase"
@@ -224,18 +188,7 @@ const ArticlesList: FC = () => {
           >
             {t("Atik Ki Pi Popilè Yo")}
           </Typography>
-          <Grid
-            container
-            item
-            xs={12}
-            sm={12}
-            md={12}
-            lg={12}
-            sx={{
-              overflowY: "scroll",
-              height: "65vh",
-            }}
-          >
+          <MostReadBody>
             {temporaryArticles &&
               temporaryArticles.map((article, index) => (
                 <MostPopularItem
@@ -246,11 +199,11 @@ const ArticlesList: FC = () => {
                   key={index}
                 />
               ))}
-          </Grid>
+          </MostReadBody>
           <Pub />
-        </Grid>
-      </Grid>
-    </Grid>
+        </RightSection>
+      </ArticlesWrapper>
+    </Page>
   );
 };
 

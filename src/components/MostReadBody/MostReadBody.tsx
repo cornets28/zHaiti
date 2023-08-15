@@ -1,7 +1,7 @@
 import type { FC } from "react";
 import PropTypes from "prop-types";
-import { MostReadBodyType } from "../../../../types/MostReadBodyType";
-import { Grid } from "../../../../components/Grid/Grid";
+import { MostReadBodyType } from "../../types/MostReadBodyType";
+import { Grid } from "../Grid/Grid";
 
 export const MostReadBody: FC<MostReadBodyType> = ({ children }) => {
   return (

@@ -1,7 +1,6 @@
 import { FC } from "react";
 import { Grid } from "../../../components/Grid/Grid";
 import { Box } from "../../../components/Box/Box";
-import Typography from "@mui/material/Typography";
 import colors from "../../../utils/theme/base/colors";
 import typography from "../../../utils/theme/base/typography";
 import MostPopularItem from "../../../components/MostPopularItem/MostPopularItem";
@@ -15,13 +14,14 @@ import SpanHeader from "./SpanHeader/SpanHeader";
 import ArticleTitle from "./ArticleTitle/ArticleTitle";
 import PublishDate from "./PublishDate/PublishDate";
 import ArticleBody from "./ArticleBody/ArticleBody";
-import SingleArticleContainer from "./SingleArticleContainer/SingleArticleContainer";
 import SingleArticleWrapper from "./SingleArticleWrapper/SingleArticleWrapper";
-import LeftSection from "./LeftSection/LeftSection";
-import RightSection from "./RightSection/RightSection";
+import LeftSection from "../../../components/LeftSection/LeftSection";
+import RightSection from "../../../components/RightSection/RightSection";
 import RightSectionContainer from "./RightSectionContainer/RightSectionContainer";
 import MostReadHeader from "./MostReadHeader/MostReadHeader";
-import MostReadBody from "./MostReadBody/MostReadBody";
+import MostReadBody from "../../../components/MostReadBody/MostReadBody";
+import SingleArticleImage from "./SingleArticleImage/SingleArticleImage";
+import Page from "../../../components/Page/Page";
 
 const temporaryArticles = [
   {
@@ -163,7 +163,7 @@ const temporaryArticle = {
 
 const SingleArticle: FC = () => {
   const { blue, grey } = colors;
-  const { h6, h5, h3 } = typography;
+  const { h6, h5 } = typography;
   const { t } = useTranslation();
   const { id } = useParams();
   const publishDate = new Date().toLocaleDateString("en-us", {
@@ -174,7 +174,7 @@ const SingleArticle: FC = () => {
   });
 
   return (
-    <SingleArticleContainer key={id}>
+    <Page key={id}>
       <SingleArticleWrapper>
         <LeftSection>
           <RightSectionContainer>
@@ -204,19 +204,7 @@ const SingleArticle: FC = () => {
               </Grid>
             </Grid>
 
-            <Box
-              component="img"
-              height={26}
-              width={26}
-              sx={{
-                height: { xs: "40vh", sm: "40vh", md: "45vh", lg: "55vh" },
-                width: "100%",
-                marginTop: 2,
-              }}
-              // @ts-ignore
-              alt="Main picture"
-              src={Cow}
-            />
+            <SingleArticleImage image={Cow} />
             <SpanHeader
               textTransform="capitalize"
               fontSize={h6}
@@ -290,7 +278,7 @@ const SingleArticle: FC = () => {
           <Pub />
         </RightSection>
       </SingleArticleWrapper>
-    </SingleArticleContainer>
+    </Page>
   );
 };
 

@@ -1,6 +1,4 @@
 import type { FC } from "react";
-import { Grid } from "../../../components/Grid/Grid";
-import colors from "../../../utils/theme/base/colors";
 import DynamicText from "../components/DynamicTextSection/DynamicText";
 import OurGoal from "../components/OurGoalSection/OurGoal";
 import OurTeam from "../components/OurTeamSection/OurTeam";
@@ -8,12 +6,12 @@ import LatestArticles from "../components/LatestArticlesSection/LatestArticles";
 import PeopleSaySection from "../components/PeopleSaySection/PeopleSay";
 import OurSponsors from '../components/OurSponsorsSection/OurSponsors';
 import HaitiImage from '../components/HaitianImageSection/HaitiImage';
+import Page from "../../../components/Page/Page";
 
 export const Home: FC = () => {
-  const { white2 } = colors;
 
   return (
-    <Grid container bgcolor={white2.main} overflow={'hidden'}>
+    <Page>
       <DynamicText />
       <OurGoal />
       <HaitiImage />
@@ -21,7 +19,7 @@ export const Home: FC = () => {
       <PeopleSaySection />
       <LatestArticles />
       <OurSponsors />
-    </Grid>
+    </Page>
   );
 };
 

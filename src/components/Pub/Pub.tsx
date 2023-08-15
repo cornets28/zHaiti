@@ -1,5 +1,3 @@
-// import React from "react";
-// import PropTypes from "prop-types";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import typography from "../../utils/theme/base/typography";
@@ -38,7 +36,5 @@ const Pub = () => {
     </Grid>
   );
 };
-
-Pub.propTypes = {};
 
 export default Pub;
