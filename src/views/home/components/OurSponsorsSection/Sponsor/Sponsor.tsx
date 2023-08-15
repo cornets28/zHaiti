@@ -1,16 +1,22 @@
 import type { FC } from "react";
-import PropTypes  from "prop-types";
-import colors from "../../../utils/theme/base/colors";
-import Card from "@mui/material/Card";
-import Box from "@mui/material/Box";
-import { SponsorType } from "../../../types/SponsorType";
+import PropTypes from "prop-types";
+import colors from "../../../../../utils/theme/base/colors";
+import { Box } from "../../../../../components/Box/Box";
+import { Card } from "../../../../../components/Card/Card";
+import { SponsorType } from "../../../../../types/SponsorType";
 import { Link } from "react-router-dom";
+
 
 const Sponsors: FC<SponsorType> = ({ image, link }) => {
   const { grey } = colors;
 
   return (
-    <Box component={Link} to={link} target="_blank">
+    <Box
+      component={Link}
+      // @ts-ignore
+      to={link}
+      target="_blank"
+    >
       <Card
         sx={{
           maxWidth: 250,

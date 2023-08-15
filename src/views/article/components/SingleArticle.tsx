@@ -1,7 +1,6 @@
 import { FC } from "react";
 import { Grid } from "../../../components/Grid/Grid";
-import Box from "@mui/material/Box";
-import useMediaQuery from "@mui/material/useMediaQuery";
+import { Box } from "../../../components/Box/Box";
 import Typography from "@mui/material/Typography";
 import colors from "../../../utils/theme/base/colors";
 import typography from "../../../utils/theme/base/typography";
@@ -12,10 +11,17 @@ import LightTooltip from "../../../components/Tooltip/Tooltip";
 import { ShareSvgIcon } from "../../../images/svg/ShareSvgIcon";
 import Cow from "../../../images/JamieFox.webp";
 import { useParams } from "react-router-dom";
-import SpanHeader from "../components/SpanHeader";
-import ArticleTitle from "../components/ArticleTitle";
-import PublishDate from "../components/PublishDate";
-import ArticleBody from "./ArticleBody";
+import SpanHeader from "./SpanHeader/SpanHeader";
+import ArticleTitle from "./ArticleTitle/ArticleTitle";
+import PublishDate from "./PublishDate/PublishDate";
+import ArticleBody from "./ArticleBody/ArticleBody";
+import SingleArticleContainer from "./SingleArticleContainer/SingleArticleContainer";
+import SingleArticleWrapper from "./SingleArticleWrapper/SingleArticleWrapper";
+import LeftSection from "./LeftSection/LeftSection";
+import RightSection from "./RightSection/RightSection";
+import RightSectionContainer from "./RightSectionContainer/RightSectionContainer";
+import MostReadHeader from "./MostReadHeader/MostReadHeader";
+import MostReadBody from "./MostReadBody/MostReadBody";
 
 const temporaryArticles = [
   {
@@ -156,9 +162,7 @@ const temporaryArticle = {
 };
 
 const SingleArticle: FC = () => {
-  const { white2, blue, grey } = colors;
-  const isWindowSizeMin1513 = useMediaQuery<any>("(min-width:1513px)");
-  const isWindowSizeMin1262 = useMediaQuery<any>("(min-width:1262px)");
+  const { blue, grey } = colors;
   const { h6, h5, h3 } = typography;
   const { t } = useTranslation();
   const { id } = useParams();
@@ -170,42 +174,10 @@ const SingleArticle: FC = () => {
   });
 
   return (
-    <Grid
-      container
-      item
-      xs={12}
-      sm={12}
-      md={12}
-      lg={12}
-      bgcolor={white2}
-      textAlign="center"
-      key={id}
-    >
-      <Grid
-        container
-        mb={15}
-        mt={10}
-        sx={{
-          width: {
-            sm: "100%",
-            md: "100%",
-            lg: isWindowSizeMin1513 ? "82%" : "100%",
-          },
-          mx: "auto",
-          px: { sm: 0, md: 4, lg: 5 },
-        }}
-      >
-        <Grid container item xs={12} sm={12} md={8} lg={9}>
-          <Grid
-            sx={{
-              width: {
-                sm: "100%",
-                md: "100%",
-                lg: isWindowSizeMin1513 ? "82%" : "80%",
-              },
-              mx: { xs: 2, sm: 5, md: 5, lg: "auto" },
-            }}
-          >
+    <SingleArticleContainer key={id}>
+      <SingleArticleWrapper>
+        <LeftSection>
+          <RightSectionContainer>
             <ArticleTitle
               title="When activated, Tooltips display a text label identifying an
                 element, such as a description of its function."
@@ -241,6 +213,7 @@ const SingleArticle: FC = () => {
                 width: "100%",
                 marginTop: 2,
               }}
+              // @ts-ignore
               alt="Main picture"
               src={Cow}
             />
@@ -297,40 +270,12 @@ const SingleArticle: FC = () => {
                 man, we just don't want you to blow it, baby."
               </ArticleBody>
             </Grid>
-          </Grid>
-        </Grid>
+          </RightSectionContainer>
+        </LeftSection>
 
-        <Grid
-          item
-          xs={12}
-          sm={6}
-          md={4}
-          lg={3}
-          sx={{
-            px: { xs: 3, sm: 4, md: 3 },
-          }}
-        >
-          <Typography
-            fontSize={h6}
-            textTransform="uppercase"
-            pb={3}
-            textAlign="left"
-            sx={{ pt: { xs: 6, sm: 6, md: 1 } }}
-          >
-            {t("Atik Ki Pi Popilè Yo")}
-          </Typography>
-          <Grid
-            container
-            item
-            xs={12}
-            sm={12}
-            md={12}
-            lg={12}
-            sx={{
-              overflowY: "scroll",
-              height: "65vh",
-            }}
-          >
+        <RightSection>
+          <MostReadHeader>{t("Atik Ki Pi Popilè Yo")}</MostReadHeader>
+          <MostReadBody>
             {temporaryArticles &&
               temporaryArticles.map((article, index) => (
                 <MostPopularItem
@@ -341,11 +286,11 @@ const SingleArticle: FC = () => {
                   key={index}
                 />
               ))}
-          </Grid>
+          </MostReadBody>
           <Pub />
-        </Grid>
-      </Grid>
-    </Grid>
+        </RightSection>
+      </SingleArticleWrapper>
+    </SingleArticleContainer>
   );
 };
 

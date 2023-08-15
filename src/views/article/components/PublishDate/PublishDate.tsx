@@ -1,9 +1,9 @@
 import { FC } from "react";
 import PropTypes from "prop-types";
-import { Typography } from "../../../components/Typography/Typography";
-import { PublishedDateType } from "../../../types/PublishedDateType";
-import typography from "../../../utils/theme/base/typography";
-import colors from "../../../utils/theme/base/colors";
+import { Typography } from "../../../../components/Typography/Typography";
+import { PublishedDateType } from "../../../../types/PublishedDateType";
+import typography from "../../../../utils/theme/base/typography";
+import colors from "../../../../utils/theme/base/colors";
 
 const PublishedDate: FC<PublishedDateType> = ({ date }) => {
   const { grey } = colors;
