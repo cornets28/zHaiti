@@ -1,18 +1,23 @@
 import type { FC } from "react";
-import Grid from "@mui/material/Grid";
-import colors from "../../../utils/theme/base/colors";
 import Cow from "../../../images/boys.webp";
 import ArticleCard from "../../../components/ArticleCard/ArticleCard";
-import useMediaQuery from "@mui/material/useMediaQuery";
-import Typography from "@mui/material/Typography";
-import typography from "../../../utils/theme/base/typography";
 import MostPopularItem from "../../../components/MostPopularItem/MostPopularItem";
 import { useTranslation } from "react-i18next";
 import Pub from "../../../components/Pub/Pub";
 import Pagination from "../../../components/Pagination/Pagination";
-import Box from "@mui/material/Box";
-import MoreNewsContainerType from "./MoreNewsContainer";
+import MoreNewsContainer from "./MoreNewsContainer/MoreNewsContainer";
 import Image from "./Image";
+import Page from "../../../components/Page/Page";
+import ArticlesWrapper from "../../../components/ArticlesWrapper/ArticlesWrapper";
+import NewsTime from "./NewsTime/NewsTime";
+import TopLevel from "./TopLevel/TopLevel";
+import TopLevelNews from "./TopLevelNews/TopLevelNews";
+import MainNews from "./MainNews/MainNews";
+import LeftSection from "../../../components/LeftSection/LeftSection";
+import ArticlesContainer from "../../articles/components/ArticlesContainer/ArticlesContainer";
+import MostReadBody from "../../../components/MostReadBody/MostReadBody";
+import RightSection from "../../../components/RightSection/RightSection";
+import MostReadHeader from "../../article/components/MostReadHeader/MostReadHeader";
 
 const temporaryArticles = [
   {
@@ -165,69 +170,23 @@ const itemData = [
 
 const NewsList: FC = () => {
   const { t } = useTranslation();
-  const { white2 } = colors;
-  const isWindowSizeMin1513 = useMediaQuery<any>("(min-width:1513px)");
-  const isWindowSizeMin1262 = useMediaQuery<any>("(min-width:1262px)");
-  const { h6, h4 } = typography;
 
   return (
-    <Grid
-      container
-      item
-      xs={12}
-      sm={12}
-      md={12}
-      lg={12}
-      bgcolor={white2}
-      textAlign="center"
-    >
-      <Grid
-        container
-        mb={15}
-        sx={{
-          width: {
-            sm: "100%",
-            md: "100%",
-            lg: isWindowSizeMin1513 ? "82%" : "100%",
-          },
-          mx: "auto",
-          px: { sm: 0, md: 4, lg: 5 },
-        }}
-      >
-        <Grid container item xs={12} sm={12} md={12} lg={12} px={2} mb={6}>
-          <Grid item xs={12} sm={12} md={18} lg={12}>
-            <Typography
-              fontSize={h4}
-              textTransform="uppercase"
-              textAlign="center"
-              pt={4}
-            >
-              {new Date().toLocaleDateString("en-us", {
-                weekday: "long",
-                year: "numeric",
-                month: "short",
-                day: "numeric",
-              })}
-            </Typography>
-          </Grid>
+    <Page>
+      <ArticlesWrapper>
+        <TopLevel>
+          <NewsTime>
+            {new Date().toLocaleDateString("en-us", {
+              weekday: "long",
+              year: "numeric",
+              month: "short",
+              day: "numeric",
+            })}
+          </NewsTime>
 
-          <Grid container item xs={12} sm={12} md={12} lg={12}>
-            <Grid item xs={12} sm={12} md={6} lg={6}>
-              <Box
-                component="img"
-                height={26}
-                width={26}
-                sx={{
-                  height: { xs: "30vh", sm: "40vh", md: "45vh", lg: "55vh" },
-                  width: "100%",
-                  marginTop: 2,
-                }}
-                alt="Main picture"
-                src={Cow}
-              />
-            </Grid>
-
-            <MoreNewsContainerType>
+          <TopLevelNews>
+            <MainNews image={Cow} />
+            <MoreNewsContainer>
               {itemData.map((item) => (
                 <Image
                   image={item.img}
@@ -238,22 +197,14 @@ const NewsList: FC = () => {
                   onClick={() => alert("welllll....")}
                 />
               ))}
-            </MoreNewsContainerType>
-          </Grid>
-        </Grid>
+            </MoreNewsContainer>
+          </TopLevelNews>
+        </TopLevel>
 
-        <Grid container item xs={12} sm={9} md={8} lg={9}>
+        <LeftSection>
           {temporaryArticles &&
             temporaryArticles.map((article, index) => (
-              <Grid
-                item
-                xs={12}
-                sm={6}
-                md={isWindowSizeMin1262 ? 4 : 6}
-                padding={2}
-                marginX="auto"
-                key={index}
-              >
+              <ArticlesContainer key={index}>
                 <ArticleCard
                   title={article.title}
                   channel={t(article.channel)}
@@ -266,43 +217,15 @@ const NewsList: FC = () => {
                   isNews={true}
                   url={`/atik-yo/${article.id}`}
                 />
-              </Grid>
+              </ArticlesContainer>
             ))}
 
           <Pagination />
-        </Grid>
+        </LeftSection>
 
-        <Grid
-          item
-          xs={12}
-          sm={3}
-          md={4}
-          lg={3}
-          sx={{
-            px: { xs: 3, sm: 4, md: 3 },
-          }}
-        >
-          <Typography
-            fontSize={h6}
-            textTransform="uppercase"
-            pb={3}
-            textAlign="left"
-            sx={{ pt: { xs: 6, sm: 6, md: 1 } }}
-          >
-            {t("Atik Ki Pi Popilè Yo")}
-          </Typography>
-          <Grid
-            container
-            item
-            xs={12}
-            sm={12}
-            md={12}
-            lg={12}
-            sx={{
-              overflowY: "scroll",
-              height: "65vh",
-            }}
-          >
+        <RightSection>
+          <MostReadHeader>{t("Atik Ki Pi Popilè Yo")}</MostReadHeader>
+          <MostReadBody>
             {temporaryArticles &&
               temporaryArticles.map((article, index) => (
                 <MostPopularItem
@@ -313,11 +236,11 @@ const NewsList: FC = () => {
                   key={index}
                 />
               ))}
-          </Grid>
+          </MostReadBody>
           <Pub />
-        </Grid>
-      </Grid>
-    </Grid>
+        </RightSection>
+      </ArticlesWrapper>
+    </Page>
   );
 };
 
