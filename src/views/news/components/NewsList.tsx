@@ -219,7 +219,7 @@ const NewsList: FC = () => {
               ))}
           </Section>
 
-          <Section header={t("Must know Haitians")}>
+          <Section header={t("Ayisyen Ou Dwe Konnen")}>
             {temporaryArticles.length > 0 &&
               temporaryArticles.slice(0, 8).map((item) => (
                 <SectionItem image={item.photo} title={item.title} body={item.body} date={item.date} key={item.photo} onClick={() => alert('TBD')} />
