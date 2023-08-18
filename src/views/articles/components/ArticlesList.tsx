@@ -2,19 +2,18 @@ import type { FC } from "react";
 import Title from "../../../components/Title/Title";
 import Cow from "../../../images/boys.webp";
 import ArticleCard from "../../../components/ArticleCard/ArticleCard";
-import Typography from "@mui/material/Typography";
-import typography from "../../../utils/theme/base/typography";
 import MostPopularItem from "../../../components/MostPopularItem/MostPopularItem";
 import { useTranslation } from "react-i18next";
 import Pub from "../../../components/Pub/Pub";
 import Pagination from "../../../components/Pagination/Pagination";
 import Page from "../../../components/Page/Page";
 import { Grid } from "../../../components/Grid/Grid";
-import ArticlesWrapper from "./ArticlesWrapper/ArticlesWrapper";
+import ArticlesWrapper from "../../../components/ArticlesWrapper/ArticlesWrapper";
 import LeftSection from "../../../components/LeftSection/LeftSection";
 import RightSection from "../../../components/RightSection/RightSection";
 import MostReadBody from "../../../components/MostReadBody/MostReadBody";
 import ArticlesContainer from "./ArticlesContainer/ArticlesContainer";
+import MostReadHeader from "../../article/components/MostReadHeader/MostReadHeader";
 
 const temporaryArticles = [
   {
@@ -143,7 +142,6 @@ const temporaryArticles = [
 
 const ArticlesList: FC = () => {
   const { t } = useTranslation();
-  const { h6 } = typography;
 
   return (
     <Page>
@@ -159,9 +157,7 @@ const ArticlesList: FC = () => {
         <LeftSection>
           {temporaryArticles &&
             temporaryArticles.map((article, index) => (
-              <ArticlesContainer
-                key={index}
-              >
+              <ArticlesContainer key={index}>
                 <ArticleCard
                   title={article.title}
                   channel={t(article.channel)}
@@ -179,15 +175,7 @@ const ArticlesList: FC = () => {
         </LeftSection>
 
         <RightSection>
-          <Typography
-            fontSize={h6}
-            textTransform="uppercase"
-            pb={3}
-            textAlign="left"
-            sx={{ pt: { xs: 6, sm: 6, md: 1 } }}
-          >
-            {t("Atik Ki Pi Popilè Yo")}
-          </Typography>
+          <MostReadHeader>{t("Atik Ki Pi Popilè Yo")}</MostReadHeader>
           <MostReadBody>
             {temporaryArticles &&
               temporaryArticles.map((article, index) => (

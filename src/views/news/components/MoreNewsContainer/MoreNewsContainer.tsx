@@ -1,8 +1,8 @@
 import { FC } from "react";
 import PropTypes from "prop-types";
-import ImageList from "@mui/material/ImageList";
-import Grid from "@mui/material/Grid";
-import { MoreNewsContainerType } from "../../../types/MoreNewsContainerType";
+import { Grid } from "../../../../components/Grid/Grid";
+import { MoreNewsContainerType } from "../../../../types/MoreNewsContainerType";
+import { ImageList } from "../../../../components/ImageList/ImageList";
 
 const MoreNewsContainer: FC<MoreNewsContainerType> = ({ children }) => {
   return (
