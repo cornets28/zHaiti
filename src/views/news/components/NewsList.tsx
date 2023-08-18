@@ -1,18 +1,25 @@
 import type { FC } from "react";
-import Grid from "@mui/material/Grid";
-import colors from "../../../utils/theme/base/colors";
 import Cow from "../../../images/boys.webp";
 import ArticleCard from "../../../components/ArticleCard/ArticleCard";
-import useMediaQuery from "@mui/material/useMediaQuery";
-import Typography from "@mui/material/Typography";
-import typography from "../../../utils/theme/base/typography";
 import MostPopularItem from "../../../components/MostPopularItem/MostPopularItem";
 import { useTranslation } from "react-i18next";
 import Pub from "../../../components/Pub/Pub";
 import Pagination from "../../../components/Pagination/Pagination";
-import Box from "@mui/material/Box";
-import MoreNewsContainerType from "./MoreNewsContainer";
+import MoreNewsContainer from "./MoreNewsContainer/MoreNewsContainer";
 import Image from "./Image";
+import Page from "../../../components/Page/Page";
+import ArticlesWrapper from "../../../components/ArticlesWrapper/ArticlesWrapper";
+import NewsTime from "./NewsTime/NewsTime";
+import TopLevel from "./TopLevel/TopLevel";
+import TopLevelNews from "./TopLevelNews/TopLevelNews";
+import MainNews from "./MainNews/MainNews";
+import LeftSection from "../../../components/LeftSection/LeftSection";
+import ArticlesContainer from "../../articles/components/ArticlesContainer/ArticlesContainer";
+import MostReadBody from "../../../components/MostReadBody/MostReadBody";
+import RightSection from "../../../components/RightSection/RightSection";
+import MostReadHeader from "../../article/components/MostReadHeader/MostReadHeader";
+import Section from "./Section/Section";
+import SectionItem from "../../../components/SectionItem/SectionItem";
 
 const temporaryArticles = [
   {
@@ -21,7 +28,7 @@ const temporaryArticles = [
     body: "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
     writer: "Sam Puffy Bark",
     date: "Jully 5, 2023",
-    photo: Cow,
+    photo: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
     reply: 4,
     like: 0,
     views: 435,
@@ -33,7 +40,7 @@ const temporaryArticles = [
     body: "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
     writer: "john Woofr",
     date: "Jun 12, 2023",
-    photo: Cow,
+    photo: "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
     reply: 0,
     like: 19,
     views: 435,
@@ -45,7 +52,7 @@ const temporaryArticles = [
     body: "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
     writer: "Bob Dun",
     date: "Jan 5, 20203",
-    photo: Cow,
+    photo: "https://images.unsplash.com/photo-1522770179533-24471fcdba45",
     reply: 44,
     like: 23,
     views: 435,
@@ -57,7 +64,7 @@ const temporaryArticles = [
     body: "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
     writer: "Bad Bad Girl",
     date: "Dec 5, 2023",
-    photo: Cow,
+    photo: "https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c",
     reply: 0,
     like: 0,
     views: 435,
@@ -70,7 +77,7 @@ const temporaryArticles = [
     body: "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
     writer: "Foolsih Woman",
     date: "Jun 5, 2020",
-    photo: Cow,
+    photo: "https://images.unsplash.com/photo-1533827432537-70133748f5c8",
     reply: 23,
     like: 1,
     views: 435,
@@ -82,7 +89,7 @@ const temporaryArticles = [
     body: "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
     writer: "john Woofr",
     date: "Jun 5, 2020",
-    photo: Cow,
+    photo: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
     reply: 4,
     like: 0,
     views: 435,
@@ -107,7 +114,7 @@ const temporaryArticles = [
     body: "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
     writer: "john Woofr",
     date: "Jun 12, 2023",
-    photo: Cow,
+    photo: "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
     reply: 0,
     like: 19,
     views: 435,
@@ -119,23 +126,11 @@ const temporaryArticles = [
     body: "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
     writer: "Bob Dun",
     date: "Jan 5, 20203",
-    photo: Cow,
+    photo: "https://images.unsplash.com/photo-1522770179533-24471fcdba45",
     reply: 44,
     like: 23,
     views: 435,
     channel: "Relijyon",
-  },
-  {
-    id: 20,
-    title: "Check who wants me tonight in the hood",
-    body: "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
-    writer: "Bad Bad Girl",
-    date: "Dec 5, 2023",
-    photo: Cow,
-    reply: 0,
-    like: 0,
-    views: 435,
-    channel: "Kilti",
   },
 ];
 
@@ -165,69 +160,23 @@ const itemData = [
 
 const NewsList: FC = () => {
   const { t } = useTranslation();
-  const { white2 } = colors;
-  const isWindowSizeMin1513 = useMediaQuery<any>("(min-width:1513px)");
-  const isWindowSizeMin1262 = useMediaQuery<any>("(min-width:1262px)");
-  const { h6, h4 } = typography;
 
   return (
-    <Grid
-      container
-      item
-      xs={12}
-      sm={12}
-      md={12}
-      lg={12}
-      bgcolor={white2}
-      textAlign="center"
-    >
-      <Grid
-        container
-        mb={15}
-        sx={{
-          width: {
-            sm: "100%",
-            md: "100%",
-            lg: isWindowSizeMin1513 ? "82%" : "100%",
-          },
-          mx: "auto",
-          px: { sm: 0, md: 4, lg: 5 },
-        }}
-      >
-        <Grid container item xs={12} sm={12} md={12} lg={12} px={2} mb={6}>
-          <Grid item xs={12} sm={12} md={18} lg={12}>
-            <Typography
-              fontSize={h4}
-              textTransform="uppercase"
-              textAlign="center"
-              pt={4}
-            >
-              {new Date().toLocaleDateString("en-us", {
-                weekday: "long",
-                year: "numeric",
-                month: "short",
-                day: "numeric",
-              })}
-            </Typography>
-          </Grid>
+    <Page>
+      <ArticlesWrapper>
+        <TopLevel>
+          <NewsTime>
+            {new Date().toLocaleDateString("en-us", {
+              weekday: "long",
+              year: "numeric",
+              month: "short",
+              day: "numeric",
+            })}
+          </NewsTime>
 
-          <Grid container item xs={12} sm={12} md={12} lg={12}>
-            <Grid item xs={12} sm={12} md={6} lg={6}>
-              <Box
-                component="img"
-                height={26}
-                width={26}
-                sx={{
-                  height: { xs: "30vh", sm: "40vh", md: "45vh", lg: "55vh" },
-                  width: "100%",
-                  marginTop: 2,
-                }}
-                alt="Main picture"
-                src={Cow}
-              />
-            </Grid>
-
-            <MoreNewsContainerType>
+          <TopLevelNews>
+            <MainNews image={Cow} />
+            <MoreNewsContainer>
               {itemData.map((item) => (
                 <Image
                   image={item.img}
@@ -238,22 +187,14 @@ const NewsList: FC = () => {
                   onClick={() => alert("welllll....")}
                 />
               ))}
-            </MoreNewsContainerType>
-          </Grid>
-        </Grid>
+            </MoreNewsContainer>
+          </TopLevelNews>
+        </TopLevel>
 
-        <Grid container item xs={12} sm={9} md={8} lg={9}>
+        <LeftSection>
           {temporaryArticles &&
             temporaryArticles.map((article, index) => (
-              <Grid
-                item
-                xs={12}
-                sm={6}
-                md={isWindowSizeMin1262 ? 4 : 6}
-                padding={2}
-                marginX="auto"
-                key={index}
-              >
+              <ArticlesContainer key={index}>
                 <ArticleCard
                   title={article.title}
                   channel={t(article.channel)}
@@ -266,43 +207,29 @@ const NewsList: FC = () => {
                   isNews={true}
                   url={`/atik-yo/${article.id}`}
                 />
-              </Grid>
+              </ArticlesContainer>
             ))}
 
           <Pagination />
-        </Grid>
 
-        <Grid
-          item
-          xs={12}
-          sm={3}
-          md={4}
-          lg={3}
-          sx={{
-            px: { xs: 3, sm: 4, md: 3 },
-          }}
-        >
-          <Typography
-            fontSize={h6}
-            textTransform="uppercase"
-            pb={3}
-            textAlign="left"
-            sx={{ pt: { xs: 6, sm: 6, md: 1 } }}
-          >
-            {t("Atik Ki Pi Popilè Yo")}
-          </Typography>
-          <Grid
-            container
-            item
-            xs={12}
-            sm={12}
-            md={12}
-            lg={12}
-            sx={{
-              overflowY: "scroll",
-              height: "65vh",
-            }}
-          >
+          <Section header={t("Espò")}>
+            {temporaryArticles.length > 0 &&
+              temporaryArticles.slice(0, 8).map((item) => (
+                <SectionItem image={item.photo} title={item.title} body={item.body} date={item.date} key={item.photo} onClick={() => alert('TBD')} />
+              ))}
+          </Section>
+
+          <Section header={t("Ayisyen Ou Dwe Konnen")}>
+            {temporaryArticles.length > 0 &&
+              temporaryArticles.slice(0, 8).map((item) => (
+                <SectionItem image={item.photo} title={item.title} body={item.body} date={item.date} key={item.photo} onClick={() => alert('TBD')} />
+              ))}
+          </Section>
+        </LeftSection>
+
+        <RightSection>
+          <MostReadHeader>{t("Atik Ki Pi Popilè Yo")}</MostReadHeader>
+          <MostReadBody>
             {temporaryArticles &&
               temporaryArticles.map((article, index) => (
                 <MostPopularItem
@@ -313,11 +240,11 @@ const NewsList: FC = () => {
                   key={index}
                 />
               ))}
-          </Grid>
+          </MostReadBody>
           <Pub />
-        </Grid>
-      </Grid>
-    </Grid>
+        </RightSection>
+      </ArticlesWrapper>
+    </Page>
   );
 };
 
