@@ -1,4 +1,4 @@
-import Grid from "@mui/material/Grid";
+import { Grid } from "../../components/Grid/Grid";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 
@@ -10,12 +10,11 @@ const PaginationRounded = () => {
       xs={12}
       sm={12}
       md={12}
-      lg={12}
-      alignItems="right"
-      justifyContent="right"
+      lg={12}      
       mt={10}
+      sx={{justifyContent: {sm: 'center', md: 'right'}}}
     >
-      <Grid>
+      <Grid sx={{marginX: {xs: 'auto', sm: 'auto', md: 0}}}>
         <Stack spacing={2}>
           <Pagination count={10} variant="outlined" shape="rounded" />
         </Stack>

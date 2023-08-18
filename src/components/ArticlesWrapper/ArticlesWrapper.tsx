@@ -1,8 +1,8 @@
 import type { FC } from "react";
 import PropTypes from "prop-types";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import { Grid } from "../../../../components/Grid/Grid";
-import { ArticlesWrapperType } from "../../../../types/ArticlesWrapperType";
+import { Grid } from "../Grid/Grid";
+import { ArticlesWrapperType } from "../../types/ArticlesWrapperType";
 
 export const ArticlesWrapper: FC<ArticlesWrapperType> = ({ children }) => {
   const isWindowSizeMin1513 = useMediaQuery<any>("(min-width:1513px)");
