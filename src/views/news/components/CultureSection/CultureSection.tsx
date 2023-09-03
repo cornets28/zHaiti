@@ -1,26 +1,16 @@
 import { FC } from "react";
 import PropTypes from "prop-types";
-import { Box } from "../../../../components/Box/Box";
-import ImageListItem, {
-  imageListItemClasses,
-} from "@mui/material/ImageListItem";
-import { MustKnowHaitiansType } from "../../../../types/MustKnowHaitiansType";
 import ThickDivider from "../ThickDivider/ThickDivider";
 import colors from "../../../../utils/theme/base/colors";
 import { Grid } from "../../../../components/Grid/Grid";
-import { MainHaitian } from "./MainHaitian";
-import { RecentMainHaitians } from "./RecentMainHaitians";
+import { MainCultureContainer } from "../MainCultureContainer/MainCultureContainer";
+import { RecentCulturesContainer } from "../RecentCulturesContainer/RecentCulturesContainer";
 import Cow from "../../../../images/boys.webp";
 import SectionItem from "../../../../components/SectionItem/SectionItem";
-import Typography from "@mui/material/Typography";
-import typography from "../../../../utils/theme/base/typography";
 import ImageList from "@mui/material/ImageList";
-
-import ImageListItemBar from "@mui/material/ImageListItemBar";
-import ListSubheader from "@mui/material/ListSubheader";
-import IconButton from "@mui/material/IconButton";
-import InfoIcon from "@mui/icons-material/Info";
 import Image from "../../../../components/ImageListItemMui/Image";
+import CultureInfoBox from "../CulturesInfoBox/CultureInfoBox";
+import { CultureSectionType } from "../../../../types/CultureSectionType";
 
 const temporaryArticles = [
   {
@@ -136,24 +126,23 @@ const temporaryArticles = [
   },
 ];
 
-export const MustKnowHaitians: FC<MustKnowHaitiansType> = ({
-  header,
-  children,
-}) => {
+export const CultureSection: FC<CultureSectionType> = ({ header }) => {
   const { error } = colors;
-  const { h5 } = typography;
+
   return (
     <Grid container>
       <ThickDivider header={header} color={error.focus} />
       {temporaryArticles && (
-        <MainHaitian
+        <MainCultureContainer
           mainImage={temporaryArticles[0].photo}
           title={temporaryArticles[0].title}
         />
       )}
-      <RecentMainHaitians>
+      <RecentCulturesContainer>
         <Grid item xs={12} sm={12} md={12} lg={11.5}>
-          <ImageList sx={{ width: "100%", height: { md: "64.5vh" , lg: "47.5vh" }}}>
+          <ImageList
+            sx={{ width: "100%", height: { md: "64.5vh", lg: "47.5vh" } }}
+          >
             {temporaryArticles.slice(0, 4).map((item) => (
               <Image
                 image={item.photo}
@@ -166,50 +155,29 @@ export const MustKnowHaitians: FC<MustKnowHaitiansType> = ({
             ))}
           </ImageList>
         </Grid>
-      </RecentMainHaitians>
+      </RecentCulturesContainer>
 
-      <Grid item xs={12} sm={12} md={12} lg={12}>
-        <Box
-          sx={{
-            marginX: { xs: 3, sm: 3, md: 0, lg: 0 },
-            height: "auto",
-            display: "grid",
-            gridTemplateColumns: {
-              sx: "repeat(1, 1fr)",
-              sm: "repeat(2, 1fr)",
-              md: "repeat(3, 1fr)",
-              lg: "repeat(4, 1fr)",
-            },
-            [`& .${imageListItemClasses.root}`]: {
-              display: "flex",
-              flexDirection: "column",
-            },
-            gap: 2,
-            marginTop: 3,
-          }}
-        >
-          {temporaryArticles.length > 0 &&
-            temporaryArticles
-              .slice(4, 8)
-              .map((item) => (
-                <SectionItem
-                  image={item.photo}
-                  title={item.title}
-                  body={item.body}
-                  date={item.date}
-                  key={item.photo}
-                  onClick={() => alert("TBD")}
-                />
-              ))}
-        </Box>
-      </Grid>
+      <CultureInfoBox>
+        {temporaryArticles.length > 0 &&
+          temporaryArticles
+            .slice(4, 8)
+            .map((item) => (
+              <SectionItem
+                image={item.photo}
+                title={item.title}
+                body={item.body}
+                date={item.date}
+                key={item.photo}
+                onClick={() => alert("TBD")}
+              />
+            ))}
+      </CultureInfoBox>
     </Grid>
   );
 };
 
-MustKnowHaitians.propTypes = {
+CultureSection.propTypes = {
   header: PropTypes.string.isRequired,
-  // children: PropTypes.node.isRequired,
 };
 
-export default MustKnowHaitians;
+export default CultureSection;

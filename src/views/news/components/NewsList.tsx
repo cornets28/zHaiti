@@ -20,13 +20,7 @@ import RightSection from "../../../components/RightSection/RightSection";
 import MostReadHeader from "../../article/components/MostReadHeader/MostReadHeader";
 import Section from "./Section/Section";
 import SectionItem from "../../../components/SectionItem/SectionItem";
-import AppC from "./Carousel";
-import { MustKnowHaitians } from "./MustKnowHaitians/MustKnowHaitians";
-// import { MainHaitian } from "./MustKnowHaitians/MainHaitian";
-// import { RecentMainHaitians } from "./MustKnowHaitians/RecentMainHaitians";
-import Grid from "@mui/material/Grid/Grid";
-import MainHaitian from "./MustKnowHaitians/MainHaitian";
-import RecentMainHaitians from "./MustKnowHaitians/RecentMainHaitians";
+import { CultureSection } from "./CultureSection/CultureSection";
 
 const temporaryArticles = [
   {
@@ -235,9 +229,7 @@ const NewsList: FC = () => {
                 ))}
           </Section>
 
-          <MustKnowHaitians header={t("Ayisyen Ou Dwe Konnen")}>
-     
-          </MustKnowHaitians>
+          <CultureSection header={t("Kilti")} />
         </LeftSection>
 
         <RightSection>
@@ -255,7 +247,6 @@ const NewsList: FC = () => {
               ))}
           </MostReadBody>
           <Pub />
-          <AppC />
         </RightSection>
       </ArticlesWrapper>
     </Page>

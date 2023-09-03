@@ -1,5 +1,5 @@
 import { ReactNode } from "react"
 
-export type RecentMainHaitiansType = {
+export type CultureInfoBoxType = {
     children: ReactNode
 }
