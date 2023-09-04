@@ -1,4 +1,4 @@
 export type MainCultureContainerType = {
-    mainImage: any,
+    mainImage: string,
     title: string
 }
