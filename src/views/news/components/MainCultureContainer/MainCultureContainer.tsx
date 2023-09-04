@@ -29,9 +29,11 @@ export const MainCultureContainer: FC<MainCultureContainerType> = ({
       <Box
         component="img"
         sx={{
-          height: { xs: "30vh", sm: "40vh", md: "45vh", lg: "42.75vh" },
+          height: { xs: "30vh", sm: "45vh", md: "45vh", lg: "42.75vh" },
           width: "100%",
           marginTop: 0.5,
+          paddingX: { xs: 3, sm: 3, md: 0, lg: 0 },
+          
         }}
         // @ts-ignore
         alt="Main picture"
