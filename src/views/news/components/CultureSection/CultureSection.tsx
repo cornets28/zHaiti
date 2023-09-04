@@ -1,31 +1,22 @@
-import type { FC } from "react";
-import Cow from "../../../images/boys.webp";
-import ArticleCard from "../../../components/ArticleCard/ArticleCard";
-import MostPopularItem from "../../../components/MostPopularItem/MostPopularItem";
-import { useTranslation } from "react-i18next";
-import Pub from "../../../components/Pub/Pub";
-import Pagination from "../../../components/Pagination/Pagination";
-import MoreNewsContainer from "./MoreNewsContainer/MoreNewsContainer";
-import Image from "../../../components/ImageListItemMui/Image";
-import Page from "../../../components/Page/Page";
-import ArticlesWrapper from "../../../components/ArticlesWrapper/ArticlesWrapper";
-import NewsTime from "./NewsTime/NewsTime";
-import TopLevel from "./TopLevel/TopLevel";
-import TopLevelNews from "./TopLevelNews/TopLevelNews";
-import MainNews from "./MainNews/MainNews";
-import LeftSection from "../../../components/LeftSection/LeftSection";
-import ArticlesContainer from "../../articles/components/ArticlesContainer/ArticlesContainer";
-import MostReadBody from "../../../components/MostReadBody/MostReadBody";
-import RightSection from "../../../components/RightSection/RightSection";
-import MostReadHeader from "../../article/components/MostReadHeader/MostReadHeader";
-import Section from "./Section/Section";
-import SectionItem from "../../../components/SectionItem/SectionItem";
-import { CultureSection } from "./CultureSection/CultureSection";
+import { FC } from "react";
+import PropTypes from "prop-types";
+import ThickDivider from "../ThickDivider/ThickDivider";
+import colors from "../../../../utils/theme/base/colors";
+import { Grid } from "../../../../components/Grid/Grid";
+import { MainCultureContainer } from "../MainCultureContainer/MainCultureContainer";
+import { RecentCulturesContainer } from "../RecentCulturesContainer/RecentCulturesContainer";
+import Cow from "../../../../images/boys.webp";
+import SectionItem from "../../../../components/SectionItem/SectionItem";
+import ImageList from "@mui/material/ImageList";
+import Image from "../../../../components/ImageListItemMui/Image";
+import CultureInfoBox from "../CulturesInfoBox/CultureInfoBox";
+import { CultureSectionType } from "../../../../types/CultureSectionType";
 
 const temporaryArticles = [
   {
     id: 1,
-    title: "The Buy By the Sea yes for the first time",
+    title:
+      "The Buy By the Sea yes for the first time The Buy By the Sea yes for",
     body: "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
     writer: "Sam Puffy Bark",
     date: "Jully 5, 2023",
@@ -135,122 +126,58 @@ const temporaryArticles = [
   },
 ];
 
-const itemData = [
-  {
-    img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
-    title: "Scroll down and write down the ones that do makes sense.",
-    author: "Daniel Booster",
-    featured: true,
-  },
-  {
-    img: "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
-    title: "Tweak them a little so they are grammatically correct.",
-    author: "Paul Looman",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1522770179533-24471fcdba45",
-    title: "Research the competition and see what are they up to.",
-    author: "Nelly Clown",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c",
-    title: "Research the competition and see what are they up to.",
-    author: "Frenge Ben",
-  },
-];
-
-const NewsList: FC = () => {
-  const { t } = useTranslation();
+export const CultureSection: FC<CultureSectionType> = ({ header }) => {
+  const { error } = colors;
 
   return (
-    <Page>
-      <ArticlesWrapper>
-        <TopLevel>
-          <NewsTime>
-            {new Date().toLocaleDateString("en-us", {
-              weekday: "long",
-              year: "numeric",
-              month: "short",
-              day: "numeric",
-            })}
-          </NewsTime>
-
-          <TopLevelNews>
-            <MainNews image={Cow} />
-            <MoreNewsContainer>
-              {itemData.map((item) => (
-                <Image
-                  image={item.img}
-                  alt={item.title}
-                  key={item.img}
-                  title={item.title}
-                  author={item.author}
-                  onClick={() => alert("welllll....")}
-                />
-              ))}
-            </MoreNewsContainer>
-          </TopLevelNews>
-        </TopLevel>
-
-        <LeftSection>
-          {temporaryArticles &&
-            temporaryArticles.map((article, index) => (
-              <ArticlesContainer key={index}>
-                <ArticleCard
-                  title={article.title}
-                  channel={t(article.channel)}
-                  writer={article.writer}
-                  body={article.body}
-                  reply={article.reply}
-                  like={article.like}
-                  image={article.photo}
-                  tooltipTitle="Modifye nouvèl sa"
-                  isNews={true}
-                  url={`/atik-yo/${article.id}`}
-                />
-              </ArticlesContainer>
+    <Grid container>
+      <ThickDivider header={header} color={error.focus} />
+      {temporaryArticles && (
+        <MainCultureContainer
+          mainImage={temporaryArticles[0].photo}
+          title={temporaryArticles[0].title}
+        />
+      )}
+      <RecentCulturesContainer>
+        <Grid item xs={12} sm={12} md={12} lg={11.5}>
+          <ImageList
+            sx={{ width: "100%", height: { md: "64.5vh", lg: "47.5vh" } }}
+          >
+            {temporaryArticles.slice(0, 4).map((item) => (
+              <Image
+                image={item.photo}
+                alt={item.title}
+                key={item.photo}
+                title={item.title}
+                author={item.writer}
+                onClick={() => alert("welllll....44")}
+              />
             ))}
+          </ImageList>
+        </Grid>
+      </RecentCulturesContainer>
 
-          <Pagination />
-
-          <Section header={t("Espò")}>
-            {temporaryArticles.length > 0 &&
-              temporaryArticles
-                .slice(0, 8)
-                .map((item) => (
-                  <SectionItem
-                    image={item.photo}
-                    title={item.title}
-                    body={item.body}
-                    date={item.date}
-                    key={item.photo}
-                    onClick={() => alert("TBD")}
-                  />
-                ))}
-          </Section>
-
-          <CultureSection header={t("Kilti")} />
-        </LeftSection>
-
-        <RightSection>
-          <MostReadHeader>{t("Atik Ki Pi Popilè Yo")}</MostReadHeader>
-          <MostReadBody>
-            {temporaryArticles &&
-              temporaryArticles.map((article, index) => (
-                <MostPopularItem
-                  image={article.photo}
-                  title={article.title}
-                  views={article.views}
-                  onClick={() => alert("Coming soon")}
-                  key={index}
-                />
-              ))}
-          </MostReadBody>
-          <Pub />
-        </RightSection>
-      </ArticlesWrapper>
-    </Page>
+      <CultureInfoBox>
+        {temporaryArticles.length > 0 &&
+          temporaryArticles
+            .slice(4, 8)
+            .map((item) => (
+              <SectionItem
+                image={item.photo}
+                title={item.title}
+                body={item.body}
+                date={item.date}
+                key={item.photo}
+                onClick={() => alert("TBD")}
+              />
+            ))}
+      </CultureInfoBox>
+    </Grid>
   );
 };
 
-export default NewsList;
+CultureSection.propTypes = {
+  header: PropTypes.string.isRequired,
+};
+
+export default CultureSection;
