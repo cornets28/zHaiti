@@ -33,7 +33,6 @@ export const MainCultureContainer: FC<MainCultureContainerType> = ({
           width: "100%",
           marginTop: 0.5,
           paddingX: { xs: 3, sm: 3, md: 0, lg: 0 },
-          
         }}
         // @ts-ignore
         alt="Main picture"

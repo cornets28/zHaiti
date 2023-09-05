@@ -4,7 +4,7 @@ import ArticleCard from "../../../components/ArticleCard/ArticleCard";
 import MostPopularItem from "../../../components/MostPopularItem/MostPopularItem";
 import { useTranslation } from "react-i18next";
 import Pub from "../../../components/Pub/Pub";
-import Pagination from "../../../components/Pagination/Pagination";
+// import Pagination from "../../../components/Pagination/Pagination";
 import MoreNewsContainer from "./MoreNewsContainer/MoreNewsContainer";
 import Image from "../../../components/ImageListItemMui/Image";
 import Page from "../../../components/Page/Page";
@@ -71,7 +71,6 @@ const temporaryArticles = [
     views: 435,
     channel: "Kilti",
   },
-
   {
     id: 5,
     title: "Should we ascape death yes for the first time?",
@@ -211,7 +210,7 @@ const NewsList: FC = () => {
               </ArticlesContainer>
             ))}
 
-          <Pagination />
+          {/* <Pagination /> */}
 
           <Section header={t("Espò")}>
             {temporaryArticles.length > 0 &&
