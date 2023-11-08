@@ -9,7 +9,7 @@ import HaitiImage from '../components/HaitianImageSection/HaitiImage';
 import Page from "../../../components/Page/Page";
 
 export const Home: FC = () => {
-
+  
   return (
     <Page>
       <DynamicText />

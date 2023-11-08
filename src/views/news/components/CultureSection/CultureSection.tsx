@@ -139,7 +139,7 @@ export const CultureSection: FC<CultureSectionType> = ({ header }) => {
         />
       )}
       <RecentCulturesContainer>
-        <Grid item xs={12} sm={12} md={12} lg={11.5}>
+        <Grid item xs={12} sm={12} md={12} lg={12}>
           <ImageList
             sx={{ width: "100%", height: { md: "64.5vh", lg: "47.5vh" } }}
           >

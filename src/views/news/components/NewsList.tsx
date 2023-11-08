@@ -199,7 +199,7 @@ const NewsList: FC = () => {
                   title={article.title}
                   channel={t(article.channel)}
                   writer={article.writer}
-                  body={article.body}
+                  description={article.body}
                   reply={article.reply}
                   like={article.like}
                   image={article.photo}

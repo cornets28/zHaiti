@@ -1,4 +1,5 @@
-import type { FC } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useState, type FC, useEffect } from "react";
 import Title from "../../../components/Title/Title";
 import Cow from "../../../images/boys.webp";
 import ArticleCard from "../../../components/ArticleCard/ArticleCard";
@@ -14,134 +15,16 @@ import RightSection from "../../../components/RightSection/RightSection";
 import MostReadBody from "../../../components/MostReadBody/MostReadBody";
 import ArticlesContainer from "./ArticlesContainer/ArticlesContainer";
 import MostReadHeader from "../../article/components/MostReadHeader/MostReadHeader";
-
-const temporaryArticles = [
-  {
-    id: 1,
-    title: "The Buy By the Sea yes for the first time",
-    body: "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
-    writer: "Sam Puffy Bark",
-    date: "Jully 5, 2023",
-    photo: Cow,
-    reply: 4,
-    like: 0,
-    views: 435,
-    channel: "Politik",
-  },
-  {
-    id: 2,
-    title: "Bella Chaow Chao yes for the first time",
-    body: "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
-    writer: "john Woofr",
-    date: "Jun 12, 2023",
-    photo: Cow,
-    reply: 0,
-    like: 19,
-    views: 435,
-    channel: "Edikasyon",
-  },
-  {
-    id: 3,
-    title: "Soldiers are fitghers yes for the first time",
-    body: "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
-    writer: "Bob Dun",
-    date: "Jan 5, 20203",
-    photo: Cow,
-    reply: 44,
-    like: 23,
-    views: 435,
-    channel: "Relijyon",
-  },
-  {
-    id: 4,
-    title: "Check who wants me tonight in the hood",
-    body: "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
-    writer: "Bad Bad Girl",
-    date: "Dec 5, 2023",
-    photo: Cow,
-    reply: 0,
-    like: 0,
-    views: 435,
-    channel: "Kilti",
-  },
-
-  {
-    id: 5,
-    title: "Should we ascape death yes for the first time?",
-    body: "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
-    writer: "Foolsih Woman",
-    date: "Jun 5, 2020",
-    photo: Cow,
-    reply: 23,
-    like: 1,
-    views: 435,
-    channel: "Edikasyon",
-  },
-  {
-    id: 6,
-    title: "The doll in the pool yes for the first time",
-    body: "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
-    writer: "john Woofr",
-    date: "Jun 5, 2020",
-    photo: Cow,
-    reply: 4,
-    like: 0,
-    views: 435,
-    channel: "Espò",
-  },
-  {
-    id: 7,
-    title: "What to eat on Wenesday yes for the first time",
-    body: "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
-    writer: "Crap BooBoo",
-    date: "April 5, 2020",
-    photo: Cow,
-    reply: 0,
-    like: 0,
-    views: 435,
-    channel: "Politik",
-  },
-
-  {
-    id: 8,
-    title: "Bella Chaow Chaow Chaow yes for the first time",
-    body: "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
-    writer: "john Woofr",
-    date: "Jun 12, 2023",
-    photo: Cow,
-    reply: 0,
-    like: 19,
-    views: 435,
-    channel: "Edikasyon",
-  },
-  {
-    id: 9,
-    title: "Soldiers are fitghers yes for the first time",
-    body: "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
-    writer: "Bob Dun",
-    date: "Jan 5, 20203",
-    photo: Cow,
-    reply: 44,
-    like: 23,
-    views: 435,
-    channel: "Relijyon",
-  },
-  {
-    id: 20,
-    title: "Check who wants me tonight in the hood",
-    body: "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
-    writer: "Bad Bad Girl",
-    date: "Dec 5, 2023",
-    photo: Cow,
-    reply: 0,
-    like: 0,
-    views: 435,
-    channel: "Kilti",
-  },
-];
+import db from "../../../utils/articles.json";
 
 const ArticlesList: FC = () => {
   const { t } = useTranslation();
+  const [temporaryArticles, setTemporaryArticles] = useState([]);
+
+  useEffect(() => {
+    // @ts-ignore
+    setTemporaryArticles(db.articles);
+  }, [db.articles]);
 
   return (
     <Page>
@@ -155,38 +38,36 @@ const ArticlesList: FC = () => {
 
       <ArticlesWrapper>
         <LeftSection>
-          {temporaryArticles &&
-            temporaryArticles.map((article, index) => (
-              <ArticlesContainer key={index}>
-                <ArticleCard
-                  title={article.title}
-                  channel={t(article.channel)}
-                  writer={article.writer}
-                  body={article.body}
-                  reply={article.reply}
-                  like={article.like}
-                  image={article.photo}
-                  tooltipTitle="Modifye Atik sa"
-                  url={`/atik-yo/${article.id}`}
-                />
-              </ArticlesContainer>
-            ))}
+          {temporaryArticles.map((article: any) => (
+            <ArticlesContainer key={article.id}>
+              <ArticleCard
+                title={article.title}
+                writer={article.writer}
+                description={article.description}
+                reply={article.replies}
+                like={article.like}
+                image={Cow}
+                tooltipTitle="Modifye Atik sa"
+                url={`/atik-yo/${article.id}`}
+                channel={article.categories[0]}
+              />
+            </ArticlesContainer>
+          ))}
           <Pagination />
         </LeftSection>
 
         <RightSection>
           <MostReadHeader>{t("Atik Ki Pi Popilè Yo")}</MostReadHeader>
           <MostReadBody>
-            {temporaryArticles &&
-              temporaryArticles.map((article, index) => (
-                <MostPopularItem
-                  image={article.photo}
-                  title={article.title}
-                  views={article.views}
-                  onClick={() => alert("Coming soon")}
-                  key={index}
-                />
-              ))}
+            {temporaryArticles.map((article: any) => (
+              <MostPopularItem
+                image={Cow}
+                title={article.title}
+                views={article.numberOfRead}
+                onClick={() => alert("Coming soon")}
+                key={article.id}
+              />
+            ))}
           </MostReadBody>
           <Pub />
         </RightSection>
