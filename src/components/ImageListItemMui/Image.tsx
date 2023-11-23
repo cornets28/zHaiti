@@ -6,13 +6,11 @@ import ImageListItemBar from "@mui/material/ImageListItemBar";
 import IconButton from "@mui/material/IconButton";
 import InfoIcon from "@mui/icons-material/Info";
 
-import { ImageType } from "../../../types/ImageType";
-import colors from "../../../utils/theme/base/colors";
+import { ImageType } from "../../types/ImageType";
+import colors from "../../utils/theme/base/colors";
 
 const Image: FC<ImageType> = ({ image, alt, title, author, onClick }) => {
   const { white2 } = colors;
-
-
 
   return (
     <ImageListItem sx={{ cursor: "pointer" }}>
@@ -23,7 +21,7 @@ const Image: FC<ImageType> = ({ image, alt, title, author, onClick }) => {
         loading="lazy"
         onClick={onClick}
       />
-|
+      |
       <ImageListItemBar
         title={title}
         subtitle={author}

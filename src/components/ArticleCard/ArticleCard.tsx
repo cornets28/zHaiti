@@ -24,7 +24,7 @@ import { Link } from "react-router-dom";
 
 const ArticleCard: FC<ArticleCardType> = ({
   title,
-  body,
+  description,
   channel,
   writer,
   like,
@@ -117,7 +117,7 @@ const ArticleCard: FC<ArticleCardType> = ({
             : title}
         </Typography>
         <Typography variant="body2" color="text.secondary" textAlign="left">
-          {body.substring(0, 166)}...
+          {description?.substring(0, 166)}...
         </Typography>
       </CardContent>
 
@@ -164,7 +164,7 @@ const ArticleCard: FC<ArticleCardType> = ({
 
 ArticleCard.propTypes = {
   title: PropTypes.string.isRequired,
-  body: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
   channel: PropTypes.string.isRequired,
   writer: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,

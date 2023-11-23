@@ -2,15 +2,12 @@ import { FC } from "react";
 import PropTypes from "prop-types";
 import { Box } from "../../../../components/Box/Box";
 import { imageListItemClasses } from "@mui/material/ImageListItem";
-import { SectionType } from "../../../../types/SectionType";
-import ThickDivider from "../ThickDivider/ThickDivider";
-import colors from "../../../../utils/theme/base/colors";
+import { CultureInfoBoxType } from "../../../../types/CultureInfoBoxType";
+import { Grid } from "../../../../components/Grid/Grid";
 
-export const Section: FC<SectionType> = ({ children, header }) => {
-  const { error } = colors;
+export const CultureInfoBox: FC<CultureInfoBoxType> = ({ children }) => {
   return (
-    <>
-      <ThickDivider header={header} color={error.focus} />
+    <Grid item xs={12} sm={12} md={12} lg={12}>
       <Box
         sx={{
           marginX: { xs: 3, sm: 3, md: 0, lg: 0 },
@@ -32,13 +29,12 @@ export const Section: FC<SectionType> = ({ children, header }) => {
       >
         {children}
       </Box>
-    </>
+    </Grid>
   );
 };
 
-Section.propTypes = {
-  header: PropTypes.string.isRequired,
+CultureInfoBox.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export default Section;
+export default CultureInfoBox;
