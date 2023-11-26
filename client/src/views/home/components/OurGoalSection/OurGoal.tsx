@@ -8,6 +8,8 @@ import { useTranslation } from "react-i18next";
 import OurGoalContainer from "./OurGoalContainer/OurGoalContainer";
 import CategoryWrapper from "./CategoryWrapper/CategoryWrapper";
 
+import db from "../../../../utils/articles.json";
+
 const temporaryPublic = [
   {
     id: 1,
