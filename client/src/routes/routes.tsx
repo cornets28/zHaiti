@@ -4,6 +4,7 @@ import { Route, Routes, Navigate } from "react-router-dom";
 import type { LazyExoticComponent } from "react";
 
 import Navbar from "../components/Layout/Navbar/Navbar";
+// import Topbar from "../components/Layout/Navbar/Topbar";
 import Footer from "../components/Layout/Footer/Footer";
 import SignIn from "../views/signIn/page/SignIn";
 import Grid from "@mui/material/Grid";
@@ -27,7 +28,7 @@ export const renderRoutes = (routes: RoutesTypes = []): JSX.Element => (
       }}
     >
       <Routes>
-        {routes.map((route, i) => {
+        {routes.map((route: any, i: number) => {
           return (
             <Route key={i} path={route.path} element={<route.component />} />
           );

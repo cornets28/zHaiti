@@ -7,8 +7,8 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
-import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+import Logo from "../../../Logo/Logo";
 
 import { navBatItems } from '../../../../routes/navBarItems';
 import { useNavbarStyles } from '../styles/useNavbarStyles';
@@ -33,9 +33,7 @@ const MobileDrawer: FC = (props) => {
 
   return (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', height: "100%" }} className={classes.drawer} >
-      <Typography variant="h6" sx={{ my: 2 }}>
-        LOGO
-      </Typography>
+      <Logo />
       <Divider className={classes.divider} />
       <List>
         {navBatItems.map((item: any, index: number) => (
