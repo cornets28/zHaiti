@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Box } from "../../../../components/Box/Box";
 import { MainCultureContainerType } from "../../../../types/MainCultureContainerType";
 import { Grid } from "../../../../components/Grid/Grid";
-import Typography from "@mui/material/Typography";
+import { Typography } from "../../../../components/Typography/Typography";
 import typography from "../../../../utils/theme/base/typography";
 import colors from "../../../../utils/theme/base/colors";
 

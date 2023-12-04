@@ -6,7 +6,7 @@ import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
-import Typography from "@mui/material/Typography";
+import { Typography } from "../Typography/Typography";
 import typography from "../../utils/theme/base/typography";
 import { useArticleCardStyle } from "./styles/useArticleCardStyle";
 import BlancUser from "../../images/blancUser.png";

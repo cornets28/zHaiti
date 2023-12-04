@@ -1,7 +1,7 @@
 import { FC } from "react";
 import PropTypes from 'prop-types';
 import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
+import { Typography } from "../../../Typography/Typography";
 import colors from "../../../../utils/theme/base/colors";
 import typography from "../../../../utils/theme/base/typography";
 import { FooterBoxType } from "../../../../types/FooterBoxType";
