@@ -14,16 +14,17 @@ import { useNavbarStyles } from "./styles/useNavbarStyles";
 import MobileDrawer from "./components/MobileDrawer";
 import colors from "../../../utils/theme/base/colors";
 import { useTranslation } from "react-i18next";
-// import { useSelector } from "react-redux";
 import Stack from "@mui/material/Stack";
-import SignInButton from './components/SignInButton'
-
+import SignInButton from "./components/SignInButton";
+import UserMenu from "../../UserMenu/UserMenu";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 import Logo from "../../Logo/Logo";
+import { useSelector, useDispatch } from "react-redux";
+import { setAuthModalOpen } from "../../../redux/features/authModalSlice";
 
 interface ScrollAppBarProps {
   window?: () => Window;
-  children: ReactNode
+  children: ReactNode;
 }
 
 interface Props {
@@ -36,9 +37,11 @@ const Navbar: FC = (props: Props) => {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [value, setValue] = React.useState(0);
-
+  // @ts-ignore
+  const { user } = useSelector((state) => state.user);
   const navigate = useNavigate();
   const { t, i18n } = useTranslation();
+  const dispatch = useDispatch();
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
@@ -56,10 +59,7 @@ const Navbar: FC = (props: Props) => {
     i18n.changeLanguage(event.target.value);
   };
 
-  const ScrollAppBar:FC<ScrollAppBarProps> = ({
-    children,
-    window,
-  }) => {
+  const ScrollAppBar: FC<ScrollAppBarProps> = ({ children, window }) => {
     const trigger = useScrollTrigger({
       disableHysteresis: true,
       threshold: 50,
@@ -67,7 +67,6 @@ const Navbar: FC = (props: Props) => {
     });
     // @ts-ignore
     return cloneElement(children, {
-      
       sx: {
         backgroundColor: trigger ? error.focus : darkBleu.main,
       },
@@ -76,20 +75,6 @@ const Navbar: FC = (props: Props) => {
 
   return (
     <>
-      {/* {mobileOpen && (
-        <div
-          style={{
-            background: "rgba(78, 67, 67, 0.377)",
-            zIndex: 10,
-            position: "absolute",
-            left: 0,
-            top: 0,
-            height: "100vh",
-            width: "100vw",
-          }}
-        />
-      )} */}
-
       <ScrollAppBar>
         <AppBar elevation={0} sx={{ zIndex: 9999 }}>
           <Toolbar
@@ -99,13 +84,17 @@ const Navbar: FC = (props: Props) => {
               <IconButton
                 color="primary"
                 sx={{ mr: 2, display: { md: "none" } }}
-                // onClick={toggleSidebar}
                 onClick={handleDrawerToggle}
               >
                 <MenuIcon />
               </IconButton>
 
-              <Box sx={{ display: { xs: "inline-block", md: "none"}, paddingLeft: '50%'}}>
+              <Box
+                sx={{
+                  display: { xs: "inline-block", md: "none" },
+                  paddingLeft: "50%",
+                }}
+              >
                 <Logo />
               </Box>
             </Stack>
@@ -153,10 +142,16 @@ const Navbar: FC = (props: Props) => {
               </Tabs>
             </Box>
 
-            <Box sx={{ display: { sm: 'none', md: 'block', xs: 'none'} }}>
-              <SignInButton />
-            </Box>
-            {/* user menu */}
+            <Stack spacing={3} direction="row" alignItems="center">
+              {!user && (
+                <Box sx={{ display: { sm: "none", md: "block", xs: "none" } }}>
+                  <SignInButton
+                    onClick={() => dispatch(setAuthModalOpen(true))}
+                  />
+                </Box>
+              )}
+            </Stack>
+            {<UserMenu />}
           </Toolbar>
         </AppBar>
       </ScrollAppBar>

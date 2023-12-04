@@ -83,9 +83,23 @@ const updatePassword = async (req, res) => {
   }
 };
 
+const getInfo = async (req, res) => {
+  try {
+    const user = await userModel.findById(req.user.id);
+
+    if (!user) return responseHandler.notfound(res);
+
+    responseHandler.ok(res, user);
+  } catch {
+    responseHandler.error(res);
+  }
+};
+
+
 
 export default {
   signUp,
   signIn,
-  updatePassword
+  updatePassword,
+  getInfo
 };

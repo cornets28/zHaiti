@@ -1,6 +1,6 @@
 import { FC } from "react";
 import Grid from "@mui/material/Grid";
-import Typography from "@mui/material/Typography";
+import { Typography } from "../../../Typography/Typography";
 import colors from "../../../../utils/theme/base/colors";
 import typography from "../../../../utils/theme/base/typography";
 import LinkHref from "../../../Link/Link";

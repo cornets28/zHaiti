@@ -1,13 +1,17 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Suspense, lazy } from "react";
 import type { ComponentType } from "react";
+import Navbar from "../components/Layout/Navbar/Navbar";
+import Footer from "../components/Layout/Footer/Footer";
+import AuthModal from "../components/Auth/AuthModal";
 import { Route, Routes, Navigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import userApi from "../api/modules/user.api";
+import { setUser } from "../redux/features/userSlice";
 import type { LazyExoticComponent } from "react";
 
-import Navbar from "../components/Layout/Navbar/Navbar";
-// import Topbar from "../components/Layout/Navbar/Topbar";
-import Footer from "../components/Layout/Footer/Footer";
-import SignIn from "../views/signIn/page/SignIn";
-import Grid from "@mui/material/Grid";
+import { Grid } from "../components/Grid/Grid";
 
 type RoutesTypes = {
   exact?: boolean;
@@ -17,27 +21,53 @@ type RoutesTypes = {
   label?: string;
 }[];
 
-export const renderRoutes = (routes: RoutesTypes = []): JSX.Element => (
-  <Suspense fallback={<SignIn />}>
-    <Navbar />
-    <Grid
-      className="container"
-      sx={{
-        md: 0,
-        mb: { xs: 0, sm: 0, md: 0, lg: 45 },
-      }}
-    >
-      <Routes>
-        {routes.map((route: any, i: number) => {
-          return (
-            <Route key={i} path={route.path} element={<route.component />} />
-          );
-        })}
-      </Routes>
-    </Grid>
-    <Footer />
-  </Suspense>
-);
+const RenderRoutes = (): JSX.Element => {
+  const dispatch = useDispatch();
+  // @ts-ignore
+  const { user } = useSelector((state) => state.user);
+
+  useEffect(() => {
+    console.log("user: ", user);
+    const authUser = async () => {
+      const { response, err } = await userApi.getInfo();
+      if (response) dispatch(setUser(response));
+      if (err) dispatch(setUser(null));
+    };
+
+    authUser();
+  }, [dispatch]);
+
+  return (
+    <>
+      <AuthModal />
+      <Suspense>
+        <Navbar />
+        <Grid
+          className="container"
+          sx={{
+            md: 0,
+            mb: { xs: 0, sm: 0, md: 0, lg: 45 },
+          }}
+        >
+          <Routes>
+            {routes.map((route: any, i: number) => {
+              return (
+                <Route
+                  key={i}
+                  path={route.path}
+                  element={<route.component />}
+                />
+              );
+            })}
+          </Routes>
+        </Grid>
+        <Footer />
+      </Suspense>
+    </>
+  );
+};
+
+export default RenderRoutes;
 
 const routes: RoutesTypes = [
   {
@@ -111,5 +141,3 @@ const routes: RoutesTypes = [
     component: () => <Navigate to="/404" />,
   },
 ];
-
-export default routes;

@@ -1,5 +1,5 @@
 import Grid from "@mui/material/Grid";
-import Typography from "@mui/material/Typography";
+import { Typography } from "../Typography/Typography";
 import typography from "../../utils/theme/base/typography";
 import colors from "../../utils/theme/base/colors";
 import { useTranslation } from "react-i18next";

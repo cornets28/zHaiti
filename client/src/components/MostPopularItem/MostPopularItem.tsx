@@ -1,7 +1,7 @@
 import { FC } from "react";
 import PropTypes from 'prop-types';
 import Grid from "@mui/material/Grid";
-import Typography from "@mui/material/Typography";
+import { Typography } from "../Typography/Typography";
 import typography from "../../utils/theme/base/typography";
 import { MostPopularItemType } from "../../types/MostPopularItemType";
 import colors from "../../utils/theme/base/colors";

@@ -2,13 +2,13 @@ import ScrollToButton from "./ScrollToButton";
 import colors from "../../../../utils/theme/base/colors";
 import { Button } from "../../../Button/Button";
 import Stack from "@mui/material/Stack";
-import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import {SignInButtonType} from '../../../../types/SignInButtonType'
+import { FC } from "react";
 
-const SignInButton = () => {
+const SignInButton:FC<SignInButtonType> = ({ onClick }) => {
   const { t } = useTranslation();
   const { error, grey, darkBleu } = colors;
-  const navigate = useNavigate();
 
   return (
     <Stack spacing={3} direction="row">
@@ -24,7 +24,7 @@ const SignInButton = () => {
         >
           <Button
             variant="contained"
-            onClick={() => navigate("/signin")}
+            onClick={onClick}
           >
             {t("Konekte")}
           </Button>
