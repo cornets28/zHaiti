@@ -21,6 +21,7 @@ import useScrollTrigger from "@mui/material/useScrollTrigger";
 import Logo from "../../Logo/Logo";
 import { useSelector, useDispatch } from "react-redux";
 import { setAuthModalOpen } from "../../../redux/features/authModalSlice";
+import menuConfigs from "../../../utils/menu.configs";
 
 interface ScrollAppBarProps {
   window?: () => Window;
@@ -31,7 +32,7 @@ interface Props {
   window?: () => Window;
 }
 const drawerWidth = 240;
-const { darkBleu, error } = colors;
+const { darkBleu, error, grey } = colors;
 
 const Navbar: FC = (props: Props) => {
   const { window } = props;
@@ -105,14 +106,14 @@ const Navbar: FC = (props: Props) => {
               alignItems="center"
               display={{ xs: "none", md: "flex" }}
             >
-              <Box sx={{ marginRight: "30px" }}>
+              <Box sx={{ marginRight: "3%" }}>
                 <Logo />
               </Box>
               <div>
-                <select onChange={handleLanguageChange} value={i18n.language}>
-                  <option value="ht">Kreyòl</option>
-                  <option value="en">English</option>
-                  <option value="fr">French</option>
+                <select onChange={handleLanguageChange} value={i18n.language} style={{backgroundColor: error.main, color: grey['100'], borderColor: error.main}}>
+                  {menuConfigs.languages.map(lang => (
+                    <option value={lang.short} style={{backgroundColor: error.main, color: 'white'}}>{lang.language}</option>
+                  ))}
                 </select>
               </div>
             </Box>
