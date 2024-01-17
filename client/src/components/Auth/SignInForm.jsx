@@ -45,8 +45,6 @@ const SignInForm = ({ switchAuthState }) => {
       }
 
       if (err) setErrorMessage(err.message);
-
-      dispatch(setAuthModalOpen(false));
     }
   });
 
