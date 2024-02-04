@@ -15,7 +15,7 @@ export const MainCultureContainer: FC<MainCultureContainerType> = ({
   const { black } = colors;
 
   return (
-    <Grid item xs={12} sm={12} md={6} lg={6}>
+    <Grid container item xs={12} sm={12} md={6} lg={6}>
       <Typography
         fontSize={h5}
         color={black.main}
