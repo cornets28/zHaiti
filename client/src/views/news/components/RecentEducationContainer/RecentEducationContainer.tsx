@@ -17,13 +17,14 @@ export const RecentEducationContainer: FC<RecentEducationContainerType> = ({
       md={12}
       lg={3}   
       sx={{
-        mt: { sm: 0, md: 3, lg: 0 },
+        mt: { sm: 0, lg: 0 },
         height: { sm: "auto", md: "auto", lg: "51.5vh" },
         py: { md: 1, lg: 2 },
         pt: { md: 1, lg: 2 },
         pl: { sm: 3, md: 0, lg: 0 },
         pr: { sm: 3, md: 0, lg: 0 },
         mx: { xs: 3, md: 0, lg: 0}
+
       }}
     >
       {children}
