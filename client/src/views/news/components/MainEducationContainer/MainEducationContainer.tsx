@@ -7,7 +7,7 @@ import { Typography } from "../../../../components/Typography/Typography";
 import typography from "../../../../utils/theme/base/typography";
 import colors from "../../../../utils/theme/base/colors";
 
-export const MainCultureContainer: FC<MainCultureContainerType> = ({
+export const MainEducationContainer: FC<MainCultureContainerType> = ({
   title,
   mainImage,
 }) => {
@@ -42,9 +42,9 @@ export const MainCultureContainer: FC<MainCultureContainerType> = ({
   );
 };
 
-MainCultureContainer.propTypes = {
+MainEducationContainer.propTypes = {
   mainImage: PropTypes.any.isRequired,
   title: PropTypes.string.isRequired,
 };
 
-export default MainCultureContainer;
+export default MainEducationContainer;

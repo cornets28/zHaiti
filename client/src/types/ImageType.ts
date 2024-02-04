@@ -5,5 +5,8 @@ export type ImageType = {
     alt: string, 
     title: string, 
     author: string, 
+    marginTop?: number,
+    marginRight?: number,
+    marginLeft?: number,
     onClick: MouseEventHandler<HTMLDivElement>
 }
