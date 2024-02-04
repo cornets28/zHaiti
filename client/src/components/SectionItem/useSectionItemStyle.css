@@ -1,0 +1,7 @@
+.card:hover {
+  cursor: pointer;
+  .header {
+    color: #c70505;
+  }
+}
+
