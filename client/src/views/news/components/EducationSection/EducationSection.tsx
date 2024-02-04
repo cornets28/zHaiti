@@ -10,6 +10,8 @@ import Image from "../../../../components/ImageListItemMui/Image";
 import CultureInfoBox from "../CulturesInfoBox/CultureInfoBox";
 import { EducationSectionType } from "../../../../types/EducationSectionType";
 import RecentEducationContainer from "../RecentEducationContainer/RecentEducationContainer";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { ImageList } from "../../../../components/ImageList/ImageList";
 
 const temporaryArticles = [
   {
@@ -127,11 +129,14 @@ const temporaryArticles = [
 
 export const EducationSection: FC<EducationSectionType> = ({ header }) => {
   const { error } = colors;
+  const isWindowSizeMin1200 = useMediaQuery<any>("(min-width:1200px)");
 
   return (
     <Grid container>
       <ThickDivider header={header} color={error.focus} />
-
+     
+     { isWindowSizeMin1200 &&
+     
       <RecentEducationContainer>
         <Grid item xs={12} sm={12} md={12} lg={12} pt={4}>
           {temporaryArticles.length > 0 &&
@@ -151,6 +156,7 @@ export const EducationSection: FC<EducationSectionType> = ({ header }) => {
               ))}
         </Grid>
       </RecentEducationContainer>
+}
 
       {temporaryArticles.length > 0 && (
         <MainCultureContainer
@@ -160,7 +166,8 @@ export const EducationSection: FC<EducationSectionType> = ({ header }) => {
       )}
       <RecentEducationContainer>
         <Grid item xs={12} sm={12} md={12} lg={12} pt={4}>
-          {temporaryArticles.length > 0 &&
+          {isWindowSizeMin1200 && temporaryArticles.length > 0 ? 
+    
             temporaryArticles
               .slice(3, 5)
               .map((item) => (
@@ -174,7 +181,23 @@ export const EducationSection: FC<EducationSectionType> = ({ header }) => {
                   marginTop={1.67}
                   marginLeft={1}
                 />
-              ))}
+              ))
+            : 
+            <ImageList
+            sx={{ width: "100%", height: { md: "auto", lg: "47.5vh" } }}
+          >
+            {temporaryArticles.slice(0, 4).map((item) => (
+              <Image
+                image={item.photo}
+                alt={item.title}
+                key={item.photo}
+                title={item.title}
+                author={item.writer}
+                onClick={() => alert("welllll....44")}
+              />
+            ))}
+          </ImageList>
+}
         </Grid>
       </RecentEducationContainer>
 

@@ -22,6 +22,7 @@ export const RecentCulturesContainer: FC<RecentCulturesContainerType> = ({
         py: { md: 1, lg: 2 },
         pl: { sm: 3, md: 0, lg: 2 },
         pr: { sm: 3, md: 0, lg: 0 },
+        mx: { xs: 3, md: 0, lg: 0}
       }}
     >
       {children}
