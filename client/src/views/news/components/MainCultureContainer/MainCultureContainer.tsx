@@ -22,7 +22,7 @@ export const MainCultureContainer: FC<MainCultureContainerType> = ({
         mt={2}
         textTransform="capitalize"
         component="div"
-        sx={{ paddingLeft: { xs: "2%", sm: 0 } }}
+        sx={{ paddingLeft: { xs: "2%", sm: 3 } }}
       >
         {title}
       </Typography>

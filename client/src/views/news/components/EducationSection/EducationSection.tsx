@@ -167,7 +167,6 @@ export const EducationSection: FC<EducationSectionType> = ({ header }) => {
       <RecentEducationContainer>
         <Grid item xs={12} sm={12} md={12} lg={12} pt={4}>
           {isWindowSizeMin1200 && temporaryArticles.length > 0 ? 
-    
             temporaryArticles
               .slice(3, 5)
               .map((item) => (
