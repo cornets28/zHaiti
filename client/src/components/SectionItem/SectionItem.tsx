@@ -12,7 +12,7 @@ export const SectionItem: FC<SectionItemType> = ({
   title,
   body,
   date,
-  onClick
+  onClick,
 }) => {
   const { h6, size } = typography;
 
@@ -36,9 +36,9 @@ export const SectionItem: FC<SectionItemType> = ({
         loading="lazy"
       />
       <Grid>
-        <div className="header">{typographyText(h6, 1, title)}</div>
-       {body && typographyText(size.sm, 1, body.substring(0, 130) + "...")}
-       {date &&  typographyText(size.sm, 1.7, date)}
+        {title && <div className="header">{typographyText(h6, 1, title)}</div>}
+        {body && typographyText(size.sm, 1, body.substring(0, 130) + "...")}
+        {date && typographyText(size.sm, 1.7, date)}
       </Grid>
     </ImageListItem>
   );

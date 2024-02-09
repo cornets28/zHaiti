@@ -22,6 +22,7 @@ import Section from "./Section/Section";
 import SectionItem from "../../../components/SectionItem/SectionItem";
 import { CultureSection } from "./CultureSection/CultureSection";
 import { EducationSection } from "./EducationSection/EducationSection";
+import { MustKnowHaitiansSection } from "./MustKnowHaitiansSection/MustKnowHaitiansSection";
 
 const temporaryArticles = [
   {
@@ -231,6 +232,7 @@ const NewsList: FC = () => {
 
           <CultureSection header={t("Kilti")} />
           <EducationSection header={t("Edikasyon")} />
+          <MustKnowHaitiansSection header={t("Ayisyen ou dwe konnen")} />
         </LeftSection>
 
         <RightSection>
