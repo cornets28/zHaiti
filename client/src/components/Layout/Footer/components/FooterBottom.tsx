@@ -6,7 +6,7 @@ import typography from "../../../../utils/theme/base/typography";
 import LinkHref from "../../../Link/Link";
 import { useTranslation } from "react-i18next";
 
-const { grey, darkBleu } = colors;
+const { grey, darkBlue } = colors;
 const { h6 } = typography;
 
 const FooterBottom: FC = () => {
@@ -19,7 +19,7 @@ const FooterBottom: FC = () => {
       borderColor={grey[100]}
       py={3}
       px={2}
-      bgcolor={darkBleu.main}
+      bgcolor={darkBlue.main}
     >
       <Grid item xs={12} sm={2} md={4} />
       <Grid item xs={12} sm={8} md={4} textAlign="center">

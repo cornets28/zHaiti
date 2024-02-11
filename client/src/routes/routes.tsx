@@ -137,6 +137,12 @@ const routes: RoutesTypes = [
     component: lazy(() => import("../views/signIn/page/SignIn")),
   },
   {
+    exact: true,
+    label: 'Pale Sou Rezo Yo',
+    path: '/pale-sou-rezo-yo',
+    component: lazy(() => import('../views/speakOutOnSocial/page/SpeakOutOnSocial')),
+},
+  {
     path: "*",
     component: () => <Navigate to="/404" />,
   },

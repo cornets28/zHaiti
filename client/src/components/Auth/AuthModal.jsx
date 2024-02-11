@@ -14,7 +14,7 @@ const actionState = {
 
 const AuthModal = () => {
   const { authModalOpen } = useSelector((state) => state.authModal);
-  const { darkBleu } = colors;
+  const { darkBlue } = colors;
 
   const dispatch = useDispatch();
 
@@ -40,7 +40,7 @@ const AuthModal = () => {
         padding: 4,
         outline: "none"
       }}>
-        <Box sx={{ padding: 4, boxShadow: 24, backgroundColor: darkBleu.main }}>
+        <Box sx={{ padding: 4, boxShadow: 24, backgroundColor: darkBlue.main }}>
           <Box sx={{ textAlign: "center", marginBottom: "2rem" }}>
             <StaticLogo />
           </Box>

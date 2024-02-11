@@ -162,7 +162,7 @@ const temporaryArticle = {
 };
 
 const SingleArticle: FC = () => {
-  const { blue, grey } = colors;
+  const { blue, grey, white2 } = colors;
   const { h6, h5 } = typography;
   const { t } = useTranslation();
   const { id } = useParams();
@@ -174,8 +174,8 @@ const SingleArticle: FC = () => {
   });
 
   return (
-    <Page key={id}>
-      <SingleArticleWrapper>
+    <Page pageColor={white2.main}>
+      <SingleArticleWrapper key={id}>
         <LeftSection>
           <RightSectionContainer>
             <ArticleTitle

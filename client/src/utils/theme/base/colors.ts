@@ -21,7 +21,7 @@ const colors = {
   },
 
 
-  darkBleu: {
+  darkBlue: {
     main: "#081329",
   },
 

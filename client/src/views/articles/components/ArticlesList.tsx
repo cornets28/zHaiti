@@ -16,9 +16,11 @@ import MostReadBody from "../../../components/MostReadBody/MostReadBody";
 import ArticlesContainer from "./ArticlesContainer/ArticlesContainer";
 import MostReadHeader from "../../article/components/MostReadHeader/MostReadHeader";
 import db from "../../../utils/articles.json";
+import colors from "../../../utils/theme/base/colors";
 
 const ArticlesList: FC = () => {
   const { t } = useTranslation();
+  const {white2} = colors;
   const [temporaryArticles, setTemporaryArticles] = useState([]);
 
   useEffect(() => {
@@ -27,7 +29,7 @@ const ArticlesList: FC = () => {
   }, [db.articles]);
 
   return (
-    <Page>
+    <Page pageColor={white2.main}>
       <Grid container item py={6}>
         <Title
           text="We create events aiming to pear to the voice for children and gather for support. Please update with our events and confirm you presence."

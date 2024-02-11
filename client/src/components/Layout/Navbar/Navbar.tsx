@@ -32,7 +32,7 @@ interface Props {
   window?: () => Window;
 }
 const drawerWidth = 240;
-const { darkBleu, error, grey } = colors;
+const { darkBlue, error, grey } = colors;
 
 const Navbar: FC = (props: Props) => {
   const { window } = props;
@@ -69,7 +69,7 @@ const Navbar: FC = (props: Props) => {
     // @ts-ignore
     return cloneElement(children, {
       sx: {
-        backgroundColor: trigger ? error.focus : darkBleu.main,
+        backgroundColor: trigger ? error.focus : darkBlue.main,
       },
     });
   };
