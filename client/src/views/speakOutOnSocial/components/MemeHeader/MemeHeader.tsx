@@ -7,17 +7,22 @@ import MemeDefaultImage from "../MemeDefaultImage";
 import StaticText from "../StaticText";
 import MemeButton from "../MemeButton";
 import MemePageHeader from "../MemePageHeader";
+import typography from "../../../../utils/theme/base/typography";
+import colors from "../../../../utils/theme/base/colors";
 import { useTranslation } from "react-i18next";
 
 const MemeHeader: FC = () => {
   const { t } = useTranslation();
-
+  const { h2 } = typography;
+  const { error } = colors;
   return (
     <MemeHeaderContainer>
-      <MemePageHeader>{t("Kreye mem pa w la")}</MemePageHeader>
+      <MemePageHeader fontSize={h2} textAlign="left" color={error.main}>
+        {t("Kreye mem pa w la")}
+      </MemePageHeader>
       <Grid container mb={3} mt={2}>
         <MemeDefaultImage />
-        <Grid container item xs={12} sm={12} md={12} lg={9}>
+        <Grid container item xs={12} sm={9} md={9} lg={9}>
           <Container>
             <StaticText>
               {t(

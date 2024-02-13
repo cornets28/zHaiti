@@ -4,7 +4,7 @@ import DefaultMeme from "../../../../images/meme.jpeg";
 
 const MemeDefaultImage: FC = () => {
   return (
-    <Grid item xs={12} sm={12} md={12} lg={3}>
+    <Grid item xs={12} sm={3} md={3} lg={3}>
       <img src={DefaultMeme} alt="default meme" width={"100%"} height={250} />
     </Grid>
   );

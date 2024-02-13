@@ -1,6 +1,6 @@
 import { makeStyles } from "@mui/styles";
 
-export const useCategoryStyle = makeStyles(() => ({
+export const useMemeStyle = makeStyles(() => ({
     backgroundImage: {
         position: "absolute",
         top: 0,

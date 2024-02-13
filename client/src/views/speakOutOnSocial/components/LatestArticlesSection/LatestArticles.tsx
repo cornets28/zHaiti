@@ -27,6 +27,7 @@ const LatestArticles: FC = () => {
             text="We create events aiming to pear to the voice for children and gather for support. Please update with our events and confirm you presence."
             title1="Denye"
             title2="Atik yo"
+            isBlackBackground={true}
           />
         </Grid>
 

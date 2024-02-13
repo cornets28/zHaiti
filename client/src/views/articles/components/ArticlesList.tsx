@@ -20,7 +20,7 @@ import colors from "../../../utils/theme/base/colors";
 
 const ArticlesList: FC = () => {
   const { t } = useTranslation();
-  const {white2} = colors;
+  const { white2 } = colors;
   const [temporaryArticles, setTemporaryArticles] = useState([]);
 
   useEffect(() => {
