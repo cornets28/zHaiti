@@ -2,13 +2,8 @@ import type { FC } from "react";
 import PropTypes from "prop-types";
 import { Grid } from "../../components/Grid/Grid";
 import { PageType } from "../../types/PageType";
-import colors from "../../utils/theme/base/colors";
 
-export const Page: FC<PageType> = ({
-  children,
-}) => {
-    const { white2 } = colors;
-
+export const Page: FC<PageType> = ({ children, pageColor }) => {
   return (
     <Grid
       container
@@ -17,7 +12,7 @@ export const Page: FC<PageType> = ({
       sm={12}
       md={12}
       lg={12}
-      bgcolor={white2.main}
+      bgcolor={pageColor}
       textAlign="center"
     >
       {children}

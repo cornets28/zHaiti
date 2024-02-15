@@ -8,7 +8,7 @@ import { FC } from "react";
 
 const SignInButton:FC<SignInButtonType> = ({ onClick }) => {
   const { t } = useTranslation();
-  const { error, grey, darkBleu } = colors;
+  const { error, grey, darkBlue } = colors;
 
   return (
     <Stack spacing={3} direction="row">
@@ -18,7 +18,7 @@ const SignInButton:FC<SignInButtonType> = ({ onClick }) => {
           textColorBefore={grey['100']}
           textColorAfter={grey['100']}
           bgColorBefore={error.main}
-          bgColorAfter={darkBleu.main}
+          bgColorAfter={darkBlue.main}
           fadeIn={"0.7s ease-in"}
           fadeOut={"0.7s ease-out"}
         >

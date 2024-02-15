@@ -17,7 +17,7 @@ interface ScrollToButtonProps {
 }
 
 export default function ScrollToButton(props: ScrollToButtonProps): ReactElement {
-    const { error, grey, darkBleu } = colors;
+    const { error, grey, darkBlue } = colors;
   const {
     threshold = 0,
     textColorBefore = "black",

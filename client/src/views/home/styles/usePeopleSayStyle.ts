@@ -1,11 +1,11 @@
 import { makeStyles } from "@mui/styles";
 import colors from "../../../utils/theme/base/colors";
 
-const { warning, darkBleu } = colors;
+const { warning, darkBlue } = colors;
 
 export const usePeopleSayStyle = makeStyles(() => ({
   carouselWrepper: {
-    backgroundColor: darkBleu.main,
+    backgroundColor: darkBlue.main,
   },
   divider: {
     backgroundColor: warning.focus,

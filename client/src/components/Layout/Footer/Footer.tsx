@@ -13,7 +13,7 @@ import FacebookIcon from "../../../images/facebook.png";
 import WhatsAppIcon from "../../../images/whatsapp.png";
 import { useTranslation } from 'react-i18next';
 
-const { darkBleu } = colors;
+const { darkBlue } = colors;
 
 const Footer: FC = () => {
   const { t } = useTranslation();
@@ -26,7 +26,7 @@ const Footer: FC = () => {
         position: { md: "relative", lg: "fixed" },
       }}
     >
-      <Grid container py={6} px={2} bgcolor={darkBleu.main}>
+      <Grid container py={6} px={2} bgcolor={darkBlue.main}>
         <Grid item xs={12} sm={6} md={3} px={1}>
           <FooterBox header={t("Antrepriz la")}>
             <SimpleGrid>
