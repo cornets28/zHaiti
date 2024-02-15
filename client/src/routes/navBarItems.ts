@@ -42,11 +42,12 @@ export const navBatItems: NavItemsTypes = [
         path: '/kontak',
         component: lazy(() => import('../views/contact/page/Contact')),
     },
+
     {
         exact: true,
         label: 'Pale Sou Rezo Yo',
-        path: '/signin',
-        component: lazy(() => import('../views/signIn/page/SignIn')),
+        path: '/pale-sou-rezo-yo',
+        component: lazy(() => import('../views/speakOutOnSocial/page/SpeakOutOnSocial')),
     },
 ];
 

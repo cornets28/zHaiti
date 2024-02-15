@@ -7,11 +7,12 @@ import PeopleSaySection from "../components/PeopleSaySection/PeopleSay";
 import OurSponsors from '../components/OurSponsorsSection/OurSponsors';
 import HaitiImage from '../components/HaitianImageSection/HaitiImage';
 import Page from "../../../components/Page/Page";
+import colors from "../../../utils/theme/base/colors";
 
 export const Home: FC = () => {
-  
+  const { white2 } = colors;
   return (
-    <Page>
+    <Page pageColor={white2.main}>
       <DynamicText />
       <OurGoal />
       <HaitiImage />

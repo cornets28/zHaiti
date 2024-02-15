@@ -23,6 +23,7 @@ import SectionItem from "../../../components/SectionItem/SectionItem";
 import { CultureSection } from "./CultureSection/CultureSection";
 import { EducationSection } from "./EducationSection/EducationSection";
 import { MustKnowHaitiansSection } from "./MustKnowHaitiansSection/MustKnowHaitiansSection";
+import colors from "../../../utils/theme/base/colors";
 
 const temporaryArticles = [
   {
@@ -162,9 +163,9 @@ const itemData = [
 
 const NewsList: FC = () => {
   const { t } = useTranslation();
-
+  const {white2} = colors;
   return (
-    <Page>
+    <Page pageColor={white2.main}>
       <ArticlesWrapper>
         <TopLevel>
           <NewsTime>
