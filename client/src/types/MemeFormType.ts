@@ -8,6 +8,8 @@ export type MemeFormType = {
     buttonText: string;
     textLimit: number;
     textLimitCount: any;
-    onChange: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>;
+    uploadedImage: any;
+    handleImageChange: any;
+    onChange?: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>;
     onSubmit?: any;
 }
