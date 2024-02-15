@@ -7,45 +7,37 @@ import MemePageHeader from "../MemePageHeader";
 import MemeForm from "../MemeForm";
 import MemeFormContainer from "../MemeFormContainer";
 import { useTranslation } from "react-i18next";
-import MemeBackground from "../../../../images/memeBacground.png";
-
-import { yupResolver } from "@hookform/resolvers/yup";
-import { useForm, Controller } from "react-hook-form";
+import MemeBackground from "../../../../images/memeBackground.png";
+import MemePreview from "../MemePreview";
 
 const CreateMeme: FC = () => {
   const { error } = colors;
   const { h3 } = typography;
   const { t } = useTranslation();
-
   const [phrase1Limit, setPhrase1Limit] = useState(0);
-  const [memeText, setMemeText] = useState('');
+  const [memeText, setMemeText] = useState("");
 
-  const { control, register, handleSubmit } = useForm({
-    mode: "onTouched",
-    defaultValues: {
-      phrase_1: "",
-    },
-  });
+  const handleOnChange = (e: any) => {
+    setPhrase1Limit(e.target.value.length);
+    setMemeText(e.target.value);
+  };
 
   const onSubmit = async (data: any) => {
     // Handle form submission logic here
     console.log(data);
+    // setMemeHashTag(data)
   };
 
   return (
     <MemeFormContainer>
       <Grid container item xs={12} sm={12} md={12} lg={12} pb={2}>
         <MemePageHeader fontSize={h3} textAlign="left" color={error.main}>
-          {t("Jan ou Ta vle mem ou an paret")}
+         {t("Yon apesi de mem ou an")}:
         </MemePageHeader>
       </Grid>
 
-      <Grid container item xs={12} sm={12} md={7} lg={7} bgcolor={"red"}>
-        <Grid container item xs={12} sm={12} md={12} lg={12}>
-          <Grid>
-            <img src={MemeBackground} width={"100%"} height={"100%"} alt="Meme background" />
-          </Grid>
-        </Grid>
+      <Grid container item xs={12} sm={12} md={7} lg={7}>
+        <MemePreview backgroundImage={MemeBackground} memeText={memeText} />
       </Grid>
       <Grid item xs={12} sm={12} md={5} lg={5} px={5} py={8}>
         <MemeForm
@@ -56,11 +48,10 @@ const CreateMeme: FC = () => {
           )}
           uploadFileText={t("Voye imaj")}
           buttonText={t("Kreye mem")}
-        //   onChange={(e: any) => setPhrase1Limit(e.target.value)}
-          name="phrase_1"
-          inputRef= {{...register('phrase_1')}}
-          value={phrase1Limit}
-          onSubmit={handleSubmit(onSubmit)}
+          textLimit={phrase1Limit}
+          textLimitCount={`${phrase1Limit} / ${t("100 karaktè")}`}
+          onChange={handleOnChange}
+          onSubmit={onSubmit}
         />
       </Grid>
     </MemeFormContainer>

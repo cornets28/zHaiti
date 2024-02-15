@@ -1,6 +1,6 @@
 import { useState, type FC, useEffect } from "react";
 import Container from "@mui/material/Container";
-import Cow from "../../../../images/boys.webp";
+import Cow from "../../../../images/memeBacground2.png";
 import SingleMeme from "../SingleMeme";
 import { Grid } from "../../../../components/Grid/Grid";
 import Title from "../../../../components/Title/Title";

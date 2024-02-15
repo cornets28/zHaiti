@@ -14,7 +14,7 @@ import { useTranslation } from "react-i18next";
 const MemeHeader: FC = () => {
   const { t } = useTranslation();
   const { h2 } = typography;
-  const { error } = colors;
+  const { error, grey } = colors;
   return (
     <MemeHeaderContainer>
       <MemePageHeader fontSize={h2} textAlign="left" color={error.main}>
@@ -29,8 +29,10 @@ const MemeHeader: FC = () => {
                 "Ou kapab kreye mem pa w la ak pwòp mo w, ak pwòp ide w, ak pwòp imaj ou. Lè w fin kreye l, wap kapab telechaje sou gadjèt oswa òdinate wap itilize a. Wap kapab pataje l sou rezo sosyal ou swete a, tankou, Twitter, Facebook, Tiktok, WhatsApp, elatriye."
               )}
             </StaticText>
-            <MemeButton onClick={() => alert("hi")}>
-              {t("Kreye mem pa w la")}
+            <MemeButton>
+              <a href="#create-meme" style={{ color: grey["100"] }}>
+                {t("Kreye mem pa w la")}
+              </a>
             </MemeButton>
           </Container>
         </Grid>
