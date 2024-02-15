@@ -7,10 +7,10 @@ import { TeamSocialMediaContainerType } from "../../../../../types/TeamSocialMed
 export const TeamSocialMediaContainer: FC<TeamSocialMediaContainerType> = ({
   children,
 }) => {
-  const { darkBleu } = colors;
+  const { darkBlue } = colors;
 
   return (
-    <CardContent sx={{ height: 160, bgcolor: darkBleu.main }}>
+    <CardContent sx={{ height: 160, bgcolor: darkBlue.main }}>
       {children}
     </CardContent>
   );

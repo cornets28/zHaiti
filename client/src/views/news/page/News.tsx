@@ -1,15 +1,15 @@
 import type { FC } from "react";
-import { Grid } from "../../../components/Grid/Grid";
 import NewsList from "../components/NewsList";
 import colors from "../../../utils/theme/base/colors";
+import Page from "../../../components/Page/Page";
 
 export const News: FC = () => {
   const { white2 } = colors;
 
   return (
-    <Grid container bgcolor={white2.main} overflow={"hidden"}>
+    <Page pageColor={white2.main}>
       <NewsList />
-    </Grid>
+    </Page>
   );
 };
 
