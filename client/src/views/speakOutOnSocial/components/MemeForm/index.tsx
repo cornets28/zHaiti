@@ -20,7 +20,8 @@ const MemeForm: FC<MemeFormType> = ({
   textLimit,
   textLimitCount,
   onChange,
-  onSubmit
+  handleImageChange,
+  onSubmit,
 }) => {
   const { grey, error } = colors;
   const { h3, h5, h6 } = typography;
@@ -28,8 +29,8 @@ const MemeForm: FC<MemeFormType> = ({
   const { control, register, handleSubmit } = useForm({
     mode: "onTouched",
     defaultValues: {
-      hashtag: "",
-      // name: "",
+      phrase_1: "",
+      file_name: "",
     },
   });
 
@@ -50,15 +51,23 @@ const MemeForm: FC<MemeFormType> = ({
       </Grid>
 
       <form noValidate autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
-        <MemeInputFileUpload text={uploadFileText} />
+        <MemeInputFileUpload text={uploadFileText}>
+          <input
+            type="file"
+            accept="image/jpeg" 
+            {...register("file_name")}
+            onChange={handleImageChange}
+          />
+        </MemeInputFileUpload>
+
         <Stack spacing={3}>
           <TextField
             type="text"
             placeholder="Write your hashtag here"
             fullWidth
             multiline
-            {...register("hashtag")}
-            onChange={onChange} 
+            {...register("phrase_1")}
+            onChange={onChange}
             //   error={signinForm.touched.username && signinForm.errors.username !== undefined}
             //   helperText={signinForm.touched.username && signinForm.errors.username}
             sx={{
@@ -71,15 +80,17 @@ const MemeForm: FC<MemeFormType> = ({
                 },
                 input: { color: "red !important" },
               },
-              marginBottom: -2
+              marginBottom: -2,
             }}
           />
-         
-          <MemePageHeader fontSize={''} textAlign="center" color={textLimit <= 100  ? grey["100"] : error.focus}>
-           {textLimitCount }
+
+          <MemePageHeader
+            fontSize={""}
+            textAlign="center"
+            color={textLimit <= 100 ? grey["100"] : error.focus}
+          >
+            {textLimitCount}
           </MemePageHeader>
-       
-          
         </Stack>
 
         <LoadingButton
@@ -89,6 +100,7 @@ const MemeForm: FC<MemeFormType> = ({
           variant="contained"
           sx={{ marginTop: 4 }}
           // loading={isLoginRequest}
+          // disabled={ textLimit >= 100 || textLimit === 0}     
         >
           {buttonText}
         </LoadingButton>
