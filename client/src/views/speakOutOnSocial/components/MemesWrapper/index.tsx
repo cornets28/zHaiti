@@ -1,7 +1,7 @@
 import type { FC } from "react";
 import PropTypes from "prop-types";
-import { Grid } from "../../../components/Grid/Grid";
-import { MemeWrapperType } from "../../../types/MemeWrapperType";
+import { Grid } from "../../../../components/Grid/Grid";
+import { MemeWrapperType } from "../../../../types/MemeWrapperType";
 
 export const MemeWrapper: FC<MemeWrapperType> = ({
   children,
