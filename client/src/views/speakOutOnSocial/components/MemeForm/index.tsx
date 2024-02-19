@@ -9,7 +9,7 @@ import MemeInputFileUpload from "../MemeInputFileUpload";
 import { LoadingButton } from "@mui/lab";
 import { Stack, TextField } from "@mui/material";
 // import { yupResolver } from "@hookform/resolvers/yup";
-import { useForm, Controller } from "react-hook-form";
+import { useForm } from "react-hook-form";
 
 const MemeForm: FC<MemeFormType> = ({
   text,
@@ -26,7 +26,7 @@ const MemeForm: FC<MemeFormType> = ({
   const { grey, error } = colors;
   const { h3, h5, h6 } = typography;
 
-  const { control, register, handleSubmit } = useForm({
+  const { register, handleSubmit } = useForm({
     mode: "onTouched",
     defaultValues: {
       phrase_1: "",
