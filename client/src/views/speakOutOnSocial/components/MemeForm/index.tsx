@@ -68,8 +68,6 @@ const MemeForm: FC<MemeFormType> = ({
             maxRows={3}
             {...register("phrase_1")}
             onChange={onChange}
-            //   error={signinForm.touched.username && signinForm.errors.username !== undefined}
-            //   helperText={signinForm.touched.username && signinForm.errors.username}
             sx={{
               "& .MuiOutlinedInput-root": {
                 "& fieldset": {
@@ -109,12 +107,6 @@ const MemeForm: FC<MemeFormType> = ({
         >
           {buttonText}
         </LoadingButton>
-        {/* <Box sx={{color: 'white'}}>{memeText}</Box> */}
-        {/* {errorMessage && (
-        <Box sx={{ marginTop: 2 }}>
-          <Alert severity="error" variant="outlined" >{errorMessage}</Alert>
-        </Box>
-      )} */}
       </form>
     </>
   );
