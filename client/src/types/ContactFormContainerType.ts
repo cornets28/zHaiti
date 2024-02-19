@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
 
-export type MemeHeaderContainerType = {
+export type ContactFormContainerType = {
     children: ReactNode;
 }

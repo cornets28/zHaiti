@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Grid } from "../../../../components/Grid/Grid";
 import colors from "../../../../utils/theme/base/colors";
 import typography from "../../../../utils/theme/base/typography";
-import MemePageHeader from "../MemePageHeader";
+import MemePageHeader from "../../../../components/PageHeader";
 import MemeForm from "../MemeForm";
 import MemeFormContainer from "../MemeFormContainer";
 import { useTranslation } from "react-i18next";

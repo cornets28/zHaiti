@@ -4,7 +4,7 @@ import { MemeFormType } from "../../../../types/MemeFormType";
 import { Grid } from "../../../../components/Grid/Grid";
 import colors from "../../../../utils/theme/base/colors";
 import typography from "../../../../utils/theme/base/typography";
-import MemePageHeader from "../MemePageHeader";
+import MemePageHeader from "../../../../components/PageHeader";
 import MemeInputFileUpload from "../MemeInputFileUpload";
 import { LoadingButton } from "@mui/lab";
 import { Stack, TextField } from "@mui/material";
@@ -50,11 +50,11 @@ const MemeForm: FC<MemeFormType> = ({
         </MemePageHeader>
       </Grid>
 
-      <form noValidate autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <MemeInputFileUpload text={uploadFileText}>
           <input
             type="file"
-            accept="image/jpeg" 
+            accept="image/jpeg"
             {...register("file_name")}
             onChange={handleImageChange}
           />
@@ -65,7 +65,7 @@ const MemeForm: FC<MemeFormType> = ({
             type="text"
             placeholder="Write your hashtag here"
             fullWidth
-            multiline
+            maxRows={3}
             {...register("phrase_1")}
             onChange={onChange}
             //   error={signinForm.touched.username && signinForm.errors.username !== undefined}
@@ -78,7 +78,7 @@ const MemeForm: FC<MemeFormType> = ({
                 "&:hover fieldset": {
                   borderColor: grey["100"],
                 },
-                input: { color: "red !important" },
+                input: { color: grey["100"] },
               },
               marginBottom: -2,
             }}
@@ -98,9 +98,14 @@ const MemeForm: FC<MemeFormType> = ({
           fullWidth
           size="large"
           variant="contained"
-          sx={{ marginTop: 4 }}
           // loading={isLoginRequest}
-          // disabled={ textLimit >= 100 || textLimit === 0}     
+          onClick={() => alert("Hiii")}
+          sx={{
+            marginTop: 4,
+            backgroundColor:
+              textLimit >= 100 || textLimit === 0 ? grey["600"] : grey["100"],
+            pointerEvents: textLimit >= 100 || textLimit === 0 ? "none" : "",
+          }}
         >
           {buttonText}
         </LoadingButton>

@@ -5,7 +5,7 @@ import { MemeImageType } from "../../../../types/MemeImageType";
 import { useMemeStyle } from "../../styles/useMemeStyle";
 import Grid from "@mui/material/Grid/Grid";
 import { Box } from "../../../../components/Box/Box";
-import MemePageHeader from "../MemePageHeader";
+import MemePageHeader from "../../../../components/PageHeader";
 import typography from "../../../../utils/theme/base/typography";
 import colors from "../../../../utils/theme/base/colors";
 import StaticLogo from "../../../../components/Logo/StaticLogo";
