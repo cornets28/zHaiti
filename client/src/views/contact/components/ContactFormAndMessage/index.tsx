@@ -30,7 +30,7 @@ export const ContactFormAndMessage: FC = () => {
         <PageHeader fontSize={h2} textAlign="center" color={error.focus}>
           {t("Mesaj")}
         </PageHeader>
-        <Grid sx={{mt: {xs: 1, sm: 1, md: 1, lg: -4}}}>
+        <Grid sx={{mt: {xs: 1, sm: 1, md: 1, lg: -2}}}>
           <PageHeader fontSize={h6} textAlign="left" color={grey["900"]}>
             {t(
               "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,"
