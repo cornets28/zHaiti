@@ -1,9 +1,9 @@
 import { FC } from "react";
 import PropTypes from "prop-types";
-import { MemePageHeaderType } from "../../../../types/MemePageHeaderType";
-import { Typography } from "../../../../components/Typography/Typography";
+import { PageHeaderType } from "../../types/PageHeaderType";
+import { Typography } from "../Typography/Typography";
 
-const MemePageHeader: FC<MemePageHeaderType> = ({
+const PageHeader: FC<PageHeaderType> = ({
   children,
   fontSize,
   textAlign,
@@ -16,8 +16,8 @@ const MemePageHeader: FC<MemePageHeaderType> = ({
   );
 };
 
-MemePageHeader.propTypes = {
+PageHeader.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export default MemePageHeader;
+export default PageHeader;
