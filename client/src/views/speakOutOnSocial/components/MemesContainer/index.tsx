@@ -1,8 +1,8 @@
 import type { FC } from "react";
 import PropTypes from "prop-types";
-import { Grid } from "../../../components/Grid/Grid";
-import { MemesContainerType } from "../../../types/MemesContainerType";
-import colors from "../../../utils/theme/base/colors";
+import { Grid } from "../../../../components/Grid/Grid";
+import { MemesContainerType } from "../../../../types/MemesContainerType";
+import colors from "../../../../utils/theme/base/colors";
 
 export const MemesContainer: FC<MemesContainerType> = ({ children }) => {
   const { white2 } = colors;

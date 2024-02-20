@@ -1,11 +1,11 @@
 import { FC } from "react";
 import PropTypes from "prop-types";
-import { Grid } from "../../../../components/Grid/Grid";
-import colors from "../../../../utils/theme/base/colors";
-import { MemeHeaderContainerType } from "../../../../types/MemeHeaderContainerType";
-import { Divider } from "../../../../components/Divider/Divider";
+import { Grid } from "../Grid/Grid";
+import colors from "../../utils/theme/base/colors";
+import { PageHeaderContainerType } from "../../types/PageHeaderContainerType";
+import { Divider } from "../Divider/Divider";
 
-const MemeHeaderContainer: FC<MemeHeaderContainerType> = ({ children }) => {
+const PageHeaderContainer: FC<PageHeaderContainerType> = ({ children }) => {
   const { grey } = colors;
   return (
     <Grid container item xs={12} sm={12} md={12} lg={12}>
@@ -25,8 +25,8 @@ const MemeHeaderContainer: FC<MemeHeaderContainerType> = ({ children }) => {
   );
 };
 
-MemeHeaderContainer.propTypes = {
+PageHeaderContainer.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export default MemeHeaderContainer;
+export default PageHeaderContainer;
