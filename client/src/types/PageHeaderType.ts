@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-export type MemePageHeaderType = {
+export type PageHeaderType = {
   children: ReactNode;
   fontSize: any;
   textAlign: "center" | "left";

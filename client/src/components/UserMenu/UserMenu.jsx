@@ -3,7 +3,6 @@ import { ListItemButton, ListItemIcon, ListItemText, Menu } from "@mui/material"
 import { Typography } from '../Typography/Typography';
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-// import { Link } from "react-router-dom";
 import { setUser } from "../../redux/features/userSlice.js";
 import { useTranslation } from "react-i18next";
 

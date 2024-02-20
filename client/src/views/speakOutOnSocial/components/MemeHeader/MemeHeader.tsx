@@ -2,11 +2,11 @@ import { FC } from "react";
 import { Grid } from "../../../../components/Grid/Grid";
 import Container from "@mui/material/Container";
 
-import MemeHeaderContainer from "../MemeHeaderContainer";
+import MemeHeaderContainer from "../../../../components/PageHeaderContainer";
 import MemeDefaultImage from "../MemeDefaultImage";
 import StaticText from "../StaticText";
 import MemeButton from "../MemeButton";
-import MemePageHeader from "../MemePageHeader";
+import MemePageHeader from "../../../../components/PageHeader";
 import typography from "../../../../utils/theme/base/typography";
 import colors from "../../../../utils/theme/base/colors";
 import { useTranslation } from "react-i18next";

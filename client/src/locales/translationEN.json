@@ -11,7 +11,7 @@
   "Antrepriz la": "Our Company",
   "Eksplore": "Explore",
   "Travay Nou": "Our Work",
-  "Kilti Nou" : "Our Culture",
+  "Kilti Nou": "Our Culture",
   "Objektif Nou": "Our Goal",
   "Kontak Nou": "Our Contact",
   "Kategori": "Category",
@@ -50,5 +50,10 @@
   "mem": "memes",
   "Yon apesi de mem ou an": "A preview of your meme",
   "100 karaktè": "100 characters",
-  "Kreye mem": "Créez mème"
+  "Kreye mem": "Créez mème",
+  "Message": "Message",
+  "Voye mesaj": "Send message",
+  "Non konplè": "Full name",
+  "Adrès Imèl": "Email address",
+  "Ekri mesaj ou a la...": "Write your message here..."
 }
