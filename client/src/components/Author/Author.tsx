@@ -1,6 +1,5 @@
 import { FC } from "react";
 import PropTypes from "prop-types";
-// import User from "../../images/user5.avif";
 import AuthorContainer from "./components/AuthorContainer";
 import { AuthorType } from "../../types/AuthorType";
 import AuthorImage from "./components/AuthorImage";
