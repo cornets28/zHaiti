@@ -2,13 +2,15 @@
   "articles": [
     {
       "id": 1,
-      "title": "The Buy By the Sea",
+      "title": "When activated, Tooltips display a text label identifying an element, such as a description of its function",
+      "subtitle": " Oprah Winfrey Is One Of America's Most Famous TV Personalities",
       "description": "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
       "writer": "Sam Puffy Bark",
       "date": "July 5, 2023",
       "image": "http://daaadsdsdsdsds",
       "replies": 4,
       "likes": 0,
+      "views": 23,
       "categories": ["Politik", "Kilti"],
       "user": {
         "first_name": "Ben",
@@ -26,13 +28,15 @@
     },
     {
       "id": 2,
-      "title": "In Haiti's road, a mouns can to be",
+      "title": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae repudiandae consequuntur voluptatum laborum",
+      "subtitle": " Oprah Winfrey Is One Of America's Most Famous TV Personalities",
       "description": "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
       "writer": "Sam Puffy Bark",
       "date": "May 25, 2013",
       "image": "http://daaadsdsdsdsds",
       "replies": 18,
       "likes": 0,
+      "views": 23,
       "categories": ["Kilti"],
       "user": {
         "first_name": "Noah",
@@ -51,12 +55,14 @@
     {
       "id": 3,
       "title": "The Dome and it's negative affect on the urban population",
+      "subtitle": " Oprah Winfrey Is One Of America's Most Famous TV Personalities",
       "description": "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
       "writer": "Gilbert Torchon",
       "date": "Jan 1, 2023",
       "image": "http://daaadsdsdsdsds",
       "replies": 0,
       "likes": 0,
+      "views": 23,
       "categories": ["Politik", "Kilti", "Espitiyel"],
       "user": {
         "first_name": "Naomi",
@@ -75,12 +81,14 @@
     {
       "id": 4,
       "title": "Developers in Haitian, the sales department",
+      "subtitle": " Oprah Winfrey Is One Of America's Most Famous TV Personalities",
       "description": "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
       "writer": "Sam Puffy Bark",
       "date": "March 04, 2023",
       "image": "http://daaadsdsdsdsds",
       "replies": 4,
       "likes": 0,
+      "views": 23,
       "categories": ["Espò"],
       "user": {
         "first_name": "Kenson",
@@ -99,12 +107,14 @@
     {
       "id": 5,
       "title": "Ally failed the castings",
+      "subtitle": " Oprah Winfrey Is One Of America's Most Famous TV Personalities",
       "description": "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
       "writer": "Sammy Barky",
       "date": "July 5, 2023",
       "image": "http://daaadsdsdsdsds",
       "replies": 4,
       "likes": 0,
+      "views": 23,
       "categories": ["Edikasyon", "Kilti"],
       "user": {
         "first_name": "Will",
@@ -123,12 +133,14 @@
     {
       "id": 6,
       "title": "The Buy By the Sea",
+      "subtitle": " Oprah Winfrey Is One Of America's Most Famous TV Personalities",
       "description": "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
       "writer": "Sam Puffy Bark",
       "date": "July 5, 2023",
       "image": "http://daaadsdsdsdsds",
       "replies": 4,
       "likes": 0,
+      "views": 23,
       "categories": ["Politik", "Kilti"],
       "user": {
         "first_name": "Ben",
@@ -147,12 +159,14 @@
     {
       "id": 6,
       "title": "The Buy By the Sea",
+      "subtitle": " Oprah Winfrey Is One Of America's Most Famous TV Personalities",
       "description": "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
       "writer": "Sam Puffy Bark",
       "date": "July 5, 2023",
       "image": "http://daaadsdsdsdsds",
       "replies": 4,
       "likes": 0,
+      "views": 23,
       "categories": ["Politik", "Kilti"],
       "user": {
         "first_name": "Ben",
@@ -171,12 +185,14 @@
     {
       "id": 8,
       "title": "The Buy By the Sea",
+      "subtitle": " Oprah Winfrey Is One Of America's Most Famous TV Personalities",
       "description": "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
       "writer": "Sam Puffy Bark",
       "date": "July 5, 2023",
       "image": "http://daaadsdsdsdsds",
       "replies": 4,
       "likes": 0,
+      "views": 23,
       "categories": ["Politik", "Kilti"],
       "user": {
         "first_name": "Ben",
@@ -195,12 +211,14 @@
     {
       "id": 9,
       "title": "The Buy By the Sea",
+      "subtitle": " Oprah Winfrey Is One Of America's Most Famous TV Personalities",
       "description": "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica. Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
       "writer": "Sam Puffy Bark",
       "date": "July 5, 2023",
       "image": "http://daaadsdsdsdsds",
       "replies": 4,
       "likes": 0,
+      "views": 23,
       "categories": ["Politik", "Kilti"],
       "user": {
         "first_name": "Ben",

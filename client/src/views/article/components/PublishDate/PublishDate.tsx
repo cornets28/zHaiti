@@ -10,11 +10,11 @@ const PublishedDate: FC<PublishedDateType> = ({ date }) => {
   const { h6 } = typography;
   return (
     <Typography
-      fontSize={h6}
+      fontSize='10px'
       textTransform="uppercase"
       textAlign="right"
       pt={4}
-      color={grey["500"]}
+      color={grey["600"]}
     >
       {date}
     </Typography>
