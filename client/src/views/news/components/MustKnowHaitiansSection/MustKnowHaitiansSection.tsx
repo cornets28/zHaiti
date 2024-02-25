@@ -7,7 +7,6 @@ import { MainMustKnowHaitiansContainer } from "../MainMustKnowHaitiansContainer/
 import SectionItem from "../../../../components/SectionItem/SectionItem";
 import CultureInfoBox from "../CulturesInfoBox/CultureInfoBox";
 import { MustKnowHaitiansType } from "../../../../types/MustKnowHaitiansType";
-import db from "../../../../utils/importantHaitians.json";
 import { useNavigate } from "react-router-dom";
 
 
@@ -27,6 +26,10 @@ export const MustKnowHaitiansSection: FC<MustKnowHaitiansType> = ({ header , imp
         title1={importantHaitians[0]?.title}
         // @ts-ignore
         title2={importantHaitians[1]?.title}
+        // @ts-ignore
+        onClick1={() => navigate(`/aktyalite/ayisyen-enpotan-yo/${importantHaitians[0].id}`)}
+        // @ts-ignore
+        onClick2={() => navigate(`/aktyalite/ayisyen-enpotan-yo/${importantHaitians[1].id}`)}
       />
 
       <CultureInfoBox>

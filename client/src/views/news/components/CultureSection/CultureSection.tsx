@@ -1,4 +1,4 @@
-import { FC, MouseEvent } from "react";
+import { FC } from "react";
 import PropTypes from "prop-types";
 import ThickDivider from "../ThickDivider/ThickDivider";
 import colors from "../../../../utils/theme/base/colors";
@@ -10,12 +10,16 @@ import ImageList from "@mui/material/ImageList";
 import Image from "../../../../components/ImageListItemMui/Image";
 import CultureInfoBox from "../CulturesInfoBox/CultureInfoBox";
 import { CultureSectionType } from "../../../../types/CultureSectionType";
+import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export const CultureSection: FC<CultureSectionType> = ({
   header,
   culturalNews,
 }) => {
   const { error } = colors;
+  const navigate = useNavigate();
+  const { t } = useTranslation();
 
   return (
     <Grid container>
@@ -26,7 +30,8 @@ export const CultureSection: FC<CultureSectionType> = ({
           mainImage={culturalNews[0].image}
           // @ts-ignore
           title={culturalNews[0]?.title}
-          onClick={() => "Amen"}
+          // @ts-ignore
+          onClick={() => navigate(`/${t("aktyalite")}/kilti/${culturalNews[0].id}`)}
         />
       )}
       <RecentCulturesContainer>
@@ -41,7 +46,7 @@ export const CultureSection: FC<CultureSectionType> = ({
                 key={news.image}
                 title={news.title}
                 author={news.writer}
-                onClick={() => alert("welllll....44")}
+                onClick={() => navigate(`/aktyalite/kilti/${news.id}`)}
               />
             ))}
           </ImageList>
@@ -52,14 +57,14 @@ export const CultureSection: FC<CultureSectionType> = ({
         {culturalNews.length > 0 &&
           culturalNews
             .slice(4, 8)
-            .map((item: any) => (
+            .map((culture: any) => (
               <SectionItem
-                image={item.image}
-                title={item.title}
-                body={item.body}
-                date={item.date}
-                key={item.image}
-                onClick={() => alert("TBD")}
+                image={culture.image}
+                title={culture.title}
+                body={culture.description}
+                date={culture.date}
+                key={culture.image}
+                onClick={() => navigate(`/aktyalite/kilti/${culture.id}`)}
               />
             ))}
       </CultureInfoBox>

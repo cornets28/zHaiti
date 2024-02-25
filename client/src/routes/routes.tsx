@@ -139,6 +139,19 @@ const routes: RoutesTypes = [
     path: "/aktyalite/edikasyon/:id",
     component: lazy(() => import("../views/singleNews/page/SingleNews")),
   },
+  // TODO: add the correct path
+  {
+    exact: true,
+    label: "Aktyalite",
+    path: "/aktyalite/kilti/:id",
+    component: lazy(() => import("../views/singleNews/page/SingleNews")),
+  },
+  {
+    exact: true,
+    label: "News",
+    path: "/news/kilti/:id",
+    component: lazy(() => import("../views/singleNews/page/SingleNews")),
+  },
   {
     exact: true,
     label: "Sign Up",

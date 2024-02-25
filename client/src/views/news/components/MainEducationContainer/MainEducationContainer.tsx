@@ -46,6 +46,7 @@ export const MainEducationContainer: FC<MainEducationContainerType> = ({
 MainEducationContainer.propTypes = {
   mainImage: PropTypes.any.isRequired,
   title: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default MainEducationContainer;
