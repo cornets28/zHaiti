@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import ArticlesContainer from "../../views/articles/components/ArticlesContainer/ArticlesContainer";
 import ArticleCard from "../ArticleCard/ArticleCard";
 import { useTranslation } from "react-i18next";

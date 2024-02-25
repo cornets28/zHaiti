@@ -128,17 +128,24 @@ const routes: RoutesTypes = [
   {
     exact: true,
     label: "Aktyalite",
-    path: "/Aktyalite/ayisyen-enpotan-yo/:id",
+    path: "/aktyalite/ayisyen-enpotan-yo/:id",
     component: lazy(() => import("../views/singleNews/page/SingleNews")),
   },
 
-// TODO: add the correct path
+  // TODO: add the correct path
+  {
+    exact: true,
+    label: "Aktyalite",
+    path: "/aktyalite/edikasyon/:id",
+    component: lazy(() => import("../views/singleNews/page/SingleNews")),
+  },
   {
     exact: true,
     label: "Sign Up",
     path: "/signup",
     component: lazy(() => import("../views/signUp/page/SignUp")),
   },
+  
   {
     exact: true,
     label: "Sign In",
@@ -147,10 +154,12 @@ const routes: RoutesTypes = [
   },
   {
     exact: true,
-    label: 'Pale Sou Rezo Yo',
-    path: '/pale-sou-rezo-yo',
-    component: lazy(() => import('../views/speakOutOnSocial/page/SpeakOutOnSocial')),
-},
+    label: "Pale Sou Rezo Yo",
+    path: "/pale-sou-rezo-yo",
+    component: lazy(
+      () => import("../views/speakOutOnSocial/page/SpeakOutOnSocial")
+    ),
+  },
   {
     path: "*",
     component: () => <Navigate to="/404" />,

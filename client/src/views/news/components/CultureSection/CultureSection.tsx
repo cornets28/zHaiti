@@ -1,9 +1,9 @@
-import { FC } from "react";
+import { FC, MouseEvent } from "react";
 import PropTypes from "prop-types";
 import ThickDivider from "../ThickDivider/ThickDivider";
 import colors from "../../../../utils/theme/base/colors";
 import { Grid } from "../../../../components/Grid/Grid";
-import { MainCultureContainer } from "../MainCultureContainer/MainCultureContainer";
+import MainCultureContainer from "../MainCultureContainer/MainCultureContainer";
 import { RecentCulturesContainer } from "../RecentCulturesContainer/RecentCulturesContainer";
 import SectionItem from "../../../../components/SectionItem/SectionItem";
 import ImageList from "@mui/material/ImageList";
@@ -11,8 +11,10 @@ import Image from "../../../../components/ImageListItemMui/Image";
 import CultureInfoBox from "../CulturesInfoBox/CultureInfoBox";
 import { CultureSectionType } from "../../../../types/CultureSectionType";
 
-
-export const CultureSection: FC<CultureSectionType> = ({ header, culturalNews }) => {
+export const CultureSection: FC<CultureSectionType> = ({
+  header,
+  culturalNews,
+}) => {
   const { error } = colors;
 
   return (
@@ -24,6 +26,7 @@ export const CultureSection: FC<CultureSectionType> = ({ header, culturalNews })
           mainImage={culturalNews[0].image}
           // @ts-ignore
           title={culturalNews[0]?.title}
+          onClick={() => "Amen"}
         />
       )}
       <RecentCulturesContainer>
