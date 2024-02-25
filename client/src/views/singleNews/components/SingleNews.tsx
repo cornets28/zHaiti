@@ -3,7 +3,7 @@ import { Grid } from "../../../components/Grid/Grid";
 import { Box } from "../../../components/Box/Box";
 import colors from "../../../utils/theme/base/colors";
 import typography from "../../../utils/theme/base/typography";
-import MostPopularItem from "../../../components/MostPopularItem/MostPopularItem";
+import MostPopularItem from "../../../components/MostPopularItems/MostPopularItem/MostPopularItem";
 import { useTranslation } from "react-i18next";
 import Pub from "../../../components/Pub/Pub";
 import LightTooltip from "../../../components/Tooltip/Tooltip";
