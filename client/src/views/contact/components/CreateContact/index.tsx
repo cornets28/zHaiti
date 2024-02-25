@@ -12,6 +12,7 @@ const CreateContact: FC<CreateContactType> = ({
   fullNamePlaceholder,
   emailAddressPlaceholder,
   messagePlaceholder,
+  phonePlaceholder,
   onSubmit,
   buttonText,
 }) => {
@@ -28,6 +29,7 @@ const CreateContact: FC<CreateContactType> = ({
       full_name: "",
       message: "",
       email: "",
+      phone: "",
     },
   });
 
@@ -62,6 +64,26 @@ const CreateContact: FC<CreateContactType> = ({
           fullWidth
           error={!!errors?.email}
           helperText={errors?.email?.message}
+          sx={{
+            "& .MuiOutlinedInput-root": {
+              "& fieldset": {
+                borderColor: grey["100"],
+              },
+              "&:hover fieldset": {
+                borderColor: grey["900"],
+              },
+              input: { color: grey["900"] },
+            },
+          }}
+        />
+
+        <TextField
+          type="text"
+          placeholder={phonePlaceholder}
+          {...register("phone")}
+          fullWidth
+          error={!!errors?.phone}
+          helperText={errors?.phone?.message}
           sx={{
             "& .MuiOutlinedInput-root": {
               "& fieldset": {

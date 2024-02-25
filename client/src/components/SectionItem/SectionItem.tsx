@@ -31,9 +31,10 @@ export const SectionItem: FC<SectionItemType> = ({
     <ImageListItem key={image} className="card" onClick={onClick}>
       <img
         src={`${image}?w=248&fit=crop&auto=format`}
-        srcSet={`${image}?w=248&fit=crop&auto=format&dpr=2 2x`}
+        srcSet={`${image}?w=248&h=110&fit=crop&auto=format&dpr=2 2x`}
         alt={title}
         loading="lazy"
+        height={100}
       />
       <Grid>
         {title && <div className="header">{typographyText(h6, 1, title)}</div>}

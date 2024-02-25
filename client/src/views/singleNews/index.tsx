@@ -1,0 +1,1 @@
+export { SingleNews } from './page/SingleNews';

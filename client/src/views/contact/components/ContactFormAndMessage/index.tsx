@@ -30,22 +30,22 @@ export const ContactFormAndMessage: FC = () => {
         <PageHeader fontSize={h2} textAlign="center" color={error.focus}>
           {t("Mesaj")}
         </PageHeader>
-        <Grid sx={{mt: {xs: 1, sm: 1, md: 1, lg: -2}}}>
+        <Grid sx={{mt: {xs: 1, sm: 1, md: 1, lg: -1}, mr: {lg: 5}}}>
           <PageHeader fontSize={h6} textAlign="left" color={grey["900"]}>
             {t(
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,"
+              "Nou prè pou n tande tout moun kelkeswa nivo w, ras ou, sèks ou, koulè w, oswa pozisyon sosyal ou. Kelkeswa sijè ou vle pataje ak nou an, nou la disponib pou nou diskite sa e si posib, chita pale."
             )}
           </PageHeader>
         </Grid>
         <Grid container item xs={12} sm={12} md={12} lg={12} mt={7}>
           <Grid item xs={12} sm={12} md={8} lg={8}>
             <PageHeader fontSize={h5} textAlign="left" color={grey["900"]}>
-              {t("Lorem ipsum dolor sit amet consectetur amet")}
+              {t("Zòrèy nou la pou nou tande w epi nou pa gen okenn prejije ni nou pa pran okenn pozisyon")}
             </PageHeader>
             <Box mt={1} sx={{mb: {xs: 9}}}>
               <PageHeader fontSize={h6} textAlign="left" color={grey["900"]}>
                 {t(
-                  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,"
+                  "Si pou nenpòt rezon an ou ta bezwen fè pase yon mesaj oswa yon anons, si w ta bezwen antre an kontak ak nou pou w diskite sou nenpòt sijè a oswa pale ak ekip devlopman ki te kreye aplikasyon sa, pa ezite ekri nou."
                 )}
               </PageHeader>
             </Box>
@@ -58,6 +58,7 @@ export const ContactFormAndMessage: FC = () => {
           fullNamePlaceholder={t("Non konplè")}
           emailAddressPlaceholder={t("Adrès Imèl")}
           messagePlaceholder={t("Ekri mesaj ou a la...")}
+          phonePlaceholder={t("Telefòn")}
           buttonText={t("Voye mesaj")}
           onSubmit={onSubmit}
         />
