@@ -20,6 +20,7 @@ const SocialMedia: FC = () => {
   const { t } = useTranslation();
   const { h2, h5, h6 } = typography;
 
+
   return (
     <ContactContainer>
       <PageHeaderWrapper>
@@ -33,7 +34,7 @@ const SocialMedia: FC = () => {
           <ContactColumn icon={address} alt='address'>
             <Box mb={3}>
               <PageHeader fontSize={h5} textAlign="center" color={grey["100"]}>
-                {t("ADRES")}
+                <span>{t("Adrès")}</span>
               </PageHeader>
             </Box>
             <PageHeader fontSize={h6} textAlign="center" color={grey["100"]}>
@@ -54,7 +55,7 @@ const SocialMedia: FC = () => {
           <ContactColumn icon={phone} alt='phone'>
             <Box mb={3}>
               <PageHeader fontSize={h5} textAlign="center" color={grey["100"]}>
-                {t("TELEFON")}
+                {t("Telefòn")}
               </PageHeader>
             </Box>
 
@@ -76,7 +77,7 @@ const SocialMedia: FC = () => {
           <ContactColumn icon={email} alt='email'>
             <Box mb={3}>
               <PageHeader fontSize={h5} textAlign="center" color={grey["100"]}>
-                {t("IMEL")}
+              <span>{t("Imèl")}</span>
               </PageHeader>
             </Box>
 

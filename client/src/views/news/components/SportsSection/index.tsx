@@ -3,51 +3,52 @@ import PropTypes from "prop-types";
 import ThickDivider from "../ThickDivider/ThickDivider";
 import colors from "../../../../utils/theme/base/colors";
 import { Grid } from "../../../../components/Grid/Grid";
-import { MainCultureContainer } from "../MainCultureContainer/MainCultureContainer";
-import { RecentCulturesContainer } from "../RecentCulturesContainer/RecentCulturesContainer";
+import { MainSportsContainer } from "../MainSportsContainer";
 import SectionItem from "../../../../components/SectionItem/SectionItem";
-import ImageList from "@mui/material/ImageList";
-import Image from "../../../../components/ImageListItemMui/Image";
-import CultureInfoBox from "../CulturesInfoBox/CultureInfoBox";
-import { CultureSectionType } from "../../../../types/CultureSectionType";
+import SportsInfoBox from "../SportsInfoBox";
+import { SportsSectionType } from "../../../../types/SportsSectionType";
+import { useNavigate } from "react-router-dom";
 
 
-export const CultureSection: FC<CultureSectionType> = ({ header, culturalNews }) => {
+export const SportsSection: FC<SportsSectionType> = ({ header, sportsNews }) => {
   const { error } = colors;
+  let navigate = useNavigate()
 
   return (
     <Grid container>
       <ThickDivider header={header} color={error.focus} />
-      {culturalNews && culturalNews.length > 0 && (
-        <MainCultureContainer
+      {sportsNews && sportsNews.length > 0 && (
+        <MainSportsContainer
           // @ts-ignore
-          mainImage={culturalNews[0].image}
+          mainImage={sportsNews[0].image}
           // @ts-ignore
-          title={culturalNews[0]?.title}
+          title={sportsNews[0].title}
+          // @ts-ignore
+          onClick={() =>  navigate(`/aktyalite/espò-yo/${sportsNews[0].id}`)}
         />
       )}
-      <RecentCulturesContainer>
+      {/* <RecentCulturesContainer>
         <Grid item xs={12} sm={12} md={12} lg={12}>
           <ImageList
             sx={{ width: "100%", height: { md: "64.5vh", lg: "47.5vh" } }}
           >
-            {culturalNews.slice(0, 4).map((news: any) => (
+            {sportsNews.slice(0, 4).map((news: any) => (
               <Image
                 image={news?.image}
                 alt={news.title}
                 key={news.image}
                 title={news.title}
                 author={news.writer}
-                onClick={() => alert("welllll....44")}
+                onClick={() =>  navigate(`/aktyalite/espò-yo/${news.id}`)}
               />
             ))}
           </ImageList>
         </Grid>
-      </RecentCulturesContainer>
+      </RecentCulturesContainer> */}
 
-      <CultureInfoBox>
-        {culturalNews.length > 0 &&
-          culturalNews
+      <SportsInfoBox>
+        {sportsNews.length > 0 &&
+          sportsNews
             .slice(4, 8)
             .map((item: any) => (
               <SectionItem
@@ -56,16 +57,16 @@ export const CultureSection: FC<CultureSectionType> = ({ header, culturalNews })
                 body={item.body}
                 date={item.date}
                 key={item.image}
-                onClick={() => alert("TBD")}
+                onClick={() =>  navigate(`/aktyalite/espò-yo/${item.id}`)}
               />
             ))}
-      </CultureInfoBox>
+      </SportsInfoBox>
     </Grid>
   );
 };
 
-CultureSection.propTypes = {
+SportsSection.propTypes = {
   header: PropTypes.string.isRequired,
 };
 
-export default CultureSection;
+export default SportsSection;

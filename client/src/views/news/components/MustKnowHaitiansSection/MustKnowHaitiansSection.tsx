@@ -6,40 +6,40 @@ import { Grid } from "../../../../components/Grid/Grid";
 import { MainMustKnowHaitiansContainer } from "../MainMustKnowHaitiansContainer/MainMustKnowHaitiansContainer";
 import SectionItem from "../../../../components/SectionItem/SectionItem";
 import CultureInfoBox from "../CulturesInfoBox/CultureInfoBox";
-import { CultureSectionType } from "../../../../types/CultureSectionType";
+import { MustKnowHaitiansType } from "../../../../types/MustKnowHaitiansType";
 import db from "../../../../utils/importantHaitians.json";
+import { useNavigate } from "react-router-dom";
 
 
-export const MustKnowHaitiansSection: FC<CultureSectionType> = ({ header }) => {
+export const MustKnowHaitiansSection: FC<MustKnowHaitiansType> = ({ header , importantHaitians}) => {
   const { error } = colors;
-  const [temporaryImportantHaitians, setTemporaryImportantHaitians] = useState<any>([]);
-
-  useEffect(() => {
-    setTemporaryImportantHaitians(db.importantHaitians);
-  }, [temporaryImportantHaitians]);
+  const navigate = useNavigate()
 
   return (
     <Grid container>
       <ThickDivider header={header} color={error.focus} />
        <MainMustKnowHaitiansContainer
-        mainImage1={temporaryImportantHaitians[0]?.image}
-        mainImage2={temporaryImportantHaitians[1]?.image}
-        title1={temporaryImportantHaitians[0]?.title}
-        title2={temporaryImportantHaitians[1]?.title}
+       // @ts-ignore
+        mainImage1={importantHaitians[0]?.image}
+        // @ts-ignore
+        mainImage2={importantHaitians[1]?.image}
+        // @ts-ignore
+        title1={importantHaitians[0]?.title}
+        // @ts-ignore
+        title2={importantHaitians[1]?.title}
       />
 
       <CultureInfoBox>
-        {temporaryImportantHaitians.length > 0 &&
-          temporaryImportantHaitians
+        {importantHaitians.length > 0 &&
+          importantHaitians
             .slice(2, 10)
             .map((item: any) => (
               <SectionItem
                 image={item.image}
                 title={item.full_name}
-                // body={item.body}
                 date={item.date}
                 key={item.image}
-                onClick={() => alert("TBD")}
+                onClick={() => navigate(`/aktyalite/ayisyen-enpotan-yo/${item.id}`)}
               />
             ))}
       </CultureInfoBox>

@@ -58,6 +58,7 @@ export const ContactFormAndMessage: FC = () => {
           fullNamePlaceholder={t("Non konplè")}
           emailAddressPlaceholder={t("Adrès Imèl")}
           messagePlaceholder={t("Ekri mesaj ou a la...")}
+          phonePlaceholder={t("Telefòn")}
           buttonText={t("Voye mesaj")}
           onSubmit={onSubmit}
         />
