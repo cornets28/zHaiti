@@ -1,6 +1,5 @@
 import { FC } from "react";
 import PropTypes from "prop-types";
-import Grid from "@mui/material/Grid";
 import IconContainer from "./components/IconContainer";
 import { ShareSvgIcon } from "../../images/svg/ShareSvgIcon";
 import { SaveSvgIcon } from "../../images/svg/SaveSvgIcon";

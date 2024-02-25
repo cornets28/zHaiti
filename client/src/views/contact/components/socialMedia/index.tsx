@@ -11,11 +11,15 @@ import ContactInfoContainer from "../contactInfoContainer";
 import ContactColumn from "../ContactColumn";
 import { useTranslation } from "react-i18next";
 import { Box } from "../../../../components/Box/Box";
+import address from "../../../../images/address.png";
+import phone from "../../../../images/phone.png";
+import email from "../../../../images/email.png";
 
 const SocialMedia: FC = () => {
   const { error, grey } = colors;
   const { t } = useTranslation();
   const { h2, h5, h6 } = typography;
+
 
   return (
     <ContactContainer>
@@ -27,10 +31,31 @@ const SocialMedia: FC = () => {
         </PageHeaderContainer>
 
         <ContactInfoContainer>
-          <ContactColumn>
+          <ContactColumn icon={address} alt='address'>
             <Box mb={3}>
               <PageHeader fontSize={h5} textAlign="center" color={grey["100"]}>
-                {t("ADRES")}
+                <span>{t("Adrès")}</span>
+              </PageHeader>
+            </Box>
+            <PageHeader fontSize={h6} textAlign="center" color={grey["100"]}>
+              {t("Petion-ville, Haiti")}
+            </PageHeader>
+            <PageHeader fontSize={h6} textAlign="center" color={grey["400"]}>
+              {t("#33, Rue Faubert")}
+            </PageHeader>
+            <Grid mb={3} />
+            <PageHeader fontSize={h6} textAlign="center" color={grey["100"]}>
+              {t("Petion-ville, Haiti")}
+            </PageHeader>
+            <PageHeader fontSize={h6} textAlign="center" color={grey["400"]}>
+              {t("#33, Rue Faubert")}
+            </PageHeader>
+          </ContactColumn>
+
+          <ContactColumn icon={phone} alt='phone'>
+            <Box mb={3}>
+              <PageHeader fontSize={h5} textAlign="center" color={grey["100"]}>
+                {t("Telefòn")}
               </PageHeader>
             </Box>
 
@@ -48,32 +73,11 @@ const SocialMedia: FC = () => {
               {t("#33, Rue Faubert")}
             </PageHeader>
           </ContactColumn>
-          <ContactColumn>
+
+          <ContactColumn icon={email} alt='email'>
             <Box mb={3}>
               <PageHeader fontSize={h5} textAlign="center" color={grey["100"]}>
-                {t("TELEFON")}
-              </PageHeader>
-            </Box>
-
-            <PageHeader fontSize={h6} textAlign="center" color={grey["100"]}>
-              {t("Petion-ville, Haiti")}
-            </PageHeader>
-            <PageHeader fontSize={h6} textAlign="center" color={grey["400"]}>
-              {t("#33, Rue Faubert")}
-            </PageHeader>
-            <Grid mb={3} />
-            <PageHeader fontSize={h6} textAlign="center" color={grey["100"]}>
-              {t("Petion-ville, Haiti")}
-            </PageHeader>
-            <PageHeader fontSize={h6} textAlign="center" color={grey["400"]}>
-              {t("#33, Rue Faubert")}
-            </PageHeader>
-          </ContactColumn>
-
-          <ContactColumn>
-            <Box mb={3}>
-              <PageHeader fontSize={h5} textAlign="center" color={grey["100"]}>
-                {t("IMEL")}
+              <span>{t("Imèl")}</span>
               </PageHeader>
             </Box>
 

@@ -95,12 +95,6 @@ const routes: RoutesTypes = [
   },
   {
     exact: true,
-    label: "Atik",
-    path: "/atik/1",
-    component: lazy(() => import("../views/article/page/Article")),
-  },
-  {
-    exact: true,
     label: "Sa k ap pase",
     path: "/nouvèl",
     component: lazy(() => import("../views/articles/page/Articles")),
@@ -123,13 +117,48 @@ const routes: RoutesTypes = [
     path: "/Atik-yo/:id",
     component: lazy(() => import("../views/article/page/Article")),
   },
+  {
+    exact: true,
+    label: "Espò",
+    path: "/aktyalite/espò-yo/:id",
+    component: lazy(() => import("../views/singleNews/page/SingleNews")),
+  },
 
+  // TODO: add the correct path
+  {
+    exact: true,
+    label: "Aktyalite",
+    path: "/aktyalite/ayisyen-enpotan-yo/:id",
+    component: lazy(() => import("../views/singleNews/page/SingleNews")),
+  },
+
+  // TODO: add the correct path
+  {
+    exact: true,
+    label: "Aktyalite",
+    path: "/aktyalite/edikasyon/:id",
+    component: lazy(() => import("../views/singleNews/page/SingleNews")),
+  },
+  // TODO: add the correct path
+  {
+    exact: true,
+    label: "Aktyalite",
+    path: "/aktyalite/kilti/:id",
+    component: lazy(() => import("../views/singleNews/page/SingleNews")),
+  },
+  {
+    exact: true,
+    label: "News",
+    path: "/news/kilti/:id",
+    component: lazy(() => import("../views/singleNews/page/SingleNews")),
+  },
   {
     exact: true,
     label: "Sign Up",
     path: "/signup",
     component: lazy(() => import("../views/signUp/page/SignUp")),
   },
+  
   {
     exact: true,
     label: "Sign In",
@@ -138,10 +167,12 @@ const routes: RoutesTypes = [
   },
   {
     exact: true,
-    label: 'Pale Sou Rezo Yo',
-    path: '/pale-sou-rezo-yo',
-    component: lazy(() => import('../views/speakOutOnSocial/page/SpeakOutOnSocial')),
-},
+    label: "Pale Sou Rezo Yo",
+    path: "/pale-sou-rezo-yo",
+    component: lazy(
+      () => import("../views/speakOutOnSocial/page/SpeakOutOnSocial")
+    ),
+  },
   {
     path: "*",
     component: () => <Navigate to="/404" />,
