@@ -9,7 +9,7 @@ import colors from "../../../../utils/theme/base/colors";
 
 export const MainMustKnowHaitiansContainer: FC<
   MainMustKnowHaitiansContainerType
-> = ({ title1, title2, mainImage1, mainImage2 }) => {
+> = ({ title1, title2, mainImage1, mainImage2, onClick1, onClick2 }) => {
   const { h5 } = typography;
   const { black } = colors;
 
@@ -33,7 +33,9 @@ export const MainMustKnowHaitiansContainer: FC<
             width: "100%",
             marginTop: 0.5,
             paddingX: { xs: 3, sm: 3, md: 0, lg: 0 },
+            cursor: "pointer",
           }}
+          onClick={onClick1}
           // @ts-ignore
           alt="Main picture"
           src={mainImage1}
@@ -57,7 +59,9 @@ export const MainMustKnowHaitiansContainer: FC<
             width: "100%",
             marginTop: 0.5,
             paddingX: { xs: 3, sm: 3, md: 0, lg: 0 },
+            cursor: "pointer",
           }}
+          onClick={onClick2}
           // @ts-ignore
           alt="Main picture"
           src={mainImage2}

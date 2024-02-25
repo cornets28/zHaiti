@@ -7,15 +7,25 @@ import { Typography } from "../../../../components/Typography/Typography";
 import typography from "../../../../utils/theme/base/typography";
 import colors from "../../../../utils/theme/base/colors";
 
-export const MainCultureContainer: FC<MainCultureContainerType> = ({
+export const MainEducationContainer: FC<MainCultureContainerType> = ({
   title,
   mainImage,
+  onClick,
 }) => {
   const { h5 } = typography;
   const { black } = colors;
 
   return (
-    <Grid container item xs={12} sm={12} md={12} lg={6}>
+    <Grid
+      container
+      item
+      xs={12}
+      sm={12}
+      md={12}
+      lg={6}
+      onClick={onClick}
+      sx={{ cursor: "pointer" }}
+    >
       <Typography
         fontSize={h5}
         color={black.main}
@@ -42,9 +52,10 @@ export const MainCultureContainer: FC<MainCultureContainerType> = ({
   );
 };
 
-MainCultureContainer.propTypes = {
+MainEducationContainer.propTypes = {
   mainImage: PropTypes.any.isRequired,
   title: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
-export default MainCultureContainer;
+export default MainEducationContainer;

@@ -24,11 +24,12 @@ import SingleArticleImage from "./SingleArticleImage/SingleArticleImage";
 import Page from "../../../components/Page/Page";
 import db from "../../../utils/articles.json";
 import InviteToAction from "../../../components/InviteToAction/InviteToAction";
-import Divider from "@mui/material/Divider";
+import UserPhoto from "../../../images/user5.avif"
+import Author from "../../../components/Author/Author";
 
 const SingleArticle: FC = () => {
   const { blue, grey, white2 } = colors;
-  const { h6, h5 } = typography;
+  const { h5 } = typography;
   const { t } = useTranslation();
   const { id } = useParams();
   const [temporaryArticles, setTemporaryArticles] = useState([]);
@@ -52,7 +53,7 @@ const SingleArticle: FC = () => {
     setSingleArticle(tempSingleArticle);
   }, [temporaryArticles]);
 
-  console.log("TEST: ", singleArticle);
+  console.log("TEST: ", singleArticle?.user?.occupation[0]);
 
   return (
     <Page pageColor={white2.main}>
@@ -96,6 +97,7 @@ const SingleArticle: FC = () => {
               onClickSave={() => alert("save")}
               onClickMessages={() => alert("message")}
             />
+            <Author authorImage={UserPhoto} alt={singleArticle?.user?.first_name} fullName={singleArticle?.user?.first_name + " " + singleArticle?.user?.last_name} profession={`${t(singleArticle?.user?.occupation[0])}`}/>
             <Grid container item xs={12} sm={12} md={12} lg={12}>
               <ArticleBody>{singleArticle?.description}</ArticleBody>
             </Grid>

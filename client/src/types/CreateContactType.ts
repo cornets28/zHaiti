@@ -4,4 +4,5 @@ export type CreateContactType = {
   messagePlaceholder: string;
   onSubmit: any;
   buttonText: string;
+  phonePlaceholder: string;
 };
