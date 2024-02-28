@@ -5,7 +5,7 @@ import Page from "../../../components/Page/Page";
 import ArticlesWrapper from "../../../components/ArticlesWrapper/ArticlesWrapper";
 import LeftSection from "../../../components/LeftSection/LeftSection";
 import RightSection from "../../../components/RightSection/RightSection";
-import MostReadHeader from "../../article/components/MostReadHeader/MostReadHeader";
+import MostReadHeader from "../../../components/MostPopularItems/MostReadHeader/MostReadHeader";
 import { CultureSection } from "./CultureSection/CultureSection";
 import { EducationSection } from "./EducationSection/EducationSection";
 import { MustKnowHaitiansSection } from "./MustKnowHaitiansSection/MustKnowHaitiansSection";
@@ -14,6 +14,7 @@ import db from "../../../utils/articles.json";
 import SportsSection from "./SportsSection";
 import TopHighLevelNews from "./TopHihgLevelNews";
 import MostRecentArticles from "../../../components/MostRecentArticles/MostRecentArticles";
+import MostPopularItems from "../../../components/MostPopularItems/MostPopularItems";
 
 const NewsList: FC = () => {
   const { t } = useTranslation();
@@ -33,7 +34,10 @@ const NewsList: FC = () => {
       <ArticlesWrapper>
         <TopHighLevelNews topLevelNews={temporaryArticles} />
         <LeftSection>
-          <MostRecentArticles header={t("Atik yo")} temporaryArticles={temporaryArticles} />
+          <MostRecentArticles
+            header={t("Atik yo")}
+            temporaryArticles={temporaryArticles}
+          />
           <SportsSection header={t("Espò")} sportsNews={temporaryArticles} />
           <CultureSection
             header={t("Kilti")}
@@ -50,19 +54,7 @@ const NewsList: FC = () => {
         </LeftSection>
 
         <RightSection>
-          <MostReadHeader>{t("Atik Ki Pi Popilè Yo")}</MostReadHeader>
-          {/* <MostReadBody>
-            {temporaryArticles &&
-              temporaryArticles.map((article, index) => (
-                <MostPopularItem
-                  image={article.photo}
-                  title={article.title}
-                  views={article.views}
-                  onClick={() => alert("Coming soon")}
-                  key={index}
-                />
-              ))}
-          </MostReadBody> */}
+          <MostPopularItems mostPopularArticles={temporaryArticles} />
           <Pub />
         </RightSection>
       </ArticlesWrapper>

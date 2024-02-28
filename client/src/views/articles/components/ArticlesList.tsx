@@ -3,7 +3,6 @@ import { useState, type FC, useEffect } from "react";
 import Title from "../../../components/Title/Title";
 import Cow from "../../../images/boys.webp";
 import ArticleCard from "../../../components/ArticleCard/ArticleCard";
-import MostPopularItem from "../../../components/MostPopularItem/MostPopularItem";
 import { useTranslation } from "react-i18next";
 import Pub from "../../../components/Pub/Pub";
 import Pagination from "../../../components/Pagination/Pagination";
@@ -12,11 +11,11 @@ import { Grid } from "../../../components/Grid/Grid";
 import ArticlesWrapper from "../../../components/ArticlesWrapper/ArticlesWrapper";
 import LeftSection from "../../../components/LeftSection/LeftSection";
 import RightSection from "../../../components/RightSection/RightSection";
-import MostReadBody from "../../../components/MostReadBody/MostReadBody";
 import ArticlesContainer from "./ArticlesContainer/ArticlesContainer";
-import MostReadHeader from "../../article/components/MostReadHeader/MostReadHeader";
+
 import db from "../../../utils/articles.json";
 import colors from "../../../utils/theme/base/colors";
+import MostPopularItems from "../../../components/MostPopularItems/MostPopularItems";
 
 const ArticlesList: FC = () => {
   const { t } = useTranslation();
@@ -59,18 +58,7 @@ const ArticlesList: FC = () => {
         </LeftSection>
 
         <RightSection>
-          <MostReadHeader>{t("Atik Ki Pi Popilè Yo")}</MostReadHeader>
-          <MostReadBody>
-            {temporaryArticles.map((article: any) => (
-              <MostPopularItem
-                image={Cow}
-                title={article.title}
-                views={article.numberOfRead}
-                onClick={() => alert("Coming soon")}
-                key={article.id}
-              />
-            ))}
-          </MostReadBody>
+          <MostPopularItems mostPopularArticles={temporaryArticles} />
           <Pub />
         </RightSection>
       </ArticlesWrapper>

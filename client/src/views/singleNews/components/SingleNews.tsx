@@ -3,7 +3,7 @@ import { Grid } from "../../../components/Grid/Grid";
 import { Box } from "../../../components/Box/Box";
 import colors from "../../../utils/theme/base/colors";
 import typography from "../../../utils/theme/base/typography";
-import MostPopularItem from "../../../components/MostPopularItem/MostPopularItem";
+import MostPopularItem from "../../../components/MostPopularItems/MostPopularItem/MostPopularItem";
 import { useTranslation } from "react-i18next";
 import Pub from "../../../components/Pub/Pub";
 import LightTooltip from "../../../components/Tooltip/Tooltip";
@@ -24,8 +24,12 @@ import SingleArticleImage from "./SingleNewsImage";
 import Page from "../../../components/Page/Page";
 import db from "../../../utils/articles.json";
 import InviteToAction from "../../../components/InviteToAction/InviteToAction";
-import UserPhoto from "../../../images/user5.avif"
+import UserPhoto from "../../../images/user5.avif";
 import Author from "../../../components/Author/Author";
+import Button from "@mui/material/Button";
+import RepliesDrawer from "./RepliesDrawer";
+
+type Anchor = "top" | "left" | "bottom" | "right";
 
 const SingleNews: FC = () => {
   const { blue, grey, white2 } = colors;
@@ -52,6 +56,24 @@ const SingleNews: FC = () => {
     );
     setSingleArticle(tempSingleArticle);
   }, [temporaryArticles]);
+
+  const [state, setState] = useState({
+    bottom: false,
+    right: false,
+  });
+
+  const toggleDrawer =
+    (anchor: Anchor, open: boolean) =>
+    (event: React.KeyboardEvent | React.MouseEvent) => {
+      if (
+        event.type === "keydown" &&
+        ((event as React.KeyboardEvent).key === "Tab" ||
+          (event as React.KeyboardEvent).key === "Shift")
+      ) {
+        return;
+      }
+      setState({ ...state, [anchor]: open });
+    };
 
   return (
     <Page pageColor={white2.main}>
@@ -95,10 +117,39 @@ const SingleNews: FC = () => {
               onClickSave={() => alert("save")}
               onClickMessages={() => alert("message")}
             />
-            <Author authorImage={UserPhoto} alt={singleArticle?.user?.first_name} fullName={singleArticle?.user?.first_name + " " + singleArticle?.user?.last_name} profession={`${t(singleArticle?.user?.occupation[0])}`}/>
+            <Author
+              authorImage={UserPhoto}
+              alt={singleArticle?.user?.first_name}
+              fullName={
+                singleArticle?.user?.first_name +
+                " " +
+                singleArticle?.user?.last_name
+              }
+              profession={`${t(singleArticle?.user?.occupation[0])}`}
+            />
             <Grid container item xs={12} sm={12} md={12} lg={12}>
               <ArticleBody>{singleArticle?.description}</ArticleBody>
             </Grid>
+
+            <RepliesDrawer
+              open={state["right"]}
+              onClick={toggleDrawer("right", true)}
+              onClose={toggleDrawer("right", false)}
+            >
+            
+            
+              dsdsds
+            </RepliesDrawer>
+            <Grid container item xs={12} sm={12} md={12} lg={9} mt={3} mb={-1}>
+              <Button
+                variant="contained"
+                onClick={toggleDrawer("right", true)}
+                sx={{ width: "100%", bgcolor: grey['600'], color: grey['100']}}
+              >
+                {t("Li")} 588 {t("Kòmatè")} 
+              </Button>
+            </Grid>
+
             <InviteToAction
               numberOfMessages={"1.6k"}
               onClickShare={() => alert("share")}
