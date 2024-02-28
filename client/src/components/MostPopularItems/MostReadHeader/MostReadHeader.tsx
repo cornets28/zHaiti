@@ -1,8 +1,8 @@
 import type { FC } from "react";
 import PropTypes from "prop-types";
-import { Typography } from "../../../../components/Typography/Typography";
-import { MostReadHeaderType } from "../../../../types/MostReadHeaderType";
-import typography from "../../../../utils/theme/base/typography";
+import { Typography } from "../../Typography/Typography";
+import { MostReadHeaderType } from "../../../types/MostReadHeaderType";
+import typography from "../../../utils/theme/base/typography";
 
 export const MostReadHeader: FC<MostReadHeaderType> = ({ children }) => {
     const { h6 } = typography;
