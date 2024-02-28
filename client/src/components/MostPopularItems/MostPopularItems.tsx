@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import PropTypes from "prop-types";
 import { MostReadBody } from "../MostReadBody/MostReadBody";
 import MostReadHeader from "./MostReadHeader/MostReadHeader";
@@ -9,8 +9,8 @@ import { useTranslation } from "react-i18next";
 const MostPopularItems: FC<MostPopularItemsType> = ({
   mostPopularArticles,
 }) => {
-    const { t } = useTranslation();
-    
+  const { t } = useTranslation();
+
   return (
     <>
       <MostReadHeader>{t("Atik Ki Pi Popilè Yo")}</MostReadHeader>
