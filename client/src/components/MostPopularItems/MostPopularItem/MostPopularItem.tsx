@@ -6,7 +6,6 @@ import typography from "../../../utils/theme/base/typography";
 import { MostPopularItemType } from "../../../types/MostPopularItemType";
 import colors from "../../../utils/theme/base/colors";
 import { Divider } from "../../Divider/Divider";
-import PageHeader from "../../PageHeader";
 
 const MostPopularItem: FC<MostPopularItemType> = ({
   image,
@@ -18,7 +17,6 @@ const MostPopularItem: FC<MostPopularItemType> = ({
   const { skyBleu, orange } = colors;
 
   return (
-    
     <Grid container pb={2} onClick={onClick} sx={{ cursor: "pointer" }}>
       <Grid
         item
@@ -26,10 +24,9 @@ const MostPopularItem: FC<MostPopularItemType> = ({
         sm={3}
         md={4}
         lg={4}
-        sx={{ height: { lg: 70, md: 70, sm: 70, xs: 70} }}
+        sx={{ height: { lg: 70, md: 70, sm: 70, xs: 70 } }}
         width={50}
       >
-        
         <img src={image} alt={title} width={"100%"} height={"100%"} />
       </Grid>
       <Grid
@@ -45,17 +42,18 @@ const MostPopularItem: FC<MostPopularItemType> = ({
         }}
       >
         <Divider />
-     
-         <Typography
-          sx={{ fontSize: { xs: size.xxs, sm: size.md, md: size.xxs }, height: 52,
-          overflow: 'scroll',
-          scrollbarWidth: 1 
-        }}
+
+        <Typography
+          sx={{
+            fontSize: { xs: size.xxs, sm: size.md, md: size.xxs },
+            height: 52,
+            overflow: "scroll",
+            scrollbarWidth: 1,
+          }}
           textAlign="left"
-          px={1} 
-          
-        > 
-          <span style={{fontWeight: 'bold', }}>{title}</span>
+          px={1}
+        >
+          <span style={{ fontWeight: "bold" }}>{title}</span>
         </Typography>
         <Typography
           fontSize={size.xxs}
