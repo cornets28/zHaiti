@@ -22,6 +22,7 @@ import Logo from "../../Logo/Logo";
 import { useSelector, useDispatch } from "react-redux";
 import { setAuthModalOpen } from "../../../redux/features/authModalSlice";
 import menuConfigs from "../../../utils/menu.configs";
+import TopNavbar from "../TopNavbar/TopNavbar";
 
 interface ScrollAppBarProps {
   window?: () => Window;
@@ -38,6 +39,7 @@ const Navbar: FC = (props: Props) => {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [value, setValue] = React.useState(0);
+  const [toNavIsClick, setToNavIsClick] = React.useState(false);
   // @ts-ignore
   const { user } = useSelector((state) => state.user);
   const navigate = useNavigate();
@@ -76,8 +78,10 @@ const Navbar: FC = (props: Props) => {
 
   return (
     <>
+    
       <ScrollAppBar>
-        <AppBar elevation={0} sx={{ zIndex: 9999 }}>
+        <AppBar elevation={0} sx={{ zIndex: 0 }}>
+        <TopNavbar />
           <Toolbar
             sx={{ alignItems: "center", justifyContent: "space-between" }}
           >
@@ -127,6 +131,7 @@ const Navbar: FC = (props: Props) => {
                 value={value}
                 onChange={handleChange}
                 textColor="primary"
+                // @ts-ignore
                 indicatorColor="secondary"
                 className={classes.tabsContainer}
               >

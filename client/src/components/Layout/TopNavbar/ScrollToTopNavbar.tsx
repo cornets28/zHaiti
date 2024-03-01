@@ -1,31 +1,31 @@
 import React, { ReactElement } from "react";
 import { useScrollTrigger } from "@mui/material";
-import colors from "../../../../utils/theme/base/colors";
 
-interface ScrollToButtonProps {
+interface ScrollToColorProps {
   threshold?: number;
   bgColorBefore: string;
   bgColorAfter: string | undefined;
   textColorBefore: string | undefined;
   textColorAfter: string;
+  marginTopBefore: string | undefined;
+  marginTopAfter: string | undefined;
   fadeIn: string;
   fadeOut: string;
-  paddingBefore: string;
-  paddingAfter: string;
   children: ReactElement;
   window?: Window;
 }
 
-export default function ScrollToButton(props: ScrollToButtonProps): ReactElement {
-    const { error, grey, darkBlue } = colors;
+export default function ScrollToTopNavbar(
+  props: ScrollToColorProps
+): ReactElement {
   const {
     threshold = 0,
     textColorBefore = "black",
-    textColorAfter = "",
-    bgColorBefore = "",
-    bgColorAfter = "",
+    textColorAfter = "red",
     fadeIn = "0.3s ease-in",
     fadeOut = "0.3s ease-out",
+    marginTopBefore = "-30px",
+    marginTopAfter = "0px",
     children,
     window,
     ...other
@@ -34,15 +34,15 @@ export default function ScrollToButton(props: ScrollToButtonProps): ReactElement
   const trigger = useScrollTrigger({
     disableHysteresis: true,
     threshold: threshold,
-    target: window ? window : undefined
+    target: window ? window : undefined,
   });
 
   return React.cloneElement(children, {
     style: {
       color: trigger ? textColorAfter : textColorBefore,
-      backgroundColor: trigger ? bgColorAfter : bgColorBefore,
-      transition: trigger ? fadeIn : fadeOut
+      transition: trigger ? fadeIn : fadeOut,
+      marginTop: trigger ? marginTopBefore : marginTopAfter,
     },
-    ...other
+    ...other,
   });
 }
