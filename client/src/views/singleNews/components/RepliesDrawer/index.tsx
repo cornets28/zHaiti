@@ -26,7 +26,7 @@ const RepliesDrawer: FC<RepliesDrawerType> = ({ children, open, onClose }) => {
         <DrawerCloseButton onClose={onClose} />
         <DrawerDetails>
           <PageHeader fontSize={h4} textAlign={"left"} color={grey[900]}>
-            {t("Kòmatè")} 678
+          678 {t("Kòmatè")}
           </PageHeader>
 
           <ReplyInput

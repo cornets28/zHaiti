@@ -136,8 +136,6 @@ const SingleNews: FC = () => {
               onClick={toggleDrawer("right", true)}
               onClose={toggleDrawer("right", false)}
             >
-            
-            
               dsdsds
             </RepliesDrawer>
             <Grid container item xs={12} sm={12} md={12} lg={9} mt={3} mb={-1}>

@@ -6,7 +6,7 @@ body {
 }
 
 .container {
-  margin: 62.5px -8px -8px -8px;
+  margin: 120.5px -8px -8px -8px;
   overflow-x: hidden;
   overflow-y: hidden;
 }
@@ -216,3 +216,4 @@ a {
     margin: auto 50px;
   }
 }
+

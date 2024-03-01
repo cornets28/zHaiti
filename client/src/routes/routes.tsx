@@ -10,7 +10,6 @@ import { useEffect } from "react";
 import userApi from "../api/modules/user.api";
 import { setUser } from "../redux/features/userSlice";
 import type { LazyExoticComponent } from "react";
-
 import { Grid } from "../components/Grid/Grid";
 
 type RoutesTypes = {
@@ -152,19 +151,80 @@ const routes: RoutesTypes = [
     path: "/news/kilti/:id",
     component: lazy(() => import("../views/singleNews/page/SingleNews")),
   },
+
   {
     exact: true,
-    label: "Sign Up",
-    path: "/signup",
+    label: "Kilti",
+    path: "/kilti",
+    component: lazy(() => import("../views/signIn/page/SignIn")),
+  },
+
+  {
+    exact: true,
+    label: "Espo",
+    path: "/spo",
+    component: lazy(() => import("../views/signIn/page/SignIn")),
+  },
+
+  {
+    exact: true,
+    label: "Edikasyon",
+    path: "/edikasyon",
+    component: lazy(() => import("../views/signIn/page/SignIn")),
+  },
+  {
+    exact: true,
+    label: "Politik",
+    path: "/politik",
     component: lazy(() => import("../views/signUp/page/SignUp")),
   },
-  
+
   {
     exact: true,
     label: "Sign In",
     path: "/signin",
     component: lazy(() => import("../views/signIn/page/SignIn")),
   },
+
+  {
+    exact: true,
+    label: "Lasyans",
+    path: "/signin",
+    component: lazy(() => import("../views/signIn/page/SignIn")),
+  },
+  {
+    exact: true,
+    label: "Relijyon",
+    path: "/relijyon",
+    component: lazy(() => import("../views/signIn/page/SignIn")),
+  },
+  {
+    exact: true,
+    label: "Sante",
+    path: "/sante",
+    component: lazy(() => import("../views/signIn/page/SignIn")),
+  },
+  {
+    exact: true,
+    label: "Teknoloji",
+    path: "/teknoloji",
+    component: lazy(() => import("../views/signIn/page/SignIn")),
+  },
+
+  {
+    exact: true,
+    label: "Espirityalite",
+    path: "/espirityalite",
+    component: lazy(() => import("../views/signIn/page/SignIn")),
+  },
+
+  {
+    exact: true,
+    label: "Tem Ak Kondisyon",
+    path: "/tem-ak-kondisyon",
+    component: lazy(() => import("../views/signIn/page/SignIn")),
+  },
+
   {
     exact: true,
     label: "Pale Sou Rezo Yo",
@@ -173,6 +233,7 @@ const routes: RoutesTypes = [
       () => import("../views/speakOutOnSocial/page/SpeakOutOnSocial")
     ),
   },
+
   {
     path: "*",
     component: () => <Navigate to="/404" />,
