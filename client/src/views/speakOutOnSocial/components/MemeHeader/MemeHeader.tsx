@@ -1,7 +1,6 @@
 import { FC } from "react";
 import { Grid } from "../../../../components/Grid/Grid";
 import Container from "@mui/material/Container";
-
 import MemeHeaderContainer from "../../../../components/PageHeaderContainer";
 import MemeDefaultImage from "../MemeDefaultImage";
 import StaticText from "../StaticText";
