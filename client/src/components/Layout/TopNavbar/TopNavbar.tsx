@@ -1,5 +1,4 @@
 import { FC } from "react";
-// import PropTypes from "propTypes";
 import Grid from "@mui/material/Grid/Grid";
 import ListItemText from "@mui/material/ListItemText";
 import ListItem from "@mui/material/ListItem";
@@ -11,13 +10,15 @@ import colors from "../../../utils/theme/base/colors";
 import { useLocation } from "react-router-dom";
 import { Typography } from "../../Typography/Typography";
 import { topNavBatItems } from "../../../routes/topNavbarItems";
+import { useTranslation } from "react-i18next";
 
 
-const TopNavbar:FC = ({}) => {
+const TopNavbar:FC = () => {
   const { grey, error } = colors;
   const location = useLocation();
   const { pathname } = location;
-  const containsString = (label: string) => pathname.includes(label);
+  const { t } = useTranslation();
+  const containsString = (label: string) => pathname.includes(label.replace(/ /gi, "-").toLowerCase());
 
   return (
     // @ts-ignore
@@ -54,29 +55,44 @@ const TopNavbar:FC = ({}) => {
             >
               {topNavBatItems.map(({ label, path }) => (
                 <ListItem key={label} component={Link} to={path}>
+                  <>
+                
+                 { // @ts-ignore
+                 console.log("TEST: ", label.replace(/ /gi, "-").toLowerCase() === "tèm-ak-kondisyon")
+                 
+                 
+                 }
+                 { // @ts-ignore
+                 console.log("TEST2: ", containsString(label))
+             
+                 
+                 }
                   {label === "Kilti" && (
                     <span style={{ paddingRight: 30, color: grey[500] }}>
                       {" "}
                       |{" "}
                     </span>
+                    
                   )}
                   <ListItemText
                     sx={{
                       textDecoration: "none",
                       textTransform: "capitalize",
                       textAlign: "center",
-                      color: containsString(label.toLowerCase())
+                      color: containsString(label)
                         ? error.focus
                         : grey[900],
                       fontSize: 10,
-                      width: label === "Tem Ak Kondisyon" ? 149 : "auto",
+                      width: label === "Prensip Ak Kondisyon" ? 173 : "auto",
                     }}
                     primary={
-                      <Typography fontWeight={"bold"}>{label}</Typography>
+                      <Typography fontWeight={"bold"}>{t(label)}</Typography>
                     }
                   />
                   <span style={{ paddingLeft: 30, color: grey[500] }}> | </span>
+                  </>
                 </ListItem>
+              
               ))}
             </List>
           </Grid>

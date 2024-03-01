@@ -220,9 +220,9 @@ const routes: RoutesTypes = [
 
   {
     exact: true,
-    label: "Tem Ak Kondisyon",
-    path: "/tem-ak-kondisyon",
-    component: lazy(() => import("../views/signIn/page/SignIn")),
+    label: "Prensip Ak Kondisyon",
+    path: "/prensip-ak-kondisyon",
+    component: lazy(() => import("../views/termsAndConditions/page/TermsAndConditions")),
   },
 
   {

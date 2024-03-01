@@ -1,1 +1,1 @@
-export { SpeakOutOnSocial } from './page/SpeakOutOnSocial'
+export { SpeakOutOnSocial } from "./page/SpeakOutOnSocial";
