@@ -54,6 +54,12 @@ a {
   opacity: 0;
 }
 
+select {
+  border: none;
+  outline: none;
+  scroll-behavior: smooth;
+}
+
 .user__card:hover {
   .user__social {
     border-radius: 0%;

@@ -23,6 +23,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { setAuthModalOpen } from "../../../redux/features/authModalSlice";
 import menuConfigs from "../../../utils/menu.configs";
 import TopNavbar from "../TopNavbar/TopNavbar";
+import LanguagesMenu from "./components/LanguagesMenu";
 
 interface ScrollAppBarProps {
   window?: () => Window;
@@ -113,13 +114,7 @@ const Navbar: FC = (props: Props) => {
               <Box sx={{ marginRight: "3%" }}>
                 <Logo />
               </Box>
-              <div>
-                <select onChange={handleLanguageChange} value={i18n.language} style={{backgroundColor: error.main, color: grey['100'], borderColor: error.main}}>
-                  {menuConfigs.languages.map(lang => (
-                    <option value={lang.short} style={{backgroundColor: error.main, color: 'white'}}>{lang.language}</option>
-                  ))}
-                </select>
-              </div>
+              <LanguagesMenu />
             </Box>
             {/* main menu */}
             <Box
