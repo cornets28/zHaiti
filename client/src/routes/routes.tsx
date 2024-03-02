@@ -162,21 +162,21 @@ const routes: RoutesTypes = [
   {
     exact: true,
     label: "Espo",
-    path: "/spo",
-    component: lazy(() => import("../views/signIn/page/SignIn")),
+    path: "/espo",
+    component: lazy(() => import("../views/sports/page/Sports")),
   },
 
   {
     exact: true,
     label: "Edikasyon",
     path: "/edikasyon",
-    component: lazy(() => import("../views/signIn/page/SignIn")),
+    component: lazy(() => import("../views/educations/page/Educations")),
   },
   {
     exact: true,
     label: "Politik",
     path: "/politik",
-    component: lazy(() => import("../views/signUp/page/SignUp")),
+    component: lazy(() => import("../views/politics/page/Politics")),
   },
 
   {
@@ -189,28 +189,27 @@ const routes: RoutesTypes = [
   {
     exact: true,
     label: "Lasyans",
-    path: "/signin",
-    component: lazy(() => import("../views/signIn/page/SignIn")),
+    path: "/lasyans",
+    component: lazy(() => import("../views/science/page/Science")),
   },
   {
     exact: true,
     label: "Relijyon",
     path: "/relijyon",
-    component: lazy(() => import("../views/signIn/page/SignIn")),
+    component: lazy(() => import("../views/religion/page/Religion")),
   },
   {
     exact: true,
     label: "Sante",
     path: "/sante",
-    component: lazy(() => import("../views/signIn/page/SignIn")),
+    component: lazy(() => import("../views/health/page/Health")),
   },
   {
     exact: true,
     label: "Teknoloji",
     path: "/teknoloji",
-    component: lazy(() => import("../views/signIn/page/SignIn")),
+    component: lazy(() => import("../views/technology/page/Technology")),
   },
-
   {
     exact: true,
     label: "Espirityalite",

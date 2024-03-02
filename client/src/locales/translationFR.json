@@ -17,6 +17,9 @@
   "Kategori": "Categorie",
   "Kilti": "Culture",
   "Espò": "Sport",
+  "Espo": "Sport",
+  "Teknoloji": "Technologie",
+  "Sante": "Santé",
   "Politik": "Politiques",
   "Edikasyon": "Education",
   "Relijyon": "Religion",
@@ -24,10 +27,10 @@
   "Lasyans": "Sciences",
   "Dwa Nou": "Nos Droits",
   "Prensip Nou": "Nos Principles",
-  "Politik Prive N": "Privee",
+  "Politik Prive N": "Privée",
   "Piblik Nou Sible": "Notre Publique",
   "Kondisyon Ak Sèvis": "Termes et Conditions",
-  "Politik Prive Nou": "Notre Politique Privee",
+  "Politik Prive Nou": "Notre Politique Privée",
   "Tout Dwa Rezève  Pou - ZHaiti News": "Tous droits réservés à - ZHaiti News",
   "Atik Ki Pi Popilè Yo": "Articles les plus populaires",
   "Plis Detay": "En Savoir Plus",
@@ -69,5 +72,5 @@
   "Li": "Lisez",
   "Tèm Ak Kondisyon": "Termes and Conditions",
   "Dènye aktyalizasyon": "Dernières mises à jour",
-  "Prensip Ak Kondisyon": "règles and Conditions"
+  "Prensip Ak Kondisyon": "Règles et Conditions"
 }

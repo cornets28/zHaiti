@@ -45,6 +45,7 @@ const TopNavbar: FC = () => {
               overflowX: "scroll",
               scrollbarWidth: "none",
             }}
+            className="tech-slideshow"
           >
             <List
               component="nav"
@@ -52,6 +53,7 @@ const TopNavbar: FC = () => {
                 display: "flex",
                 justifyContent: "space-between",
               }}
+              className="mover-1"
             >
               {topNavBatItems.map(({ label, path }) => (
                 <ListItem key={label} component={Link} to={path}>

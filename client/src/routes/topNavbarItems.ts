@@ -21,8 +21,8 @@ export const topNavBatItems: TopNavItemsTypes = [
   {
     exact: true,
     label: "Espo",
-    path: "/spo",
-    component: lazy(() => import("../views/signIn/page/SignIn")),
+    path: "/espo",
+    component: lazy(() => import("../views/sports/page/Sports")),
   },
 
   {
@@ -41,26 +41,26 @@ export const topNavBatItems: TopNavItemsTypes = [
   {
     exact: true,
     label: "Lasyans",
-    path: "/signin",
-    component: lazy(() => import("../views/signIn/page/SignIn")),
+    path: "/lasyans",
+    component: lazy(() => import("../views/science/page/Science")),
   },
   {
     exact: true,
     label: "Relijyon",
     path: "/relijyon",
-    component: lazy(() => import("../views/signIn/page/SignIn")),
+    component: lazy(() => import("../views/religion/page/Religion")),
   },
   {
     exact: true,
     label: "Sante",
     path: "/sante",
-    component: lazy(() => import("../views/signIn/page/SignIn")),
+    component: lazy(() => import("../views/health/page/Health")),
   },
   {
     exact: true,
     label: "Teknoloji",
     path: "/teknoloji",
-    component: lazy(() => import("../views/signIn/page/SignIn")),
+    component: lazy(() => import("../views/technology/page/Technology")),
   },
 
   {
