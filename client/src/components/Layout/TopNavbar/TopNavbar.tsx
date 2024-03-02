@@ -12,13 +12,13 @@ import { Typography } from "../../Typography/Typography";
 import { topNavBatItems } from "../../../routes/topNavbarItems";
 import { useTranslation } from "react-i18next";
 
-
-const TopNavbar:FC = () => {
+const TopNavbar: FC = () => {
   const { grey, error } = colors;
   const location = useLocation();
   const { pathname } = location;
   const { t } = useTranslation();
-  const containsString = (label: string) => pathname.includes(label.replace(/ /gi, "-").toLowerCase());
+  const containsString = (label: string) =>
+    pathname.includes(label.replace(/ /gi, "-").toLowerCase());
 
   return (
     // @ts-ignore
@@ -55,44 +55,27 @@ const TopNavbar:FC = () => {
             >
               {topNavBatItems.map(({ label, path }) => (
                 <ListItem key={label} component={Link} to={path}>
-                  <>
-                
-                 { // @ts-ignore
-                 console.log("TEST: ", label.replace(/ /gi, "-").toLowerCase() === "tèm-ak-kondisyon")
-                 
-                 
-                 }
-                 { // @ts-ignore
-                 console.log("TEST2: ", containsString(label))
-             
-                 
-                 }
                   {label === "Kilti" && (
                     <span style={{ paddingRight: 30, color: grey[500] }}>
                       {" "}
                       |{" "}
                     </span>
-                    
                   )}
                   <ListItemText
                     sx={{
                       textDecoration: "none",
                       textTransform: "capitalize",
                       textAlign: "center",
-                      color: containsString(label)
-                        ? error.focus
-                        : grey[900],
+                      color: containsString(label) ? error.focus : grey[900],
                       fontSize: 10,
-                      width: label === "Prensip Ak Kondisyon" ? 173 : "auto",
+                      width: label === "Prensip Ak Kondisyon" ? 175 : "auto",
                     }}
                     primary={
                       <Typography fontWeight={"bold"}>{t(label)}</Typography>
                     }
                   />
                   <span style={{ paddingLeft: 30, color: grey[500] }}> | </span>
-                  </>
                 </ListItem>
-              
               ))}
             </List>
           </Grid>
@@ -100,6 +83,6 @@ const TopNavbar:FC = () => {
       </Grid>
     </ScrollToTopNavbar>
   );
-}
+};
 
 export default TopNavbar;
