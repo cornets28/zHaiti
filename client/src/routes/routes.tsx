@@ -174,6 +174,13 @@ const routes: RoutesTypes = [
 
   {
     exact: true,
+    label: "Relijyon",
+    path: "/aktyalite/relijyon/:id",
+    component: lazy(() => import("../views/singleNews/page/SingleNews")),
+  },
+
+  {
+    exact: true,
     label: "Espo",
     path: "/espo",
     component: lazy(() => import("../views/sports/page/Sports")),
