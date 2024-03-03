@@ -1,12 +1,13 @@
 import type { FC } from "react";
 import Page from "../../../components/Page/Page";
 import colors from "../../../utils/theme/base/colors";
+import CulturesList from "../components/CulturesContainer";
 
 export const Cultures: FC = () => {
-  const { white2 } = colors;
+  const { grey } = colors;
   return (
-    <Page pageColor={white2.main}>
-      Cultures
+    <Page pageColor={grey[100]}>
+      <CulturesList />
     </Page>
   );
 };

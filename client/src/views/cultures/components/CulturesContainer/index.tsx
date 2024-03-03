@@ -16,17 +16,17 @@ import redirectLink from "../../../../routes/caseRoutes";
 import { useNavigate } from "react-router-dom";
 import ItemMainInfo from "../../../../components/ItemMainInfo/ItemMainInfo";
 
-const EducationList: FC = () => {
+const CulturesList: FC = () => {
   const { t } = useTranslation();
   let navigate = useNavigate();
-  const [temporaryEducationalItems, setTemporaryEducationalItems] = useState([]);
+  const [temporaryCulturalItems, setTemporaryCulturalItems] = useState([]);
 
   useEffect(() => {
-    const politics = db.articles.filter((article) =>
-      article.categories.includes("Edikasyon")
+    const cultures = db.articles.filter((article) =>
+      article.categories.includes("Kilti")
     );
     // @ts-ignore
-    setTemporaryEducationalItems(politics);
+    setTemporaryCulturalItems(cultures);
   }, [db.articles]);
 
   return (
@@ -37,37 +37,37 @@ const EducationList: FC = () => {
             <Title
               text="We create events aiming to pear to the voice for children and gather for support. Please update with our events and confirm you presence."
               title1="Sa k gen nan"
-              title2={t("Politik")}
+              title2={t("Kilti")}
             />
           </Grid>
           <Grid container>
             <ItemMainInfo
               // @ts-ignore
-              title={temporaryEducationalItems[0]?.title}
+              title={temporaryCulturalItems[0]?.title}
               // @ts-ignore
-              image={temporaryEducationalItems[0]?.image}
+              image={temporaryCulturalItems[0]?.image}
               // @ts-ignore
-              imageInfo={temporaryEducationalItems[0]?.subtitle}
+              imageInfo={temporaryCulturalItems[0]?.subtitle}
               // @ts-ignore
-              partialDescription={temporaryEducationalItems[0]?.description.slice(
+              partialDescription={temporaryCulturalItems[0]?.description.slice(
                 0,
                 270
               )}
               onClick={() =>
                 // @ts-ignore
-                navigate(`/aktyalite/edikasyon/${temporaryEducationalItems[0]?.id}`)
+                navigate(`/aktyalite/kilti/${temporaryCulturalItems[0]?.id}`)
               }
             />
             <ItemInfoBox>
-              {temporaryEducationalItems.length > 0 &&
-                temporaryEducationalItems.map((item: any) => (
+              {temporaryCulturalItems.length > 0 &&
+                temporaryCulturalItems.map((item: any) => (
                   <SectionItem
                     image={item.image}
                     title={item.title}
                     body={item.description}
                     date={item.date}
                     key={item.image}
-                    onClick={() => navigate(`/aktyalite/edikasyon/${item.id}`)}
+                    onClick={() => navigate(`/aktyalite/kilti/${item.id}`)}
                   >
                     {item.categories &&
                       item.categories.length > 0 &&
@@ -87,7 +87,7 @@ const EducationList: FC = () => {
 
         <RightSection>
           <Grid mt={10} />
-          <MostPopularItems mostPopularArticles={temporaryEducationalItems} />
+          <MostPopularItems mostPopularArticles={temporaryCulturalItems} />
           <Pub />
         </RightSection>
       </ArticlesWrapper>
@@ -95,4 +95,4 @@ const EducationList: FC = () => {
   );
 };
 
-export default EducationList;
+export default CulturesList;
