@@ -82,12 +82,6 @@ select {
   }
 }
 
-.container img {
-  height: 300;
-  width: 100%;
-}
-
-
 .user__card:hover {
   .user__social {
     border-radius: 0%;

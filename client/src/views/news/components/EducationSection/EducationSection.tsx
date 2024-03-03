@@ -12,6 +12,8 @@ import RecentEducationContainer from "../RecentEducationContainer/RecentEducatio
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { ImageList } from "../../../../components/ImageList/ImageList";
 import { useNavigate } from "react-router-dom";
+import RedirectLink from "../../../../components/SectionItem/components/RedirectLink/RedirectLink";
+import redirectLink from "../../../../routes/caseRoutes";
 
 export const EducationSection: FC<EducationSectionType> = ({
   header,
@@ -20,6 +22,7 @@ export const EducationSection: FC<EducationSectionType> = ({
   const { error } = colors;
   const navigate = useNavigate();
   const isWindowSizeMin1200 = useMediaQuery<any>("(min-width:1200px)");
+
 
   return (
     <Grid container>
@@ -97,18 +100,27 @@ export const EducationSection: FC<EducationSectionType> = ({
 
       <CultureInfoBox>
         {educationalNews.length > 0 &&
-          educationalNews
-            .slice(4, 8)
-            .map((news: any) => (
-              <SectionItem
-                image={news.image}
-                title={news.title}
-                body={news.description}
-                date={news.date}
-                key={news.image}
-                onClick={() => navigate(`/aktyalite/edikasyon/${news.id}`)}
-              />
-            ))}
+          educationalNews.slice(4, 8).map((news: any) => (
+            <SectionItem
+              image={news.image}
+              title={news.title}
+              body={news.description}
+              date={news.date}
+              key={news.image}
+              onClick={() => navigate(`/aktyalite/edikasyon/${news.id}`)}
+            >
+              {news.categories &&
+                news.categories.length > 0 &&
+                news.categories.map((category: string, index: number) => (
+                  <RedirectLink
+                    key={category}
+                    href={redirectLink(category)}
+                    category={category}
+                    isLastItem={index === news.categories.length - 1}
+                  />
+                ))}
+            </SectionItem>
+          ))}
       </CultureInfoBox>
     </Grid>
   );

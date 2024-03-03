@@ -5,7 +5,6 @@ import Page from "../../../components/Page/Page";
 import ArticlesWrapper from "../../../components/ArticlesWrapper/ArticlesWrapper";
 import LeftSection from "../../../components/LeftSection/LeftSection";
 import RightSection from "../../../components/RightSection/RightSection";
-import MostReadHeader from "../../../components/MostPopularItems/MostReadHeader/MostReadHeader";
 import { CultureSection } from "./CultureSection/CultureSection";
 import { EducationSection } from "./EducationSection/EducationSection";
 import { MustKnowHaitiansSection } from "./MustKnowHaitiansSection/MustKnowHaitiansSection";
@@ -22,12 +21,25 @@ const NewsList: FC = () => {
   const [temporaryArticles, setTemporaryArticles] = useState([]);
   const [temporaryImpHaitians, setTemporaryImpHaitians] = useState([]);
 
+  
+
   useEffect(() => {
     // @ts-ignore
     setTemporaryArticles(db.articles);
+
     // @ts-ignore
     setTemporaryImpHaitians(db.importantHaitians);
   }, [temporaryArticles, temporaryImpHaitians]);
+
+   // @ts-ignore
+   const topTemporaryArticles = temporaryArticles.slice(0, 6);
+  // @ts-ignore
+  const culturalNews = temporaryArticles.filter((article) => article.categories.includes("Kilti"));
+  // @ts-ignore
+  const educationalNews = temporaryArticles.filter((article) => article.categories.includes("Edikasyon"))
+// @ts-ignore
+const sportsNews = temporaryArticles.filter((article) => article.categories.includes("Espò"))
+
 
   return (
     <Page pageColor={white2.main}>
@@ -36,21 +48,22 @@ const NewsList: FC = () => {
         <LeftSection>
           <MostRecentArticles
             header={t("Atik yo")}
-            temporaryArticles={temporaryArticles}
+            temporaryArticles={topTemporaryArticles}
           />
-          <SportsSection header={t("Espò")} sportsNews={temporaryArticles} />
+          <SportsSection header={t("Espò")} sportsNews={sportsNews} />
           <CultureSection
             header={t("Kilti")}
-            culturalNews={temporaryArticles}
+            culturalNews={culturalNews}
           />
           <EducationSection
             header={t("Edikasyon")}
-            educationalNews={temporaryArticles}
+            educationalNews={educationalNews}
           />
           <MustKnowHaitiansSection
             header={t("Ayisyen ou dwe konnen")}
             importantHaitians={temporaryImpHaitians}
           />
+          {/* TODO: Add, religion, spituality, Science, Politics, Heath */}
         </LeftSection>
 
         <RightSection>

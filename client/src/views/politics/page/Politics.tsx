@@ -1,7 +1,7 @@
 import type { FC } from "react";
 import Page from "../../../components/Page/Page";
 import colors from "../../../utils/theme/base/colors";
-import PoliticsList from "../compoents/PoliticsContainer";
+import PoliticsList from "../components/PoliticsContainer";
 
 export const Politics: FC = () => {
   const { white2 } = colors;

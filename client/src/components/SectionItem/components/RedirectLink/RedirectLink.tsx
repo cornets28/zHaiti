@@ -18,7 +18,7 @@ const RedirectLink: FC<RedirectLinkType> = ({ href, category, isLastItem }) => {
           "&:hover": { color: error.focus },
         }}
       >
-        <em> {category}</em>
+        <em style={{fontWeight: 'bold'}}> {category}</em>
       </Link>
       {!isLastItem && ","}
     </>
