@@ -10,7 +10,7 @@ import LightTooltip from "../../../components/Tooltip/Tooltip";
 import { ShareSvgIcon } from "../../../images/svg/ShareSvgIcon";
 import Cow from "../../../images/JamieFox.webp";
 import { useParams } from "react-router-dom";
-import SpanHeader from "./SpanHeader";
+import SpanHeader from "../../../components/SpanHeader";
 import SingleNewsTitle from "./SingleNewsTitle";
 import PublishDate from "./PublishDate/PublishDate";
 import ArticleBody from "./SingleNewsBody";

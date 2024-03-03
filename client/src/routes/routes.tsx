@@ -147,6 +147,12 @@ const routes: RoutesTypes = [
   },
   {
     exact: true,
+    label: "Aktyalite",
+    path: "/aktyalite/politik/:id",
+    component: lazy(() => import("../views/singleNews/page/SingleNews")),
+  },
+  {
+    exact: true,
     label: "News",
     path: "/news/kilti/:id",
     component: lazy(() => import("../views/singleNews/page/SingleNews")),

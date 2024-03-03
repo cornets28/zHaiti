@@ -14,13 +14,14 @@ import MostPopularItems from "../../../../components/MostPopularItems/MostPopula
 import RedirectLink from "../../../../components/SectionItem/components/RedirectLink/RedirectLink";
 import redirectLink from "../../../../routes/caseRoutes";
 import { useNavigate } from "react-router-dom";
+import ItemMainInfo from "../../../../components/ItemMainInfo/ItemMainInfo";
 
 const PoliticsList: FC = () => {
   const { t } = useTranslation();
   let navigate = useNavigate();
   const [temporaryPoliticalItems, setTemporaryPoliticalItems] = useState([]);
 
-  console.log("temporaryPoliticalItems: ", temporaryPoliticalItems)
+  console.log("temporaryPoliticalItems: ", temporaryPoliticalItems);
   useEffect(() => {
     const politics = db.articles.filter((article) =>
       article.categories.includes("Politik")
@@ -31,17 +32,33 @@ const PoliticsList: FC = () => {
 
   return (
     <Grid container>
-      <Grid container item py={6}>
-        <Title
-          text="We create events aiming to pear to the voice for children and gather for support. Please update with our events and confirm you presence."
-          title1="Sa k gen nan"
-          title2={t("Politik")}
-        />
-      </Grid>
-
       <ArticlesWrapper>
         <LeftSection>
+          <Grid container item py={6} mx={2}>
+            <Title
+              text="We create events aiming to pear to the voice for children and gather for support. Please update with our events and confirm you presence."
+              title1="Sa k gen nan"
+              title2={t("Politik")}
+            />
+          </Grid>
           <Grid container>
+            <ItemMainInfo
+              // @ts-ignore
+              title={temporaryPoliticalItems[0]?.title}
+              // @ts-ignore
+              image={temporaryPoliticalItems[0]?.image}
+              // @ts-ignore
+              imageInfo={temporaryPoliticalItems[0]?.subtitle}
+              // @ts-ignore
+              partialDescription={temporaryPoliticalItems[0]?.description.slice(
+                0,
+                270
+              )}
+              onClick={() =>
+                // @ts-ignore
+                navigate(`/aktyalite/politik/${temporaryPoliticalItems[0]?.id}`)
+              }
+            />
             <ItemInfoBox>
               {temporaryPoliticalItems.length > 0 &&
                 temporaryPoliticalItems.map((item: any) => (
@@ -70,6 +87,7 @@ const PoliticsList: FC = () => {
         </LeftSection>
 
         <RightSection>
+          <Grid mt={10} />
           <MostPopularItems mostPopularArticles={temporaryPoliticalItems} />
           <Pub />
         </RightSection>
