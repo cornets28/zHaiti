@@ -139,12 +139,12 @@ const routes: RoutesTypes = [
     component: lazy(() => import("../views/singleNews/page/SingleNews")),
   },
   // TODO: add the correct path
-  {
-    exact: true,
-    label: "Aktyalite",
-    path: "/aktyalite/kilti/:id",
-    component: lazy(() => import("../views/singleNews/page/SingleNews")),
-  },
+  // {
+  //   exact: true,
+  //   label: "Aktyalite",
+  //   path: "/aktyalite/kilti/:id",
+  //   component: lazy(() => import("../views/singleNews/page/SingleNews")),
+  // },
   {
     exact: true,
     label: "Aktyalite",
@@ -153,16 +153,30 @@ const routes: RoutesTypes = [
   },
   {
     exact: true,
-    label: "News",
-    path: "/news/kilti/:id",
+    label: "kilti",
+    path: "/aktyalite/kilti/:id",
     component: lazy(() => import("../views/singleNews/page/SingleNews")),
   },
 
   {
     exact: true,
-    label: "Kilti",
-    path: "/kilti",
-    component: lazy(() => import("../views/cultures/page/Cultures")),
+    label: "Espo",
+    path: "/aktyalite/espo/:id",
+    component: lazy(() => import("../views/singleNews/page/SingleNews")),
+  },
+
+  {
+    exact: true,
+    label: "Lasyans",
+    path: "/aktyalite/lasyans/:id",
+    component: lazy(() => import("../views/singleNews/page/SingleNews")),
+  },
+
+  {
+    exact: true,
+    label: "Relijyon",
+    path: "/aktyalite/relijyon/:id",
+    component: lazy(() => import("../views/singleNews/page/SingleNews")),
   },
 
   {
@@ -170,6 +184,20 @@ const routes: RoutesTypes = [
     label: "Espo",
     path: "/espo",
     component: lazy(() => import("../views/sports/page/Sports")),
+  },
+
+  {
+    exact: true,
+    label: "Espo",
+    path: "/espo",
+    component: lazy(() => import("../views/sports/page/Sports")),
+  },
+
+  {
+    exact: true,
+    label: "Kilti",
+    path: "/kilti",
+    component: lazy(() => import("../views/cultures/page/Cultures")),
   },
 
   {
