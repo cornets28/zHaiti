@@ -162,7 +162,7 @@ const routes: RoutesTypes = [
     exact: true,
     label: "Kilti",
     path: "/kilti",
-    component: lazy(() => import("../views/signIn/page/SignIn")),
+    component: lazy(() => import("../views/cultures/page/Cultures")),
   },
 
   {
