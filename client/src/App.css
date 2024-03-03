@@ -60,6 +60,28 @@ select {
   scroll-behavior: smooth;
 }
 
+.tech-slideshow {
+  overflow: hidden;
+  transform: translate3d(0, 0, 0);
+}
+
+.tech-slideshow > div {
+  width: 100%;
+  transform: translate3d(0, 0, 0);
+}
+.tech-slideshow .mover-1 {
+  opacity: 1;
+  transition: opacity 0.5s ease-out;
+  background-position: 0 -200px;
+  animation: moveSlideshow 15s linear infinite;
+}
+
+@keyframes moveSlideshow {
+  100% { 
+    transform: translateX(-36.6666%);  
+  }
+}
+
 .user__card:hover {
   .user__social {
     border-radius: 0%;

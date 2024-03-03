@@ -12,6 +12,8 @@ import CultureInfoBox from "../CulturesInfoBox/CultureInfoBox";
 import { CultureSectionType } from "../../../../types/CultureSectionType";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import RedirectLink from "../../../../components/SectionItem/components/RedirectLink/RedirectLink";
+import redirectLink from "../../../../routes/caseRoutes";
 
 export const CultureSection: FC<CultureSectionType> = ({
   header,
@@ -31,7 +33,10 @@ export const CultureSection: FC<CultureSectionType> = ({
           // @ts-ignore
           title={culturalNews[0]?.title}
           // @ts-ignore
-          onClick={() => navigate(`/${t("aktyalite")}/kilti/${culturalNews[0].id}`)}
+          onClick={() =>
+            // @ts-ignore
+            navigate(`/${t("aktyalite")}/kilti/${culturalNews[0].id}`)
+          }
         />
       )}
       <RecentCulturesContainer>
@@ -55,18 +60,27 @@ export const CultureSection: FC<CultureSectionType> = ({
 
       <CultureInfoBox>
         {culturalNews.length > 0 &&
-          culturalNews
-            .slice(4, 8)
-            .map((culture: any) => (
-              <SectionItem
-                image={culture.image}
-                title={culture.title}
-                body={culture.description}
-                date={culture.date}
-                key={culture.image}
-                onClick={() => navigate(`/aktyalite/kilti/${culture.id}`)}
-              />
-            ))}
+          culturalNews.slice(4, 8).map((culture: any) => (
+            <SectionItem
+              image={culture.image}
+              title={culture.title}
+              body={culture.description}
+              date={culture.date}
+              key={culture.image}
+              onClick={() => navigate(`/aktyalite/kilti/${culture.id}`)}
+            >
+              {culture.categories &&
+                culture.categories.length > 0 &&
+                culture.categories.map((category: string, index: number) => (
+                  <RedirectLink
+                    key={category}
+                    href={redirectLink(category)}
+                    category={category}
+                    isLastItem={index === culture.categories.length - 1}
+                  />
+                ))}
+            </SectionItem>
+          ))}
       </CultureInfoBox>
     </Grid>
   );
