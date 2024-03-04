@@ -188,6 +188,13 @@ const routes: RoutesTypes = [
 
   {
     exact: true,
+    label: "Teknoloji",
+    path: "/aktyalite/teknoloji/:id",
+    component: lazy(() => import("../views/singleNews/page/SingleNews")),
+  },
+
+  {
+    exact: true,
     label: "Espo",
     path: "/espo",
     component: lazy(() => import("../views/sports/page/Sports")),
@@ -249,7 +256,7 @@ const routes: RoutesTypes = [
     exact: true,
     label: "Teknoloji",
     path: "/teknoloji",
-    component: lazy(() => import("../views/technology/page/Technology")),
+    component: lazy(() => import("../views/technologies/page/Technology")),
   },
   {
     exact: true,
