@@ -1,14 +1,15 @@
 import type { FC } from "react";
 import Page from "../../../components/Page/Page";
 import colors from "../../../utils/theme/base/colors";
+import SpiritualitiesContainer from "../components/SpiritualitiesContainer";
 
-export const Technology: FC = () => {
+export const Spiritualities: FC = () => {
   const { white2 } = colors;
   return (
     <Page pageColor={white2.main}>
-      Technology
+      <SpiritualitiesContainer />
     </Page>
   );
 };
 
-export default Technology;
+export default Spiritualities;

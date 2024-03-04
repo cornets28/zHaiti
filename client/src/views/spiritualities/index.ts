@@ -1,0 +1,1 @@
+export { Spiritualities } from "./page/Spiritualities";

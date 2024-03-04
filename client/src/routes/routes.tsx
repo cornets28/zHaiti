@@ -139,12 +139,6 @@ const routes: RoutesTypes = [
     component: lazy(() => import("../views/singleNews/page/SingleNews")),
   },
   // TODO: add the correct path
-  // {
-  //   exact: true,
-  //   label: "Aktyalite",
-  //   path: "/aktyalite/kilti/:id",
-  //   component: lazy(() => import("../views/singleNews/page/SingleNews")),
-  // },
   {
     exact: true,
     label: "Aktyalite",
@@ -176,6 +170,27 @@ const routes: RoutesTypes = [
     exact: true,
     label: "Relijyon",
     path: "/aktyalite/relijyon/:id",
+    component: lazy(() => import("../views/singleNews/page/SingleNews")),
+  },
+
+  {
+    exact: true,
+    label: "Sante",
+    path: "/aktyalite/sante/:id",
+    component: lazy(() => import("../views/singleNews/page/SingleNews")),
+  },
+
+  {
+    exact: true,
+    label: "Teknoloji",
+    path: "/aktyalite/teknoloji/:id",
+    component: lazy(() => import("../views/singleNews/page/SingleNews")),
+  },
+
+  {
+    exact: true,
+    label: "Espirityalite",
+    path: "/aktyalite/espirityalite/:id",
     component: lazy(() => import("../views/singleNews/page/SingleNews")),
   },
 
@@ -242,13 +257,13 @@ const routes: RoutesTypes = [
     exact: true,
     label: "Teknoloji",
     path: "/teknoloji",
-    component: lazy(() => import("../views/technology/page/Technology")),
+    component: lazy(() => import("../views/technologies/page/Technologies")),
   },
   {
     exact: true,
     label: "Espirityalite",
     path: "/espirityalite",
-    component: lazy(() => import("../views/signIn/page/SignIn")),
+    component: lazy(() => import("../views/spiritualities/page/Spiritualities")),
   },
 
   {
