@@ -1,1 +1,1 @@
-export { Technology } from "./page/Technology";
+export { Technologies } from "./page/Technologies";
