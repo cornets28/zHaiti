@@ -60,7 +60,7 @@ export const topNavBatItems: TopNavItemsTypes = [
     exact: true,
     label: "Teknoloji",
     path: "/teknoloji",
-    component: lazy(() => import("../views/technology/page/Technology")),
+    component: lazy(() => import("../views/technologies/page/Technologies")),
   },
 
   {
