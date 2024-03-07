@@ -41,8 +41,8 @@ const SingleNews: FC = () => {
 
   const publishDate = new Date().toLocaleDateString("en-us", {
     weekday: "long",
-    year: "numeric",
-    month: "short",
+    // year: "numeric",
+    // month: "short",
     day: "numeric",
   });
 
