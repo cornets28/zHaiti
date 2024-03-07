@@ -10,6 +10,7 @@ import Image from "../../../../components/ImageListItemMui/Image";
 import { TopHighLevelNewsType } from "../../../../types/TopHighLevelNewsType";
 import AddItem from "../../../../components/AddItem/AddItem";
 
+
 const TopHighLevelNews: FC<TopHighLevelNewsType> = ({ topLevelNews }) => {
   return (
     <TopLevel>
