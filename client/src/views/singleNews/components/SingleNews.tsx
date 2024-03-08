@@ -40,11 +40,11 @@ const SingleNews: FC = () => {
   const [singleArticle, setSingleArticle] = useState<any>({});
 
   const publishDate = new Date().toLocaleDateString("en-us", {
-  //   weekday: "long",
-  //   year: "numeric",
-  //   month: "short",
-  //   day: "numeric",
-  // });
+    weekday: "long",
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
 
   useEffect(() => {
     // @ts-ignore
