@@ -15,11 +15,18 @@ import RedirectLink from "../../../../components/SectionItem/components/Redirect
 import redirectLink from "../../../../routes/caseRoutes";
 import { useNavigate } from "react-router-dom";
 import ItemMainInfo from "../../../../components/ItemMainInfo/ItemMainInfo";
+import AddItemButton from "../../../../components/AddItemButton/AddItemButton";
+import AddItem from "../../../addItem";
 
 const EducationList: FC = () => {
   const { t } = useTranslation();
   let navigate = useNavigate();
-  const [temporaryEducationalItems, setTemporaryEducationalItems] = useState([]);
+  const [temporaryEducationalItems, setTemporaryEducationalItems] = useState(
+    []
+  );
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   useEffect(() => {
     const educations = db.articles.filter((article) =>
@@ -32,6 +39,8 @@ const EducationList: FC = () => {
   return (
     <Grid container>
       <ArticlesWrapper>
+        <AddItemButton onClick={handleOpen} />
+        <AddItem open={open} handleClose={handleClose} />
         <LeftSection>
           <Grid container item py={6} mx={2}>
             <Title
@@ -54,8 +63,10 @@ const EducationList: FC = () => {
                 270
               )}
               onClick={() =>
-                // @ts-ignore
-                navigate(`/aktyalite/edikasyon/${temporaryEducationalItems[0]?.id}`)
+                navigate(
+                  // @ts-ignore
+                  `/aktyalite/edikasyon/${temporaryEducationalItems[0]?.id}`
+                )
               }
             />
             <ItemInfoBox>
