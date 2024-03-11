@@ -28,6 +28,8 @@ import UserPhoto from "../../../images/user5.avif";
 import Author from "../../../components/Author/Author";
 import Button from "@mui/material/Button";
 import RepliesDrawer from "./RepliesDrawer";
+import AddItemButton from "../../../components/AddItemButton/AddItemButton";
+import AddItem from "../../addItem";
 
 type Anchor = "top" | "left" | "bottom" | "right";
 
@@ -38,6 +40,9 @@ const SingleNews: FC = () => {
   const { id } = useParams();
   const [temporaryArticles, setTemporaryArticles] = useState([]);
   const [singleArticle, setSingleArticle] = useState<any>({});
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   const publishDate = new Date().toLocaleDateString("en-us", {
     weekday: "long",
@@ -77,6 +82,8 @@ const SingleNews: FC = () => {
 
   return (
     <Page pageColor={white2.main}>
+      <AddItemButton onClick={handleOpen} />
+      <AddItem open={open} handleClose={handleClose} />
       <SingleArticleWrapper key={id}>
         <LeftSection>
           <RightSectionContainer>
@@ -142,9 +149,9 @@ const SingleNews: FC = () => {
               <Button
                 variant="contained"
                 onClick={toggleDrawer("right", true)}
-                sx={{ width: "100%", bgcolor: grey['600'], color: grey['100']}}
+                sx={{ width: "100%", bgcolor: grey["600"], color: grey["100"] }}
               >
-                {t("Li")} 588 {t("Kòmatè")} 
+                {t("Li")} 588 {t("Kòmatè")}
               </Button>
             </Grid>
 

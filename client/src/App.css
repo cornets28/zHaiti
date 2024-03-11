@@ -76,6 +76,15 @@ select {
   animation: moveSlideshow 15s linear infinite;
 }
 
+.css-1jusy9d-MuiInputBase-root-MuiOutlinedInput-root {
+  border: .5px solid #313436;
+  z-index: 10;
+}
+
+#fr-logo {
+  display: none;
+}
+
 @keyframes moveSlideshow {
   100% { 
     transform: translateX(-36.6666%);  

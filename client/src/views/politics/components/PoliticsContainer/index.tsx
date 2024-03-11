@@ -15,11 +15,16 @@ import RedirectLink from "../../../../components/SectionItem/components/Redirect
 import redirectLink from "../../../../routes/caseRoutes";
 import { useNavigate } from "react-router-dom";
 import ItemMainInfo from "../../../../components/ItemMainInfo/ItemMainInfo";
+import AddItemButton from "../../../../components/AddItemButton/AddItemButton";
+import AddItem from "../../../addItem";
 
 const PoliticsList: FC = () => {
   const { t } = useTranslation();
   let navigate = useNavigate();
   const [temporaryPoliticalItems, setTemporaryPoliticalItems] = useState([]);
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   console.log("temporaryPoliticalItems: ", temporaryPoliticalItems);
   useEffect(() => {
@@ -33,6 +38,8 @@ const PoliticsList: FC = () => {
   return (
     <Grid container>
       <ArticlesWrapper>
+      <AddItemButton onClick={handleOpen} />
+      <AddItem open={open} handleClose={handleClose} />
         <LeftSection>
           <Grid container item py={6} mx={2}>
             <Title

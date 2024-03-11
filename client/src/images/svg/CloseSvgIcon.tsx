@@ -2,7 +2,7 @@
 export const CloseSvgIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    height="20"
+    height="16"
     stroke="currentColor"
     strokeLinecap="round"
     strokeLinejoin="round"
