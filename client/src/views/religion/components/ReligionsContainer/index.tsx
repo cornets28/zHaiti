@@ -15,11 +15,16 @@ import RedirectLink from "../../../../components/SectionItem/components/Redirect
 import redirectLink from "../../../../routes/caseRoutes";
 import { useNavigate } from "react-router-dom";
 import ItemMainInfo from "../../../../components/ItemMainInfo/ItemMainInfo";
+import AddItemButton from "../../../../components/AddItemButton/AddItemButton";
+import AddItem from "../../../addItem";
 
 const ReligionsList: FC = () => {
   const { t } = useTranslation();
   let navigate = useNavigate();
   const [temporaryReligionsItems, setTemporaryReligionsItems] = useState([]);
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   useEffect(() => {
     const religions = db.articles.filter((article) =>
@@ -32,6 +37,8 @@ const ReligionsList: FC = () => {
   return (
     <Grid container>
       <ArticlesWrapper>
+        <AddItemButton onClick={handleOpen} />
+        <AddItem open={open} handleClose={handleClose} />
         <LeftSection>
           <Grid container item py={6} mx={2}>
             <Title
@@ -54,8 +61,10 @@ const ReligionsList: FC = () => {
                 270
               )}
               onClick={() =>
-                // @ts-ignore
-                navigate(`/aktyalite/relijyon/${temporaryReligionsItems[0]?.id}`)
+                navigate(
+                  // @ts-ignore
+                  `/aktyalite/relijyon/${temporaryReligionsItems[0]?.id}`
+                )
               }
             />
             <ItemInfoBox>

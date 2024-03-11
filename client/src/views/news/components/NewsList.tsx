@@ -18,10 +18,8 @@ import MostPopularItems from "../../../components/MostPopularItems/MostPopularIt
 const NewsList: FC = () => {
   const { t } = useTranslation();
   const { white2 } = colors;
-  const [temporaryArticles, setTemporaryArticles] = useState([]);
-  const [temporaryImpHaitians, setTemporaryImpHaitians] = useState([]);
-
-  
+  const [temporaryArticles, setTemporaryArticles] = useState<any>([]);
+  const [temporaryImpHaitians, setTemporaryImpHaitians] = useState<any>([]);
 
   useEffect(() => {
     // @ts-ignore
@@ -31,15 +29,20 @@ const NewsList: FC = () => {
     setTemporaryImpHaitians(db.importantHaitians);
   }, [temporaryArticles, temporaryImpHaitians]);
 
-   // @ts-ignore
-   const topTemporaryArticles = temporaryArticles.slice(0, 6);
   // @ts-ignore
-  const culturalNews = temporaryArticles.filter((article) => article.categories.includes("Kilti"));
+  const topTemporaryArticles = temporaryArticles.slice(0, 6);
   // @ts-ignore
-  const educationalNews = temporaryArticles.filter((article) => article.categories.includes("Edikasyon"))
-// @ts-ignore
-const sportsNews = temporaryArticles.filter((article) => article.categories.includes("Espò"))
-
+  const culturalNews = temporaryArticles.filter((article) =>
+    article.categories.includes("Kilti")
+  );
+  // @ts-ignore
+  const educationalNews = temporaryArticles.filter((article) =>
+    article.categories.includes("Edikasyon")
+  );
+  // @ts-ignore
+  const sportsNews = temporaryArticles.filter((article) =>
+    article.categories.includes("Espò")
+  );
 
   return (
     <Page pageColor={white2.main}>
@@ -51,10 +54,7 @@ const sportsNews = temporaryArticles.filter((article) => article.categories.incl
             temporaryArticles={topTemporaryArticles}
           />
           <SportsSection header={t("Espò")} sportsNews={sportsNews} />
-          <CultureSection
-            header={t("Kilti")}
-            culturalNews={culturalNews}
-          />
+          <CultureSection header={t("Kilti")} culturalNews={culturalNews} />
           <EducationSection
             header={t("Edikasyon")}
             educationalNews={educationalNews}
