@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 import { Box } from "../Box/Box";
 import colors from "../../utils/theme/base/colors";
 import { AddSvgIcon } from "../../images/svg/AddSvgIcon";
-import { AddItemNewType } from "../../types/AddItemNewType";
+import { AddItemButtonType } from "../../types/AddItemButtonType";
 
-const AddItem: FC<AddItemNewType> = ({ onClick }) => {
+const AddItemButton: FC<AddItemButtonType> = ({ onClick }) => {
   const { grey, error } = colors;
   return (
     <Box
@@ -21,7 +21,7 @@ const AddItem: FC<AddItemNewType> = ({ onClick }) => {
         "&:hover": {
           elevation: 5,
           cursor: "pointer",
-          color: grey[500],
+          color: grey[700],
         },
       }}
       onClick={onClick}
@@ -31,8 +31,8 @@ const AddItem: FC<AddItemNewType> = ({ onClick }) => {
   );
 };
 
-AddItem.propTypes = {
+AddItemButton.propTypes = {
   onClick: PropTypes.func.isRequired,
 };
 
-export default AddItem;
+export default AddItemButton;

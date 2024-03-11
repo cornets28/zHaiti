@@ -2,9 +2,8 @@ import { FC } from "react";
 import PropTypes from "prop-types";
 import Modal from "@mui/material/Modal/Modal";
 import { AddArticlesModalType } from "../../types/AddArticlesModalType";
-import { Box } from "../Box/Box";
-import { CloseSvgIcon } from "../../images/svg/CloseSvgIcon";
-import DrawerCloseButton from "../../views/singleNews/components/DrawerCloseButton";
+import ModalAddItemContainer from "./components/ModalContainer/ModalAddItemContainer";
+import AddItemCloseButton from "./components/AddItemCloseButton/AddItemCloseButton";
 
 const AddArticlesModal: FC<AddArticlesModalType> = ({
   children,
@@ -18,37 +17,18 @@ const AddArticlesModal: FC<AddArticlesModalType> = ({
       aria-labelledby="modal-modal-title"
       aria-describedby="modal-modal-description"
     >
-      <Box
-        sx={{
-          position: "absolute",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          bgcolor: "background.paper",
-          width: "100%",
-          maxWidth: { xs: "90%", sm: "80%", md: "80%", lg: "70%" },
-          padding: { xs: 2, sm: 3, md: 4, lg: 4 },
-          outline: "none",
-          borderRadius: 3,
-        //   maxHeight: "80vh", overflowY: "scroll" 
-        }}
-      >
-        <Box
-          onClick={handleClose}
-          mr={2}
-          mt={-0}
-          height={20}
-          width={20}
-          sx={{ cursor: "pointer", right: 0, position: "absolute" }}
-        >
-          <CloseSvgIcon />
-        </Box>
+      <ModalAddItemContainer>
+        <AddItemCloseButton handleClose={handleClose} />
         {children}
-      </Box>
+      </ModalAddItemContainer>
     </Modal>
   );
 };
 
-AddArticlesModal.propTypes = {};
+AddArticlesModal.propTypes = {
+  children: PropTypes.any,
+  open: PropTypes.any.isRequired,
+  handleClose: PropTypes.any,
+};
 
 export default AddArticlesModal;
