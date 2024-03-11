@@ -22,6 +22,7 @@ import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import db from "../../utils/articles.json";
+import { useTranslation } from "react-i18next";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -36,27 +37,27 @@ const MenuProps = {
 
 
 const AddItem: FC<AddItemType> = ({ open, handleClose }) => {
-  const { grey, skyBleu } = colors;
+  const { t } = useTranslation();
+  const { grey } = colors;
   const { h3 } = typographyStyle;
   const matches = useMediaQuery("(min-width:600px)");
-
   const [temporaryWriter, setTemporaryWriter] = useState([]);
-
-  useEffect(() => {
-    // @ts-ignore
-    setTemporaryWriter(db.articles.filter(article => article.user.occupation.includes("Ekriven")).map(article => `${article.user.first_name} ${article.user.last_name}`));
-  }, [db.articles]);
-
-  console.log("temporaryWriter: ", temporaryWriter)
-
   const [personName, setPersonName] = useState<string[]>([]);
-
   const [content, setContent] = useState<string>(() => {
     return localStorage.getItem("saveHtml") || "";
   });
 
+  useEffect(() => {
+    // @ts-ignore
+    setTemporaryWriter(db.articles.filter(article => article.user.occupation.includes("Ekriven")).map(article => `${article.user.first_name} ${article.user.last_name}`));
+    const savedContent = localStorage.getItem("editorContent");
+    if (savedContent) {
+      setContent(savedContent);
+    }
+  }, [db.articles]);
+
   const editorConfig = {
-    placeholderText: "Komanse ekri teks ou a la...",
+    placeholderText: t("Komanse ekri tèks ou a la..."),
     charCounterCount: true,
     charCounterMax: 1000,
     saveInterval: 2000,
@@ -92,13 +93,6 @@ const AddItem: FC<AddItemType> = ({ open, handleClose }) => {
     );
   };
 
-  useEffect(() => {
-    const savedContent = localStorage.getItem("editorContent");
-    if (savedContent) {
-      setContent(savedContent);
-    }
-  }, []);
-
   const handleModelChange = (newContent: any) => {
     setContent(newContent);
     localStorage.setItem("editorContent", newContent);
@@ -115,12 +109,12 @@ const AddItem: FC<AddItemType> = ({ open, handleClose }) => {
         }}
       >
         <PageHeader fontSize={h3} textAlign={"center"} color={grey[700]}>
-          Ajoute Nouvo atik
+          {t("Ajoute Nouvo atik")}
         </PageHeader>
         <Stack spacing={3} mt={3}>
           <TextField
             type="text"
-            placeholder="Ekri tit atik la"
+            placeholder={`${t("Ekri tit atik la")}`}
             name="title"
             fullWidth
             size="small"
@@ -143,7 +137,7 @@ const AddItem: FC<AddItemType> = ({ open, handleClose }) => {
 
           <TextField
             type="text"
-            placeholder="Ekri soutit atik la"
+            placeholder={`${t("Ekri soutit atik la")}`}
             name="subtitle"
             fullWidth
             size="small"
@@ -175,7 +169,6 @@ const AddItem: FC<AddItemType> = ({ open, handleClose }) => {
             >
               <TextField
                 type="file"
-                placeholder="Ekri tit atik la"
                 name="title"
                 fullWidth
                 size="small"
@@ -216,7 +209,7 @@ const AddItem: FC<AddItemType> = ({ open, handleClose }) => {
                   input={<OutlinedInput />}
                   renderValue={(selected) => {
                     if (selected.length === 0) {
-                      return <b>Chwazi ote</b>;
+                      return <p style={{color: grey[500]}}>{t("Chwazi otè")}</p>;
                     }
 
                     return selected.join(", ");

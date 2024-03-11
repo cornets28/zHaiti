@@ -77,7 +77,8 @@ select {
 }
 
 .css-1jusy9d-MuiInputBase-root-MuiOutlinedInput-root {
-  border: 1px solid grey;
+  border: .5px solid #313436;
+  z-index: 10;
 }
 
 #fr-logo {
