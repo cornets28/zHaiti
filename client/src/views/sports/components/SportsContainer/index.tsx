@@ -15,11 +15,16 @@ import RedirectLink from "../../../../components/SectionItem/components/Redirect
 import redirectLink from "../../../../routes/caseRoutes";
 import { useNavigate } from "react-router-dom";
 import ItemMainInfo from "../../../../components/ItemMainInfo/ItemMainInfo";
+import AddItemButton from "../../../../components/AddItemButton/AddItemButton";
+import AddItem from "../../../addItem";
 
 const SportsList: FC = () => {
   const { t } = useTranslation();
   let navigate = useNavigate();
   const [temporarySPortsItems, setTemporarySportsItems] = useState([]);
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   useEffect(() => {
     const sports = db.articles.filter((article) =>
@@ -32,12 +37,14 @@ const SportsList: FC = () => {
   return (
     <Grid container>
       <ArticlesWrapper>
+        <AddItemButton onClick={handleOpen} />
+        <AddItem open={open} handleClose={handleClose} />
         <LeftSection>
           <Grid container item py={6} mx={2}>
             <Title
               text="We create events aiming to pear to the voice for children and gather for support. Please update with our events and confirm you presence."
               title1="Sa k gen nan"
-              title2={t("Kilti")}
+              title2={t("Espò")}
             />
           </Grid>
           <Grid container>

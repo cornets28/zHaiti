@@ -15,11 +15,17 @@ import RedirectLink from "../../../../components/SectionItem/components/Redirect
 import redirectLink from "../../../../routes/caseRoutes";
 import { useNavigate } from "react-router-dom";
 import ItemMainInfo from "../../../../components/ItemMainInfo/ItemMainInfo";
+import AddItemButton from "../../../../components/AddItemButton/AddItemButton";
+import AddItem from "../../../addItem";
 
 const SpiritualitiesContainer: FC = () => {
   const { t } = useTranslation();
   let navigate = useNavigate();
-  const [temporarySpiritualitiesItems, setTemporarySpiritualitiesItems] = useState([]);
+  const [temporarySpiritualitiesItems, setTemporarySpiritualitiesItems] =
+    useState([]);
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   useEffect(() => {
     const spiritualities = db.articles.filter((article) =>
@@ -32,6 +38,8 @@ const SpiritualitiesContainer: FC = () => {
   return (
     <Grid container>
       <ArticlesWrapper>
+        <AddItemButton onClick={handleOpen} />
+        <AddItem open={open} handleClose={handleClose} />
         <LeftSection>
           <Grid container item py={6} mx={2}>
             <Title
@@ -54,8 +62,10 @@ const SpiritualitiesContainer: FC = () => {
                 270
               )}
               onClick={() =>
-                // @ts-ignore
-                navigate(`/aktyalite/espirityalite/${temporarySpiritualitiesItems[0]?.id}`)
+                navigate(
+                  // @ts-ignore
+                  `/aktyalite/espirityalite/${temporarySpiritualitiesItems[0]?.id}`
+                )
               }
             />
             <ItemInfoBox>
@@ -67,7 +77,9 @@ const SpiritualitiesContainer: FC = () => {
                     body={item.description}
                     date={item.date}
                     key={item.image}
-                    onClick={() => navigate(`/aktyalite/espirityalite/${item.id}`)}
+                    onClick={() =>
+                      navigate(`/aktyalite/espirityalite/${item.id}`)
+                    }
                   >
                     {item.categories &&
                       item.categories.length > 0 &&
@@ -87,7 +99,9 @@ const SpiritualitiesContainer: FC = () => {
 
         <RightSection>
           <Grid mt={10} />
-          <MostPopularItems mostPopularArticles={temporarySpiritualitiesItems} />
+          <MostPopularItems
+            mostPopularArticles={temporarySpiritualitiesItems}
+          />
           <Pub />
         </RightSection>
       </ArticlesWrapper>
