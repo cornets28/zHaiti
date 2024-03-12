@@ -17,6 +17,7 @@ import { useNavigate } from "react-router-dom";
 import ItemMainInfo from "../../../../components/ItemMainInfo/ItemMainInfo";
 import AddItemButton from "../../../../components/AddItemButton/AddItemButton";
 import AddItem from "../../../addItem";
+import { Channels } from "../../../../utils/constants/Channels";
 
 const PoliticsList: FC = () => {
   const { t } = useTranslation();
@@ -29,7 +30,7 @@ const PoliticsList: FC = () => {
   console.log("temporaryPoliticalItems: ", temporaryPoliticalItems);
   useEffect(() => {
     const politics = db.articles.filter((article) =>
-      article.categories.includes("Politik")
+      article.categories.includes(Channels.politics)
     );
     // @ts-ignore
     setTemporaryPoliticalItems(politics);
@@ -45,7 +46,7 @@ const PoliticsList: FC = () => {
             <Title
               text="We create events aiming to pear to the voice for children and gather for support. Please update with our events and confirm you presence."
               title1="Sa k gen nan"
-              title2={t("Politik")}
+              title2={t(Channels.politics)}
             />
           </Grid>
           <Grid container>
@@ -63,7 +64,7 @@ const PoliticsList: FC = () => {
               )}
               onClick={() =>
                 // @ts-ignore
-                navigate(`/aktyalite/politik/${temporaryPoliticalItems[0]?.id}`)
+                navigate(`/aktyalite/${Channels.politics}/${temporaryPoliticalItems[0]?.id}`)
               }
             />
             <ItemInfoBox>
@@ -75,7 +76,7 @@ const PoliticsList: FC = () => {
                     body={item.description}
                     date={item.date}
                     key={item.image}
-                    onClick={() => navigate(`/aktyalite/politik/${item.id}`)}
+                    onClick={() => navigate(`/aktyalite/${Channels.politics}/${item.id}`)}
                   >
                     {item.categories &&
                       item.categories.length > 0 &&
