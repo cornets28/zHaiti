@@ -17,6 +17,7 @@ import { useNavigate } from "react-router-dom";
 import ItemMainInfo from "../../../../components/ItemMainInfo/ItemMainInfo";
 import AddItemButton from "../../../../components/AddItemButton/AddItemButton";
 import AddItem from "../../../addItem";
+import { Channels } from "../../../../utils/constants/Channels";
 
 const CulturesList: FC = () => {
   const { t } = useTranslation();
@@ -28,7 +29,7 @@ const CulturesList: FC = () => {
 
   useEffect(() => {
     const cultures = db.articles.filter((article) =>
-      article.categories.includes("Kilti")
+      article.categories.includes(Channels.culture)
     );
     // @ts-ignore
     setTemporaryCulturalItems(cultures);
@@ -44,7 +45,7 @@ const CulturesList: FC = () => {
             <Title
               text="We create events aiming to pear to the voice for children and gather for support. Please update with our events and confirm you presence."
               title1="Sa k gen nan"
-              title2={t("Kilti")}
+              title2={t(Channels.culture)}
             />
           </Grid>
           <Grid container>
@@ -62,7 +63,7 @@ const CulturesList: FC = () => {
               )}
               onClick={() =>
                 // @ts-ignore
-                navigate(`/aktyalite/kilti/${temporaryCulturalItems[0]?.id}`)
+                navigate(`/aktyalite/${Channels.culture}/${temporaryCulturalItems[0]?.id}`)
               }
             />
             <ItemInfoBox>
@@ -74,7 +75,7 @@ const CulturesList: FC = () => {
                     body={item.description}
                     date={item.date}
                     key={item.image}
-                    onClick={() => navigate(`/aktyalite/kilti/${item.id}`)}
+                    onClick={() => navigate(`/aktyalite/${Channels.culture}/${item.id}`)}
                   >
                     {item.categories &&
                       item.categories.length > 0 &&
