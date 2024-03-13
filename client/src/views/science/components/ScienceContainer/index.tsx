@@ -17,6 +17,7 @@ import { useNavigate } from "react-router-dom";
 import ItemMainInfo from "../../../../components/ItemMainInfo/ItemMainInfo";
 import AddItemButton from "../../../../components/AddItemButton/AddItemButton";
 import AddItem from "../../../addItem";
+import { Channels } from "../../../../utils/constants/Channels";
 
 const ScienceList: FC = () => {
   const { t } = useTranslation();
@@ -28,7 +29,7 @@ const ScienceList: FC = () => {
 
   useEffect(() => {
     const sciences = db.articles.filter((article) =>
-      article.categories.includes("Lasyans")
+      article.categories.includes(Channels.science)
     );
     // @ts-ignore
     setTemporarySciencesItems(sciences);
@@ -44,7 +45,7 @@ const ScienceList: FC = () => {
             <Title
               text="We create events aiming to pear to the voice for children and gather for support. Please update with our events and confirm you presence."
               title1="Sa k gen nan"
-              title2={t("Lasyans")}
+              title2={t(Channels.science)}
             />
           </Grid>
           <Grid container>
@@ -62,7 +63,7 @@ const ScienceList: FC = () => {
               )}
               onClick={() =>
                 // @ts-ignore
-                navigate(`/aktyalite/lasyans/${temporarySciencesItems[0]?.id}`)
+                navigate(`/aktyalite/${Channels.science}/${temporarySciencesItems[0]?.id}`)
               }
             />
             <ItemInfoBox>
@@ -74,7 +75,7 @@ const ScienceList: FC = () => {
                     body={item.description}
                     date={item.date}
                     key={item.image}
-                    onClick={() => navigate(`/aktyalite/lasyans/${item.id}`)}
+                    onClick={() => navigate(`/aktyalite/${Channels.science}/${item.id}`)}
                   >
                     {item.categories &&
                       item.categories.length > 0 &&
