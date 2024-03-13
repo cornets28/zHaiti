@@ -17,6 +17,7 @@ import { useNavigate } from "react-router-dom";
 import ItemMainInfo from "../../../../components/ItemMainInfo/ItemMainInfo";
 import AddItemButton from "../../../../components/AddItemButton/AddItemButton";
 import AddItem from "../../../addItem";
+import { Channels } from "../../../../utils/constants/Channels";
 
 const HealthsList: FC = () => {
   const { t } = useTranslation();
@@ -28,7 +29,7 @@ const HealthsList: FC = () => {
 
   useEffect(() => {
     const health = db.articles.filter((article) =>
-      article.categories.includes("Sante")
+      article.categories.includes(Channels.health)
     );
     // @ts-ignore
     setTemporaryHealthsItems(health);
@@ -44,7 +45,7 @@ const HealthsList: FC = () => {
             <Title
               text="We create events aiming to pear to the voice for children and gather for support. Please update with our events and confirm you presence."
               title1="Sa k gen nan"
-              title2={t("Sante")}
+              title2={t(Channels.health)}
             />
           </Grid>
           <Grid container>
@@ -62,7 +63,7 @@ const HealthsList: FC = () => {
               )}
               onClick={() =>
                 // @ts-ignore
-                navigate(`/aktyalite/sante/${temporaryHealthsItems[0]?.id}`)
+                navigate(`/aktyalite/${Channels.health}/${temporaryHealthsItems[0]?.id}`)
               }
             />
             <ItemInfoBox>
@@ -74,7 +75,7 @@ const HealthsList: FC = () => {
                     body={item.description}
                     date={item.date}
                     key={item.image}
-                    onClick={() => navigate(`/aktyalite/sante/${item.id}`)}
+                    onClick={() => navigate(`/aktyalite/${Channels.health}/${item.id}`)}
                   >
                     {item.categories &&
                       item.categories.length > 0 &&

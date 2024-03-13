@@ -17,6 +17,7 @@ import { useNavigate } from "react-router-dom";
 import ItemMainInfo from "../../../../components/ItemMainInfo/ItemMainInfo";
 import AddItemButton from "../../../../components/AddItemButton/AddItemButton";
 import AddItem from "../../../addItem";
+import { Channels } from "../../../../utils/constants/Channels";
 
 const ReligionsList: FC = () => {
   const { t } = useTranslation();
@@ -28,7 +29,7 @@ const ReligionsList: FC = () => {
 
   useEffect(() => {
     const religions = db.articles.filter((article) =>
-      article.categories.includes("Relijyon")
+      article.categories.includes(Channels.religion)
     );
     // @ts-ignore
     setTemporaryReligionsItems(religions);
@@ -44,7 +45,7 @@ const ReligionsList: FC = () => {
             <Title
               text="We create events aiming to pear to the voice for children and gather for support. Please update with our events and confirm you presence."
               title1="Sa k gen nan"
-              title2={t("relijyon")}
+              title2={t(Channels.religion)}
             />
           </Grid>
           <Grid container>
@@ -63,7 +64,7 @@ const ReligionsList: FC = () => {
               onClick={() =>
                 navigate(
                   // @ts-ignore
-                  `/aktyalite/relijyon/${temporaryReligionsItems[0]?.id}`
+                  `/aktyalite/${Channels.religion}/${temporaryReligionsItems[0]?.id}`
                 )
               }
             />
@@ -76,7 +77,7 @@ const ReligionsList: FC = () => {
                     body={item.description}
                     date={item.date}
                     key={item.image}
-                    onClick={() => navigate(`/aktyalite/relijyon/${item.id}`)}
+                    onClick={() => navigate(`/aktyalite/${Channels.religion}/${item.id}`)}
                   >
                     {item.categories &&
                       item.categories.length > 0 &&

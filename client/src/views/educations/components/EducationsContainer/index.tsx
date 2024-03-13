@@ -17,6 +17,7 @@ import { useNavigate } from "react-router-dom";
 import ItemMainInfo from "../../../../components/ItemMainInfo/ItemMainInfo";
 import AddItemButton from "../../../../components/AddItemButton/AddItemButton";
 import AddItem from "../../../addItem";
+import { Channels } from "../../../../utils/constants/Channels";
 
 const EducationList: FC = () => {
   const { t } = useTranslation();
@@ -30,7 +31,7 @@ const EducationList: FC = () => {
 
   useEffect(() => {
     const educations = db.articles.filter((article) =>
-      article.categories.includes("Edikasyon")
+      article.categories.includes(Channels.education)
     );
     // @ts-ignore
     setTemporaryEducationalItems(educations);
@@ -46,7 +47,7 @@ const EducationList: FC = () => {
             <Title
               text="We create events aiming to pear to the voice for children and gather for support. Please update with our events and confirm you presence."
               title1="Sa k gen nan"
-              title2={t("Edikasyon")}
+              title2={t(Channels.education)}
             />
           </Grid>
           <Grid container>
@@ -65,7 +66,7 @@ const EducationList: FC = () => {
               onClick={() =>
                 navigate(
                   // @ts-ignore
-                  `/aktyalite/edikasyon/${temporaryEducationalItems[0]?.id}`
+                  `/aktyalite/${Channels.education}/${temporaryEducationalItems[0]?.id}`
                 )
               }
             />
@@ -78,7 +79,7 @@ const EducationList: FC = () => {
                     body={item.description}
                     date={item.date}
                     key={item.image}
-                    onClick={() => navigate(`/aktyalite/edikasyon/${item.id}`)}
+                    onClick={() => navigate(`/aktyalite/${Channels.education}/${item.id}`)}
                   >
                     {item.categories &&
                       item.categories.length > 0 &&

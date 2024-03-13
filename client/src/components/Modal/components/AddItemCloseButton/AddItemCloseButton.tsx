@@ -8,11 +8,11 @@ const AddItemCloseButton: FC<AddItemCloseButtonType> = ({ handleClose }) => {
   return (
     <Box
       onClick={handleClose}
-      mr={2}
-      mt={-0}
       height={20}
       width={20}
-      sx={{ cursor: "pointer", right: 0, position: "absolute" }}
+      sx={{ cursor: "pointer", right: 0, position: "absolute",
+      mt: {xs: -1, sm: -1.5, md: -2, lg: -2},
+      mr: {xs: .6, sm: 1, md: 1.5, lg: 1.5} }}
     >
       <CloseSvgIcon />
     </Box>

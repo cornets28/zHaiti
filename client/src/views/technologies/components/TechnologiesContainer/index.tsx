@@ -17,6 +17,7 @@ import { useNavigate } from "react-router-dom";
 import ItemMainInfo from "../../../../components/ItemMainInfo/ItemMainInfo";
 import AddItemButton from "../../../../components/AddItemButton/AddItemButton";
 import AddItem from "../../../addItem";
+import { Channels } from "../../../../utils/constants/Channels";
 
 const TechnologiesList: FC = () => {
   const { t } = useTranslation();
@@ -30,7 +31,7 @@ const TechnologiesList: FC = () => {
 
   useEffect(() => {
     const technologies = db.articles.filter((article) =>
-      article.categories.includes("Teknoloji")
+      article.categories.includes(Channels.technology)
     );
     // @ts-ignore
     setTemporaryTechnologiesItems(technologies);
@@ -46,7 +47,7 @@ const TechnologiesList: FC = () => {
             <Title
               text="We create events aiming to pear to the voice for children and gather for support. Please update with our events and confirm you presence."
               title1="Sa k gen nan"
-              title2={t("Lasyans")}
+              title2={t(Channels.technology)}
             />
           </Grid>
           <Grid container>
@@ -65,7 +66,7 @@ const TechnologiesList: FC = () => {
               onClick={() =>
                 navigate(
                   // @ts-ignore
-                  `/aktyalite/teknoloji/${temporaryTechnologiesItems[0]?.id}`
+                  `/aktyalite/${Channels.technology}/${temporaryTechnologiesItems[0]?.id}`
                 )
               }
             />
@@ -78,7 +79,7 @@ const TechnologiesList: FC = () => {
                     body={item.description}
                     date={item.date}
                     key={item.image}
-                    onClick={() => navigate(`/aktyalite/teknoloji/${item.id}`)}
+                    onClick={() => navigate(`/aktyalite/${Channels.technology}/${item.id}`)}
                   >
                     {item.categories &&
                       item.categories.length > 0 &&

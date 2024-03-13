@@ -17,6 +17,7 @@ import { useNavigate } from "react-router-dom";
 import ItemMainInfo from "../../../../components/ItemMainInfo/ItemMainInfo";
 import AddItemButton from "../../../../components/AddItemButton/AddItemButton";
 import AddItem from "../../../addItem";
+import { Channels } from "../../../../utils/constants/Channels";
 
 const SportsList: FC = () => {
   const { t } = useTranslation();
@@ -28,7 +29,7 @@ const SportsList: FC = () => {
 
   useEffect(() => {
     const sports = db.articles.filter((article) =>
-      article.categories.includes("Espò")
+      article.categories.includes(Channels.sports)
     );
     // @ts-ignore
     setTemporarySportsItems(sports);
@@ -44,7 +45,7 @@ const SportsList: FC = () => {
             <Title
               text="We create events aiming to pear to the voice for children and gather for support. Please update with our events and confirm you presence."
               title1="Sa k gen nan"
-              title2={t("Espò")}
+              title2={t(Channels.sports)}
             />
           </Grid>
           <Grid container>

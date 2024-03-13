@@ -17,6 +17,8 @@ import { useNavigate } from "react-router-dom";
 import ItemMainInfo from "../../../../components/ItemMainInfo/ItemMainInfo";
 import AddItemButton from "../../../../components/AddItemButton/AddItemButton";
 import AddItem from "../../../addItem";
+import { Channels } from "../../../../utils/constants/Channels";
+
 
 const SpiritualitiesContainer: FC = () => {
   const { t } = useTranslation();
@@ -29,7 +31,7 @@ const SpiritualitiesContainer: FC = () => {
 
   useEffect(() => {
     const spiritualities = db.articles.filter((article) =>
-      article.categories.includes("Espirityalite")
+      article.categories.includes(Channels.spirituality)
     );
     // @ts-ignore
     setTemporarySpiritualitiesItems(spiritualities);
@@ -45,7 +47,7 @@ const SpiritualitiesContainer: FC = () => {
             <Title
               text="We create events aiming to pear to the voice for children and gather for support. Please update with our events and confirm you presence."
               title1="Sa k gen nan"
-              title2={t("Lasyans")}
+              title2={t(Channels.spirituality)}
             />
           </Grid>
           <Grid container>
@@ -64,7 +66,7 @@ const SpiritualitiesContainer: FC = () => {
               onClick={() =>
                 navigate(
                   // @ts-ignore
-                  `/aktyalite/espirityalite/${temporarySpiritualitiesItems[0]?.id}`
+                  `/aktyalite/${Channels.spirituality}/${temporarySpiritualitiesItems[0]?.id}`
                 )
               }
             />
@@ -78,7 +80,7 @@ const SpiritualitiesContainer: FC = () => {
                     date={item.date}
                     key={item.image}
                     onClick={() =>
-                      navigate(`/aktyalite/espirityalite/${item.id}`)
+                      navigate(`/aktyalite/${Channels.spirituality}/${item.id}`)
                     }
                   >
                     {item.categories &&

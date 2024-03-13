@@ -15,7 +15,6 @@ import "froala-editor/js/plugins/image.min.js";
 import "froala-editor/js/plugins/char_counter.min.js";
 import "froala-editor/js/plugins/save.min.js";
 import "froala-editor/js/plugins.pkgd.min.js";
-
 import OutlinedInput from "@mui/material/OutlinedInput";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
@@ -23,18 +22,21 @@ import Select, { SelectChangeEvent } from "@mui/material/Select";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import db from "../../utils/articles.json";
 import { useTranslation } from "react-i18next";
+import AddArticlesContainer from "./components/AddArticleContainer";
+import SubmitArticleButton from "./components/SubmitArticleButton";
+import ImageUploadContainer from "./components/ImageUploadContainer";
+import SelectAuthorContainer from "./components/SelectAuthorContainer";
+import { Numbers } from "../../utils/constants/Numbers";
+import { Channels } from "../../utils/constants/Channels";
 
-const ITEM_HEIGHT = 48;
-const ITEM_PADDING_TOP = 8;
 const MenuProps = {
   PaperProps: {
     style: {
-      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-      width: 250,
+      maxHeight: Numbers.ITEM_HEIGHT * 4.5 + Numbers.ITEM_PADDING_TOP,
+      width: Numbers.WIDTH,
     },
   },
 };
-
 
 const AddItem: FC<AddItemType> = ({ open, handleClose }) => {
   const { t } = useTranslation();
@@ -48,8 +50,14 @@ const AddItem: FC<AddItemType> = ({ open, handleClose }) => {
   });
 
   useEffect(() => {
-    // @ts-ignore
-    setTemporaryWriter(db.articles.filter(article => article.user.occupation.includes("Ekriven")).map(article => `${article.user.first_name} ${article.user.last_name}`));
+    setTemporaryWriter(
+      // @ts-ignore
+      db.articles
+        .filter((article) => article.user.occupation.includes(Channels.writer))
+        .map(
+          (article) => `${article.user.first_name} ${article.user.last_name}`
+        )
+    );
     const savedContent = localStorage.getItem("editorContent");
     if (savedContent) {
       setContent(savedContent);
@@ -59,8 +67,8 @@ const AddItem: FC<AddItemType> = ({ open, handleClose }) => {
   const editorConfig = {
     placeholderText: t("Komanse ekri tèks ou a la..."),
     charCounterCount: true,
-    charCounterMax: 1000,
-    saveInterval: 2000,
+    charCounterMax: Numbers.CHAR_COUNTER_MAX,
+    saveInterval: Numbers.SAVE_INTERVAL,
     documentReady: matches,
 
     events: {
@@ -70,7 +78,7 @@ const AddItem: FC<AddItemType> = ({ open, handleClose }) => {
       "save.before": function (html: string) {
         localStorage.setItem("saveHtml", html);
       },
-      "contentChanged": function () {
+      contentChanged: function () {
         // @ts-ignore
         handleModelChange(this.html.get());
       },
@@ -100,14 +108,7 @@ const AddItem: FC<AddItemType> = ({ open, handleClose }) => {
 
   return (
     <AddArticlesModal open={open} handleClose={handleClose}>
-      <Grid
-        sx={{
-          maxHeight: "80vh",
-          overflowY: "scroll",
-          pt: { xs: 2 },
-          pb: 4,
-        }}
-      >
+      <AddArticlesContainer>
         <PageHeader fontSize={h3} textAlign={"center"} color={grey[700]}>
           {t("Ajoute Nouvo atik")}
         </PageHeader>
@@ -118,10 +119,6 @@ const AddItem: FC<AddItemType> = ({ open, handleClose }) => {
             name="title"
             fullWidth
             size="small"
-            // value={signinForm.values.username}
-            // onChange={signinForm.handleChange}
-            // error={signinForm.touched.username && signinForm.errors.username !== undefined}
-            // helperText={signinForm.touched.username && signinForm.errors.username}
             sx={{
               "& .MuiOutlinedInput-root": {
                 "& fieldset": {
@@ -141,10 +138,6 @@ const AddItem: FC<AddItemType> = ({ open, handleClose }) => {
             name="subtitle"
             fullWidth
             size="small"
-            // value={signinForm.values.username}
-            // onChange={signinForm.handleChange}
-            // error={signinForm.touched.username && signinForm.errors.username !== undefined}
-            // helperText={signinForm.touched.username && signinForm.errors.username}
             sx={{
               "& .MuiOutlinedInput-root": {
                 "& fieldset": {
@@ -159,23 +152,12 @@ const AddItem: FC<AddItemType> = ({ open, handleClose }) => {
           />
 
           <Grid container>
-            <Grid
-              item
-              xs={12}
-              sm={12}
-              md={6}
-              lg={6}
-              sx={{ pr: { xs: "auto", sm: "auto", md: 1, lg: 1 } }}
-            >
+            <ImageUploadContainer>
               <TextField
                 type="file"
                 name="title"
                 fullWidth
                 size="small"
-                // value={signinForm.values.username}
-                // onChange={signinForm.handleChange}
-                // error={signinForm.touched.username && signinForm.errors.username !== undefined}
-                // helperText={signinForm.touched.username && signinForm.errors.username}
                 sx={{
                   "& .MuiOutlinedInput-root": {
                     "& fieldset": {
@@ -188,18 +170,8 @@ const AddItem: FC<AddItemType> = ({ open, handleClose }) => {
                   },
                 }}
               />
-            </Grid>
-            <Grid
-              item
-              xs={12}
-              sm={12}
-              md={6}
-              lg={6}
-              sx={{
-                pl: { xs: "auto", sm: "auto", md: 1, lg: 1 },
-                mt: { xs: 2.8, sm: 2.5, md: "auto", lg: "auto" },
-              }}
-            >
+            </ImageUploadContainer>
+            <SelectAuthorContainer>
               <FormControl sx={{ width: "100%" }}>
                 <Select
                   multiple
@@ -209,14 +181,16 @@ const AddItem: FC<AddItemType> = ({ open, handleClose }) => {
                   input={<OutlinedInput />}
                   renderValue={(selected) => {
                     if (selected.length === 0) {
-                      return <p style={{color: grey[500]}}>{t("Chwazi otè")}</p>;
+                      return (
+                        <p style={{ color: grey[500] }}>{t("Chwazi otè")}</p>
+                      );
                     }
 
                     return selected.join(", ");
                   }}
                   MenuProps={MenuProps}
                   inputProps={{ "aria-label": "Without label" }}
-                  style={{ height: 40}}
+                  style={{ height: 40 }}
                 >
                   {temporaryWriter.map((name) => (
                     <MenuItem
@@ -230,11 +204,15 @@ const AddItem: FC<AddItemType> = ({ open, handleClose }) => {
                   ))}
                 </Select>
               </FormControl>
-            </Grid>
+            </SelectAuthorContainer>
           </Grid>
           <FroalaEditor tag="textarea" config={editorConfig} model={content} />
+          <SubmitArticleButton
+            text={`${t("Ajoute Nouvo atik")}`}
+            onClick={() => alert("I was clicked!")}
+          />
         </Stack>
-      </Grid>
+      </AddArticlesContainer>
     </AddArticlesModal>
   );
 };
