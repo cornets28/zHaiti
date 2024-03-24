@@ -21,9 +21,6 @@ export const userSlice = createSlice({
 
 export const {
   setUser,
-  setListFavorites,
-  addFavorite,
-  removeFavorite
 } = userSlice.actions;
 
 export default userSlice.reducer;

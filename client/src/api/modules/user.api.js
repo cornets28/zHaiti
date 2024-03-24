@@ -3,7 +3,7 @@ import publicClient from "../client/public.client";
 
 const userEndpoints = {
   signin: "user/signin",
-  signup: "user/signup",
+  signup: "auth/register",
   getInfo: "user/info",
   passwordUpdate: "user/update-password"
 };
@@ -20,11 +20,11 @@ const userApi = {
       return { response };
     } catch (err) { console.log("err"); return { err }; }
   },
-  signup: async ({ username, password, confirmPassword, displayName }) => {
+  signup: async ({ firstName, lastName, email, password, confirmPassword }) => {
     try {
       const response = await publicClient.post(
         userEndpoints.signup,
-        { username, password, confirmPassword, displayName }
+        { firstName, lastName, email, password, confirmPassword }
       );
 
       return { response };
