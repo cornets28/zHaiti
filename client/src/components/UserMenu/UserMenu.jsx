@@ -1,6 +1,11 @@
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
-import { ListItemButton, ListItemIcon, ListItemText, Menu } from "@mui/material";
-import { Typography } from '../Typography/Typography';
+import {
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+  Menu,
+} from "@mui/material";
+import { Typography } from "../Typography/Typography";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setUser } from "../../redux/features/userSlice.js";
@@ -22,9 +27,9 @@ const UserMenu = () => {
             variant="h6"
             sx={{ cursor: "pointer", userSelect: "none" }}
             onClick={toggleMenu}
-            color={'white'}
+            color={"white"}
           >
-            {user.displayName}
+            {user.user.firstName + " " + user.user.lastName}
           </Typography>
           <Menu
             open={Boolean(anchorEl)}
@@ -37,10 +42,17 @@ const UserMenu = () => {
               sx={{ borderRadius: "10px" }}
               onClick={() => dispatch(setUser(null))}
             >
-              <ListItemIcon><LogoutOutlinedIcon /></ListItemIcon>
-              <ListItemText disableTypography primary={
-                <Typography textTransform="uppercase">{t("Dekonekte")}</Typography>
-              } />
+              <ListItemIcon>
+                <LogoutOutlinedIcon />
+              </ListItemIcon>
+              <ListItemText
+                disableTypography
+                primary={
+                  <Typography textTransform="uppercase">
+                    {t("Dekonekte")}
+                  </Typography>
+                }
+              />
             </ListItemButton>
           </Menu>
         </>

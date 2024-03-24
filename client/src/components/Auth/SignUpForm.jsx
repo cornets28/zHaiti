@@ -1,6 +1,5 @@
 import { LoadingButton } from "@mui/lab";
 import { Alert, Stack } from "@mui/material";
-import { TextField } from "../TextField/TextField";
 import { Button } from "../Button/Button";
 import { Box } from "../Box/Box";
 import { useFormik } from "formik";
@@ -11,143 +10,132 @@ import * as Yup from "yup";
 import userApi from "../../api/modules/user.api";
 import { setAuthModalOpen } from "../../redux/features/authModalSlice";
 import { setUser } from "../../redux/features/userSlice";
-import colors from "../../utils/theme/base/colors";
 import { useTranslation } from "react-i18next";
-
+import { RegexNoWhiteSpace } from "../../utils/constants/Constants";
+import { MESSAGE, MinMaxMessage } from "../../utils/constants/Messages";
+import InputField from "../InputField/InputField";
 
 const SignupForm = ({ switchAuthState }) => {
   const dispatch = useDispatch();
-  const { grey } = colors;
   const { t } = useTranslation();
 
   const [isLoginRequest, setIsLoginRequest] = useState(false);
   const [errorMessage, setErrorMessage] = useState();
 
-  const signinForm = useFormik({
+  const signupForm = useFormik({
     initialValues: {
+      firstName: "",
+      lastName: "",
+      email: "",
       password: "",
-      username: "",
-      displayName: "",
-      confirmPassword: ""
+      confirmPassword: "",
     },
     validationSchema: Yup.object({
-      username: Yup.string()
-        .min(8, "username minimum 8 characters")
-        .required("username is required"),
+      firstName: Yup.string()
+        .min(2, MinMaxMessage("min", "First name", 2))
+        .required(MESSAGE.INPUT_REQUIRED),
       password: Yup.string()
-        .min(8, "password minimum 8 characters")
-        .required("password is required"),
-      displayName: Yup.string()
-        .min(8, "displayName minimum 8 characters")
-        .required("displayName is required"),
+        .min(8, MinMaxMessage("min", "Password", 8))
+        .required(MESSAGE.INPUT_REQUIRED),
+      lastName: Yup.string()
+        .min(2, MinMaxMessage("min", "Last name", 2))
+        .required(MESSAGE.INPUT_REQUIRED),
+      email: Yup.string()
+        .matches(RegexNoWhiteSpace, {
+          message: MESSAGE.WHITE_SPACE,
+          excludeEmptyString: true,
+        })
+        .email(MESSAGE.EMAIL_INVALID)
+        .required(MESSAGE.INPUT_REQUIRED),
       confirmPassword: Yup.string()
-        .oneOf([Yup.ref("password")], "confirmPassword not match")
-        .min(8, "confirmPassword minimum 8 characters")
-        .required("confirmPassword is required")
-    }),
-    onSubmit: async values => {
+        .oneOf([Yup.ref("password")], "Password confirmation not match")
+        .min(8, MinMaxMessage("min", "Password confirmation", 8))
+        .required(MESSAGE.INPUT_REQUIRED),
+   }), 
+    onSubmit: async (values) => {
       setErrorMessage(undefined);
       setIsLoginRequest(true);
       const { response, err } = await userApi.signup(values);
       setIsLoginRequest(false);
 
       if (response) {
-        signinForm.resetForm();
+        signupForm.resetForm();
         dispatch(setUser(response));
         dispatch(setAuthModalOpen(false));
-        toast.success("Sign in success");
+        toast.success(response.message);
       }
 
       if (err) setErrorMessage(err.message);
-    }
+    },
   });
 
   return (
-    <Box component="form" onSubmit={signinForm.handleSubmit}>
+    <Box component="form" onSubmit={signupForm.handleSubmit}>
       <Stack spacing={3}>
-        <TextField
+        <InputField
           type="text"
-          placeholder="username"
-          name="username"
-          fullWidth
-          value={signinForm.values.username}
-          onChange={signinForm.handleChange}
-          error={signinForm.touched.username && signinForm.errors.username !== undefined}
-          helperText={signinForm.touched.username && signinForm.errors.username}
-          sx={{
-            '& .MuiOutlinedInput-root': {
-              '& fieldset': {
-                borderColor: grey['100'],
-              },
-              '&:hover fieldset': {
-                borderColor: grey['600']
-              },
-              input: { color: grey['100'] }
-            },
-          }}
+          placeholder="first name"
+          name="firstName"
+          value={signupForm.values.firstName}
+          onChange={signupForm.handleChange}
+          error={
+            signupForm.touched.firstName &&
+            signupForm.errors.firstName !== undefined
+          }
+          helperText={
+            signupForm.touched.firstName && signupForm.errors.firstName
+          }
         />
-        <TextField
+
+        <InputField
           type="text"
-          placeholder="display name"
-          name="displayName"
-          fullWidth
-          value={signinForm.values.displayName}
-          onChange={signinForm.handleChange}
-          error={signinForm.touched.displayName && signinForm.errors.displayName !== undefined}
-          helperText={signinForm.touched.displayName && signinForm.errors.displayName}
-          sx={{
-            '& .MuiOutlinedInput-root': {
-              '& fieldset': {
-                borderColor: grey['100'],
-              },
-              '&:hover fieldset': {
-                borderColor: grey['600']
-              },
-              input: { color: grey['100'] }
-            },
-          }}
+          placeholder="last name"
+          name="lastName"
+          value={signupForm.values.lastName}
+          onChange={signupForm.handleChange}
+          error={
+            signupForm.touched.lastName &&
+            signupForm.errors.lastName !== undefined
+          }
+          helperText={signupForm.touched.lastName && signupForm.errors.lastName}
         />
-        <TextField
+        <InputField
+          type="string"
+          placeholder="email address"
+          name="email"
+          value={signupForm.values.email}
+          onChange={signupForm.handleChange}
+          error={
+            signupForm.touched.email && signupForm.errors.email !== undefined
+          }
+          helperText={signupForm.touched.email && signupForm.errors.email}
+        />
+        <InputField
           type="password"
           placeholder="password"
           name="password"
-          fullWidth
-          value={signinForm.values.password}
-          onChange={signinForm.handleChange}
-          error={signinForm.touched.password && signinForm.errors.password !== undefined}
-          helperText={signinForm.touched.password && signinForm.errors.password}
-          sx={{
-            '& .MuiOutlinedInput-root': {
-              '& fieldset': {
-                borderColor: grey['100'],
-              },
-              '&:hover fieldset': {
-                borderColor: grey['600']
-              },
-              input: { color: grey['100'] }
-            },
-          }}
+          value={signupForm.values.password}
+          onChange={signupForm.handleChange}
+          error={
+            signupForm.touched.password &&
+            signupForm.errors.password !== undefined
+          }
+          helperText={signupForm.touched.password && signupForm.errors.password}
         />
-        <TextField
+        <InputField
           type="password"
           placeholder="confirm password"
           name="confirmPassword"
-          fullWidth
-          value={signinForm.values.confirmPassword}
-          onChange={signinForm.handleChange}
-          error={signinForm.touched.confirmPassword && signinForm.errors.confirmPassword !== undefined}
-          helperText={signinForm.touched.confirmPassword && signinForm.errors.confirmPassword}
-          sx={{
-            '& .MuiOutlinedInput-root': {
-              '& fieldset': {
-                borderColor: grey['100'],
-              },
-              '&:hover fieldset': {
-                borderColor: grey['600']
-              },
-              input: { color: grey['100'] }
-            },
-          }}
+          value={signupForm.values.confirmPassword}
+          onChange={signupForm.handleChange}
+          error={
+            signupForm.touched.confirmPassword &&
+            signupForm.errors.confirmPassword !== undefined
+          }
+          helperText={
+            signupForm.touched.confirmPassword &&
+            signupForm.errors.confirmPassword
+          }
         />
       </Stack>
 
@@ -159,20 +147,18 @@ const SignupForm = ({ switchAuthState }) => {
         sx={{ marginTop: 4 }}
         loading={isLoginRequest}
       >
-        {t('enskri')}
+        {t("enskri")}
       </LoadingButton>
 
-      <Button
-        fullWidth
-        sx={{ marginTop: 1 }}
-        onClick={() => switchAuthState()}
-      >
+      <Button fullWidth sx={{ marginTop: 1 }} onClick={() => switchAuthState()}>
         {t("Konekte")}
       </Button>
 
       {errorMessage && (
         <Box sx={{ marginTop: 2 }}>
-          <Alert severity="error" variant="outlined" >{errorMessage}</Alert>
+          <Alert severity="error" variant="outlined">
+            {errorMessage}
+          </Alert>
         </Box>
       )}
     </Box>

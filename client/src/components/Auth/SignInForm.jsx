@@ -1,5 +1,5 @@
 import { LoadingButton } from "@mui/lab";
-import { Alert, Box, Button, Stack, TextField } from "@mui/material";
+import { Alert, Box, Button, Stack } from "@mui/material";
 import { useFormik } from "formik";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
@@ -8,30 +8,32 @@ import * as Yup from "yup";
 import userApi from "../../api/modules/user.api";
 import { setAuthModalOpen } from "../../redux/features/authModalSlice";
 import { setUser } from "../../redux/features/userSlice";
-import colors from "../../utils/theme/base/colors";
 import { useTranslation } from "react-i18next";
+import { RegexNoWhiteSpace } from "../../utils/constants/Constants";
+import { MESSAGE } from "../../utils/constants/Messages";
+import InputField from "../InputField/InputField";
 
 const SignInForm = ({ switchAuthState }) => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
-  const { grey } = colors;
   const [isLoginRequest, setIsLoginRequest] = useState(false);
   const [errorMessage, setErrorMessage] = useState();
 
   const signinForm = useFormik({
     initialValues: {
+      email: "",
       password: "",
-      username: ""
     },
     validationSchema: Yup.object({
-      username: Yup.string()
-        .min(8, "username minimum 8 characters")
-        .required("username is required"),
-      password: Yup.string()
-        .min(8, "password minimum 8 characters")
-        .required("password is required")
+      email: Yup.string()
+        .matches(RegexNoWhiteSpace, {
+          message: MESSAGE.WHITE_SPACE,
+          excludeEmptyString: true,
+        })
+        .email(MESSAGE.EMAIL_INVALID)
+        .required(MESSAGE.INPUT_REQUIRED),
     }),
-    onSubmit: async values => {
+    onSubmit: async (values) => {
       setErrorMessage(undefined);
       setIsLoginRequest(true);
       const { response, err } = await userApi.signin(values);
@@ -41,59 +43,41 @@ const SignInForm = ({ switchAuthState }) => {
         signinForm.resetForm();
         dispatch(setUser(response));
         dispatch(setAuthModalOpen(false));
-        toast.success("Sign in success");
+        toast.success(response.message);
       }
-
-      if (err) setErrorMessage(err.message);
-
-      dispatch(setAuthModalOpen(false));
-    }
+   
+      if (err) {
+        setErrorMessage(err.message);
+        toast.error(errorMessage);
+      }
+    },
   });
 
   return (
     <Box component="form" onSubmit={signinForm.handleSubmit}>
       <Stack spacing={3}>
-        <TextField
+        <InputField
           type="text"
-          placeholder="username"
-          name="username"
-          fullWidth
-          value={signinForm.values.username}
+          placeholder="email address"
+          name="email"
+          value={signinForm.values.email}
           onChange={signinForm.handleChange}
-          error={signinForm.touched.username && signinForm.errors.username !== undefined}
-          helperText={signinForm.touched.username && signinForm.errors.username}
-          sx={{
-            '& .MuiOutlinedInput-root': {
-              '& fieldset': {
-                borderColor: grey['100'] ,
-              },
-              '&:hover fieldset': {
-                borderColor: grey['600'] 
-              },
-              input: { color: grey['100'] }
-            },
-          }}
+          error={
+            signinForm.touched.email && signinForm.errors.email !== undefined
+          }
+          helperText={signinForm.touched.email && signinForm.errors.email}
         />
-        <TextField
+        <InputField
           type="password"
           placeholder="password"
           name="password"
-          fullWidth
           value={signinForm.values.password}
           onChange={signinForm.handleChange}
-          error={signinForm.touched.password && signinForm.errors.password !== undefined}
+          error={
+            signinForm.touched.password &&
+            signinForm.errors.password !== undefined
+          }
           helperText={signinForm.touched.password && signinForm.errors.password}
-          sx={{
-            '& .MuiOutlinedInput-root': {
-              '& fieldset': {
-                borderColor: grey['100'] ,
-              },
-              '&:hover fieldset': {
-                borderColor: grey['600'] 
-              },
-              input: { color: grey['100'] }
-            },
-          }}
         />
       </Stack>
 
@@ -105,20 +89,18 @@ const SignInForm = ({ switchAuthState }) => {
         sx={{ marginTop: 4 }}
         loading={isLoginRequest}
       >
-      {t("Konekte")}
+        {t("Konekte")}
       </LoadingButton>
 
-      <Button
-        fullWidth
-        sx={{ marginTop: 1 }}
-        onClick={() => switchAuthState()}
-      >
-      {t('enskri')}
+      <Button fullWidth sx={{ marginTop: 1 }} onClick={() => switchAuthState()}>
+        {t("enskri")}
       </Button>
 
       {errorMessage && (
         <Box sx={{ marginTop: 2 }}>
-          <Alert severity="error" variant="outlined" >{errorMessage}</Alert>
+          <Alert severity="error" variant="outlined">
+            {errorMessage}
+          </Alert>
         </Box>
       )}
     </Box>

@@ -152,7 +152,7 @@ const Navbar: FC = (props: Props) => {
                 </Box>
               )}
             </Stack>
-            {<UserMenu />}
+            <UserMenu />
           </Toolbar>
         </AppBar>
       </ScrollAppBar>
