@@ -26,7 +26,7 @@ import AddArticlesContainer from "./components/AddArticleContainer";
 import SubmitArticleButton from "./components/SubmitArticleButton";
 import ImageUploadContainer from "./components/ImageUploadContainer";
 import SelectAuthorContainer from "./components/SelectAuthorContainer";
-import { Numbers } from "../../utils/constants/Numbers";
+import { Numbers } from "../../utils/constants/Constants";
 import { Channels } from "../../utils/constants/Channels";
 
 const MenuProps = {
