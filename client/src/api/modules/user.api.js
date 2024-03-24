@@ -2,19 +2,19 @@ import privateClient from "../client/private.client";
 import publicClient from "../client/public.client";
 
 const userEndpoints = {
-  signin: "user/signin",
+  signin: "auth/login",
   signup: "auth/register",
   getInfo: "user/info",
   passwordUpdate: "user/update-password"
 };
 
 const userApi = {
-  signin: async ({ username, password }) => {
+  signin: async ({ email, password }) => {
     try {
       console.log("send request");
       const response = await publicClient.post(
         userEndpoints.signin,
-        { username, password }
+        { email, password }
       );
 
       return { response };
@@ -37,16 +37,16 @@ const userApi = {
       return { response };
     } catch (err) { return { err }; }
   },
-  passwordUpdate: async ({ password, newPassword, confirmNewPassword }) => {
-    try {
-      const response = await privateClient.put(
-        userEndpoints.passwordUpdate,
-        { password, newPassword, confirmNewPassword }
-      );
+  // passwordUpdate: async ({ password, newPassword, confirmNewPassword }) => {
+  //   try {
+  //     const response = await privateClient.put(
+  //       userEndpoints.passwordUpdate,
+  //       { password, newPassword, confirmNewPassword }
+  //     );
 
-      return { response };
-    } catch (err) { return { err }; }
-  }
+  //     return { response };
+  //   } catch (err) { return { err }; }
+  // }
 };
 
 export default userApi;

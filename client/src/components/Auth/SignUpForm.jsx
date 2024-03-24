@@ -51,7 +51,7 @@ const SignupForm = ({ switchAuthState }) => {
         .oneOf([Yup.ref("password")], "Password confirmation not match")
         .min(8, MinMaxMessage("min", "Password confirmation", 8))
         .required(MESSAGE.INPUT_REQUIRED),
-    }),
+   }), 
     onSubmit: async (values) => {
       setErrorMessage(undefined);
       setIsLoginRequest(true);
@@ -62,7 +62,7 @@ const SignupForm = ({ switchAuthState }) => {
         signupForm.resetForm();
         dispatch(setUser(response));
         dispatch(setAuthModalOpen(false));
-        toast.success("Sign in success");
+        toast.success(response.message);
       }
 
       if (err) setErrorMessage(err.message);
