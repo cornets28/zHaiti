@@ -45,8 +45,11 @@ const SignInForm = ({ switchAuthState }) => {
         dispatch(setAuthModalOpen(false));
         toast.success(response.message);
       }
-
-      if (err) setErrorMessage(err.message);
+   
+      if (err) {
+        setErrorMessage(err.message);
+        toast.error(errorMessage);
+      }
     },
   });
 
